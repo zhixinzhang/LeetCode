@@ -1,0 +1,54 @@
+Sort  (PriorityQueue  Qucik Select)
+
+_987_VerticalOrderTraversalofaBinaryTree_DFS_PQ
+_973_KClosestPointstoOrigin           amazon google
+_215_kthlargestelementinanarray_quickselect  amazon
+_937_ReorderLogFiles_Sort
+
+
+Stack
+_496_NextGreaterElement
+503. Next Greater Element II
+_895_MaximumFrequencyStack
+_1019_NextGreaterNodeInLinkedList_
+
+
+
+Recursion
+
+
+DFS
+
+_785_IsGraphBipartite_
+_987_VerticalOrderTraversalofaBinaryTree_DFS_PQ
+_987_VerticalOrderTraversalofaBinaryTree_Recursion
+
+
+BFS
+_785_IsGraphBipartite_
+
+TwoPointer
+_986_IntervalListIntersections
+
+
+sliding windows
+
+
+
+
+
+LinkedNode  -> twopointer   stack
+Tree -> DFS BFS Recursion
+Array -> Stack
+
+
+
+
+
+
+
+
+
+
+
+

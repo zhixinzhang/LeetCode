@@ -1,0 +1,272 @@
+﻿https://docs.oracle.com/javase/8/docs/api/java/util/List.html
+
+        排序法
+
+        最差时间分析	平均时间复杂度	稳定度	空间复杂度
+        冒泡排序	O(n2)	O(n2)	稳定	O(1)
+        快速排序	O(n2)	O(n*log2n)	不稳定	O(log2n)~O(n)
+        选择排序	O(n2)	O(n2)	稳定	O(1)
+        二叉树排序	O(n2)	O(n*log2n)	不一顶	O(n)
+        插入排序    O(n2)	O(n2)	稳定	O(1)
+        堆排序	O(n*log2n)	O(n*log2n)	不稳定	O(1)
+        希尔排序	O	O	不稳定	O(1)
+
+
+
+数据结构问题
+DataStructure.Integer
+int c = DataStructure.Integer.valueOf(new String(arr));
+
+
+
+List 。。。。。。。。。。。。。。。。。。。。。。。。。。。
+List<String> list = new DataStructure.ArrayList<String>();              只对string有效 int 不行，int 只能循环
+String[] array=list.toArray(new String[list.size()]);
+
+
+
+
+Array 。。。。。。。。。。。。。。。。。。。。。。。。。。。
+Arrays.fill(res, -1);
+
+
+
+
+
+
+
+
+
+import java.util.*;
+^ 异或 两个操作数的位中，相同则结果为0，不同则结果为1
+        i=15转成二进制是1111，j=2转成二进制是0010，根据异或的运算规则得到的是1101，转成十进制就是13
+>> 右移 默认除以2  >> 2  除以4  >>3  除以8
+
+4.位与运算符（&）
+运算规则：两个数都转为二进制，然后从高位开始比较，如果两个数都为1则为1，否则为0。
+5.位或运算符（|）
+运算规则：两个数都转为二进制，然后从高位开始比较，两个数只要有一个为1则为1，否则就为0。
+比如：129|128.
+129转换成二进制就是10000001，128转换成二进制就是10000000。从高位开始比较得到，得到10000001，即129.
+
+
+转换问题
+整数 转 string 转 char
+String 构造方法
+char[] helloArray = { 'r', 'u', 'n', 'o', 'o', 'b'};
+String helloString = new String(helloArray); 
+方法 charAt(int); 
+String 转换成整数 int?  int i = DataStructure.Integer.parseInt([String]);
+2 如何将整数 int 转换成字串 String ?
+1.) String s = String.valueOf(i);
+2.) String s = DataStructure.Integer.toString(i);
+3.) String s = "" + i;
+
+char[] number = num.toString().toCharArray();  
+String s = licensePlate.toLowerCase();
+String s = licensePlate.toUpperCase()
+
+Bit 
+String c = DataStructure.Integer.toBinaryString(x);
+
+
+List<Double> result = new DataStructure.ArrayList<>();
+Queue<TreeNode> q = new LinkedList<>();
+
+PriorityQueue<DataStructure.Integer> pq = new PriorityQueue<>();
+Set<DataStructure.Integer> s = new HashSet<>();
+
+    q.put(); 
+	q.peek();
+	q.poll();
+    char[] a = new char[1];
+Queue && PriorityQueue  && Deque
+////重写queue 由最小堆变成最大堆   347
+PriorityQueue<Map.Entry<DataStructure.Integer,DataStructure.Integer>> maxHeap =
+new PriorityQueue<>((a,b)->(b.getValue()-a.getValue()));
+
+
+
+Deque
+Deque<DataStructure.Integer> deque = new ArrayDeque<>();
+
+int[]
+List<DataStructure.Integer>[] bucket = new List[nums.length+1];
+
+
+二进制
+String cheat = DataStructure.Integer.toBinaryString(n);
+
+Map
+Map<DataStructure.Integer, DataStructure.Integer> map = new HashMap<>();
+for (String w : words) if (!ban.contains(w)) count.put(w, count.getOrDefault(w, 0) + 1);
+return Collections.max(count.entrySet(), Map.Entry.comparingByValue()).getKey();
+
+map.computeIfAbsent(fr, a->new Stack<>()).push(x);
+
+map.containsKey(nums[i]);
+遍历
+for(Map.Entry<DataStructure.Integer,DataStructure.Integer> entry: map.getEntrySet()){
+	maxHeap.add(entry)
+}
+
+for (String key : map.keySet()) {
+    value = map.get(key);
+}
+复制 HashMap<Character,DataStructure.Integer> curHm = (HashMap)hm.clone();
+
+        TreeMap<DataStructure.Integer,DataStructure.Integer> map1 = new TreeMap<DataStructure.Integer,DataStructure.Integer>();  //默认的TreeMap升序排列
+        TreeMap<DataStructure.Integer,DataStructure.Integer> map2= new TreeMap<DataStructure.Integer,DataStructure.Integer>(new Comparator<DataStructure.Integer>(){
+             /*  
+             * int compare(Object o1, Object o2) 返回一个基本类型的整型，  
+             * 返回负数表示：o1 小于o2，  
+             * 返回0 表示：o1和o2相等，  
+             * 返回正数表示：o1大于o2。  
+             */    
+            public int compare(DataStructure.Integer a,DataStructure.Integer b){
+                return b-a;           
+            }  
+            }); 
+
+
+
+Sort
+Arrays.sort()
+Arrays.sort(index, (a, b) -> (nums[b] - nums[a]));
+Arrays.sort(pairs, (p1, p2)->p1[0]-p2[0]);       646
+
+(s.substring(0,cur.length()).equals(cur))
+  String s1 ="1234567890abcdefgh";
+  s1 = s1.substring(0,9);  运行结果：123456789
+
+int right = len-1;
+ int mid = left + (right-left)/2;
+
+  class TreeLinkNode {
+      int val;
+      TreeLinkNode left, right, next;
+      TreeLinkNode(int x) { val = x; }
+  }
+
+
+HashSet<List<DataStructure.Integer>> hs = new HashSet<>();
+List res = new DataStructure.ArrayList(hs);
+// sort Comparator  String[a, b,c] o2 是 a o1 是b  b-a>0 顺序不变  小于零 顺序调换
+Arrays.sort(s, new Comparator<String>() {
+    @Override
+    public int compare(String o1, String o2) {
+        String name1 = o1.split(" ")[0];
+        String name2 = o2.split(" ")[0];
+        int val1 = countRoyal(o1.split(" ")[1]);
+        int val2 = countRoyal(o2.split(" ")[1]);
+//                return name1.compareTo(name2);
+        if (!name1.equals(name2)){
+            return name1.compareTo(name2);
+        }else{
+            return val1 - val2;
+        }
+    }
+});
+
+
+
+// java comparator  a>b a-b>0  先返回b 再返回a
+
+class myComparator implements Comparator<Interval>{
+    public int compare(Interval a, Interval b){
+        if(a.start != b.start){
+           return a.start-b.start; 
+        }else{
+            return a.end - b.end;
+        }
+    }
+}
+
+592		String[] facs = expression.split("(?=[-+])");
+
+
+regex
+w = w.toLowerCase().replaceAll("\\W+", "");
+
+/**
+ * Definition for an interval.
+ * public class Interval {
+ *     int start;
+ *     int end;
+ *     Interval() { start = 0; end = 0; }
+ *     Interval(int s, int e) { start = s; end = e; }
+ * }
+ */
+
+
+DataStructure.Tree
+********   https://segmentfault.com/a/1190000011101356
+### pre order
+void preorder(TreeNode* root){
+    if(!root) return;
+    visit(root);
+    preorder(root->left);
+    preorder(root->right);
+}
+### in order
+void inorder(TreeNode* root){
+    if(!root) return;
+    inorder(root->left);
+    visit(root);
+    inorder(root->right);
+}
+### post order
+void postorder(TreeNode* root){
+    if(!root) return;
+    postorder(root->left);
+    postorder(root->right);
+    visit(root);
+}
+
+Trie
+创建Trie
+ class TrieNode{
+        TrieNode[] children;
+        boolean isWord;
+        String word;
+        
+        public TrieNode(){
+            children = new TrieNode[26];
+        }
+    }
+    class Trie{
+        private TrieNode root;
+        public Trie(){
+            root = new TrieNode();
+        }
+        public void insert(String word){
+            TrieNode node = root;
+            for(int i = 0; i<word.length();i++){
+                int idx = word.charAt(i) - 'a';
+                if(node.children[idx] == null){
+                    node.children[idx] = new TrieNode();
+                }
+                node = node.children[idx];
+            }
+            node.isWord = true;
+            node.word = word;
+        }
+        public String findLongestWord(){
+            String result = null;
+            Queue<TrieNode> queue = new LinkedList<>();
+            queue.offer(root);
+            while(!queue.isEmpty()){
+                int size = queue.size();
+                for(int i = 0; i< size;i++){
+                    TrieNode node = queue.poll();
+                    for(int j = 25;j>=0;j--){
+                        if(node.children[j] !=null && node.children[j].isWord){
+                            result = node.children[j].word;
+                            queue.offer(node.children[j]);
+                        }
+                    }
+                }
+            }
+            return result;
+        }
+}
