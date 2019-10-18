@@ -39,6 +39,7 @@ public class _1087_BraceExpansion_DFS {
                 }
                 while (l <= r){
                     sb.append(S[l]);
+                    l++;
                     helper(S, sb, r+1);
                     sb.deleteCharAt(sb.length()-1);
                 }
