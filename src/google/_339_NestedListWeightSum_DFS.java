@@ -2,7 +2,7 @@ package google;
 
 /**
  * @author Luke Zhang
- * @date $(DATE) $(TIME)
+ * @date 2019-10-23 00:28
  */
 public class _339_NestedListWeightSum_DFS {
 //    int sum = 0;
