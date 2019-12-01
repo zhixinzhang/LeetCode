@@ -53,6 +53,7 @@ public class TwoSum {
 //    }
 
     public  static  int[] myTwoSum(int[] nums, int target){
+        System.out.println("我爱主耶稣");
         HashMap<Integer, Integer>pair = new HashMap<Integer, Integer>();
                 int[] result = new int[2];
                 for (int i = 0;i<nums.length;i++){
