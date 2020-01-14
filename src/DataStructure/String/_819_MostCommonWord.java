@@ -13,14 +13,8 @@ public class _819_MostCommonWord {
         LinkedHashMap<String, Integer>  linkedHashMap = new LinkedHashMap<>();
 
         for(String w : words){
-//            w = w.toLowerCase().replaceAll("\\W+", "");
-            //!?',;.
-//            w = w.replaceAll("!","").replaceAll("/?", "").replaceAll("'","").
-//                    replaceAll(",","").replaceAll("\\.","");
-
-            linkedHashMap.putIfAbsent(w,0);
-            int count = linkedHashMap.get(w) + 1;
-            linkedHashMap.put(w, count);
+            linkedHashMap.putIfAbsent(w, 0);
+            linkedHashMap.put(w, linkedHashMap.get(w) + 1);
         }
 
         int max = 0;
