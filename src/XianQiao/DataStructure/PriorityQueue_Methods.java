@@ -1,4 +1,10 @@
 package XianQiao.DataStructure;
 
-public class PriorityQueue {
+import java.util.PriorityQueue;
+
+public class PriorityQueue_Methods {
+    public static void main(String[] args){
+        PriorityQueue<Integer> pq = new PriorityQueue<>();
+
+    }
 }

@@ -1,5 +1,6 @@
 package XianQiao;
 
+import java.util.HashMap;
 import java.util.Stack;
 
 public class Parentheses_Stack {
@@ -34,6 +35,30 @@ public class Parentheses_Stack {
 
         }
         return stack.empty();
+    }
+
+    public static boolean isPareValid_HashMap(String s){
+        char[] chars = s.toCharArray();
+        HashMap<Character, Character> map = new HashMap<>();
+        map.put('(', ')');
+        map.put('[', ']');
+        map.put('{', '}');
+        Stack<Character> stack = new Stack<>();
+        //chars = "{ } ( ) [ [ [ ] ) }";
+        // c = )
+        //stack = [ [
+        for (char c : chars){
+            if (map.containsKey(c)){
+                stack.push(c);
+            } else if (stack.isEmpty()){
+                return false;
+            } else if (c == map.get(stack.pop())){
+                continue;
+            } else {
+                return false;
+            }
+        }
+        return stack.isEmpty();
     }
 
     public static void main(String[] args){

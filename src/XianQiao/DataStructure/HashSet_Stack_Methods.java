@@ -17,8 +17,7 @@ public class HashSet_Stack_Methods {
         System.out.println(set);
         System.out.println(set.remove("a"));
         System.out.println(set.isEmpty());
-        System.out.println(+ set.size());
-        // what's this add sign means?
+        System.out.println(set.size());
         HashSet<String> clone_set = new HashSet<>();
         clone_set = (HashSet)set.clone();
         //need explanation.
@@ -28,6 +27,7 @@ public class HashSet_Stack_Methods {
         //iterator
 
         Stack<String> stack = new Stack<>();
+        //灵活运用stack先进后出的性质，一个坐标数与按顺序排列的其余符合条件的数对比
         stack.push("I");
         stack.push("love");
         stack.push("luke");
