@@ -6,7 +6,8 @@ import java.util.HashSet;
  * @Author: Xianqiao
  * @Date: 5/29/20 16:19
  */
-public class CCI_isUnique {
+public class CCI_1isUnique {
+    /**Is Unique: Implement an algorithm to determine if a string has all unique characters. What if you cannot use additional data structures?*/
     public boolean isUniqueChars(String str) {
         if (str.length() > 128) {
             return false;
