@@ -5,7 +5,7 @@ package XianQiao.CCI;
  * @Date: 6/9/20 19:31
  */
 public class CCI_5OneAway {
-    boolean oneEditAway(String first, String second) {
+    private boolean oneEditAway(String first, String second) {
         if (first.length() == second.length()) {
             return oneEditReplace(first, second);
         } else if (first.length() + 1 == second.length()) {
@@ -15,7 +15,7 @@ public class CCI_5OneAway {
         }
         return false;
     }
-    boolean oneEditReplace(String s1, String s2) {
+    private boolean oneEditReplace(String s1, String s2) {
         boolean foundDifference = false;
         for (int i = 0; i < s1.length(); i++) {
             if (s1.charAt(i) != s2.charAt(i)) {
@@ -27,7 +27,7 @@ public class CCI_5OneAway {
         }
         return true;
     }
-    boolean oneEditInsert(String s1, String s2) {
+    private boolean oneEditInsert(String s1, String s2) {
         int index1 = 0;
         int index2 = 0;
         while (index2 < s2.length() && index1 < s1.length()) {
@@ -44,8 +44,8 @@ public class CCI_5OneAway {
         return true;
     }
 
-    /** Simplify Code */
-    boolean oneEditAway2(String first, String second) {
+    /** Simplify Code Two Pointer */
+    private boolean oneEditAway_TwoPointer(String first, String second) {
         if (Math.abs(first.length() - second.length()) > 1) {
             return false;
         }
@@ -58,7 +58,6 @@ public class CCI_5OneAway {
             if (s1.charAt(index1) != s2.charAt(index2)) {
                 if (foundDifference) return false;
                 foundDifference = true;
-
                 if (s1.length() == s2.length()) {
                     index1++;
                 }
