@@ -38,7 +38,7 @@ public class CCI_4PalindromePermutaion {
     }
     int [] buildCharFrequencyTable(String phrase) {
         int[] table = new int[Character.getNumericValue('z') - Character.getNumericValue('a') + 1];
-        for (char c : phrase) {
+        for (char c : phrase.toCharArray()) {
             int x = getCharNumber(c);
             if (x != -1){
                 table[x]++;

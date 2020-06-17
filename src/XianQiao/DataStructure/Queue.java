@@ -7,7 +7,7 @@ import java.util.LinkedList;
  * @Date: 3/28/20 18:57
  */
 public class Queue {
-    Queue<> queue = new LinkedList<>();
-    Queue<> queue2 = new ArrayDeque<>();
+//    Queue<> queue = new LinkedList<Object>();
+//    Queue<> queue2 = new ArrayDeque<Object>();
 
 }

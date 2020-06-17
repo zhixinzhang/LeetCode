@@ -27,7 +27,7 @@ public class _126_Word_LadderII_Queue_BFS {
         if (!set.contains(endWord)){
             return 0;
         }
-
+        int level = 0;
         Queue<String> queue = new LinkedList<>();
         queue.offer(beginWord);
         boolean flag = true;

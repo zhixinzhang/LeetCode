@@ -13,7 +13,7 @@ public class CCI_3URLify {
     /** Solution 1 */
     void replaceSpaces(char[] str, int truelength) {
         int spaceCount = 0, index, i = 0;
-        for (int i = 0; i < truelength; i++) {
+        for (i = 0; i < truelength; i++) {
             if (str[i] == ' ') {
                 spaceCount++;
             }

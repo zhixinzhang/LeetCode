@@ -48,7 +48,6 @@ public class CCI_2ChekPermutation {
         while (!qs.isEmpty()) {
             if (qs.peek() != qt.peek()) {
                 return false;
-                break;
             } else {
                 qs.poll();
                 qt.poll();
