@@ -32,4 +32,28 @@ public class _1302_Deepest_Leaves_Sum {
         }
         return sum;
     }
+
+    /** DFS */
+    int sum = 0;
+    int deepest = 0;
+    public int deepestLeavesSum_DFS(TreeNode root) {
+        helper(root, 0);
+        return sum;
+    }
+    private void helper(TreeNode root, int level) {
+        //break condition
+        if (root == null) return;
+
+        //recursion
+        helper(root.left, level+1);
+        helper(root.right, level+1);
+
+        //operation
+        if (level > deepest) {
+            deepest = level;
+            sum = root.val;
+        } else if (level == deepest) {
+            sum += root.val;
+        }
+    }
 }
