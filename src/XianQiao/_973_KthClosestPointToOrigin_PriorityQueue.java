@@ -6,7 +6,7 @@ import java.util.PriorityQueue;
  * @Author: Xianqiao
  * @Date: 7/20/20 00:07
  */
-public class _973 {
+public class _973_KthClosestPointToOrigin_PriorityQueue {
     public static int[][] kClosest(int[][] points, int K) {
         if (K <= 0 || points == null || points.length == 0 || points[0].length == 0) {
             return null;

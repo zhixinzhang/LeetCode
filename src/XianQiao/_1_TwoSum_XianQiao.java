@@ -2,7 +2,7 @@ package XianQiao;
 
 import java.util.HashMap;
 
-public class TwoSum_XianQiao {
+public class _1_TwoSum_XianQiao {
     /** 把当前值的配对值和当前值的index配对放进map，这样当到配对值时可以直接get
      * 配对值的index和之前的index 并且只iterate一遍，所以不会重复使用一个值*/
     public int[] twoSum2(int[] nums, int target) {

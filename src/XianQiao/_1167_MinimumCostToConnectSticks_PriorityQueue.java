@@ -33,5 +33,6 @@ public class _1167_MinimumCostToConnectSticks_PriorityQueue {
             cost += stick1 + stick2;
             q.add(stick1 + stick2);
         }
+        return 0;
     }
 }

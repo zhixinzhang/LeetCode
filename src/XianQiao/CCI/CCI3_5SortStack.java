@@ -19,7 +19,7 @@ public class CCI3_5SortStack {
             int temp = stack1.pop();
             while (!stack2.isEmpty() && temp < stack2.peek()) {
                 //if there are integers that can be compared and the current integer is smaller.
-                stack1.push(stack2.pop())
+                stack1.push(stack2.pop());
             }
             stack2.push(temp);
         }

@@ -28,7 +28,7 @@ public class CCI2_6Palindrome {
        ListNode headSecondPart = reverseList(slow);
        while (headSecondPart != null) {
            if (head.val != headSecondPart.val) {
-               return false
+               return false;
            }
            head = head.next;
            headSecondPart = headSecondPart.next;

@@ -24,7 +24,7 @@ public class _39_CombinationSumI_Recursion {
         if (candidates.length == 0 || target < 0 || candidates == null) {
             return ans;
         }
-        helper(candidates, target, new ArrayList<Integer>, 0);
+        helper(candidates, target, new ArrayList<Integer>(), 0);
         return ans;
     }
     public void helper(int[] candidates, int remain, ArrayList<Integer> path, int start) {
