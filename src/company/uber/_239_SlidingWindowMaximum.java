@@ -13,6 +13,34 @@ public class _239_SlidingWindowMaximum {
         maxSlidingWindow_followUP(new int[]{1,3,-1,-3,5,3,6,7}, 3);
     }
 
+    public int[] maxSlidingWindow_Deque(int[] nums, int k) {
+        if (nums == null || k <= 0) {
+            return new int[0];
+        }
+        int n = nums.length;
+        int[] res = new int[n-k+1];
+        int ri = 0;
+
+        // key point is store index in deque
+        Deque<Integer> q = new ArrayDeque<>();
+        for (int i = 0; i < nums.length; i++) {
+            // remove numbers out of range k
+            while (!q.isEmpty() && q.peek() < i - k + 1) {
+                q.poll();
+            }
+            // remove smaller numbers in k range as they are useless
+            while (!q.isEmpty() && nums[q.peekLast()] < nums[i]) {
+                q.pollLast();
+            }
+            // q contains index... r contains content
+            q.offer(i);
+            if (i >= k - 1) {
+                res[ri++] = nums[q.peek()];
+            }
+        }
+        return res;
+    }
+
     // 我觉得不是O(n) 但这个解法最优 感觉像是brute force
     public static int[] maxSlidingWindow_DQ(int[] nums, int k){
         if(nums == null || nums.length <= 1 || k == 1)
