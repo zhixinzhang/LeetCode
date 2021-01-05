@@ -6,6 +6,9 @@ package company.PG;
  and [3,4,-1,1] return 2.
  */
 //Time complexity: O(n) Space complexity: O(1)
+
+import java.util.Arrays;
+
 /**1. Find only first missing positive, skip negative and 0
         * 2. Reconstruct the array that only contains positive number with index matching 0->1, 1->2 ....
         *    Example: 6 should put into nums[5](index 5 slot)
@@ -32,7 +35,19 @@ public class _41_FirstMissingPositive_bucket {
             nums[b] = temp;
         }
         public static void main(String[] args){
-            firstMissingPositive(new int[]{3,2,-1,0,100});
+            firstMissingPositive_Sort(new int[]{3,2,-1,0,100});
         }
 
+
+        // n * log n
+
+    public static int firstMissingPositive_Sort(int[] nums){
+        Arrays.sort(nums);
+        for (int i = 0; i < nums.length; i ++){
+            if (nums[i] != i + 1) {
+                return i + 1;
+            }
+        }
+        throw null;
+    }
 }
