@@ -4,16 +4,24 @@ import java.util.*;
 
 /**
  * Created by zhang on 2018/9/6.
+ *
+ *
+ *
+ * 对于PQ 时间复杂度
+ * remove() -> This is to remove the head/root, it takes O(logN) time.
+ *
+ * remove(Object o) -> This is to remove an arbitrary object. Finding this object takes O(N) time, and removing it takes O(logN) time.
  */
-public class _239_SlidingWindowMaximum {
+public class _239_SlidingWindowMaximum_Deque_PriorityQueue {
     public static void main(String[] args){
-        maxSlidingWindow_DQ(new int[]{1,3,-1,-3,5,3,6,7}, 3);
+//        maxSlidingWindow_DQ(new int[]{1,3,-1,-3,5,3,6,7}, 3);
+//        maxSlidingWindow_Deque(new int[]{1,3,-1,-3,5,3,6,7}, 3);
         maxSlidingWindow_pq(new int[]{1,3,-1,-3,5,3,6,7}, 3);
         maxSlidingWindow_sort(new int[]{1,3,-1,-3,5,3,6,7}, 3);
         maxSlidingWindow_followUP(new int[]{1,3,-1,-3,5,3,6,7}, 3);
     }
 
-    public int[] maxSlidingWindow_Deque(int[] nums, int k) {
+    private static int[] maxSlidingWindow_Deque(int[] nums, int k) {
         if (nums == null || k <= 0) {
             return new int[0];
         }
@@ -37,6 +45,8 @@ public class _239_SlidingWindowMaximum {
             if (i >= k - 1) {
                 res[ri++] = nums[q.peek()];
             }
+
+            int c = 0;
         }
         return res;
     }
@@ -85,6 +95,8 @@ public class _239_SlidingWindowMaximum {
         }
         return res;
     }
+
+
     //TLE  n * k * klogk
     public static int[] maxSlidingWindow_sort(int[] nums, int k){
         if(nums == null || nums.length == 0)
@@ -107,6 +119,8 @@ public class _239_SlidingWindowMaximum {
         }
         return res;
     }
+
+
     //返回最大的窗户
     public static int[] maxSlidingWindow_followUP(int[] nums, int k) {
         int[] res = new int[k];
