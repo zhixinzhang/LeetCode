@@ -17,6 +17,8 @@ import java.util.*;
  *
  * Space Complexity: O(N)O(N), the size of the graph.
  *
+ * 2.  第二种解法 ： 还没测试， 创建一个新的node点， 然后有各种属性，用postorder遍历
+ * 最后计算所有leaf node点到 k node点的距离
  */
 
 
