@@ -2,10 +2,7 @@ package company.Amazon;
 
 import DataStructure.BinaryTree.TreeNode;
 
-import java.util.ArrayList;
-import java.util.Comparator;
-import java.util.List;
-import java.util.PriorityQueue;
+import java.util.*;
 
 /**
  * Created with IntelliJ IDEA.
@@ -13,6 +10,12 @@ import java.util.PriorityQueue;
  * Date: 3/21/19
  * Time: 4:36 PM
  * Description:
+ *
+ * Similar to 314 Binary Tree Vertical Order Traversal
+ *
+ * Two solutions :
+ * 1: build new Point class and use x and y coordinate
+ * 2: Use Preorder dfs and position index and hashmap
  */
 
 class Point{
@@ -32,12 +35,12 @@ public class _987_VerticalOrderTraversalofaBinaryTree_DFS_PQ {
         root.right = new TreeNode(20);
         root.right.left = new TreeNode(15);
         root.right.right = new TreeNode(7);
-        verticalTraversal(root);
+        verticalTraversal_PreOrderDFS(root);
     }
     static List<PriorityQueue<Integer>> hm = new ArrayList<>();
-
+    static List<List<Integer>> res = new ArrayList<>();
     public static List<List<Integer>> verticalTraversal(TreeNode root) {
-        List<List<Integer>> res = new ArrayList<>();
+
         PriorityQueue<Point> pq = new PriorityQueue<>(new Comparator<Point>() {
             @Override
             public int compare(Point p1, Point p2) {
@@ -71,5 +74,35 @@ public class _987_VerticalOrderTraversalofaBinaryTree_DFS_PQ {
         pq.offer(new Point(x,y,root.val));
         dfs(root.left,x-1,y-1,pq);
         dfs(root.right,x+1,y-1,pq);
+    }
+
+
+    // Soltion 2 :
+    static Map<Integer, List<Integer>> map = new HashMap<>();
+    static int min = 0;
+    static int max = 0;
+    public static List<List<Integer>> verticalTraversal_PreOrderDFS(TreeNode root) {
+        if (root == null) {
+            return new ArrayList<>();
+        }
+
+        preOrderDfs(root, 0);
+        while (min <= max){
+            res.add(map.get(min));
+            min++;
+        }
+        return res;
+    }
+
+    private static void preOrderDfs(TreeNode root, int index){
+        if (root != null) {
+            min = Math.min(min, index);
+            max = Math.max(max, index);
+
+            map.putIfAbsent(index, new ArrayList<>());
+            map.get(index).add(root.val);
+            preOrderDfs(root.left, index - 1);
+            preOrderDfs(root.right, index + 1);
+        }
     }
 }
