@@ -12,6 +12,16 @@ import java.util.Stack;
 public class _42_TrappingRainWater_DP_TwoPointer_Stack {
 
 
+    //
+    /**
+     * Algorithm : DP
+     * O(n) time, O (n) space
+     * Find maximum height of bar from the left end upto an index i in the array \text{left\_max}left_max.
+     * Find maximum height of bar from the right end upto an index i in the array \text{right\_max}right_max.
+     * Iterate over the \text{height}height array and update ans:
+     * Add \min(\text{left\_max}[i],\text{right\_max}[i]) - \text{height}[i]min(left_max[i],right_max[i])−height[i] to \text{ans}ans
+     *
+     * */
     public int trap_DP(int[] height) {
         if (height == null || height.length <= 2) {
             return 0;
@@ -39,6 +49,13 @@ public class _42_TrappingRainWater_DP_TwoPointer_Stack {
     }
 
 
+    /**
+     * Algorithm : Two Pointers
+     * O(n), O(1)
+     * https://segmentfault.com/a/1190000004594606
+     * 双指针法的思想：先找到左右两边的第一个峰值作为参照位，然后分别向后（向前）每一步增加该位与参照位在这一位的差值，加入sum，直到下一个峰值，\
+     * 再更新为新的参照位。这里有一个需要注意的地方，为什么要先计算左右两个峰值中较小的那个呢？因为在两个指针逼近中间组成最后一个积水区间时，要用较短边计算。
+     * */
     public int trap_TwoPointer(int[] height) {
         int left = 0, right = height.length - 1;
         int ans = 0;

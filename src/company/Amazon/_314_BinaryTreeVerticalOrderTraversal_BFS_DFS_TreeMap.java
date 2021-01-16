@@ -1,6 +1,7 @@
 package company.Amazon;
 
 import DataStructure.BinaryTree.TreeNode;
+import javafx.util.Pair;
 
 import java.util.*;
 
@@ -10,12 +11,51 @@ import java.util.*;
  * Date: 3/22/19
  * Update: 1/8/21
  * Time: 12:35 PM
- * Description:
+ * Description: https://leetcode.com/problems/binary-tree-vertical-order-traversal/solution/
+ * BFS and DFS could easily solve this problem
+ * for bfs we could use extra queue remember current index or use Pair class in java
  */
 
 
 public class _314_BinaryTreeVerticalOrderTraversal_BFS_DFS_TreeMap{
 
+    /**
+     * DFS solution :
+     * Time Complexity: \mathcal{O}(N)O(N) where NN is the number of nodes in the tree.
+     * Space Complexity: \mathcal{O}(N)O(N) where NN is the number of nodes in the tree.
+     * */
+    static int max = 0;
+    static int min = 0;
+    public static List<List<Integer>> verticalOrder_DFS(TreeNode root) {
+        HashMap<Integer, List<Integer>> map = new HashMap<>();
+        dfsPreOrder(root, 0, map);
+
+        for (int i = min; i <= max; i++) {
+            ans.add(map.get(i));
+        }
+        return ans;
+    }
+
+    private static void dfsPreOrder(TreeNode root, int index, HashMap<Integer, List<Integer>> map){
+        if (root == null) {
+            return;
+        }
+
+        map.putIfAbsent(index, new ArrayList<>());
+        map.get(index).add(root.val);
+        dfsPreOrder(root.left, index - 1, map);
+        dfsPreOrder(root.right, index + 1, map);
+        min = Math.min(min, index);
+        max = Math.max(max, index);
+    }
+
+
+    /**
+     * BFS solution :
+     * Time Complexity: \mathcal{O}(N)O(N) where NN is the number of nodes in the tree.
+     * Space Complexity: \mathcal{O}(N)O(N) where NN is the number of nodes in the tree.
+     * Extra Queue
+     * */
     static List<List<Integer>> ans = new ArrayList<>();
     public List<List<Integer>> verticalOrder_BFS(TreeNode root) {
         if (root == null) {
@@ -54,31 +94,42 @@ public class _314_BinaryTreeVerticalOrderTraversal_BFS_DFS_TreeMap{
         return ans;
     }
 
-    static int max = 0;
-    static int min = 0;
-    public static List<List<Integer>> verticalOrder_DFS(TreeNode root) {
-        HashMap<Integer, List<Integer>> map = new HashMap<>();
-        dfsPreOrder(root, 0, map);
 
-        for (int i = min; i <= max; i++) {
-            ans.add(map.get(i));
+    /**
+     * BFS solution :
+     * Time Complexity: \mathcal{O}(N)O(N) where NN is the number of nodes in the tree.
+     * Space Complexity: \mathcal{O}(N)O(N) where NN is the number of nodes in the tree.
+     * Extra New Pair Class
+     * */
+    public List<List<Integer>> verticalOrder_BFS_NewPair(TreeNode root) {
+        Queue<Pair<TreeNode, Integer>> queue = new LinkedList<>();
+        queue.offer(new Pair(root, 0));
+        Map<Integer, List<Integer>> cache = new HashMap<>();
+        int minColumn = 0, maxColumn = 0;
+
+        while (!queue.isEmpty()){
+            Pair<TreeNode, Integer> pair = queue.poll();
+            cache.putIfAbsent(pair.getValue(), new ArrayList<>());
+            cache.get(pair.getValue()).add(pair.getKey().val);
+
+            TreeNode curNode = pair.getKey();
+            int curIndex = pair.getValue();
+            if (curNode.left != null) {
+                queue.add(new Pair<>(curNode.left, curIndex - 1));
+            }
+
+            if (curNode.right != null) {
+                queue.add(new Pair<>(curNode.right, curIndex + 1));
+            }
+            minColumn = Math.min(curIndex - 1, minColumn);
+            maxColumn = Math.max(curIndex + 1, maxColumn);
+        }
+
+        while (minColumn <= maxColumn) {
+            ans.add(cache.get(minColumn));
         }
         return ans;
     }
-
-    private static void dfsPreOrder(TreeNode root, int index, HashMap<Integer, List<Integer>> map ){
-        if (root == null) {
-            return;
-        }
-
-        map.putIfAbsent(index, new ArrayList<>());
-        map.get(index).add(root.val);
-        dfsPreOrder(root.left, index - 1, map);
-        dfsPreOrder(root.right, index + 1, map);
-        min = Math.min(min, index);
-        max = Math.max(max, index);
-    }
-
 
     public List<List<Integer>> verticalOrder(TreeNode root) {
         HashMap<Integer, List<Integer>> res = new HashMap<>();
