@@ -1,7 +1,5 @@
 package DataStructure.Array;
 
-import java.util.*;
-
 /**
  * @author Luke(New Man) Zhang
  * @Date 2021-01-09 16:23
