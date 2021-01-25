@@ -1,25 +1,37 @@
 package DataStructure.String;
+
 import java.util.*;
-/**Given a string which consists of lowercase or uppercase letters, find the length of the longest palindromes that can be built with those letters.
 
- This is case sensitive, for example "Aa" is not considered a palindrome here.*/
+/**
+ * @author Luke(New Man) Zhang
+ * @Date 2021-01-09 16:23
+ * <p>
+ * Description:
+ * Key Point:
+ */
 
-public class _409_LongestPalindrome_HashSet{
+public class _409_LongestPalindrome_HashSet {
+
+
+    // use set, remove when we already have that character
     public int longestPalindrome(String s) {
+        if (s == null || s.length() == 0) {
+            return 0;
+        }
 
-        HashSet<Character> hs = new HashSet<>();
-        if (s == null || s.length() == 0) return 0;
-        int result = 0;
-        for (int i = 0; i < s.length(); i++) {
-            if (hs.contains(s.charAt(i))) {
-                hs.remove(s.charAt(i));
-                result = result + 2;
+        int ans = 0;
+        Set<Character> set = new HashSet<>();
+        for (int i = 0; i < s.length(); i++){
+            if (set.contains(s.charAt(i))){
+                set.remove(s.charAt(i));
+                ans += 2;
             } else {
-                hs.add(s.charAt(i));
+                set.add(s.charAt(i));
             }
         }
-        if (hs.size() != 0) result++;
 
-        return result;
+        return !set.isEmpty() ? ++ans : ans;
     }
+
+
 }
