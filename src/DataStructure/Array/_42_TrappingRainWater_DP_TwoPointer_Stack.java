@@ -57,34 +57,58 @@ public class _42_TrappingRainWater_DP_TwoPointer_Stack {
      * 再更新为新的参照位。这里有一个需要注意的地方，为什么要先计算左右两个峰值中较小的那个呢？因为在两个指针逼近中间组成最后一个积水区间时，要用较短边计算。
      * */
     public int trap_TwoPointer(int[] height) {
-        int left = 0, right = height.length - 1;
-        int ans = 0;
-        int left_max = 0, right_max = 0;
+        if (height == null || height.length <= 2) {
+            return 0;
+        }
+        int left = 0, right = height.length - 1, ans = 0;
+        int leftMax = 0, rightMax = 0;
 
-        while(left < right) {
+
+        while (left < right){
             if (height[left] < height[right]) {
-                if (height[left] >= left_max) {
-                    left_max = height[left];
+                if (height[left] > leftMax) {
+                    leftMax = height[left];
                 } else {
-                    ans += (left_max - height[left]);
+                    ans += (leftMax - height[left]);
                 }
-
-                left++;
+                left ++;
             } else {
-                if (height[right] >= right_max) {
-                    right_max = height[right];
+                if (height[right] > rightMax) {
+                    rightMax = height[right];
                 } else {
-                    ans += (right_max - height[right]);
+                    ans += rightMax - height[right];
                 }
-
-                --right;
+                right --;
             }
         }
 
         return ans;
     }
 
-    public int trap_Stack(int[] height){
+    /**
+     *
+     * We keep a stack and iterate over the array. We add the index of the bar to the stack if bar is smaller than or equal to the bar at top of stack, which means that the current bar is bounded by the previous bar in the stack.
+     * If we found a bar longer than that at the top, we are sure that the bar at the top of the stack is bounded by the current bar and a previous bar in the stack, hence, we can pop it and add resulting trapped water to \text{ans}ans.
+     *
+     * Algorithm
+     *
+     * Use stack to store the indices of the bars.
+     * Iterate the array:
+     * While stack is not empty and \text{height[current]}>\text{height[st.top()]}height[current]>height[st.top()]
+     * It means that the stack element can be popped. Pop the top element as \text{top}top.
+     * Find the distance between the current element and the element at top of stack, which is to be filled. \text{distance} = \text{current} - \text{st.top}() - 1distance=current−st.top()−1
+     * Find the bounded height \text{bounded\_height} = \min(\text{height[current]}, \text{height[st.top()]}) - \text{height[top]}bounded_height=min(height[current],height[st.top()])−height[top]
+     * Add resulting trapped water to answer \text{ans} \mathrel{+}= \text{distance} \times \text{bounded\_height}ans+=distance×bounded_height
+     * Push current index to top of the stack
+     * Move \text{current}current to the next position
+     *
+     *
+     * Time complexity: O(n)O(n).
+     * Single iteration of O(n)O(n) in which each bar can be touched at most twice(due to insertion and deletion from stack) and insertion and deletion from stack takes O(1)O(1) time.
+     * Space complexity: O(n)O(n). Stack can take upto O(n)O(n) space in case of stairs-like or flat structure.
+     *
+     * */
+    public static int trap_Stack(int[] height){
         int len = height.length;
         int water = 0;
         Stack<Integer> stack = new Stack<>();
@@ -100,5 +124,9 @@ public class _42_TrappingRainWater_DP_TwoPointer_Stack {
             }
         }
         return water;
+    }
+
+    public static void main(String[] args){
+        trap_Stack(new int[]{0,1,0,2,1,0,1,3,2,1,2,1});
     }
 }

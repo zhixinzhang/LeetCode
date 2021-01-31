@@ -28,18 +28,38 @@ public class _523_ContinuousSubarraySum_MAP_DP {
         }
         return false;
     }
+
+    /**
+     * Algorithm
+     *
+     * We can optimize the brute force approach to some extent, if we make use of an array sumsum that stores the cumulative sum of the elements of the array, such that sum[i]sum[i] stores the sum of the elements upto the i^{th}i
+     * th
+     *   element of the array.
+     *
+     * Thus, now as before, we consider every possible subarray for checking its sum. But, instead of iterating over a new subarray everytime to determine its sum, we make use of the cumulative sum array. Thus, to determine the sum of elements from the i^{th}i
+     * th
+     *   index to the j^{th}j
+     * th
+     *   index, including both the corners, we can use: sum[j] - sum[i] + nums[i]sum[j]−sum[i]+nums[i].
+     *
+     *   Time complexity : O(n^2)O(n
+     * 2
+     *  ). Two for loops are used for considering every subarray possible.
+     *
+     * Space complexity : O(n)O(n). sumsum array of size nn is used.
+     *
+     * */
+
+
     public static boolean solu_DP(int[] nums, int k) {
         int[] sum = new int[nums.length];
         sum[0] = nums[0];
-        for (int i = 1; i<nums.length; i++){
-            sum[i] = nums[i] + sum[i-1];
-        }
-        for (int len = 2; len <= nums.length; len++){
-            for (int i = 0; i<nums.length; i++){
-                int l = i, r = i+len-1;
-                if (r >= nums.length) break;
-                int curS = sum[r] - sum[l] + nums[l];
-                if (curS % k == 0)
+        for (int i = 1; i < nums.length; i++)
+            sum[i] = sum[i - 1] + nums[i];
+        for (int start = 0; start < nums.length - 1; start++) {
+            for (int end = start + 1; end < nums.length; end++) {
+                int summ = sum[end] - sum[start] + nums[start];
+                if (summ == k || (k != 0 && summ % k == 0))
                     return true;
             }
         }
