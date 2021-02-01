@@ -11,7 +11,7 @@ package DataStructure.Array;
 
 public class _283_MoveZeroArray_TwoPointer {
     public static void main(String[] args){
-        moveZeroes_toLeft(new int[]{0,0,2,0,1,0});
+        moveZeroes_toRight(new int[]{0,0,2,0,1,0, 3});
     }
     public static void moveZeroes_twopointer_swap(int[] nums) {
         if (nums == null || nums.length == 0)
@@ -29,15 +29,27 @@ public class _283_MoveZeroArray_TwoPointer {
         }
         System.out.println(nums);
     }
+
     public static void swap(int i, int j, int[] nums){
         int temp = nums[i];
         nums[i] = nums[j];
         nums[j] = temp;
     }
 
+    // better solution use swap
+    public void moveZeroes(int[] nums) {
+        int indexOfZero = 0;
+        for (int i = 0; i < nums.length; i++){
+            if (nums[i] != 0){
+                swap(indexOfZero, i, nums);
+                indexOfZero++;
+            }
+        }
+    }
+
     public static void moveZeroes_toRight(int[] nums) {
         int index = 0;
-        for(int i = 0;i<nums.length;++i){
+        for(int i = 0; i < nums.length; ++i){
             if(nums[i] != 0){
                 nums[index++] = nums[i];
             }
