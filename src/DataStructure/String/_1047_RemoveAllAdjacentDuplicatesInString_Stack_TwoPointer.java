@@ -12,6 +12,28 @@ import java.util.Stack;
 
 public class _1047_RemoveAllAdjacentDuplicatesInString_Stack_TwoPointer {
 
+    /**
+     *
+     * Time complexity : \mathcal{O}(N)O(N), where N is a string length.
+     * Space complexity : \mathcal{O}(N - D)O(N−D) where D is a total length for all duplicates.
+     * */
+
+    public String removeDuplicates_noStack(String S) {
+        if(S == null || S.length() == 0)
+            return S;
+        StringBuilder sb = new StringBuilder();
+        for (char c : S.toCharArray()) {
+            int size = sb.length();
+            if (size > 0 && sb.charAt(size - 1) == c) {
+                sb.deleteCharAt(size - 1);
+            } else {
+                sb.append(c);
+            }
+        }
+
+        return sb.toString();
+    }
+
     // O(n) time O(n) space
     public String removeDuplicates(String S) {
         if(S == null || S.length() == 0)
@@ -30,22 +52,6 @@ public class _1047_RemoveAllAdjacentDuplicatesInString_Stack_TwoPointer {
             sb.append(stack.pop());
         }
         return sb.reverse().toString();
-    }
-
-    public String removeDuplicates_noStack(String S) {
-        if(S == null || S.length() == 0)
-            return S;
-        StringBuilder sb = new StringBuilder();
-        for (char c : S.toCharArray()) {
-            int size = sb.length();
-            if (size > 0 && sb.charAt(size - 1) == c) {
-                sb.deleteCharAt(size - 1);
-            } else {
-                sb.append(c);
-            }
-        }
-
-        return sb.toString();
     }
 
     // two pointer

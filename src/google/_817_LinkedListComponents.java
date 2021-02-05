@@ -1,6 +1,6 @@
 package google;
 import java.util.*;
-import company.Apple.ListNode;
+import Company.Apple.ListNode;
 
 /**
  * Created by zhang on 2018/5/17.s

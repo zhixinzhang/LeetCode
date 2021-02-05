@@ -31,43 +31,34 @@ public class _426_ConvertBinarySearchTreetoSortedDoublyLinkedList_DFS {
 
         // Solution 1 : O(1)
         // the smallest (first) and the largest (last) nodes
-        Node first = null;
-        Node last = null;
+        /**
+         * step1: inorder tranversal by recursion to connect the original BST
+         * step2: connect the head and tail to make it circular
+         *
+         * Tips: Using dummy node to handle corner case
+         * */
+        Node prev = null;
         public Node treeToDoublyList(Node root) {
             if (root == null) return null;
-
+            Node dummy = new Node(0, null, null);
+            prev = dummy;
             helper(root);
-            // close DLL
-            last.right = first;
-            first.left = last;
-            return first;
+            //connect head and tail
+            prev.right = dummy.right;
+            dummy.right.left = prev;
+            return dummy.right;
         }
 
-        private void helper(Node node) {
-            if (node == null) return;
-
-            // travel left
-            helper(node.left);
-
-            if (last != null) {
-                // link the previous node(last) to current one (node)
-                last.right = node;
-                node.left = last;
-            } else {
-                // keep the smallest node
-                // to close DLL later on
-                first = node;
-            }
-            last = node;
-
-            // travel right
-            helper(node.right);
+        private void helper (Node cur) {
+            if (cur == null) return;
+            helper(cur.left);
+            prev.right = cur;
+            cur.left = prev;
+            prev = cur;
+            helper(cur.right);
         }
 
-
-
-
-        // Solution 2 O(n), O(n)
+            // Solution 2 O(n), O(n)
         public List<Node> list = new ArrayList<>();
         public Node treeToDoublyList_WithExtraArrayList(Node root) {
             dfsInOrder(root);

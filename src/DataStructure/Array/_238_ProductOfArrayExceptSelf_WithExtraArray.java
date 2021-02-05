@@ -14,6 +14,7 @@ package DataStructure.Array;
  * Once we have the two arrays set up properly, we simply iterate over the input array one element at a time, and for each element at index i, we find the product except self as L[i] * R[i]L[i]∗R[i].
  */
 
+// 不能用 two pointer 可能存在 [1,1,0,1,1,1]
 public class _238_ProductOfArrayExceptSelf_WithExtraArray {
     // Solution 1 : use two extra array
     public int[] productExceptSelf(int[] nums) {

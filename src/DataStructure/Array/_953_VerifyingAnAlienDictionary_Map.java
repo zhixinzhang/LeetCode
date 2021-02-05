@@ -64,6 +64,9 @@ public class _953_VerifyingAnAlienDictionary_Map {
         search: for (int i = 0; i < words.length - 1; ++i) {
             String word1 = words[i];
             String word2 = words[i+1];
+            if (word1 == null || word2 == null){
+                throw new IllegalArgumentException("we have an invalid word : " +  word1);
+            }
 
             // Find the first difference word1[k] != word2[k].
             for (int k = 0; k < Math.min(word1.length(), word2.length()); ++k) {
@@ -84,8 +87,55 @@ public class _953_VerifyingAnAlienDictionary_Map {
         return true;
     }
 
+    // same with previous
+    public static boolean isAlienSorted_One(String[] words, String order) {
+        if (words == null || words.length == 0) {
+            return true;
+        }
+
+        int[] chars = new int[26];
+        for (int i = 0; i < order.length(); i++){
+            chars[order.charAt(i) - 'a'] = i;
+        }
+
+        for (int i = 0; i < words.length - 1; i++){
+            String wordOne = words[i];
+            String wordTwo = words[i + 1];
+            if (!verify(wordOne, wordTwo, chars)){
+                return false;
+            }
+        }
+        return true;
+    }
+
+    private static boolean verify(String word1, String word2, int[] chars){
+        int len = Math.min(word1.length(), word2.length());
+
+        for (int i = 0; i < len; i++){
+            char c1 = word1.charAt(i);
+            char c2 = word2.charAt(i);
+            if (c1 == c2) {
+                continue;
+            }
+
+            if (chars[c1 - 'a'] < chars[c2 - 'a']) {
+                return true;
+            } else {
+                return false;
+            }
+        }
+
+        // apple, app
+        if ( word1.length() > word2.length()) {
+            return false;
+        }
+
+        return true;
+    }
+
     public static void main(String[] args){
 //        isAlienSorted(new String[]{"word","world","row"}, "worldabcefghijkmnpqstuvxyz");
-        isAlienSorted(new String[]{"hello","leetcode"}, "hlabcdefgijkmnopqrstuvwxyz");
+//        isAlienSorted_One(new String[]{"hello","leetcode"}, "hlabcdefgijkmnopqrstuvwxyz");
+        isAlienSorted_One(new String[]{"word","world","row"}, "worldabcefghijkmnpqstuvxyz");
     }
 }

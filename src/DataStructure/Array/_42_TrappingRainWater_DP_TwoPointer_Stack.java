@@ -12,7 +12,6 @@ import java.util.Stack;
 public class _42_TrappingRainWater_DP_TwoPointer_Stack {
 
 
-    //
     /**
      * Algorithm : DP
      * O(n) time, O (n) space
