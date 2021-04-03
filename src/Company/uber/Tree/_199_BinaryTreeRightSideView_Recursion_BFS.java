@@ -2,10 +2,7 @@ package Company.uber.Tree;
 
 import DataStructure.BinaryTree.TreeNode;
 
-import java.util.ArrayList;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Queue;
+import java.util.*;
 
 /**
  * Created by zhang on 2018/9/20.

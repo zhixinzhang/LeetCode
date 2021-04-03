@@ -13,6 +13,10 @@ import java.util.*;
 
 public class _215_KthLargestElementinanArray_QuickSort_MinHeap_Sort {
 
+    public static void main(String[] args){
+//        findKthLargest_quickselect(new int[]{2,3,4,7,5,6,1}, 3);
+        findKthLargest_quickselect(new int[]{3,2,4,7,7,}, 3);
+    }
     // sorting O(nlogn)
     public int findKthLargest_lib(int[] nums, int k) {
         Arrays.sort(nums);
@@ -20,7 +24,7 @@ public class _215_KthLargestElementinanArray_QuickSort_MinHeap_Sort {
     }
 
     //O(nlogk) running time + O(k) memory
-    public int findKthLargest_heap(int[] nums, int k) {
+    public static int findKthLargest_heap(int[] nums, int k) {
         //给定数组，超出第k大的数
         //思路:利用stack实现，stack中始终保存着k个数据，每次和stack中最小的进行类比，比其大就替换，最后stack中最小的就是结果了
         //PriorityQueue是一个基于优先级堆，此队列的头相对于指定的排序是最小的元素。
@@ -33,6 +37,7 @@ public class _215_KthLargestElementinanArray_QuickSort_MinHeap_Sort {
             } else {
                 //集合中已经存在k个元素
                 //判断是否小于最小值
+                int a = minHeap.peek();
                 if(num > minHeap.peek()){
                     minHeap.poll();
                     minHeap.offer(num);
@@ -87,9 +92,4 @@ public class _215_KthLargestElementinanArray_QuickSort_MinHeap_Sort {
         nums[j] = cur;
     }
 
-
-    public static void main(String[] args){
-        int[] arr = new int[]{8,2,1,4,7,3,6,5};
-        findKthLargest_quickselect(arr,3);
-    }
 }
