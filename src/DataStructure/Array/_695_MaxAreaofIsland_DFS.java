@@ -3,6 +3,46 @@ import java.util.*;
 
 public class _695_MaxAreaofIsland_DFS{
 
+    public static void main(String[] args){
+        maxAreaOfIsland_DFS_InPlace(new int[][] {{1,1,0,0,0},{1,1,0,0,0},{0,0,0,1,1},{0,0,0,1,1}});
+    }
+    static int m, n;
+    static int[][] dirs = new int[][]{{1,0}, {-1, 0}, {0, 1}, {0, -1}};
+    public static int maxAreaOfIsland_DFS_InPlace(int[][] grid) {
+        if (grid == null || grid[0] == null || grid[0].length == 0) {
+            return 0;
+        }
+
+        m = grid.length;
+        n = grid[0].length;
+        int res = 0;
+        for (int i = 0; i < m; i++){
+            for (int j = 0; j < n; j++){
+                if (grid[i][j] == 1) {
+                    int curArea = dfs(i, j, grid);
+                    res = Math.max(curArea, res);
+                }
+            }
+        }
+
+        return res;
+    }
+
+    private static int dfs(int col, int hor, int[][] grid){
+        grid[col][hor] = 2;
+        int val = 1;
+
+        for (int[] dir : dirs){
+            int nextCol = hor + dir[1];
+            int nextHor = col + dir[0];
+            if (nextCol >= 0 && nextHor >= 0 && nextCol < m && nextHor < n && grid[nextCol][nextHor] == 1) {
+                val += dfs(nextCol, nextHor, grid);
+            }
+        }
+
+        return val;
+    }
+
     public int maxAreaOfIsland_DFS(int[][] grid) {
         if (grid == null || grid.length == 0) {
             return 0;
@@ -44,7 +84,6 @@ public class _695_MaxAreaofIsland_DFS{
         return maxArea;
     }
     
-    int[][] dirs = new int[][]{{1,0},{-1,0},{0,1},{0,-1}};
     public void getArea (int[][] grid, int i, int j, boolean[][]flag) {
         Queue<int[] > q = new LinkedList<>();
         q.add(new int[]{i,j});

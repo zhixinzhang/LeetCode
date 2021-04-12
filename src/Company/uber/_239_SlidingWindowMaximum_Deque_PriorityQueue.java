@@ -21,33 +21,36 @@ public class _239_SlidingWindowMaximum_Deque_PriorityQueue {
         maxSlidingWindow_followUP(new int[]{1,3,-1,-3,5,3,6,7}, 3);
     }
 
+    // 用一个 Deque 维持一个array值持续递减的
+
     private static int[] maxSlidingWindow_Deque(int[] nums, int k) {
         if (nums == null || k <= 0) {
             return new int[0];
         }
         int n = nums.length;
         int[] res = new int[n-k+1];
-        int ri = 0;
+        int index = 0;
 
         // key point is store index in deque
-        Deque<Integer> q = new ArrayDeque<>();
-        for (int i = 0; i < nums.length; i++) {
+        Deque<Integer> dq = new ArrayDeque<>();
+        for (int i = 0; i < n; i++){
             // remove numbers out of range k
-            while (!q.isEmpty() && q.peek() < i - k + 1) {
-                q.poll();
-            }
-            // remove smaller numbers in k range as they are useless
-            while (!q.isEmpty() && nums[q.peekLast()] < nums[i]) {
-                q.pollLast();
-            }
-            // q contains index... r contains content
-            q.offer(i);
-            if (i >= k - 1) {
-                res[ri++] = nums[q.peek()];
+            while (!dq.isEmpty() && dq.peekFirst() < i - k + 1) {
+                dq.pollFirst();
             }
 
-            int c = 0;
+            // remove smaller numbers in k range as they are useless
+            while(!dq.isEmpty() && nums[dq.peekLast()] < nums[i]){
+                dq.pollLast();
+            }
+
+            // q contains index... r contains content
+            dq.offerLast(i);
+            if (i >= k - 1) {
+                res[index++] = nums[dq.peekFirst()];
+            }
         }
+
         return res;
     }
 
@@ -78,7 +81,7 @@ public class _239_SlidingWindowMaximum_Deque_PriorityQueue {
         return res;
     }
 
-    // n * log(k)  用最大堆
+    // n * n * log(k)  用最大堆
     public static int[] maxSlidingWindow_pq(int[] nums, int k){
         if(nums == null || nums.length == 0)
             return nums;
@@ -89,7 +92,7 @@ public class _239_SlidingWindowMaximum_Deque_PriorityQueue {
         }
         res[0] = pq.peek();
         for (int i = k; i < nums.length; i++){
-            pq.remove(nums[i - k]);
+            pq.remove(nums[i - k]);       // n * log n  find object used O(n) time, remove use logn time
             pq.add(nums[i]);
             res[i-k+1] = pq.peek();
         }
