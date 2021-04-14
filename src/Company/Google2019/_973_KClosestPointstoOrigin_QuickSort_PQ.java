@@ -15,7 +15,7 @@ import java.util.PriorityQueue;
  */
 
 
-public class _973_KClosestPointstoOrigin {
+public class _973_KClosestPointstoOrigin_QuickSort_PQ {
     public static void main(String[] args){
         kClosest(new int[][]{{3,3},{5,-1},{-2,4}}, 2);
     }
