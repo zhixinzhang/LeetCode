@@ -13,6 +13,11 @@ import DataStructure.LinkList.ListNode;
  * Floyd's cycle detection
  * Define two pointers slow and fast. Both start at head node, fast is twice as fast as slow.
  * If it reaches the end it means there is no cycle, otherwise eventually it will eventually catch up to slow pointer somewhere in the cycle.
+ *
+ * 2(F+a)=F+nC+a, where nn is some integer.
+ *
+ * Hence the coordinate of the intersection point is F + a = nCF+a=nC.
+ *
  */
 
 
