@@ -1,28 +1,38 @@
 package google.Tree;
 import java.util.HashMap;
+import java.util.Map;
 
 /**
- * Created by zhang on 2018/6/10.
+ * Created by zhang on 2020/4/20.
  inorder = [9,3,15,20,7]
  postorder = [9,15,7,20,3]
  */
 public class _106_ConstructBinaryTreefromInorderandPostorderTraversal_Recur {
+    int indx;
+    Map<Integer, Integer> map = new HashMap<>();
     public TreeNode buildTree(int[] inorder, int[] postorder) {
-        if (inorder == null || inorder.length == 0 || postorder == null || postorder.length == 0 || postorder.length != inorder.length)
+        if (inorder == null || postorder == null) {
             return null;
-        HashMap<Integer, Integer> hm = new HashMap<>();
-        for (int i = 0; i<inorder.length; i++){
-            hm.put(inorder[i],i);
         }
-        return helper(hm,inorder,0,inorder.length-1,postorder,0,postorder.length-1);
-    }
-    private TreeNode helper(HashMap<Integer,Integer> hm, int[] inorder,int is,int ie, int[] postorder, int ps, int pe){
+        indx = postorder.length - 1;
+        for (int i = 0; i < inorder.length; i++){
+            map.put(inorder[i], i);
+        }
 
-        if (ps>pe || is>ie) return null;
-        TreeNode root = new TreeNode(postorder[pe]);
-        int ri = hm.get(postorder[pe]);
-        root.left = helper(hm,inorder,is,ri-1,postorder,ps, ps+ri-is-1);
-        root.right = helper(hm,inorder,ri+1, ie, postorder, ps+ri-is, pe-1);
+        return dfs(postorder, 0, indx);
+    }
+
+    private TreeNode dfs(int[] postorder, int left, int right){
+        if (left > right || indx < 0){
+            return null;
+        }
+
+        int val = postorder[indx--];
+        int curIndex = map.get(val);
+        TreeNode root = new TreeNode(val);
+        root.right = dfs(postorder, curIndex + 1, right);
+        root.left = dfs(postorder, left, curIndex - 1);
+
         return root;
     }
 }
