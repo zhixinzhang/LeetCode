@@ -1,9 +1,6 @@
 package DataStructure.Design;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Random;
+import java.util.*;
 
 /**
  * @author Luke(New Man) Zhang
@@ -16,42 +13,42 @@ import java.util.Random;
  */
 public class _380_InsertDeleteGetRandom_Map {
 
-    HashMap<Integer, Integer> map;
-    List<Integer> link;
-    Random random;
-    public _380_InsertDeleteGetRandom_Map(){
-        map = new HashMap<>();
-        link = new ArrayList<>();
-        random = new Random();
+    Map<Integer, Integer> dict;
+    List<Integer> list;
+    Random rand = new Random();
+
+    /** Initialize your data structure here. */
+    public _380_InsertDeleteGetRandom_Map() {
+        dict = new HashMap();
+        list = new ArrayList();
     }
 
     /** Inserts a value to the set. Returns true if the set did not already contain the specified element. */
     public boolean insert(int val) {
-        if (map.containsKey(val)) {
-            return false;
-        }
+        if (dict.containsKey(val)) return false;
 
-        map.put(val, link.size());
-        link.add(link.size(), val);
+        dict.put(val, list.size());
+        list.add(list.size(), val);
         return true;
     }
 
     /** Removes a value from the set. Returns true if the set contained the specified element. */
     public boolean remove(int val) {
-        if (!map.containsKey(val)){
-            return false;
-        }
+        if (! dict.containsKey(val)) return false;
 
-        int index = map.get(val);
-        map.remove(val);
-        link.set(index, link.get(link.size() -1));
-        link.remove(link.size() - 1);
+        // move the last element to the place idx of the element to delete
+        int lastElement = list.get(list.size() - 1);
+        int idx = dict.get(val);
+        list.set(idx, lastElement);
+        dict.put(lastElement, idx);
+        // delete the last element
+        list.remove(list.size() - 1);
+        dict.remove(val);
         return true;
     }
 
     /** Get a random element from the set. */
     public int getRandom() {
-        int ra = random.nextInt(link.size());
-        return link.get(ra);
+        return list.get(rand.nextInt(list.size()));
     }
 }
