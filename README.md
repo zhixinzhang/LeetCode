@@ -35,12 +35,19 @@ https://en.wikipedia.org/wiki/Markdown
 <li>_729_MyCalendar_TreeMap_TreeSet</li>
 </ul>
 
+<h3>Pair</h3>
+<ul>
+<li>_987_VerticalOrderTraversalofaBinaryTree_FollowUp_Pair</li>
+</ul>
+
+
 
 <h3>BinaryTree</h3>
 
 <ul>
 <li>_105_ConstructBinaryTreefromPreorderandInorderTraversal_Recur</li>
 <li>_106_ConstructBinaryTreefromInorderandPostorderTraversal_Recur</li>
+<li>_270_ClosestBinarySearchTreeValue_Recursion_Iterative</li>
 </ul>
 
 
