@@ -29,9 +29,15 @@ https://en.wikipedia.org/wiki/Markdown
 
 <h1>DataStructure</h1>
 
+<h3>PriorityQueue</h3>
+<ul>
+<li>_253_MeetingRooms2</li>
+</ul>
+
 <h3>TreeMap</h3>
 
 <ul>
+<li>_352_DataStreamAsDisjointIntervals_TreeMap</li>
 <li>_729_MyCalendar_TreeMap_TreeSet</li>
 </ul>
 
