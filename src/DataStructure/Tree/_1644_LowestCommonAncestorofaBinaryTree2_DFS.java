@@ -13,6 +13,48 @@ import DataStructure.BinaryTree.TreeNode;
 
 public class _1644_LowestCommonAncestorofaBinaryTree2_DFS {
 
+    public static void main(String[] args) {
+        TreeNode root = new TreeNode(3);
+        root.left = new TreeNode(5);
+        root.left.left = new TreeNode(6);
+        root.left.right = new TreeNode(2);
+        root.right = new TreeNode(1);
+        root.right.left = new TreeNode(0);
+        root.right.right = new TreeNode(8);
+        lowestCommonAncestor_1st(root, new TreeNode(5), new TreeNode(1));
+    }
+
+    static boolean leftNode, rightNode;
+    public static TreeNode lowestCommonAncestor_1st(TreeNode root, TreeNode p, TreeNode q) {
+        TreeNode ans = find(root, p, q);
+        if (!leftNode || !rightNode)
+            return null;
+        return ans;
+    }
+
+    public static TreeNode find(TreeNode root, TreeNode p, TreeNode q) {
+        if (root == null)
+            return null;
+
+        TreeNode left = find(root.left, p, q);
+        TreeNode right = find(root.right, p, q);
+
+        if (root.val == p.val) {
+            leftNode = true;
+            return root;
+        }
+        if (root.val == q.val) {
+            rightNode = true;
+            return root;
+        }
+
+        if (left != null && right != null) {
+            return root;
+        }
+
+        return left == null ? right : left;
+    }
+
     TreeNode res = null;
     public TreeNode lowestCommonAncestor(TreeNode root, TreeNode p, TreeNode q) {
         dfs(root, p, q);

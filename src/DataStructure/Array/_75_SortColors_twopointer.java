@@ -13,15 +13,21 @@ public class _75_SortColors_twopointer {
     }
     // 1 0 2 1
     public static void sort_Colors(int[] nums){
-        int left = 0, right = nums.length-1;
-        int index = 0;
-        while (index <= right){
-            if (nums[index] == 0){
-                swap(nums,index++,left++);      //运行swap之后 index才加1
-            }else if (nums[index] == 1){
-                index++;
-            }else {
-                swap(nums, index++, right--);
+        int p0 = 0, p2 = nums.length - 1;
+        int cur = 0;
+
+        int temp;
+        while (cur <= p2){
+            if (nums[cur] == 0){
+                temp = nums[p0];
+                nums[p0++] = nums[cur];
+                nums[cur++] = temp;
+            } else if (nums[cur] == 2) {
+                temp = nums[cur];
+                nums[cur] = nums[p2];
+                nums[p2--] = temp;
+            } else {
+                cur++;
             }
         }
 

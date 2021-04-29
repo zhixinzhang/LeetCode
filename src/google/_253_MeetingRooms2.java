@@ -8,8 +8,36 @@ import java.util.Comparator;
 
 /**
  * Created by zhang on 2018/5/29.
+ *
+ * https://leetcode.com/problems/meeting-rooms-ii/solution/
  */
 public class _253_MeetingRooms2 {
+
+    public static void main(String[] args){
+        int[][] intervals = new int[][]{
+            {0,30},{5,10},{15,20}, {11,14}, {19, 25}
+            };
+        minMeetingRooms(intervals);
+    }
+
+    public static int minMeetingRooms(int[][] intervals) {
+
+        PriorityQueue<Integer> minHeap = new PriorityQueue<Integer> ();
+
+        Arrays.sort (intervals, (interval1, interval2) -> interval1[0] - interval2[0]);
+
+        for (int[] interval : intervals) {
+            if (!minHeap.isEmpty () && interval[0] >= minHeap.peek ()) {
+                minHeap.poll ();
+            }
+
+            minHeap.add(interval[1]);
+        }
+
+        return minHeap.size ();
+    }
+
+
      public static class Interval {
       int start;
       int end;
@@ -82,11 +110,12 @@ public class _253_MeetingRooms2 {
 
         return res;
     }
-        public static void main(String[] args){
-        Interval i = new Interval(9,10);
-        Interval i2 = new Interval(4,9);
-        Interval i3 = new Interval(4,17);
-        Interval[] l = new Interval[]{i,i2,i3};
-        minMeetingRooms(l);
-    }
+
+//    public static void main(String[] args){
+//        Interval i = new Interval(9,10);
+//        Interval i2 = new Interval(4,9);
+//        Interval i3 = new Interval(4,17);
+//        Interval[] l = new Interval[]{i,i2,i3};
+//        minMeetingRooms(l);
+//    }
 }

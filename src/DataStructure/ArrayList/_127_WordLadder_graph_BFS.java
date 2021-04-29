@@ -18,7 +18,7 @@ import java.util.*;
  * 2019/5/16  这题对我来说 就是秒杀
  * */
 /*我写的方法 time limit 只从起点开始找 29/39 test case 已经注释掉*/
-public class _127_WordLadder_graph {
+public class _127_WordLadder_graph_BFS {
     public int ladderLength(String beginWord, String endWord, List<String> wordList) {
         if(beginWord == null || endWord == null || beginWord.length() != endWord.length())
             return 0;
