@@ -3,7 +3,7 @@ package Company.Apple;
 /**
  * Created by zhang on 2018/2/9.
  */
-public class _21_MergeTwoSortedLists_Recursion {
+public class _21_MergeTwoSortedLists_Recursion_Iterative {
     // 1 2 4   1 3  5     1 1 2 3 4 5
         public ListNode mergeTwoLists_recursion(ListNode l1, ListNode l2) {
             if(l1 == null)

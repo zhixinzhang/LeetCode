@@ -39,7 +39,8 @@ public class _287_FindtheDuplicateNumber_TwoPointer_Floyd {
     }
 
     public static void main(String[] args){
-        findDuplicate(new int[]{1, 3, 4, 2, 2});
+//        findDuplicate(new int[]{1, 3, 4, 2, 2});
+        findDuplicate(new int[]{3,1,3,4,2});
     }
 
     public int findDuplicate_BinarySearch(int[] nums) {

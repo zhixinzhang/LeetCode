@@ -20,6 +20,11 @@ https://en.wikipedia.org/wiki/Markdown
 <li>_287_FindtheDuplicateNumber_TwoPointer_Floyd</li>
 </ul>
 
+<h3>Floyd's algorithm </h3>
+<ul>
+<li>_287_FindtheDuplicateNumber_TwoPointer_Floyd</li>
+<li>_142_LinkedListCycle2_twopointer</li>
+</ul>
 
 <h3>Binary Search</h3>
 <ul>
@@ -61,3 +66,12 @@ https://en.wikipedia.org/wiki/Markdown
 <li>https://stackoverflow.com/questions/2050120/why-use-two-stacks-to-make-a-queue/2050402#2050402</li>
 <li>https://en.wikipedia.org/wiki/Non-blocking_algorithm</li>
 </h4>
+
+
+<h3>Computer Concept</h3>
+<li>
+In a single core system will you use multithreading or multiprocessing? Why?
+
+
+https://leetcode.com/discuss/interview-question/operating-system/380838/In-a-single-core-system-will-you-use-multithreading-or-multiprocessing-Why/374598
+</li>

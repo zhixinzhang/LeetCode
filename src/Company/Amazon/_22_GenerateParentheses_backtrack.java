@@ -13,6 +13,35 @@ import java.util.List;
 
 
 public class _22_GenerateParentheses_backtrack {
+
+    List<String> ans = new ArrayList<>();
+    public List<String> generateParenthesis_bc(int n) {
+        if (n == 0)
+            return ans;
+
+        dfs(new StringBuilder(), 0, 0, n);
+        return ans;
+    }
+
+    private void dfs(StringBuilder sb, int leftParenth, int rightParent, int n){
+        if (leftParenth > n ||  rightParent > n)
+            return;
+
+        if (leftParenth == rightParent && rightParent == n) {
+            ans.add(sb.toString());
+            return;
+        }
+
+        if (leftParenth > rightParent) {
+            dfs(sb.append(')'), leftParenth, rightParent + 1, n);
+            sb.deleteCharAt(sb.length() - 1);
+        }
+
+        dfs(sb.append('('), leftParenth + 1, rightParent, n);
+        sb.deleteCharAt(sb.length() - 1);
+
+    }
+
     public List<String> generateParenthesis(int n) {
         List<String> ans = new ArrayList<>();
         if(n == 0) return ans;
