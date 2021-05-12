@@ -18,6 +18,7 @@ https://en.wikipedia.org/wiki/Markdown
 <li>_75_SortColors_twopointer</li>
 <li>_142_LinkedListCycle2_twopointer       ////////  Floyd's cycle detection</li>
 <li>_287_FindtheDuplicateNumber_TwoPointer_Floyd</li>
+<li>_424_LongestRepeatingCharacterReplacement_twoPointer</li>
 </ul>
 
 <h3>Floyd's algorithm </h3>

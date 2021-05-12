@@ -24,7 +24,8 @@ public class _787_CheapestFlightsWithinKStops_PQ_Dijkstra {
             if (place == dst)
                 return cost;
 
-            for (int nei = 0; nei < n; ++nei) if (graph[place][nei] > 0) {
+            for (int nei = 0; nei < n; ++nei)
+                if (graph[place][nei] > 0) {
                 int newcost = cost + graph[place][nei];
                 if (newcost < best.getOrDefault((k+1) * 1000 + nei, Integer.MAX_VALUE)) {
                     pq.offer(new int[]{newcost, k+1, nei});
