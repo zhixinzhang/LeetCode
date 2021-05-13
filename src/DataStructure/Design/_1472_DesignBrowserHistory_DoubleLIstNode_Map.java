@@ -21,73 +21,80 @@ import java.util.*;
 
 public class _1472_DesignBrowserHistory_DoubleLIstNode_Map {
     // solution 1 :
-    class _1472Node{
+    class Node{
         String url;
-        _1472Node prev;
-        _1472Node next;
-
-        public _1472Node(String url) {
+        Node next;
+        Node pre;
+        public Node(String url){
             this.url = url;
-            this.prev = null;
-            this.next = null;
         }
     }
 
-    _1472Node head, tail;
+    Node head = new Node("");
+    Node tail = new Node("");
+    Node current = head;
+
     public _1472_DesignBrowserHistory_DoubleLIstNode_Map(String homepage) {
-        head = new _1472Node(homepage);
-        tail = head;
+        Node tmp = new Node(homepage);
+        head.next = tmp;
+        tmp.next = tail;
+        tail.pre = tmp;
+        tmp.pre = head;
+        current = tmp;
     }
 
     public void visit(String url) {
-        head = new _1472Node(url);
-        head.next = null;
-        tail = head;
+        Node tmp = new Node(url);
+        current.next = tmp;
+        tmp.pre = current;
+
+        tmp.next = tail;
+        tail.pre = tmp;
+        current = tmp;
     }
 
     public String back(int steps) {
-        while (tail.prev != null && steps != 0){
+        while(current.pre != head && steps > 0){
+            current = current.pre;
             steps--;
-            tail = tail.prev;
         }
-
-        return tail.url;
+        return current.url;
     }
 
     public String forward(int steps) {
-        while (tail.next != null && steps != 0){
-            steps --;
-            tail = tail.next;
+        while(current.next != tail && steps > 0){
+            current = current.next;
+            steps--;
         }
+        return current.url;
 
-        return tail.url;
     }
 
 
     // solution 2  Java, one List and a pointer, O(1) time:
     // https://leetcode.com/problems/design-browser-history/discuss/783294/Java-HashMap.
     Map<Integer, String> map;
-    int current, max;
+    int cur, max;
     public void _1472_DesignBrowserHistory_Map(String homepage) {
         map = new HashMap<>();
-        current = 1;
+        cur = 1;
         max = 1;
-        map.put(current, homepage);
+        map.put(cur, homepage);
     }
 
     public void visitMap(String url) {
-        current++;
-        map.put(current, url);
-        max = current;
+        cur++;
+        map.put(cur, url);
+        max = cur;
     }
 
     public String backMap(int steps) {
-        current = Math.max(current -steps,1);
-        return map.get(current);
+        cur = Math.max(cur -steps,1);
+        return map.get(cur);
     }
 
     public String forwardMap(int steps) {
-        current =Math.min(current +steps,max);
-        return map.get(current);
+        cur =Math.min(cur +steps,max);
+        return map.get(cur);
     }
 }

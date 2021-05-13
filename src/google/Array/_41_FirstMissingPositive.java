@@ -9,11 +9,15 @@ import java.time.LocalDate;
  * bucket sort 排序  每次调换
  */
 public class _41_FirstMissingPositive {
-    public int firstMissingPositive(int[] nums) {
+    public static void main(String[] args){
+        firstMissingPositive(new int[]{3,4,-1, -2, 1, 5, 16, 0, 2, 0});
+    }
+    public static int firstMissingPositive(int[] nums) {
         /* each number is at most seened twice, if while loop runs more, outer loop runs less, o(n) */
         for(int i = 0; i < nums.length; i++){
             while(nums[i] > 0 && nums[i] <= nums.length && nums[nums[i]-1] != nums[i]){
                 swap(nums, nums[i]-1, i);
+                int a = 0;
             }
         }
         for(int i = 0; i < nums.length; i++){
@@ -23,7 +27,7 @@ public class _41_FirstMissingPositive {
         }
         return nums.length + 1;/* deal with when there is all positive number, or the array is empty */
     }
-    private void swap(int[] nums, int a, int b){
+    private static void swap(int[] nums, int a, int b){
         int temp = nums[a];
         nums[a] = nums[b];
         nums[b] = temp;
