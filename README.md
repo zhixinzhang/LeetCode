@@ -13,11 +13,17 @@ https://en.wikipedia.org/wiki/Markdown
 <li>_973_KClosestPointstoOrigin_QuickSort_PQ</li>
 </ul>
 
+<h3>TopoLogical Sort</h3>
+<ul>
+<li>_210_CourseSchedule2_BFS_DFS_TopoLogicalSort</li>
+</ul>
+
 <h3>Two Pointer</h3>
 <ul>
 <li>_75_SortColors_twopointer</li>
 <li>_142_LinkedListCycle2_twopointer       ////////  Floyd's cycle detection</li>
 <li>_287_FindtheDuplicateNumber_TwoPointer_Floyd</li>
+<li>_340_LongestSubstringwithAtMostKDistinctCharacters_TwoPointer</li>
 <li>_424_LongestRepeatingCharacterReplacement_twoPointer</li>
 </ul>
 
@@ -38,6 +44,7 @@ https://en.wikipedia.org/wiki/Markdown
 <h3>PriorityQueue</h3>
 <ul>
 <li>_253_MeetingRooms2</li>
+<li>_358_RearrangeStringkDistanceApart_Greedy_PQ</li>
 </ul>
 
 <h3>TreeMap</h3>

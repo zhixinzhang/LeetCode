@@ -10,26 +10,21 @@ public class _403_FrogJump_DFS_HashMap {
         canCross_HashMap(stones);
     }
     public static boolean canCross_HashMap(int[] stones) {
-        if(stones == null || stones.length == 0) return false;
-        Map<Integer, Set<Integer>> map = new HashMap<>();
-        for(int pos: stones) {
-            map.put(pos, new HashSet<Integer>());
+        HashMap<Integer, Set<Integer>> map = new HashMap<>();
+        for (int i = 0; i < stones.length; i++) {
+            map.put(stones[i], new HashSet<Integer>());
         }
-        int[] adjust = new int[]{-1, 0, 1};
         map.get(0).add(0);
-        for(int pos: stones) {
-            Set<Integer> set = map.get(pos);
-            for(Integer step: set) {
-                for(int add: adjust) {
-                    int nextstep = step + add;
-                    int nextstone = pos + nextstep;
-                    if(nextstep > 0 && map.containsKey(nextstone))
-                        map.get(nextstone).add(nextstep);
+        for (int i = 0; i < stones.length; i++) {
+            for (int k : map.get(stones[i])) {
+                for (int step = k - 1; step <= k + 1; step++) {
+                    if (step > 0 && map.containsKey(stones[i] + step)) {
+                        map.get(stones[i] + step).add(step);
+                    }
                 }
             }
         }
-        if(map.get(stones[stones.length - 1]).size() != 0) return true;
-        return false;
+        return map.get(stones[stones.length - 1]).size() > 0;
     }
 
 
