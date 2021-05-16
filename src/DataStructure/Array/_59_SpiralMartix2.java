@@ -1,12 +1,57 @@
 package DataStructure.Array;
 
 /**
- * Created by zhang on 2017/10/12.
+ * Created by zhang on 2021/5/13.
  */
 /**
- * 用递归方法  recursion
+ * 1. use iterative
+ * 2. 用递归方法  recursion
  * */
 public class _59_SpiralMartix2 {
+    public int[][] generateMatrix_iterative(int n) {
+        // Declaration
+        int[][] matrix = new int[n][n];
+
+        // Edge Case
+        if (n == 0) {
+            return matrix;
+        }
+
+        // Normal Case
+        int rowStart = 0;
+        int rowEnd = n-1;
+        int colStart = 0;
+        int colEnd = n-1;
+        int num = 1; //change
+
+        while (rowStart <= rowEnd && colStart <= colEnd) {
+            for (int i = colStart; i <= colEnd; i ++) {
+                matrix[rowStart][i] = num ++; //change
+            }
+            rowStart ++;
+
+            for (int i = rowStart; i <= rowEnd; i ++) {
+                matrix[i][colEnd] = num ++; //change
+            }
+            colEnd --;
+
+            for (int i = colEnd; i >= colStart; i --) {
+                if (rowStart <= rowEnd)
+                    matrix[rowEnd][i] = num ++; //change
+            }
+            rowEnd --;
+
+            for (int i = rowEnd; i >= rowStart; i --) {
+                if (colStart <= colEnd)
+                    matrix[i][colStart] = num ++; //change
+            }
+            colStart ++;
+        }
+
+        return matrix;
+    }
+
+    //
     public int[][] generateMatrix(int n) {
         int[][] res = new int[n][n];
         if (n <= 0){

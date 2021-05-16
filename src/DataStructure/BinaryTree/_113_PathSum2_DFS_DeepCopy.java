@@ -25,30 +25,28 @@ import java.util.List;
 public class _113_PathSum2_DFS_DeepCopy {
     List<List<Integer>> ans = new ArrayList<>();
     public List<List<Integer>> pathSum(TreeNode root, int targetSum) {
-        if (root == null) {
+        if (root == null)
             return ans;
-        }
 
-        dfs(root, targetSum, new ArrayList<>());
+        dfs(root, 0, targetSum, new ArrayList<Integer>());
         return ans;
     }
 
-    private void dfs(TreeNode root, int targetSum, List<Integer> path){
-        if (root == null) {
+    private void dfs(TreeNode root, int sum, int targetSum, List<Integer> curPath){
+        if (root == null)
             return;
-        }
 
-        path.add(root.val);
-        if (targetSum == root.val && root.left == null && root.right == null) {
-            List<Integer> deepPath = new ArrayList<>(path);
-            //             pathsList.add(new ArrayList<>(pathNodes));
-            ans.add(deepPath);
+        sum += root.val;
+        curPath.add(root.val);
+
+        if (sum == targetSum && root.left == null && root.right == null){
+            ans.add(new ArrayList<>(curPath));
         } else {
-            dfs(root.left, targetSum - root.val, path);
-            dfs(root.right, targetSum - root.val, path);
+            dfs(root.left, sum, targetSum, curPath);
+            dfs(root.right, sum, targetSum, curPath);
         }
 
-
-        path.remove(path.size() - 1);
+        sum -= root.val;
+        curPath.remove(curPath.size() - 1);
     }
 }

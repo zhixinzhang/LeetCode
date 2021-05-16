@@ -1,4 +1,4 @@
-package Company.Amazon;
+package DataStructure.Integer;
 
 /**
  * Created with IntelliJ IDEA.
