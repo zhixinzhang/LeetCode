@@ -33,6 +33,7 @@ public class _146_LRUCache_HashMap_Link {
         tail.next = null;
         count = 0;
     }
+
     public void deleteNode(Node node) {
         node.pre.next = node.next;
         node.next.pre = node.pre;
@@ -44,6 +45,7 @@ public class _146_LRUCache_HashMap_Link {
         node.pre = head;
         head.next = node;
     }
+
     public int get(int key) {
         if (map.get(key) != null) {
             Node node = map.get(key);
