@@ -10,11 +10,19 @@ package Algo_Summary;
 
 
 public class test {
-    public static void main(String[] args){
+    public static void main(String[] args) throws Exception{
         while (true){
             String a = "";
             a += 0 + 'a';
             System.out.println(a);
+            dfs();
+        }
+    }
+
+    private static void dfs() throws Exception{
+
+        if(true) {
+            throw new IllegalArgumentException();
         }
     }
 }

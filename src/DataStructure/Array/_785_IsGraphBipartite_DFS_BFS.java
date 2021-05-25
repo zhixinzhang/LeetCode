@@ -4,6 +4,7 @@ package DataStructure.Array;
 import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.Queue;
+import java.util.Stack;
 
 /**
  * @author Luke(New Man) Zhang
@@ -26,22 +27,54 @@ import java.util.Queue;
 
 public class _785_IsGraphBipartite_DFS_BFS {
 
-    // I assume the graph is connected
-    public boolean isBipartite(int[][] g) {
-        int[] colors = new int[g.length];
-        for (int i = 0; i < g.length; i++)
-            if (colors[i] == 0 && !validColor(g, colors, 1, i))
+    public boolean isBipartite(int[][] graph) {
+        int group[] = new int[graph.length];
+        Arrays.fill(group, -1);
+        for(int i = 0; i < graph.length; i++) {
+            if( group[i] == -1 && !help(i, graph, group, 0) )
                 return false;
+        }
         return true;
     }
 
-    boolean validColor(int[][] g, int[] colors, int color, int node) {
-        if (colors[node] != 0)
-            return colors[node] == color;
-        colors[node] = color;
-        for (int adjacent : g[node])
-            if (!validColor(g, colors, -color, adjacent))
+    public boolean help(int index, int[][] graph, int group[], int color) {
+        if( group[index] == color )
+            return true;
+        group[index] = color;
+        for(int i = 0; i < graph[index].length; i++) {
+            if( group[graph[index][i]] == color || !help(graph[index][i], graph, group, 1 - color) )
                 return false;
+        }
+        return true;
+    }
+
+    // DFS + Stack
+
+    public boolean isBipartite_DFS(int[][] graph) {
+        int n = graph.length;
+        int[] color = new int[n];
+        Arrays.fill(color, -1);
+
+        for (int start = 0; start < n; ++start) {
+            if (color[start] == -1) {
+                Stack<Integer> stack = new Stack();
+                stack.push(start);
+                color[start] = 0;
+
+                while (!stack.empty()) {
+                    Integer node = stack.pop();
+                    for (int nei: graph[node]) {
+                        if (color[nei] == -1) {
+                            stack.push(nei);
+                            color[nei] = color[node] ^ 1;
+                        } else if (color[nei] == color[node]) {
+                            return false;
+                        }
+                    }
+                }
+            }
+        }
+
         return true;
     }
 

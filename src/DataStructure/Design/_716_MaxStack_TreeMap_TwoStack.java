@@ -1,4 +1,4 @@
-package Company.Amazon;
+package DataStructure.Design;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -81,6 +81,7 @@ public class _716_MaxStack_TreeMap_TwoStack {
             return x;
         }
         public int pop() {
+
             return unlink(tail.prev).val;
         }
 
@@ -94,6 +95,8 @@ public class _716_MaxStack_TreeMap_TwoStack {
             return node;
         }
     }
+
+
     class MaxStackT{
         TreeMap<Integer, List<Node>> map;
         DoubleLinkedList ddl;
@@ -113,7 +116,9 @@ public class _716_MaxStack_TreeMap_TwoStack {
         }
 
         public int peekMax() {
+
             return map.lastKey();
+
         }
 
         public int pop() {
