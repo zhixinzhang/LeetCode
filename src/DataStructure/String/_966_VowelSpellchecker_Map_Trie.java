@@ -11,7 +11,7 @@ import java.util.*;
  */
 
 
-public class _966_VowelSpellchecker_ {
+public class _966_VowelSpellchecker_Map_Trie {
     public String[] spellchecker(String[] wordlist, String[] queries) {
         Set<String> words = new HashSet<>(Arrays.asList(wordlist));
         HashMap<String, String> cap = new HashMap<>();

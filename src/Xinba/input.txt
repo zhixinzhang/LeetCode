@@ -1,0 +1,10 @@
+As we discussed, these are the students to discuss at the meeting:
+name:
+Von Trapp, Maria
+name:
+Thornton, Billy Bob
+If there is time, we should also discuss:
+name:
+Porter, Riley
+name:
+Reges, Stuart

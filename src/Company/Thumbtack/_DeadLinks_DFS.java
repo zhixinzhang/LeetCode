@@ -69,5 +69,7 @@ public class _DeadLinks_DFS {
                 recur(alive, graph, curLevel);
             }
         }
+
+        return true;
     }
 }

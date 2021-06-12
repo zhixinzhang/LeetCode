@@ -1,4 +1,4 @@
-package DataStructure.Design;
+package Company.Thumbtack;
 
 import java.security.InvalidParameterException;
 import java.util.Arrays;
