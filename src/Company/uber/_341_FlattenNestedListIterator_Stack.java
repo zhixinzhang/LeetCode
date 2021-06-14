@@ -36,31 +36,30 @@ package Company.uber;
 //    }
 //}
 public class _341_FlattenNestedListIterator_Stack {
-//    Stack<NestedInteger> stack = new Stack<>();
+//    private Stack<NestedInteger> stack;
 //
 //    public NestedIterator(List<NestedInteger> nestedList) {
-//        for(int i = nestedList.size()-1; i >= 0 ; i--){
-//            stack.push(nestedList.get(i));
-//        }
+//        stack = new Stack<>();
+//        flattenList(nestedList);
 //    }
 //
 //    @Override
-//    public DataStructure.Integer next() {
-//        NestedInteger cur = stack.pop();
-//        return cur.getInteger();
+//    public Integer next() {
+//        return hasNext() ? stack.pop().getInteger() : null;
 //    }
 //
 //    @Override
 //    public boolean hasNext() {
-//        while(!stack.isEmpty()){
-//            NestedInteger cur = stack.peek();
-//            if(cur.isInteger())
-//                return true;
-//            stack.pop();
-//            for(int i = cur.getList().size()-1; i>=0; i--){
-//                stack.push(cur.getList().get(i));
-//            }
+//        while (!stack.isEmpty()) {
+//            if (stack.peek().isInteger()) return true;
+//            flattenList(stack.pop().getList());
 //        }
 //        return false;
+//    }
+//
+//    private void flattenList(List<NestedInteger> list) {
+//        for (int i = list.size() - 1; i >= 0; i--) {
+//            stack.push(list.get(i));
+//        }
 //    }
 }

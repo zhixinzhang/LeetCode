@@ -11,6 +11,8 @@ import java.util.List;
  * Write an program which takes a very long sentence as input. The program splits the long sentence into smaller lines such that each line should be less than or equal to 200 characters. Each line should also contain line information at the end( The limit of 200 character is inclusive of this limit). It should not break words into pieces. If a word does not fit in 200 character line it should go to the next line.
  *
  * example : Input : "This is a word wrap question with dynamic line information and I am confused how to solve..."
+ *
+ * https://www.1point3acres.com/bbs/thread-757012-1-1.html
  */
 public class SentenceScreenFit {
     static int suffix = 5;
