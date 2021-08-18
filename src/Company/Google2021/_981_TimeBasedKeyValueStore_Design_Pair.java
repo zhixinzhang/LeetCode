@@ -1,4 +1,4 @@
-package Company.Google2019;
+package Company.Google2021;
 
 import javafx.util.Pair;
 
@@ -39,8 +39,6 @@ public class _981_TimeBasedKeyValueStore_Design_Pair {
 
     // Solution 1: build a new Data class
     Map<String, List<Data>> map;
-
-    Map<String, TreeMap<Integer, String>> treeMap;
 
     public  _981_TimeBasedKeyValueStore_Design_Pair() {
         map = new HashMap<>();
@@ -99,6 +97,12 @@ public class _981_TimeBasedKeyValueStore_Design_Pair {
 
     // solution 3
 
+    Map<String, TreeMap<Integer, String>> treeMap;
+    /** Initialize your data structure here. */
+//    public TimeMap() {
+//        map = new HashMap<>();
+//    }
+
     public void set_(String key, String value, int timestamp) {
         if (!treeMap.containsKey(key)){
             treeMap.put(key, new TreeMap<>());
@@ -108,11 +112,11 @@ public class _981_TimeBasedKeyValueStore_Design_Pair {
     }
 
     public String get_(String key, int timestamp) {
-        if (!treeMap.containsKey(key))
+        if (!map.containsKey(key))
             return "";
 
         TreeMap<Integer, String> tree = treeMap.get(key);
-        Integer ans = tree.lowerKey(timestamp);
+        Integer ans = tree.floorKey(timestamp);
         return ans != null ? tree.get(ans) : "";
     }
 }
