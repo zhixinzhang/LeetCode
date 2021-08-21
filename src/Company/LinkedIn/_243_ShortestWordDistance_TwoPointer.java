@@ -1,9 +1,9 @@
-package Company.Amazon;
+package Company.LinkedIn;
 
 /**
  * Created with IntelliJ IDEA.
  * User: zhixinzhang
- * Date: 3/21/19
+ * Date: 3/21/2021
  * Time: 1:24 PM
  * Description:
  * https://leetcode.com/problems/shortest-word-distance/

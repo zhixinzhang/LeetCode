@@ -1,4 +1,4 @@
-package Company.Amazon;
+package Company.LinkedIn;
 
 /**
  * Created with IntelliJ IDEA.
@@ -9,7 +9,7 @@ package Company.Amazon;
  */
 
 
-public class _50_POW_BinarySearch {
+public class _50_POW_Recursion_Iterative {
     // O(n) time
     public double myPow(double x, int n) {
         long N = n;

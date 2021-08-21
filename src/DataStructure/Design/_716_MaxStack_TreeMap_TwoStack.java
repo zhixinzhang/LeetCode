@@ -17,45 +17,6 @@ import java.util.TreeMap;
 
 
 public class _716_MaxStack_TreeMap_TwoStack {
-    // two stack O(n) time
-    class MaxStack{
-        Stack<Integer> stack;
-        Stack<Integer> maxStack;
-
-        public MaxStack() {
-            stack = new Stack();
-            maxStack = new Stack();
-        }
-
-        public void push(int x) {
-            int max = maxStack.isEmpty() ? x : maxStack.peek();
-            maxStack.push(max > x ? max : x);
-            stack.push(x);
-        }
-
-        public int pop() {
-            maxStack.pop();
-            return stack.pop();
-        }
-
-        public int top() {
-            return stack.peek();
-        }
-
-        public int peekMax() {
-            return maxStack.peek();
-        }
-
-        public int popMax() {
-            int max = peekMax();
-            Stack<Integer> buffer = new Stack();
-            while (top() != max) buffer.push(pop());
-            pop();
-            while (!buffer.isEmpty()) push(buffer.pop());
-            return max;
-        }
-    }
-
     // TreeMap O(log n) time
     class Node{
         int val;
@@ -136,6 +97,46 @@ public class _716_MaxStack_TreeMap_TwoStack {
             Node node = L.remove(L.size() - 1);
             ddl.unlink(node);
             if (L.isEmpty()) map.remove(max);
+            return max;
+        }
+    }
+
+
+    // two stack O(n) time
+    class MaxStack{
+        Stack<Integer> stack;
+        Stack<Integer> maxStack;
+
+        public MaxStack() {
+            stack = new Stack();
+            maxStack = new Stack();
+        }
+
+        public void push(int x) {
+            int max = maxStack.isEmpty() ? x : maxStack.peek();
+            maxStack.push(max > x ? max : x);
+            stack.push(x);
+        }
+
+        public int pop() {
+            maxStack.pop();
+            return stack.pop();
+        }
+
+        public int top() {
+            return stack.peek();
+        }
+
+        public int peekMax() {
+            return maxStack.peek();
+        }
+
+        public int popMax() {
+            int max = peekMax();
+            Stack<Integer> buffer = new Stack();
+            while (top() != max) buffer.push(pop());
+            pop();
+            while (!buffer.isEmpty()) push(buffer.pop());
             return max;
         }
     }

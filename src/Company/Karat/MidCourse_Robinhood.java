@@ -13,9 +13,9 @@ import java.util.Set;
  * 一堆课，找出上课顺序里,中间的那门课，只有一种正确的顺序，并且每个课只会对应另外一个prereq
  * 比如
  *
- *     ["Data Structures", "Algorithms"],
- *     ["COBOL", "Networking"],
- *     ["Algorithms", "COBOL"],
+ * ["Data Structures", "Algorithms"],
+ * ["COBOL", "Networking"],
+ * ["Algorithms", "COBOL"],
  *
  * "Data Structures"->"Algorithms" -> "COBOL"-> "Networking"
  *
@@ -28,8 +28,7 @@ public class MidCourse_Robinhood {
         String[][] input = new String[][]{
             {"Data Structures", "Algorithms"},
             {"COBOL", "Networking"},
-            {"Algorithms", "COBOL"},
-            {"Networking", "test"},
+            {"Algorithms", "COBOL"}
         };
 
         String ans = findMidCourse(input);
@@ -57,7 +56,7 @@ public class MidCourse_Robinhood {
             }
         }
 
-        int mid = courses.length / 2;
+        int mid = cache.size() / 2;
         for (int i = 0; i < mid; i++){
             head = map.get(head);
         }

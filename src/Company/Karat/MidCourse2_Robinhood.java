@@ -25,7 +25,6 @@ import java.util.Set;
  *     ["Intro to Computer Science", "Graphics"],
  */
 
-// Logic
 public class MidCourse2_Robinhood {
 
     static List<String> ans = new ArrayList<>();
@@ -43,7 +42,8 @@ public class MidCourse2_Robinhood {
             {"Creative Writing", "System Administration"},
             {"Databases", "System Administration"},
             {"Creative Writing", "Databases"},
-            {"Intro to Computer Science", "Graphics"}};
+            {"Intro to Computer Science", "Graphics"}
+        };
 
         findMidCourses(courses);
 

@@ -34,58 +34,39 @@ public class _61_RotateList_TwoPointers {
         rotateRight(head.next, 3);
     }
 
-    //if k 小于 ListNode的长度 一次遍历就可以
+    /**
+     * Since n may be a large number compared to the length of list. So we need to know the length of linked list.After that, move the list after the (l-n%l )th node to the front to finish the rotation.
+     *
+     * Ex: {1,2,3} k=2 Move the list after the 1st node to the front
+     *
+     * Ex: {1,2,3} k=5, In this case Move the list after (3-5%3=1)st node to the front.
+     *
+     * So the code has three parts.
+     *
+     * Get the length
+     *
+     * Move to the (l-n%l)th node
+     *
+     * 3)Do the rotation
+     * */
+
     public static ListNode rotateRight(ListNode head, int k) {
         if(head == null || head.next == null)
             return head;
-        ListNode l = head, r = head;
-        // 1 2 3 4 5 6 7       5 6 7 1 2 3 4  k = 3
-        int n = k;
-        while(--n >= 0){
-            r = r.next;
-        }
-        while(r.next != null){
-            r = r.next;
-            l = l.next;
-        }
-        ListNode prefix = reverse(head, l, r);
-        ListNode temp = prefix;
-        while (temp.next != null)
-            temp = temp.next;
-        temp.next = head;
-        return prefix;
-    }
-
-    public static ListNode reverse(ListNode head,ListNode l,ListNode r){
-        ListNode newHead = l.next;
-        l.next = null;
-        ListNode temp = newHead;
-        while (temp.next != null){
-            temp = temp.next;
-        }
-        temp.next = head;
-        return newHead;
-    }
-
-    // if k 不知道多大 可能大于listnode 的size ，那就链接 listnode首位 然后断开
-    public ListNode rotateRight_Best(ListNode head, int k) {
-        if (head == null || head.next == null) return head;
-        int size = 0;
         ListNode temp = head;
-        // 1 2 3 null
-        for (;temp.next!=null;size++){
+        int n;
+        for(n = 1; temp.next != null; n++){
             temp = temp.next;
         }
-        temp.next = head;       // 1 2 3 -> 1
-        // k  从右面数
-//        k %= size;
-        k = size - k%size -1;
-        ListNode res = head;
-        for (int i = 0; i < k; i++){
-            res = res.next;
+        temp.next = head;
+
+        ListNode new_tail = head;
+        for(int i = 0; i < n - k % n - 1; i++){
+            new_tail = new_tail.next;
         }
-        ListNode new_head = res.next;
-        res.next = null;
+        ListNode new_head = new_tail.next;
+        new_tail.next = null;
         return new_head;
+
     }
 }
