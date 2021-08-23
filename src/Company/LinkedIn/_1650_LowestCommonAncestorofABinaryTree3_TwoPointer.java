@@ -27,4 +27,38 @@ public class _1650_LowestCommonAncestorofABinaryTree3_TwoPointer {
 //        }
 //        return p1;
 //    }
+
+
+//    public TreeNode lowestCommonAncestor(Node p, Node q) {
+//        if (p == null || q == null)
+//            throw new IllegalArgumentException("Invalid input as p and q are guaranteed to exist");
+//
+//        int pDepth = getDepth(p), qDepth = getDepth(q);
+//
+//        while (pDepth > qDepth) {
+//            pDepth--;
+//            p = p.parent;
+//        }
+//
+//        while (qDepth > pDepth) {
+//            qDepth--;
+//            q = q.parent;
+//        }
+//
+//        while (p != q) {
+//            p = p.parent;
+//            q = q.parent;
+//        }
+//
+//        return p;
+//    }
+//
+//    private int getDepth(Node a) {
+//        int depth = 0;
+//        while (a != null) {
+//            a = a.parent;
+//            depth++;
+//        }
+//        return depth;
+//    }
 }

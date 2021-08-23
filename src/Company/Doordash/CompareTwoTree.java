@@ -122,7 +122,7 @@ class Node {
 }
 
 @SuppressWarnings({"ArraysAsListWithZeroOrOneArgument", "DuplicatedCode"})
-public class compareTwoTree {
+public class CompareTwoTree {
 
     // do dfs in here
     public int countDifferentNodes(Node existingMenu, Node newMenu) {
@@ -199,7 +199,7 @@ public class compareTwoTree {
     }
 
     public static void main(String[] args) {
-        compareTwoTree solution = new compareTwoTree();
+        CompareTwoTree solution = new CompareTwoTree();
         int expectedCount = 0;
         int actualCount = 0;
 

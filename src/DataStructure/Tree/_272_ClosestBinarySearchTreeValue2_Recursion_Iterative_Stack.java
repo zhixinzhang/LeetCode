@@ -20,7 +20,7 @@ import java.util.*;
  * Data structure
  */
 
-public class _272_ClosestBinarySearchTreeValue2_Recursion_Iterative {
+public class _272_ClosestBinarySearchTreeValue2_Recursion_Iterative_Stack {
     public static void main(String[] args){
         TreeNode root = new TreeNode(5);
         root.left = new TreeNode(2);
@@ -33,7 +33,61 @@ public class _272_ClosestBinarySearchTreeValue2_Recursion_Iterative {
         closestKValues(root, 7.1,3);
     }
 
-    // iterative
+    // O(k + log N)
+
+    public List<Integer> closestKValuesBest(TreeNode root, double target, int k) {
+        List<Integer> result = new LinkedList<Integer>();
+        // populate the predecessor and successor stacks
+        Stack<TreeNode> pred = new Stack<TreeNode>();
+        Stack<TreeNode> succ = new Stack<TreeNode>();
+        TreeNode curr = root;
+        while (curr != null) {
+            if (target <= curr.val) {
+                succ.push(curr);
+                curr = curr.left;
+            } else {
+                pred.push(curr);
+                curr = curr.right;
+            }
+        }
+        while (k > 0) {
+            if (pred.empty() && succ.empty()) {
+                break;
+            } else if (pred.empty()) {
+                result.add( getSuccessor(succ) );
+            } else if (succ.empty()) {
+                result.add( getPredecessor(pred) );
+            } else if (Math.abs(target - pred.peek().val) < Math.abs(target - succ.peek().val)) {
+                result.add( getPredecessor(pred) );
+            } else {
+                result.add( getSuccessor(succ) );
+            }
+            k--;
+        }
+        return result;
+    }
+
+    private int getPredecessor(Stack<TreeNode> st) {
+        TreeNode popped = st.pop();
+        TreeNode p = popped.left;
+        while (p != null) {
+            st.push(p);
+            p = p.right;
+        }
+        return popped.val;
+    }
+
+    private int getSuccessor(Stack<TreeNode> st) {
+        TreeNode popped = st.pop();
+        TreeNode p = popped.right;
+        while (p != null) {
+            st.push(p);
+            p = p.left;
+        }
+        return popped.val;
+    }
+
+    // iterative  O(N)
     static LinkedList<Integer> path = new LinkedList<>();
     public static List<Integer> closestKValues(TreeNode root, double target, int k) {
         LinkedList<Integer> res = new LinkedList<>();
