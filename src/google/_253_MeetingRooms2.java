@@ -1,9 +1,6 @@
 package google;
 
-import java.util.Arrays;
-import java.util.Comparator;
-import java.util.HashMap;
-import java.util.PriorityQueue;
+import java.util.*;
 import java.util.Comparator;
 
 /**
@@ -109,6 +106,20 @@ public class _253_MeetingRooms2 {
         }
 
         return res;
+    }
+
+
+    public int minMeetingRooms_TreeMap(Interval[] intervals) {
+        Map<Integer, Integer> map = new TreeMap<>();
+        for (Interval itl : intervals) {
+            map.put(itl.start, map.getOrDefault(itl.start, 0) + 1);
+            map.put(itl.end, map.getOrDefault(itl.end, 0) - 1);
+        }
+        int room = 0, k = 0;
+        for (int v : map.values())
+            k = Math.max(k, room += v);
+
+        return k;
     }
 
 //    public static void main(String[] args){
