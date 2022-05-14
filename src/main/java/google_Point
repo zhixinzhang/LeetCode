@@ -1,0 +1,72 @@
+108 follow up        complete BST
+150 EvaluatePolish   switch  DataStructure.Integer.parseInt();
+230 KthSmallest   dfs recursion  // in order
+261 validTree     union find // dfs // bfs // build graph detect circle full connect
+425. Word Squares  DFS + Trie  // hard *****
+299  Bulls and Cows   for loop 一边 int[]
+163 Missing Range
+363 hard
+159                  hashmap + sliding window  487 follow up
+494 DataStructure.DP DFS   ***
+281 **** linkedlist + iterator
+415 add stings **** static 用处  很相似的两道题
+
+815 BFS ***
+818 BFS DataStructure.DP ***
+830 two pointer easy
+656 ***** DataStructure.DP
+200 ***** DFS, UN
+815 ***** UN
+616 *** String 用int[] 数组表示   758  可以多看看 思路
+813 **** DataStructure.DP
+777 ****
+802 **** DFS
+768 *** 找规律768
+783 ***** inorder treeca'l
+774 ****  BS
+
+729 731 TreeMap TreeSet ****
+753 DFS
+687 DFS *****
+544 Recursion Iterator 维护一个数据结构 aray 或者 list 每次循环拿第一个和最后一个 简单题
+689 ****
+724 sliding window dp   ***
+778 PQ
+780 recursion
+765 HashMap ****
+756 DFS **********
+651 DataStructure.DP  *****
+
+549 recursion  298 DataStructure.Tree 经典题
+
+// tree  549  108 108 follow up 完全二叉树 834
+//[a b c] [c d e] 转化
+
+// Union Find  implement --- Union by rank and  Path compressopn
+
+DataStructure.Graph
+    unionFind 684  Boxfalldown unionfind
+505 490 684******  685******
+514 DataStructure.DP
+838 two pointer
+444****  Topology
+
+Design
+460**** LFU
+
+String Stack 726****
+
+DataStructure.Tree   94_ recursion iteratively(递归 迭代 stack)
+545 recursion and stackma
+Trie 208*****
+652 Recursion
+
+DataStructure.Tree.Array 531 533  253-732******  484  480***** 821****
+String 483
+
+
+String
+392 
+
+http://www.1point3acres.com/bbs/forum.php?mod=viewthread&tid=426234&extra=page%3D1%26filter%3Dsortid%26sortid%3D311%26searchoption%5B3046%5D%5Bvalue%5D%3D1%26searchoption%5B3046%5D%5Btype%5D%3Dradio%26searchoption%5B3109%5D%5Bvalue%5D%3D1%26searchoption%5B3109%5D%5Btype%5D%3Dradio%26sortid%3D311
+
