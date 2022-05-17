@@ -10,10 +10,13 @@ import java.util.Map;
  * Description: https://leetcode.com/problems/minimum-window-substring/discuss/26810/Java-solution.-using-two-pointers-%2B-HashMap
  * Similar task :
  * Key Point:
+ * Time Complexity: O(|S| + |T|)O(∣S∣+∣T∣)
+ * Space Complexity: O(|S| + |T|)O(∣S∣+∣T∣).
  */
 
 public class _76_MinimumWindowSubstring_SlidingWindow {
-    public String minWindow(String s, String t) {
+
+    public String minWindow_TwoPointer(String s, String t) {
         // corner case
         if(s == null || t == null || s.length() == 0 || t.length() == 0 || s.length() < t.length()) return "";
 
