@@ -134,9 +134,11 @@ public class _716_MaxStack_TreeMap_TwoStack {
         public int popMax() {
             int max = peekMax();
             Stack<Integer> buffer = new Stack();
-            while (top() != max) buffer.push(pop());
+            while (top() != max)
+                buffer.push(pop());
             pop();
-            while (!buffer.isEmpty()) push(buffer.pop());
+            while (!buffer.isEmpty())
+                push(buffer.pop());
             return max;
         }
     }
