@@ -6,17 +6,21 @@ import java.util.Stack;
 import java.util.TreeMap;
 
 /**
- * Created with IntelliJ IDEA.
- * User: zhixinzhang
- * Date: 5/10/19
- * Time: 4:07 PM
+ * @author Luke(New Man) Zhang
+ * @Date 5/17/2022 11:05 PM
+ * <p>
+ * Source Link:
+ * <p>
  * Description:
- *
- * https://www.1point3acres.com/bbs/thread-519628-1-1.html
+ * <p>
+ * <p>
+ * Time and Space Complexity:
+ * <p>
+ * <p>
+ * Data structure
  */
 
-
-public class _716_MaxStack_TreeMap_TwoStack {
+public class _716_MaxStack_TreeMap_DoubleLinkedList_TwoStack {
     // TreeMap O(log n) time
     class Node{
         int val;
