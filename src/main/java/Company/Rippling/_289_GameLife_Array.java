@@ -1,12 +1,9 @@
-package DataStructure.Array;
-
-import java.util.HashMap;
-import java.util.Map;
+package Company.Rippling;
 
 /**
  * Created with IntelliJ IDEA.
  * User: zhixinzhang
- * Date: 4/25/19
+ * Date: 4/25/22
  * Time: 2:11 PM
  * Description:
  *
@@ -22,8 +19,7 @@ import java.util.Map;
  * I used array a,b to avoid those 8 if cases to be written again & again :)
  */
 
-
-public class _289_GameLife_BFS_MAP_XOR {
+public class _289_GameLife_Array {
     public void gameOfLife(int[][] arr) {
         int n=arr.length;
         int m=arr[0].length;

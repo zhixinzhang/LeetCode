@@ -2,7 +2,8 @@ package DataStructure.BinaryTree;
 
 /**
  * Created by zhang on 2018/3/27.
- * dfs all the nodes of the tree, each node return two number, int[] num, num[0] is the max value while rob this node, num[1] is max value while not rob this value. Current node return value only depend on its children’s value.
+ * dfs all the nodes of the tree, each node return two number, int[] num, num[0] is the max value while rob this node,
+ * num[1] is max value while not rob this value. Current node return value only depend on its children’s value.
  * Transform function should be very easy to understand.
  * 两种状态 num【0】 抢当前的node num【1】 不抢当前的node
  */
