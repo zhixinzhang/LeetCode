@@ -1,4 +1,4 @@
-package Company.uber;
+package DataStructure.Array;
 
 import java.util.Stack;
 
@@ -7,7 +7,35 @@ import java.util.Stack;
  * follow up 是可以有负数的情况
  */
 public class _772_BasicCalculator3_followUp {
-    //
+
+    // Use recurssion solution
+    int indx = 0;
+    public int calculate_recurssion(String s) {
+        int curNum = 0, prevNum = 0, result = 0;
+        char prevSign = '+';
+        while(indx < s.length()) {
+            char curr = s.charAt(indx++);
+            if (Character.isDigit(curr)) {
+                curNum = curNum * 10 + curr - '0';
+            } else if (curr == '(') {
+                curNum = calculate_recurssion(s);
+            }
+            if(curr == '+' || curr == '-' || curr == '*' || curr == '/' || curr == ')' ||indx == s.length()) {
+                switch(prevSign) {
+                    case '+': result += prevNum; prevNum = curNum; break;
+                    case '-': result += prevNum; prevNum = -curNum; break;
+                    case '*': prevNum *= curNum; break;
+                    case '/': prevNum /= curNum; break;
+                }
+                if (curr == ')') break;
+                curNum = 0;
+                prevSign = curr;
+            }
+        }
+        return result += prevNum;
+
+    }
+
     public static void main(String[] args){
         calculate_followUp("5 - (-3 / 3 + 1) * 2"); // 1
     }

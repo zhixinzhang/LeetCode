@@ -32,4 +32,30 @@ public class _36_ValidSudoku_Set {
         }
         return true;
     }
+
+    // only check row and column
+    public static boolean isValidMatrix(int[][] matrix) {
+        if (matrix == null || matrix.length == 0 || matrix[0].length == 0 || matrix.length != matrix[0].length) {
+            return false;
+        }
+        int n = matrix.length;
+
+        for (int i = 0; i < n; i++) {
+            Set<Integer> rowSet = new HashSet<>();
+            Set<Integer> colSet = new HashSet<>();
+            for (int j = 0; j < n; j++) {
+                // check row
+                int x = matrix[i][j];
+                if (!rowSet.add(x) || x  < 1 || x > n) {
+                    return false;
+                }
+                // check column
+                int y = matrix[j][i];
+                if (!colSet.add(y) || y < 1 || y > n) {
+                    return false;
+                }
+            }
+        }
+        return true;
+    }
 }
