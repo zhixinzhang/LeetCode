@@ -10,6 +10,8 @@ import java.util.Map;
  * @Date 2021-08-11 15:21
  *
  * https://www.1point3acres.com/bbs/thread-779975-1-1.html
+ *
+ * Simliar ques : https://leetcode.com/discuss/interview-question/1367130/doordash-phone-interview
  */
 public class MenusCompare {
     static class TreeNode{

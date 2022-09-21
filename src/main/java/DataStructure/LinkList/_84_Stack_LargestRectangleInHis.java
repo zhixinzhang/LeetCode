@@ -12,6 +12,22 @@ import java.util.Stack;
 /**如果用两次循环 哦O(n2) 每次循环到一个点 然后左右判断 是否能包含  这样时间复杂度 太大
  *所以用stack 而stack 重点的地方是  stack里面的数值是持续递增的 ！！ 比如2 3 12 11 不能有11
  *
+ * So the algorithm boils down to:
+ *
+ * Maintain a stack such that heights are always in increasing order.
+ * When we see a column that's lower than what's on the stack
+ * Use it as the right side and compute all the possible rectangles using what's on the stack to derive left side and height.
+ * Remove each considered rectangle / column from the stack
+ *
+ *     这个题的核心是要保持一个单调递增的stack，每次遇到比栈顶小的元素，pop掉最高的元素
+ *     此时最高的元素是局部最小的height，这里就需要利用当前i的index减去栈顶前一个元素的坐标
+ *     这样可以得到这个局部的width是多少。这样height*width就是局部最小的面积。
+ *
+ *     如果当前的i仍然大于栈顶元素，继续进行pop，这样得到下一个局部最小值
+ *
+ *     最后stack剩下的height index，就是全局下最小的index，因为比他们大的，都被pop掉了
+ *     所以直接pop stack，width就是总的len 减去他的index即可
+ *
  * */
 public class _84_Stack_LargestRectangleInHis {
     // best solvement
