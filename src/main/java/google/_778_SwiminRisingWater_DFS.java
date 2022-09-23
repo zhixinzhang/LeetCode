@@ -2,6 +2,8 @@ package google;
 
 import java.util.HashSet;
 import java.util.PriorityQueue;
+import java.util.Set;
+import java.util.Stack;
 
 /**
  * Created by zhang on 2018/5/21.
@@ -17,6 +19,21 @@ import java.util.PriorityQueue;
  */
 // O(n^2 logn)
 public class _778_SwiminRisingWater_DFS {
+    /**
+     * Let's keep a priority queue of which square we can walk in next. We always walk in the smallest one that is 4-directionally adjacent to ones we've visited.
+     *
+     * When we reach the target, the largest number we've visited so far is the answer.
+     *
+     * Time Complexity: O(N^2 \log N)O(N
+     * 2
+     *  logN). We may expand O(N^2)O(N
+     * 2
+     *  ) nodes, and each one requires O(\log N)O(logN) time to perform the heap operations.
+     *
+     * Space Complexity: O(N^2)O(N
+     * 2
+     *  ), the maximum size of the heap.
+     * */
     public int swimInWater_PQ(int[][] grid) {
         PriorityQueue<int[]> pq = new PriorityQueue<>((a,b) -> (grid[a[0]][a[1]] - grid[b[0]][b[1]]));
         pq.add(new int[]{0, 0});
@@ -44,45 +61,65 @@ public class _778_SwiminRisingWater_DFS {
     }
 
 
-
-    public static int swimInWater(int[][] grid) {
-        if (grid == null || grid[0].length == 0)    return 0;
-        int row = grid.length;
-        int col = grid[0].length;
-        int res = grid[row-1][col-1] - grid[0][0];
-        HashSet<int[]> visited = new HashSet<>();
-        PriorityQueue<int[]> pq = new PriorityQueue<>((a,b) -> (grid[a[0]][a[1]] - grid[b[0]][b[1]]));
-        pq.add(new int[]{0,0});
-        visited.add(new int[]{0,0});
-        // 0  (1,23)
-        while (!pq.isEmpty()){
-            int[] curPoint = pq.poll();
-            int curPointRow = curPoint[0];
-            int curPointCol = curPoint[1];
-            int val = grid[curPointRow][curPointCol];
-            res = Math.max(res,val);
-            int[][] dir = new int[][]{{0,1},{0,-1},{1,0},{-1,0}};
-            for (int[] d : dir){
-                int nextPointRow = curPoint[0] + d[0];
-                int nextPointCol = curPoint[1] + d[1];
-                // out of border
-                if (nextPointRow < 0 || nextPointRow > grid.length || nextPointCol <0 || nextPointCol > grid[0].length)
-                    continue;
-                if (visited.contains(new int[]{nextPointRow,nextPointCol})){
-                    continue;
-                }
-                int nextPointVal =  grid[nextPointRow][nextPointCol];
-                if (nextPointCol == grid.length -1 && nextPointRow == grid[0].length -1)
-                    return  Math.max(nextPointVal,res) - grid[0][0];
-//                if (nextPointVal > res){
-                pq.add(new int[]{nextPointRow,nextPointCol});
-//                }
+/**
+ * Whether the swim is possible is a monotone function with respect to time, so we can binary search this function for the correct time: the smallest T for which the swim is possible.
+ *
+ * Say we guess that the correct time is T. To check whether it is possible, we perform a simple depth-first search where we can only walk in squares that are at most T.
+ *
+ * Time Complexity: O(N^2 \log N)O(N
+ * 2
+ *  logN). Our depth-first search during a call to possible is O(N^2)O(N
+ * 2
+ *  ), and we make up to O(\log N)O(logN) of them.
+ *
+ * Space Complexity: O(N^2)O(N
+ * 2
+ *  ),
+ * */
+    public static int swimInWater_BS_DFS(int[][] grid) {
+        int N = grid.length;
+        int lo = grid[0][0], hi = N * N;
+        while (lo < hi) {
+            int mi = lo + (hi - lo) / 2;
+            if (!possible(mi, grid)) {
+                lo = mi + 1;
+            } else {
+                hi = mi;
             }
         }
-        return res;
+        return lo;
+    }
+
+    public static boolean possible(int T, int[][] grid) {
+        int N = grid.length;
+        Set<Integer> seen = new HashSet();
+        seen.add(0);
+        int[] dr = new int[]{1, -1, 0, 0};
+        int[] dc = new int[]{0, 0, 1, -1};
+
+        Stack<Integer> stack = new Stack();
+        stack.add(0);
+
+        while (!stack.empty()) {
+            int k = stack.pop();
+            int r = k / N, c = k % N;
+            if (r == N-1 && c == N-1) return true;
+
+            for (int i = 0; i < 4; ++i) {
+                int cr = r + dr[i], cc = c + dc[i];
+                int ck = cr * N + cc;
+                if (0 <= cr && cr < N && 0 <= cc && cc < N
+                        && !seen.contains(ck) && grid[cr][cc] <= T) {
+                    stack.add(ck);
+                    seen.add(ck);
+                }
+            }
+        }
+
+        return false;
     }
     public static void main(String[] args){
         int[][] grid = new int[][]{{0,2},{1,3}};
-        swimInWater(grid);
+        swimInWater_BS_DFS(grid);
     }
 }

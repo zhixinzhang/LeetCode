@@ -66,6 +66,7 @@ public class _84_Stack_LargestRectangleInHis {
         }
         return result;
     }
+
     public static int calculate(int i, int[] heights){
         //每个柱子左右扫描
         int val = heights[i];

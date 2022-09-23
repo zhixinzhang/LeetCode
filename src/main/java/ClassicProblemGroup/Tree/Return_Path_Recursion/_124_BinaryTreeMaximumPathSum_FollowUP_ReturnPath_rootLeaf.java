@@ -7,7 +7,8 @@ import java.util.*;
 public class _124_BinaryTreeMaximumPathSum_FollowUP_ReturnPath_rootLeaf {
     public List<TreeNode> findpath(TreeNode root) {
         Node res = helper(root);
-        if (res == null) return new ArrayList<>();
+        if (res == null)
+            return new ArrayList<>();
         List<TreeNode> cur = res.list;
         Collections.reverse(cur);
         return cur;
@@ -17,6 +18,7 @@ public class _124_BinaryTreeMaximumPathSum_FollowUP_ReturnPath_rootLeaf {
         if (root == null) return null;
         Node left = helper(root.left);
         Node right = helper(root.right);
+
         if (left == null && right == null) {
             Node cur = new Node(root.val);
             cur.list.add(root);
@@ -32,6 +34,7 @@ public class _124_BinaryTreeMaximumPathSum_FollowUP_ReturnPath_rootLeaf {
             return left;
         }
     }
+
     //To any node in the tree
     public Node backtrack(TreeNode root) {
         if (root == null) return null;
@@ -68,6 +71,7 @@ public class _124_BinaryTreeMaximumPathSum_FollowUP_ReturnPath_rootLeaf {
             list = new ArrayList<>();
         }
     }
+
     class TreeNode {
         TreeNode left;
         TreeNode right;
