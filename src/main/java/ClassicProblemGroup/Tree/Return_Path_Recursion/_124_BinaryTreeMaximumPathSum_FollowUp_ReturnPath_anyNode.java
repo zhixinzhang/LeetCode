@@ -1,5 +1,4 @@
 package ClassicProblemGroup.Tree.Return_Path_Recursion;
-//import company.PG.TreeNode;
 
 
 import google.TreeNode;
@@ -63,20 +62,20 @@ public class _124_BinaryTreeMaximumPathSum_FollowUp_ReturnPath_anyNode {
         }
     }
 
-//    public static void main(String[] args) {
-//        System.out.println("Hello");
-//
-//        TreeNode root1 = new TreeNode(1);
-//        root1.left = new TreeNode(2);
-//        root1.right = new TreeNode(3);
-//        root1.left.left = new TreeNode(5);
-//        root1.left.right = new TreeNode(13);
-//        root1.left.right.left = new TreeNode(5);
-//        root1.right.left = new TreeNode(2);
-//        root1.right.left.right = new TreeNode(7);
-//        root1.right.right = new TreeNode(-5);
-//        Node res1 = maxSumPath(root1);
-//        res1.print();
-//        //System.out.println(res1.print());
-//    }
+    public static void main(String[] args) {
+        System.out.println("Hello");
+
+        TreeNode root1 = new TreeNode(1);
+        root1.left = new TreeNode(2);
+        root1.right = new TreeNode(3);
+        root1.left.left = new TreeNode(5);
+        root1.left.right = new TreeNode(13);
+        root1.left.right.left = new TreeNode(5);
+        root1.right.left = new TreeNode(2);
+        root1.right.left.right = new TreeNode(7);
+        root1.right.right = new TreeNode(-5);
+        Node res1 = maxSumPath(root1);
+        res1.print();
+        //System.out.println(res1.print());
+    }
 }

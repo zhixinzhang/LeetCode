@@ -63,6 +63,7 @@ public class _124_BinaryTreeMaximumPathSum_FollowUP_ReturnPath_rootLeaf {
             return left;
         }
     }
+
     class Node {
         int sum;
         List<TreeNode> list;
