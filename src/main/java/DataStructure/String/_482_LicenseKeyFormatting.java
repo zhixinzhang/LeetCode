@@ -1,5 +1,4 @@
 package DataStructure.String;
-import java.util.*;
 
 public class _482_LicenseKeyFormatting{
 
