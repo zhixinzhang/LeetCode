@@ -1,6 +1,6 @@
  package google;
 
-
+ // O(N) Time O(N) space
  import java.util.Stack;
 
  public class _394_DecodeString_stack{
@@ -8,7 +8,7 @@
  public String decodeString(String s) {
     // 1 find first ']'   use stack 
     //Stack
-   String res = "";
+        String res = "";
         Stack<Integer> countStack = new Stack<>();
         Stack<String> resStack = new Stack<>();
         int idx = 0;
