@@ -1,4 +1,6 @@
 package Company.Square;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
 import java.util.*;
 
 
@@ -167,9 +169,11 @@ public class _Design_Text_Editor2 {
         editor.typeIn("L");
         editor.typeIn("L");
         editor.typeIn("O");
+        
         String ans = editor.toString(); // HELLO|
         System.out.println(ans);
-
+        assertEquals("HELLO|", ans);
+        
         editor.moveCursor("left");
         ans = editor.toString();
         System.out.println(ans);    // HELL|O
