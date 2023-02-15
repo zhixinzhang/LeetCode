@@ -4,7 +4,7 @@ import java.util.*;
 // https://leetcode.com/problems/rank-teams-by-votes/solutions/524853/java-o-26n-26-2-log26-sort-by-high-rank-vote-to-low-rank-vote/
 // O(26n+(26^2 * log26)), Sort by high rank vote to low rank vote
 
-public class _1366_RankTeamsbyVotes {
+public class _1366_RankTeamsbyVotes_Sort {
   /**
    * 
    *    // A [5, 0, 0]

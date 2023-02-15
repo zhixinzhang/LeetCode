@@ -17,10 +17,28 @@ public class _CeaserCipher_ {
       }
       return cipherText;
     }
+
+    
+    public static String decrypt(String cipherText, int shiftKey) {
+      cipherText = cipherText.toLowerCase();
+      String message = "";
+      for (int ii = 0; ii < cipherText.length(); ii++) {
+        int charPosition = alpha.indexOf(cipherText.charAt(ii));
+        int keyVal = (charPosition - shiftKey) % 26;
+        if (keyVal < 0) {
+          keyVal = alpha.length() + keyVal;
+        }
+        char replaceVal = alpha.charAt(keyVal);
+        message += replaceVal;
+      }
+      return message;
+    }
   
     public static void main(String[] args) {
       String message = "abc";
       int key = 3;
       System.out.println("\nEncrpyted msg:" + encrypt(message, key));
-    } //main method ends
+
+      System.out.println("\ndecrpyted msg:" + decrypt("abc", key));
+    } 
 }

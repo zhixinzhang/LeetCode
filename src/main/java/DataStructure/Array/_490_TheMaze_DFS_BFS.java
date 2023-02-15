@@ -1,8 +1,5 @@
 package DataStructure.Array;
-
-import java.util.Arrays;
-import java.util.LinkedList;
-import java.util.Queue;
+import java.util.*;
 
 /**
  * Created by zhang on 2018/5/8.
@@ -10,80 +7,67 @@ import java.util.Queue;
  * 需要做个判断
  */
 public class _490_TheMaze_DFS_BFS {
-    public static void main(String[] args){
-        int[][] maze = new int[][]{{0,0,1,0,0},{0,0,0,0,0},{0,0,0,1,0},{1,1,0,1,1},{0,0,0,0,0}};
-//        maze_DFS(maze,new int[]{4,4},new int[]{4,4});
+    int [][] dirs= new int [][]{{0,1},{0,-1},{1,0},{-1,0}};
+
+    public boolean hasPath(int[][] maze, int[] start, int[] destination) {
+        int rows = maze.length;
+        int cols = maze[0].length;
+        boolean[][] visited = new boolean[rows][cols];
+        
+        return dfs(maze, start, destination, visited, rows, cols);  
     }
 
-    public boolean maze_DFS(int[][] maze, int[] start, int[] destination) {
-        if(maze.length == 0 || maze[0].length == 0) return false;
-        if(start[0] == destination[0] && start[1] == destination[1]) return true;
+    private boolean dfs(int[][] maze, int[] start, int[] destination,boolean[][] visited,int rows,int cols){
+       if(visited[start[0]][start[1]])  return false;
+        
+        if(start[0]==destination[0]&& start[1]==destination[1]) return true;
+        visited[start[0]][start[1]]=true;
+        
+        for(int [] dir:dirs){
+            int dx= start[0];
+            int dy= start[1];
+            while(dx+dir[0]>=0&&dx+dir[0]<rows&&dy+dir[1]>=0&&dy+dir[1]<cols&&maze[dx+dir[0]][dy+dir[1]]!=1){
+                dx+=dir[0];
+                dy+=dir[1];
+            }
+            if(dfs(maze,new int[]{dx,dy},destination,visited,rows,cols)){
+                return true;
+            }
+        }
+        return false;
+    }
 
-        m = maze.length; n = maze[0].length;
+
+    int[][] move = new int[][] {{-1, 0}, {0, -1}, {0, 1}, {1, 0}};
+    public boolean hasPathBFS(int[][] maze, int[] start, int[] destination) {
+        int m = maze.length;
+        int n = maze[0].length;
+        Queue<int[]> queue = new LinkedList<>();
         boolean[][] visited = new boolean[m][n];
-        return dfs(maze, start, destination, visited);
-    }
-    int m, n;
-    int[][] dirs = {{-1, 0}, {1, 0}, {0, -1}, {0, 1}};
-    private boolean dfs(int[][] maze, int[] cur, int[] dest, boolean[][] visited) {
-        // already visited
-        if(visited[cur[0]][cur[1]]) return false;
-        // reach destination
-        if(Arrays.equals(cur, dest)) return true;
+        queue.offer(start);
 
-        visited[cur[0]][cur[1]] = true;
-        for(int[] dir : dirs) {
-            int nx = cur[0], ny = cur[1];
-            while(notWall(nx + dir[0], ny + dir[1]) && maze[nx+dir[0]][ny+dir[1]] != 1) {
-                nx += dir[0]; ny += dir[1];
+        while (!queue.isEmpty()) {
+          int[] cur = queue.poll();
+          if (cur[0] == destination[0] && cur[1] == destination[1]) {
+            return true;
+          }
+          if (visited[cur[0]][cur[1]])
+            continue;
+          visited[cur[0]][cur[1]] = true;
+          
+          for (int[] mo : move) {
+            int x = cur[0], y = cur[1];
+            while (x >= 0 && x < m && y >= 0 && y < n && maze[x][y] == 0) {
+              x += mo[0];
+              y += mo[1];
             }
-            if(dfs(maze, new int[] {nx, ny}, dest, visited)) return true;
+            // Back to validate point.
+            x -= mo[0];
+            y -= mo[1];
+            // Adding new start point.
+            queue.offer(new int[] {x, y});
+          }
         }
         return false;
-    }
-
-    private boolean notWall(int x, int y) {
-        return x >= 0 && x < m && y >= 0 && y < n;
-    }
-
-
-
-    public static int[] goStop(int[][] maze, int[] start, int[] d){
-        while ((start[0] + d[0] < maze.length) && (start[1] + d[1] <maze[0].length)){
-            if (maze[start[0] + d[0]][start[1] + d[1]] != 1){
-                start[0] = start[0] + d[0];
-                start[1] = start[1] + d[1];
-            }else{
-                return start;
-            }
-        }
-        return start;
-    }
-
-
-    public static boolean maze_BFS(int[][] maze, int[] start, int[] end){
-        if (start[0] == end[0] && start[1] == end[1])   return true;
-        if (maze == null || maze.length == 0 || maze[0].length == 0)    return false;
-        Queue<int[]> q = new LinkedList<>();
-        int r = maze.length, c = maze[0].length;
-        boolean[][] visited = new boolean[r][c];
-        q.add(start);
-        int[][] directions = new int[][]{{-1, 0}, {1, 0}, {0, -1}, {0, 1}};
-        while (!q.isEmpty()){
-            int curSize = q.size();
-            for (;curSize >= 0; curSize--){
-                int[] curNode = q.poll();
-                for (int[] d : directions){
-                    int[] nextNode = goStop(maze,curNode,d);
-                    if (nextNode[0] == end[0] && nextNode[1] == end[1])
-                        return true;
-                    if (visited[nextNode[0]][nextNode[1]]) {
-                        visited[nextNode[0]][nextNode[1]] = true;
-                        q.add(nextNode);
-                    }
-                }
-            }
-        }
-        return false;
-    }
+      }
 }
