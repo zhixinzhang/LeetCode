@@ -169,25 +169,4 @@ public class _Design_Text_Editor {
         ans = editor.toString();
         System.out.println(ans);
     }
-
-    // private static ArrayDeque<String> line = new ArrayDeque<>();
-    // private static StringBuilder sb = new StringBuilder();
-    // public static void typeIn(String word){
-    //     line.addLast(word);
-    // }
-
-    // public static void backspace(){
-    //     if (!line.isEmpty()) {
-    //         line.removeLast();
-    //     }
-    // }
-
-    // public static String toStringText(){
-    //     for (String c : line){
-    //         sb.append(c);
-    //     }
-
-    //     return sb.toString();
-    // }
-  
 }
