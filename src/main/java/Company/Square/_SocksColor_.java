@@ -20,7 +20,7 @@ public class _SocksColor_ {
             {"5", "left", "red"}
         };
 
-        // findPairs(inputs);
+        findPairs(inputs);
 
         //("blue", "black"), ("black", "red"),
         String[][] inputs2 = new String[][]{

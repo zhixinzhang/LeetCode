@@ -2,6 +2,8 @@ package Company.Square;
 import java.util.*;
 
 /**
+ * https://www.1point3acres.com/bbs/thread-825957-1-1.html
+ * 
  * Given R (number of rows) and C (number of columns), make an R x C grid and fill it with the characters in a binary string that is provided to you.
 Example:
 R = 4
