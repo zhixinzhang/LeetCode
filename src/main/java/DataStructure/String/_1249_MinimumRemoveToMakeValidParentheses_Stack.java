@@ -11,9 +11,13 @@ import java.util.*;
  */
 
 public class _1249_MinimumRemoveToMakeValidParentheses_Stack {
+    public static void main(String[] args){
+        String input = "111)  (134())(((";
+        minRemoveToMakeValid(input);
+    }
     // use stack
     // Time complexity : O(n)O(n), where nn is the length of the input string.
-    public String minRemoveToMakeValid(String s) {
+    public static String minRemoveToMakeValid(String s) {
         if(s == null || s.length() == 0) {
             return s;
         }
@@ -43,6 +47,7 @@ public class _1249_MinimumRemoveToMakeValidParentheses_Stack {
             }
         }
 
+        System.out.println(sb.toString());
         return sb.toString();
 
     }

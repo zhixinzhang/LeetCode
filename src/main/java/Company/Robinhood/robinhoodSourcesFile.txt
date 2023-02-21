@@ -1,0 +1,27 @@
+SD : 
+https://www.1point3acres.com/bbs/thread-891775-1-1.html
+https://www.1point3acres.com/bbs/thread-884355-1-1.html
+https://www.1point3acres.com/bbs/thread-874826-1-1.html
+https://www.1point3acres.com/bbs/thread-850766-1-1.html
+https://www.1point3acres.com/bbs/thread-849374-1-1.html
+https://dropbox.tech/infrastructure/asynchronous-task-scheduling-at-dropbox
+
+
+大概是 Trading system for user to submit limit order to external service. 地里也有别人发的面经, scalibility的要求挺低的.
+Compute ads campaign ROI那道题, 他贴完题目直接说我们分成两部分考虑, 一部分是怎么收集和整理数据, 一部分是怎么计算结果.
+
+Robinhood Karat 电面:
+https://www.1point3acres.com/bbs/thread-807470-1-1.html
+https://www.1point3acres.com/bbs/thread-887597-1-1.html
+https://www.1point3acres.com/bbs/thread-853452-1-1.html
+_1249_MinimumRemoveToMakeValidParentheses_Stack
+
+Oniste: 
+https://www.1point3acres.com/bbs/thread-943606-1-1.html
+https://www.1point3acres.com/bbs/thread-963155-1-1.html
+https://www.1point3acres.com/bbs/thread-873690-1-1.html
+https://www.1point3acres.com/bbs/thread-856955-1-1.html
+https://www.1point3acres.com/bbs/thread-852187-1-1.html
+
+microservices dependency
+https://www.1point3acres.com/bbs/thread-859208-1-1.html

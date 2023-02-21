@@ -13,7 +13,6 @@ import java.util.*;
 
 public class _210_CourseSchedule2_BFS_DFS_TopoLogicalSort {
     public int[] findOrder(int numCourses, int[][] prerequisites) {
-        boolean isPossible = true;
         Map<Integer, List<Integer>> adjList = new HashMap<Integer, List<Integer>>();
         int[] indegree = new int[numCourses];
         int[] topologicalOrder = new int[numCourses];
