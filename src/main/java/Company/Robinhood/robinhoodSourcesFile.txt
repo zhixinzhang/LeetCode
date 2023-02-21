@@ -3,7 +3,10 @@ https://www.1point3acres.com/bbs/thread-891775-1-1.html
 https://www.1point3acres.com/bbs/thread-884355-1-1.html
 https://www.1point3acres.com/bbs/thread-874826-1-1.html
 https://www.1point3acres.com/bbs/thread-850766-1-1.html
-https://www.1point3acres.com/bbs/thread-849374-1-1.html
+https://www.1point3acres.com/bbs/thread-849374-1-1.html job scheduler
+https://www.1point3acres.com/bbs/thread-846325-1-1.html job scheduler
+https://www.1point3acres.com/bbs/thread-844903-1-1.html job scheduler
+https://www.1point3acres.com/bbs/thread-832416-1-1.html job scheduler
 https://dropbox.tech/infrastructure/asynchronous-task-scheduling-at-dropbox
 
 
@@ -22,6 +25,9 @@ https://www.1point3acres.com/bbs/thread-963155-1-1.html
 https://www.1point3acres.com/bbs/thread-873690-1-1.html
 https://www.1point3acres.com/bbs/thread-856955-1-1.html
 https://www.1point3acres.com/bbs/thread-852187-1-1.html
+https://www.1point3acres.com/bbs/thread-831063-1-1.html
+https://www.1point3acres.com/bbs/thread-828863-1-1.html
+https://www.1point3acres.com/bbs/thread-819383-1-1.html
 
 microservices dependency
 https://www.1point3acres.com/bbs/thread-859208-1-1.html
