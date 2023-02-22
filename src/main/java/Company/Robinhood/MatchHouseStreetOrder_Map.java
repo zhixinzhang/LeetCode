@@ -1,29 +1,40 @@
 package Company.Robinhood;
-
 import java.util.*;
-import java.util.stream.Collectors;
 
 /**
  * @author Luke Zhang
  * @Date 2021-07-21 22:07
  * 
+ * // A trade is defined as a fixed-width string containing the 4 properties given below separated by commas:
+
+// Symbol (4 alphabetical characters, left-padded by spaces)
+// Type (either "B" or "S" for buy or sell)
+// Quantity (4 digits, left-padded by zeros)
+// ID (6 alphanumeric characters)
+// e.g.
+// "AAPL,B,0100,ABC123"
+ * 
  * https://leetcode.com/discuss/interview-question/882324/robinhood-phone-screen
  */
-public class MatchHouseStreetOrder_Map_CO {
+
+ // O(N * M * M*Log(M)) N is the count of different Stock + quantity
+ // M is the length of that type trader order
+public class MatchHouseStreetOrder_Map {
+    static final String exactMatch = "exact";
+    static final String fuzzyMatch = "fuzzy";
+    static final String offsetMatch = "offset";
     public static List<String> getUnMatchOrders(String[] houseTrades, String[] streetTrades) {
         // <symbol+quantity, Map<Trade, count>>
         Map<String, List<String>> houseMap = getTradeMap(houseTrades);
         Map<String, List<String>> streetMap = getTradeMap(streetTrades);
-        // removeExactMatch(houseMap, streetMap);
-        removeMatches(houseMap, streetMap, "exact");
+
+        removeMatches(houseMap, streetMap, exactMatch);
         
         // Q2
-        // removeAttributeMatch(houseMap, streetMap);
-        removeMatches(houseMap, streetMap, "attribute");
+        removeMatches(houseMap, streetMap, fuzzyMatch);
         
         // Q3
-        // removeAttributeMatch(houseMap, streetMap);
-        removeMatches(houseMap, streetMap, "offset");
+        removeMatches(houseMap, streetMap, offsetMatch);
         
         List<String> unMatched = new ArrayList<>();
         for (List<String> val : houseMap.values()) {
@@ -43,7 +54,9 @@ public class MatchHouseStreetOrder_Map_CO {
         String macthType
     ) {
         List<String> houseMapKeys = new ArrayList<>(houseMap.keySet());
-        Collections.sort(houseMapKeys);
+        // if Prioritize exact and fuzzy matches over offsetting matches. Prioritize matching the earliest alphabetical buy with the earliest alphabetical sell.
+        // then uncomment three Collections.sort
+        // Collections.sort(houseMapKeys);
         for (String key : houseMapKeys) {
             if (streetMap.containsKey(key)) {
                 // has same symbol and quantity, try to cancel out
@@ -52,8 +65,8 @@ public class MatchHouseStreetOrder_Map_CO {
                 List<String> hTrades = houseMap.get(key);
                 List<String> sTrades = streetMap.get(key);
                 
-                Collections.sort(hTrades);
-                Collections.sort(sTrades);
+                // Collections.sort(hTrades);
+                // Collections.sort(sTrades);
                 
                 for (int i = 0; i < hTrades.size(); i++) {
                     String hTrade = hTrades.get(i);
@@ -69,7 +82,7 @@ public class MatchHouseStreetOrder_Map_CO {
                                 sTradeRemove.add(j);
                                 break;
                             }
-                        } else if (macthType == "attribute") {
+                        } else if (macthType == "fuzzy") {
                             if (hTrade.split(",")[1].equals(sTrade.split(",")[1])) {
                                 hTradeRemove.add(i);
                                 sTradeRemove.add(j);
@@ -105,7 +118,7 @@ public class MatchHouseStreetOrder_Map_CO {
     private static Map<String, List<String>> getTradeMap(String[] trades) {
         Map<String, List<String>> tradeMap = new HashMap<>();
         for (String trade : trades) {
-            String[] parts = trade.split(",");
+            String[] parts = trade.split(",");  // AAPL,S,0010,ZYX444
             String symbol = parts[0];
             String quantity = parts[2];
             String key = symbol + " " + quantity;
@@ -170,9 +183,7 @@ public class MatchHouseStreetOrder_Map_CO {
         };
         streetTrades = new String[] {
             "  FB,B,0100,GBGGGG", 
-            "AAPL,B,0100,ABC123", 
-            "AAPL,B,0100,ABC123", 
-            "GOOG,S,0050,CDC333",
+            "AAPL,B,0100,ABC123"
         };
         System.out.println("Test case 4: " + getUnMatchOrders(houseTrades, streetTrades));
         
