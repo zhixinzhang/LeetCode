@@ -30,7 +30,8 @@ orders = [
 ]
  * 
  * 
- * Maintain two PQs - sellPQ which has all the pending sell orders in a minHeap (because a buy order wants to be paired with the lowest priced pending sell order) and a buyPQ which has all the pending buy orders in a maxHeap (because a sell order wants to be paired with the highest priced pending buy order).
+Maintain two PQs - sellPQ which has all the pending sell orders in a minHeap (because a buy order wants to be paired with the lowest priced pending sell order) 
+and a buyPQ which has all the pending buy orders in a maxHeap (because a sell order wants to be paired with the highest priced pending buy order).
 Process all the orders one at a time.
 2a) If it is a SELL order:
 i. Check if it can be executed or fulfilled by some pending buy order.
@@ -69,6 +70,7 @@ public class _StreamingIncomingOrders_totalQuantityExecuted_ {
     public static void main(String[] args){
         String[][] orders = {
             {"150", "5", "buy"},    // Order A
+            {"170", "5", "buy"},    // Order A
             {"190", "1", "sell"},   // Order B
             {"200", "1", "sell"},   // Order C
             {"100", "9", "buy"},    // Order D

@@ -24,10 +24,12 @@ Max price
 Min price
 
 Important: If an interval has no prices, use the previous datapoint’s last price for all prices. If there are no prices and no previous datapoints, skip the interval.
-
 You should return a string formatted as {start,first,last,max,min}. For the prices shown above, the expected datapoints are
-
- * 
+*
+Solution : 
+Use two map, when we for loop the inputs, we parse the inputs
+. the first map store <timeStamp interval(every 10 seconds),  value is arraylist to store all prices>
+. the second map store <timeStamp interval, max price and min price> 
 */
 public class _CandleStick_ {
     public static void main(String[] args){

@@ -9,20 +9,33 @@ O(V+E) runtime
 O(V+E) space
 
 https://leetcode.com/discuss/interview-question/1681871/robinhood-vo-staff
+https://www.1point3acres.com/bbs/thread-859208-1-1.html
+output:
+dashboard*1
+logging*4
+orders*2
+recommendations*1
+user*4
  * 
 */
 public class _MicroDependencies_ {
     public static void main(String[] args) {
-        _MicroDependencies_ algo = new _MicroDependencies_();
         String[] service_list = {"logging=",
                 "user=logging",
                 "orders=user,foobar",
                 "recommendations=user,orders",
                 "dashboard=user,orders,recommendations"};
+        
+        String[] service_list2 = {"logging=",
+        "foobar=",
+        "user=logging",
+        "orders=user,foobar",
+        "recommendations=user,orders",
+        "dashboard=user,orders,recommendations"};
     
         String entrypoint = "dashboard";
     
-        List<String> result = algo.loadFactorDagTopoSort(service_list, entrypoint);
+        List<String> result = loadFactorDagTopoSort(service_list2, entrypoint);
         for (String s : result) {
           System.out.println(s);
         }

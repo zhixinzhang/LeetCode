@@ -161,6 +161,10 @@ public class _MarginCall_Map {
             cash = tradeStock(ownShares, shareName, ops, quantity, price, cash);
         }
 
+        printProtfolio(cash, ownShares);
+    }
+
+    private static void printProtfolio(int cash, Map<String, Integer> ownShares){
         System.out.println("CASH : " + String.valueOf(cash));
         for (String share : ownShares.keySet()){
             System.out.println(share + " : " + String.valueOf(ownShares.get(share)));
