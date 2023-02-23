@@ -56,7 +56,7 @@ public class MatchHouseStreetOrder_Map {
         List<String> houseMapKeys = new ArrayList<>(houseMap.keySet());
         // if Prioritize exact and fuzzy matches over offsetting matches. Prioritize matching the earliest alphabetical buy with the earliest alphabetical sell.
         // then uncomment three Collections.sort
-        // Collections.sort(houseMapKeys);
+        Collections.sort(houseMapKeys);
         for (String key : houseMapKeys) {
             if (streetMap.containsKey(key)) {
                 // has same symbol and quantity, try to cancel out
@@ -65,8 +65,8 @@ public class MatchHouseStreetOrder_Map {
                 List<String> hTrades = houseMap.get(key);
                 List<String> sTrades = streetMap.get(key);
                 
-                // Collections.sort(hTrades);
-                // Collections.sort(sTrades);
+                Collections.sort(hTrades);
+                Collections.sort(sTrades);
                 
                 for (int i = 0; i < hTrades.size(); i++) {
                     String hTrade = hTrades.get(i);
@@ -76,19 +76,19 @@ public class MatchHouseStreetOrder_Map {
                             continue;
                         }
                         String sTrade = sTrades.get(j);
-                        if (macthType == "exact") {
+                        if (macthType == exactMatch) {
                             if (hTrade.equals(sTrade)) {
                                 hTradeRemove.add(i);
                                 sTradeRemove.add(j);
                                 break;
                             }
-                        } else if (macthType == "fuzzy") {
+                        } else if (macthType == fuzzyMatch) {
                             if (hTrade.split(",")[1].equals(sTrade.split(",")[1])) {
                                 hTradeRemove.add(i);
                                 sTradeRemove.add(j);
                                 break;
                             }
-                        } else if (macthType == "offset") {
+                        } else if (macthType == offsetMatch) {
                             if (!hTrade.split(",")[1].equals(sTrade.split(",")[1])) {
                                 hTradeRemove.add(i);
                                 sTradeRemove.add(j);
