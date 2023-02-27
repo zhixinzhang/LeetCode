@@ -1,3 +1,15 @@
+My System design
+Job schedule : https://miro.com/app/board/uXjVPjOr3l4=/
+
+DB : 
+https://blog.acecodeinterview.com/sql_vs_nosql/
+https://hevodata.com/learn/amazon-s3-vs-dynamodb/
+https://www.cnblogs.com/xrq730/p/11039384.html
+https://www.kdnuggets.com/2018/08/dynamodb-vs-cassandra.html
+
+Message Queue
+https://stackoverflow.com/questions/58970006/are-sqs-and-kafka-same
+
 SD : 
 https://github.com/donnemartin/system-design-primer/blob/master/README.md
 https://towardsdatascience.com/the-complete-guide-to-the-system-design-interview-ba118f48bdfc
@@ -10,6 +22,10 @@ https://medium.com/nerd-for-tech/system-design-architecture-for-hotel-booking-ap
 
 https://www.1point3acres.com/bbs/thread-891775-1-1.html
 https://www.1point3acres.com/bbs/thread-884355-1-1.html
+三大原题之一 - Job scheduler
+另两道是：
+Compute ads campaign ROITrading system to submit limit order‍‌‌‌‌‍‌‌‍‍‌‌‍‌‌‍‌‍‌ to external service
+聊得很开心，挂的莫名其妙。
 https://www.1point3acres.com/bbs/thread-874826-1-1.html
 https://www.1point3acres.com/bbs/thread-850766-1-1.html
 https://www.1point3acres.com/bbs/thread-828034-1-1.html design robinhood
@@ -32,6 +48,8 @@ job scheduler
 
 大概是 Trading system for user to submit limit order to external service. 地里也有别人发的面经, scalibility的要求挺低的.
 Compute ads campaign ROI那道题, 他贴完题目直接说我们分成两部分考虑, 一部分是怎么收集和整理数据, 一部分是怎么计算结果.
+
+https://www.1point3acres.com/bbs/thread-889922-1-1.html
 
 Robinhood Karat 电面:
 https://www.1point3acres.com/bbs/thread-807470-1-1.html
