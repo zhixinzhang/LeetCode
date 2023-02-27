@@ -1,4 +1,13 @@
 SD : 
+https://github.com/donnemartin/system-design-primer/blob/master/README.md
+https://towardsdatascience.com/the-complete-guide-to-the-system-design-interview-ba118f48bdfc
+https://www.educative.io/courses/grokking-modern-system-design-interview-for-engineers-managers/qV6WgYr4jJr
+https://www.scylladb.com/learn/nosql/nosql-vs-sql/#:~:text=Scylla%20is%20a%20column%2Doriented,dynamic%20schema%20for%20unstructured%20data.&text=It%20is%20similar%20to%20Structured,tables%2C%20by%20columns%20and%20rows.
+https://blog.grio.com/2015/11/sql-nosql-a-brief-history.html
+
+
+https://medium.com/nerd-for-tech/system-design-architecture-for-hotel-booking-apps-like-airbnb-oyo-6efb4f4dddd7
+
 https://www.1point3acres.com/bbs/thread-891775-1-1.html
 https://www.1point3acres.com/bbs/thread-884355-1-1.html
 https://www.1point3acres.com/bbs/thread-874826-1-1.html
@@ -13,6 +22,7 @@ https://www.1point3acres.com/bbs/thread-820571-1-1.html
 https://www.1point3acres.com/bbs/thread-823704-1-1.html
 https://www.1point3acres.com/bbs/thread-822112-1-1.html 券商交易平台发order流程
 https://dropbox.tech/infrastructure/asynchronous-task-scheduling-at-dropbox
+https://towardsdatascience.com/ace-the-system-design-interview-job-scheduling-system-b25693817950
 
 job scheduler
 1. Able to schedule jobs
@@ -51,3 +61,14 @@ https://www.1point3acres.com/bbs/thread-859208-1-1.html
 https://www.1point3acres.com/bbs/thread-836677-1-1.html
 https://www.1point3acres.com/bbs/thread-847942-1-1.html
 https://www.1point3acres.com/bbs/thread-844800-1-1.html
+
+BQ  
+
+https://www.1point3acres.com/bbs/thread-963155-1-1.html
+A project that you're proud of.
+What parts succeeded?
+What ‍‌‌‌‌‍‌‌‍‍‌‌‍‌‌‍‌‍‌parts failed?
+What was the feedback from your coworkers?
+Describe a bottleneck in the design and how you fixed it.
+Describe how you worked across teams and across companies.
+What would you do differently if you could do it over again?
