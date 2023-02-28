@@ -4,7 +4,6 @@ import java.util.*;
 /**
  * https://leetcode.com/discuss/interview-question/1052406/Robinhood-telephonic-interview.Reject
  * https://leetcode.com/discuss/interview-question/1027102/Robinhood-or-Telephonic-round
- * https://www.1point3acres.com/bbs/thread-963155-1-1.html
  * @author Luke Zhang
  * @Date 2023-2-18
  * A "buy" order can be executed if there is a corresponding "sell" order with a price that is less than or
@@ -41,7 +40,7 @@ iii. Add the remainder shares to the corresponding PQs for future orders.
 2b) If it is a BUY order: Repeat the similar steps.
 Repeat the process 2 for all the orders.
 */
-public class _StreamingIncomingOrders_totalQuantityExecuted_ {
+public class _Stock_totalQuantityExecuted_ {
     // MaxHeap, max Order price on top
     static PriorityQueue<Order> buyQ = new PriorityQueue<>(new Comparator<Order>() {
         @Override
@@ -79,6 +78,18 @@ public class _StreamingIncomingOrders_totalQuantityExecuted_ {
             {"210", "4", "buy"},    // Order F
         };
         System.out.println(getMaxShares(orders));
+
+        sellQ.clear();
+        buyQ.clear();
+        String[][] orders2 = {
+            {"150", "5", "buy"},    // Order A
+            {"190", "1", "sell"},   // Order B
+            {"200", "1", "sell"},   // Order C
+            {"100", "9", "buy"},    // Order D
+            {"140", "8", "sell"},   // Order E
+            {"210", "4", "buy"},    // Order F
+        };
+        System.out.println(getMaxShares(orders2));
     }
 
     private static int getMaxShares(String[][] orders){
