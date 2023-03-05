@@ -1,0 +1,36 @@
+1. Before we jump to the high level design, please let me clarify the requirements and what features do we need
+
+We need to design a job/task scheduler system. For this system we can create/schedule a task
+and also we can delete and check the job status. If one job fail or success get notification
+Other than that we can check job running history,view logs
+1. Do we have concurrent job, repeating job (Crontab to mark the trigger time)?
+2. SLA (long time withougt results)?
+
+That the function requirements for the system.
+Let we think about the non requirements. 
+Non-Req : keep the system high avaiablility,  saclable, fault tolerance, consistency
+
+That's the function and non-function for our system, do I missed anything? 
+
+Cool, Before we go to design part, we can do a simple calualtion for the system throughput and DB storage
+
+Estimation cost
+1. , we can talk about how many jobs that we have every day and
+how large DB storage we need to support to store job data
+1000 M Job /per day -> 100M / 100K sec -> 10K QPS / per sec
+It's a pretty large number, for this high QPS one host machine definitely cannot handle.
+We need to split those requests to our backend service. (Distributed system)
+4 core one machine and one core have 16 threads -> 1000 / 4 * 16 = 20 machines
+1. one Job -> 1MB  one 100M job * 1MB = 100GB per day ->  100GB * 30 30TB
+
+AWS for design. 
+
+I would like to talk about what DB what we choose for the whole system.
+Based on our discussion, that the backend database shoule be horizontally scalable as the job grows quickly(1000M a day)
+In our use case, complex relational queries are not used. Most data access can be described as primary-key queries (e.g. given a job ID, get all executions). Also, the issues of strong consistency and transactions are not of paramount importance.
+ Hence, both sharded SQL and NoSQL databases can handle all the requirements of the system as long as they are tuned for reads. For simplicity,I'm going to use dynamodb in here. 
+
+1. our system mainly need to store Job information and like we discussed before 
+the 
+
+

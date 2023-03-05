@@ -6,6 +6,8 @@ import java.util.*;
 // new_users = { "B", "C", "D" };
 // https://www.1point3acres.com/bbs/thread-847942-1-1.html
 // https://www.1point3acres.com/bbs/thread-821883-1-1.html
+// https://www.1point3acres.com/bbs/thread-850766-1-1.html
+
 public class _RecommendReferUser_DFS_Graph {
     public static void main(String[] args){
         String[][] input = new String[][]{

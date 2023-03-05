@@ -1,5 +1,7 @@
 My System design
 Job schedule : https://miro.com/app/board/uXjVPjOr3l4=/
+Stock exchange: https://miro.com/app/board/uXjVPiKsoN0=/
+MRSB: https://miro.com/app/board/uXjVPiedFjI=/
 
 DB : 
 https://blog.acecodeinterview.com/sql_vs_nosql/
@@ -9,69 +11,192 @@ https://www.kdnuggets.com/2018/08/dynamodb-vs-cassandra.html
 
 Message Queue
 https://stackoverflow.com/questions/58970006/are-sqs-and-kafka-same
+https://ably.com/topic/aws-sns-vs-sqs#:~:text=SNS%20is%20typically%20used%20for,1%20minute%20to%2014%20days).
+SQS Queues and SNS Notifications – Now Best Friends
+https://aws.amazon.com/blogs/aws/queues-and-notifications-now-best-friends/
 
-SD : 
+
+SD Study: 
 https://github.com/donnemartin/system-design-primer/blob/master/README.md
 https://towardsdatascience.com/the-complete-guide-to-the-system-design-interview-ba118f48bdfc
 https://www.educative.io/courses/grokking-modern-system-design-interview-for-engineers-managers/qV6WgYr4jJr
 https://www.scylladb.com/learn/nosql/nosql-vs-sql/#:~:text=Scylla%20is%20a%20column%2Doriented,dynamic%20schema%20for%20unstructured%20data.&text=It%20is%20similar%20to%20Structured,tables%2C%20by%20columns%20and%20rows.
 https://blog.grio.com/2015/11/sql-nosql-a-brief-history.html
-
-
 https://medium.com/nerd-for-tech/system-design-architecture-for-hotel-booking-apps-like-airbnb-oyo-6efb4f4dddd7
-
-https://www.1point3acres.com/bbs/thread-891775-1-1.html
-https://www.1point3acres.com/bbs/thread-884355-1-1.html
-三大原题之一 - Job scheduler
-另两道是：
-Compute ads campaign ROITrading system to submit limit order‍‌‌‌‌‍‌‌‍‍‌‌‍‌‌‍‌‍‌ to external service
-聊得很开心，挂的莫名其妙。
-https://www.1point3acres.com/bbs/thread-874826-1-1.html
-https://www.1point3acres.com/bbs/thread-850766-1-1.html
-https://www.1point3acres.com/bbs/thread-828034-1-1.html design robinhood
-https://www.1point3acres.com/bbs/thread-849374-1-1.html job scheduler
-https://www.1point3acres.com/bbs/thread-846325-1-1.html job scheduler
-https://www.1point3acres.com/bbs/thread-844903-1-1.html job scheduler
-https://www.1point3acres.com/bbs/thread-832416-1-1.html job scheduler
-https://www.1point3acres.com/bbs/thread-826748-1-1.html job scheduler
-https://www.1point3acres.com/bbs/thread-820571-1-1.html
-https://www.1point3acres.com/bbs/thread-823704-1-1.html
-https://www.1point3acres.com/bbs/thread-822112-1-1.html 券商交易平台发order流程
 https://dropbox.tech/infrastructure/asynchronous-task-scheduling-at-dropbox
 https://towardsdatascience.com/ace-the-system-design-interview-job-scheduling-system-b25693817950
 
-job scheduler
+SD Component
+https://github.com/donnemartin/system-design-primer/blob/master/README.md#replication
+https://www.youtube.com/watch?v=xpDnVSmNFX0&list=PLpQ0aTOL-X-FqEaLF-nCzVRxICMlVNmwi&index=1
+
+Probes/Hearbeats
+https://dev.to/gateixeira/an-easy-way-to-a-highly-available-service-with-kubernetes-probes-kotlin-and-helm-3o0j
+
+三大原题之一 - Job scheduler
+另两道是：
+Compute ads campaign ROITrading system to submit limit order‍‌‌‌‌‍‌‌‍‍‌‌‍‌‌‍‌‍‌ to external service
+
+Job scheduler
+https://www.1point3acres.com/bbs/thread-972152-1-1.html ***
+https://www.1point3acres.com/bbs/thread-846325-1-1.html ***
+https://www.1point3acres.com/bbs/thread-844903-1-1.html ***
+https://www.1point3acres.com/bbs/thread-832416-1-1.html **
+https://www.1point3acres.com/bbs/thread-826748-1-1.html *
+https://www.1point3acres.com/bbs/thread-820571-1-1.html *
+https://www.1point3acres.com/bbs/thread-822112-1-1.html
+https://www.1point3acres.com/bbs/thread-891775-1-1.html
+https://www.1point3acres.com/bbs/thread-884355-1-1.html
+https://www.1point3acres.com/bbs/thread-874826-1-1.html
+https://www.1point3acres.com/bbs/thread-849374-1-1.html
+https://www.1point3acres.com/bbs/thread-823704-1-1.html
+https://www.1point3acres.com/bbs/thread-831063-1-1.html
+https://www.1point3acres.com/bbs/thread-828863-1-1.html
+https://www.1point3acres.com/bbs/thread-819383-1-1.html
+https://www.1point3acres.com/bbs/thread-822410-1-1.html
+https://www.1point3acres.com/bbs/thread-847942-1-1.html
+分布式任务调度器。主要考点是reliability和availability，各个部件如何容错以及任务状态管理
+老题 job scheduler 说说followup吧
+我用了MQ 有一个followup是如何来控制需要多少了consumers
+问了如何来实现auto retry如果一个job failed了
+问了如果某一个时间段 有很多jobs 需要怎么处理
+问了如果在sch‍‌‌‌‌‍‌‌‍‍‌‌‍‌‌‍‌‍‌edule的时候需要保证high concurrency 怎么处理
+1. Job增删 recurring job
+2. Monitoring all jobs status
+3. Notification
+面试过程和一般大厂System Design差不多，基本上要注意的就是problem exploration, DB schema, system components, deep dive, edge case ha‍‌‌‌‌‍‌‌‍‍‌‌‍‌‌‍‌‍‌ndling etc
+design一个job scheduler，可以schedule one time work 和repeated job。
+input是一个meta file里面有什么function需要被trigger。
+需要record sla，把process过久的job发notification给client告诉他们还需要再等一等。
+需要把process success/fail record到database里方便‍‌‌‌‌‍‌‌‍‍‌‌‍‌‌‍‌‍‌client queryable。
+
+1. create jobs
+2. schedule and run jobs
+3. report failures and successes
+4. reliable and have strong guarantees about its job runs
+5. view logs and status of running jobs, as well as previously finished jobs
+
+具体题目要求是：
+1. 可以创建Job
+2. 可以schedule和运行job
+3. 可以汇报job成功还是失败
+4. 必须确保系统可靠性，确保job运行
+5. 可以查看运行日志，以及job的运行状态以及之前完成的job
+6. 可以处理job运行过长/超时的情况
+感觉整个过程和面试官聊得比较愉快，但是并不能感觉出自己是否回答到了他们要求的标准
+一开始问了几个问题，然后花了一些时间设计整体的流程，系统里大概需要有的各个服务，API设计一概而过。然后花了一些时间设计任务调度，任务运行的服务模块以及监控模块。
+‍‌‌‌‌‍‌‌‍‍‌‌‍‌‌‍‌‍‌
+面试官主要和我deep dive了数据存储的选择问题，任务调度以及具体执行的机制，
+怎么保证任务调度模块的可靠性，怎么scale任务调度和任务运行，监控模块如果获取任务状态，如何更新数据等等
+
+老题 job scheduler, 一些之前面经里没提到的点是：1. no concurrent job for each schedule
+2. support concurrent job for different schedule (比如单个job的间隔是1h, 但是之前那个job已经run了一个小时了) 根据这个需求 DB table的设计会有区别
+3. how to handle 
+1)job handler down, 2) job executor crush 3) send alert to job owner
+另外面试官很随意，让你自由发挥，然后会提出一些问题，所以准备一下， 能够好好drive co‍‌‌‌‌‍‌‌‍‍‌‌‍‌‌‍‌‍‌nversion 就基本没问题
+
+我设计了一个非常标准的distributed cron job scheduler 中间问的很多
+比如说job dispatcher 挂了怎么办？
+1. job dispatcher 有主从备份
+2. job dispatcher 有sharding 如果挂了用类似consistent hashing的方式接管别的任务分发
+问如果一个任务被执行多次怎么办？
+1.要确保worker idempotent， 在任务前查库或者有fancy token的方式来确保不会重复提交
+
+The question is to design a job scheduler, with following criteria:
 1. Able to schedule jobs
 2. Run jobs per schedule
-3. Report failures
+3. Report‍‌‌‌‌‍‌‌‍‍‌‌‍‌‌‍‌‍‌ failures
 4. Should handle job SLAs
 
+      1. Should be able to create, schedule, and run jobs
+      2. Should be able to report failures and successes
+      3. At-least once task execution
+      4. ‍‌‌‌‌‍‌‌‍‍‌‌‍‌‌‍‌‍‌Should be able to view the status of running/completed jobs
+      5. Should be able to handle when a job takes longer to run than expected(SLA)
+
+Any ideas on how to handle  job SLAs?
+Basically need to  detect if a job runs for a long time, by getting periodic status/heartbeats
+If a job runs for long, the heartbeat server can ask the worker to give up, and mark the job as pending so that it will be scheduled again.
+
+不同的是job需要按照设定的interval执行multiple times，j‍‌‌‌‌‍‌‌‍‍‌‌‍‌‌‍‌‍‌ob result（包括expired的）要notify相应用户
+fault tolerance是关键
+job scheduler照着dropbox AFX design documentation答的，需求稍微有些不同，数据库问得比较深入，schema怎么design要存哪些信息，在task被执行的过程中status要怎么update。重点考察各个component down了之后怎么保证fault tolerance。
+
+
+
+
+Stock Execution SD:
+https://www.1point3acres.com/bbs/thread-823704-1-1.html ***
+https://www.1point3acres.com/bbs/thread-903982-1-1.html
+https://www.1point3acres.com/bbs/thread-828034-1-1.html
+https://www.1point3acres.com/bbs/thread-822112-1-1.html
+https://www.1point3acres.com/bbs/thread-943606-1-1.html
+https://www.1point3acres.com/bbs/thread-963155-1-1.html
+https://www.1point3acres.com/bbs/thread-822410-1-1.html
+
+背景是，client通过robinhood来place limited order，robinhood 通过call第三方market的API，得到stock的具体信息，最后完成交易。面试官没直接给出具体的需求，我大概通过交流概括了一下：
+1. support placing limited orders: during market hours, expire at each trading day
+2. support accounting logic: to ensure the order is valid and consistent
+3. ‍‌‌‌‌‍‌‌‍‍‌‌‍‌‌‍‌‍‌support multiple/concurrent orders
+关于accounting logic需求，举个例子，一个用户账户里只有100块，但是他打算买120块的股票，那这种order就是无效的。我当时说的是因为系统只要支持limited order而不需要实时的order，所以可以存下来所有的limited order，然后after hour时候跑MR去校验order（稍微往lambda的batch layer套了套）
+
+大意就是帮客户执行股票交易，需要和3rd party broker API交互来提交订单、更新订单状态。有几点之前的面经没太提：
+支持订单过期时间（比如一个订单过期时间是2h，如果两小时后还没成功执行，那就得取消）
+提交订单的client "fire and forget"，他们不会等我们系统的回复，我个人感觉这基本就是明说需要异步处理，大概就是client -> order manager -> order queue -> (execution service | status updater).
+The first round of system design, design robinhood to deal with limit order. That is, users can set a stock price to buy. Only buy stocks 
+when the market price is below this price (the same goes for selling stocks). The system must support concurrency and be able to handle different failure cases.
+
+1. 系统设计：券商交易平台发order流程。主要考点reliabilty, consistency和availability，多个DB分布式事务，各个部件容错以及订单状态管理
 大概是 Trading system for user to submit limit order to external service. 地里也有别人发的面经, scalibility的要求挺低的.
 Compute ads campaign ROI那道题, 他贴完题目直接说我们分成两部分考虑, 一部分是怎么收集和整理数据, 一部分是怎么计算结果.
 
+一个robinhood的交易系统。需要提供两个API, liveQuery and historical query。另一端和3rd party provider联系，接受股票的实时Update，主要是write operation
+楼主还有一个问题，3rd party provider的股价数据是一直stream给这个系统吗？
+对差不多。这个不重要，重要的是你怎么存这个data，而且write QPS ~ 100k，所以要考虑怎么handle这个level的write。我当时说的可以用redis cluster来handle，因为write比较快。面试官倒是点头，但是不知道说的对不对，因为最后反馈这一轮不太好
+
+Design a trading system like Robinhood from the perspective of buyers and sellers. A seller should be able to make an offer to sell and cancel the order. A buyer should be able to make an offer to buy and cancel the order. It was just like the first part of the coding question.
+Remember to use idempotent transactions and keep the system very simple! SQL for the transactions, DynamoDB for the user info.
+第三轮：系统设计。设计一个股票订单系统。简单明确了一下要求之后，发现限制条件很宽松，甚至不能算是一个高并发系统。写流量极限也就10‍‌‌‌‌‍‌‌‍‍‌‌‍‌‌‍‌‍‌0QPS级别，读更低。描述了各个主要模块。然后主要在如何处理failure上面深入交换了意见。讲到了把系统大部分逻辑单元都放在无状态的容器中，用了一套标准SAGA模型来链接处各个子系统。所以当聊到failover时候反倒非常简单，逻辑单元挂了重启就好。存储单元挂了从机起来就好，挂的足够多了系统就停摆。又因为系统压力不大，所以整体难度较低。后面的followup问题主要集中在一个特定的子系统给出了扩展功能的需求。面试官表示这部分非常困难，聊聊想法就好。大意是说hacker搞了我们的客户端，开始搞事情，频繁的提交和删除订单，你有没有什么想法。第一想法肯定是限流throttling。
+然后就说了如何设计这个逻辑，但是我就是当聊天了。这里面应该水很深，我对安全这块不是特别有经验。高人请不吝赐教
+
+Design 一个 trading service，‍‌‌‌‌‍‌‌‍‍‌‌‍‌‌‍‌‍‌customer提交trade，系统提交trade到外部API完成trade match。主要考虑怎么handle不同system failure
+
+
+Compute ads campaign ROI
+https://www.1point3acres.com/bbs/thread-856955-1-1.html
+
+给一个stream不断feed in数据，设计股票实时价格图表。
+设计飞机订票和航班搜索系统。比如海南航空网站。
+https://www.1point3acres.com/bbs/thread-852187-1-1.html
+
+System Design - 设计一个餐厅
 https://www.1point3acres.com/bbs/thread-889922-1-1.html
 
 Robinhood Karat 电面:
 https://www.1point3acres.com/bbs/thread-807470-1-1.html
 https://www.1point3acres.com/bbs/thread-887597-1-1.html
 https://www.1point3acres.com/bbs/thread-853452-1-1.html
-_1249_MinimumRemoveToMakeValidParentheses_Stack
 
-Margincall
-https://www.1point3acres.com/bbs/thread-825477-1-1.html
+Coding :
+https://www.1point3acres.com/bbs/thread-852187-1-1.html candle stick
 
-Oniste: 
-https://www.1point3acres.com/bbs/thread-943606-1-1.html
-https://www.1point3acres.com/bbs/thread-963155-1-1.html
+https://www.1point3acres.com/bbs/thread-825477-1-1.html Margincall
 https://www.1point3acres.com/bbs/thread-873690-1-1.html
-Compute ads campaign ROI
-https://www.1point3acres.com/bbs/thread-856955-1-1.html
-https://www.1point3acres.com/bbs/thread-852187-1-1.html
 https://www.1point3acres.com/bbs/thread-831063-1-1.html
 https://www.1point3acres.com/bbs/thread-828863-1-1.html
-https://www.1point3acres.com/bbs/thread-819383-1-1.html
-https://www.1point3acres.com/bbs/thread-823770-1-1.html
+
+https://www.1point3acres.com/bbs/thread-847942-1-1.html User Refer
+https://www.1point3acres.com/bbs/thread-844800-1-1.html  ***
+
+
+https://www.1point3acres.com/bbs/thread-819383-1-1.html house trade
 https://www.1point3acres.com/bbs/thread-822410-1-1.html
+
+https://www.1point3acres.com/bbs/thread-856955-1-1.html  _1249_MinimumRemoveToMakeValidParentheses_Stack
+https://www.1point3acres.com/bbs/thread-844026-1-1.html  _1249_MinimumRemoveToMakeValidParentheses_Stack
+
+Oniste: 
+
 
 microservices dependency
 https://www.1point3acres.com/bbs/thread-822841-1-1.html
@@ -80,7 +205,16 @@ https://www.1point3acres.com/bbs/thread-836677-1-1.html
 https://www.1point3acres.com/bbs/thread-847942-1-1.html
 https://www.1point3acres.com/bbs/thread-844800-1-1.html
 
+
+https://www.1point3acres.com/bbs/thread-898922-1-1.html
+昂赛一轮过去项目深挖+一轮coding+一轮系统设计。coding碰到了新题没在地里看过的，模拟了rb按dollor买股票而不是按shares买股票的功能。
+系统设计考交易系统，本质是个broker(用第三方exchange)，问很细各种failure怎么处理，叫我写了sudecode，然后一行一行问这里宕了怎
+
 BQ  
+
+https://www.1point3acres.com/bbs/thread-822410-1-1.html
+聊过去做的一个project，可以提前准备一些diagram然后share screen。楼主提前准备了个Workflow Diagram 聊的时候比较流畅
+然后问了写role in the project, challenge, design choice等问题
 
 https://www.1point3acres.com/bbs/thread-963155-1-1.html
 A project that you're proud of.
@@ -90,3 +224,15 @@ What was the feedback from your coworkers?
 Describe a bottleneck in the design and how you fixed it.
 Describe how you worked across teams and across companies.
 What would you do differently if you could do it over again?
+
+
+
+submit limit order‍‌‌‌‌‍‌‌‍‍‌‌‍‌‌‍‌‍‌ to external service / Design Robinhood
+https://www.youtube.com/watch?v=dUMWMZmMsVE
+https://medium.com/@narengowda/stock-exchange-system-design-answered-ad4be1345851
+
+
+
+
+
+
