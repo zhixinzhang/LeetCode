@@ -25,12 +25,44 @@ We need to split those requests to our backend service. (Distributed system)
 
 AWS for design. 
 
-I would like to talk about what DB what we choose for the whole system.
+I would like to talk about what DB we should choose for the whole system.
 Based on our discussion, that the backend database shoule be horizontally scalable as the job grows quickly(1000M a day)
-In our use case, complex relational queries are not used. Most data access can be described as primary-key queries (e.g. given a job ID, get all executions). Also, the issues of strong consistency and transactions are not of paramount importance.
+In our user case, complex relational queries are not used. Most data access can be described as primary-key queries (e.g. given a job ID, get all executions). Also, the issues of strong consistency and transactions are not of paramount importance.
  Hence, both sharded SQL and NoSQL databases can handle all the requirements of the system as long as they are tuned for reads. For simplicity,I'm going to use dynamodb in here. 
 
 1. our system mainly need to store Job information and like we discussed before 
 the 
 
 
+
+We use Message Queue in here. 
+Be able to scale the consumer and producer nodes independently (in Kafka we have Topics which can be 
+horizontally partitioned and scale by that)
+We decouple the consumer and producer from each other
+Lower latency for the producer (doesn't have to wait for a response)
+Durability and Reliability: When a Consumer Node crashes another Node can process the Message 
+which otherwise would be lost (see Offset in Kafka). The Messages are persisted.
+
+Amazon SNS with SQS is called fanout pattern. In this pattern, a message published to an SNS topic is 
+distributed to multiple SQS queues in parallel and SQS queue assure persistence, because SQS has retention
+ policy. It can persist message up to 14 days(defult 4 days).
+ Amazon SQS with SNS can achieved highly throughput parallel streaming and can replace Apache Kafka.
+
+The benefit for Message Queues
+Message queues enable asynchronous communication. Producers can add requests to the queue without waiting for them to be processed. 
+Consumers process messages only when they are available. No component in the system is ever stalled waiting for another, optimizing data flow.
+Queues make your data persistent, and reduce the errors that happen when different parts of your system go offline
+Message queues make it possible to scale precisely where you need to
+
+
+this is really low operation this is only going to run like once a minute or
+55:08
+something and it's just going to a single key range query so that's it's
+55:13
+not it's not even a full service it's just a Lambda function or a uh so you can you can set up ews Lambda
+55:20
+to um be triggered by a uh time just like a
+55:25
+Cron job and so that's what I envisioned for this thing um I think I already brought up that
+
+DB (But yes, having a synchronous slave reduces the availability a bit. We shift from AP (CAP theorem) to CP a bit so it is a trade-off.)
