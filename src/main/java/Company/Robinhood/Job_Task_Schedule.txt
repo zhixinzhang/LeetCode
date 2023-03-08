@@ -1,3 +1,13 @@
+我用了MQ 有一个followup是如何来控制需要多少了consumers
+问了如何来实现auto retry如果一个job failed了
+问了如果某一个时间段 有很多jobs 需要怎么处理
+问了如果在sch‍‌‌‌‌‍‌‌‍‍‌‌‍‌‌‍‌‍‌edule的时候需要保证high concurrency 怎么处理
+比如说job dispatcher 挂了怎么办？
+1. job dispatcher 有主从备份
+2. job dispatcher 有sharding 如果挂了用类似consistent hashing的方式接管别的任务分发
+问如果一个任务被执行多次怎么办？
+1.要确保worker idempotent， 在任务前查库或者有fancy token的方式来确保不会重复提交
+
 1. Before we jump to the high level design, please let me clarify the requirements and what features do we need
 
 We need to design a job/task scheduler system. For this system we can create/schedule a task
@@ -27,8 +37,14 @@ AWS for design.
 
 I would like to talk about what DB we should choose for the whole system.
 Based on our discussion, that the backend database shoule be horizontally scalable as the job grows quickly(1000M a day)
-In our user case, complex relational queries are not used. Most data access can be described as primary-key queries (e.g. given a job ID, get all executions). Also, the issues of strong consistency and transactions are not of paramount importance.
- Hence, both sharded SQL and NoSQL databases can handle all the requirements of the system as long as they are tuned for reads. For simplicity,I'm going to use dynamodb in here. 
+In our user case, complex relational queries are not used. Most data access can be described as primary-key queries (e.g. given a job ID, get all executions). 
+Also, the issues of strong consistency and transactions are not of paramount importance.
+both sharded SQL and NoSQL databases can handle all the requirements of the system as long as they 
+are tuned for reads. For simplicity, I'm going to use dynamodb in here. 
+
+If our MySQL Database starts to grow too large, we might consider only storing a limited time period of data in the database, 
+while storing the rest in a data warehouse such as Redshift
+A data warehouse such as Redshift can comfortably handle the constraint of 1 TB of new content per month
 
 1. our system mainly need to store Job information and like we discussed before 
 the 
