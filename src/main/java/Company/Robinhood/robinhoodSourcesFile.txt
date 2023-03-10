@@ -64,7 +64,8 @@ https://www.1point3acres.com/bbs/thread-847942-1-1.html
 1. Job增删 recurring job
 2. Monitoring all jobs status
 3. Notification
-面试过程和一般大厂System Design差不多，基本上要注意的就是problem exploration, DB schema, system components, deep dive, edge case ha‍‌‌‌‌‍‌‌‍‍‌‌‍‌‌‍‌‍‌ndling etc
+面试过程和一般大厂System Design差不多，基本上要注意的就是problem exploration, DB schema, 
+system components, deep dive, edge case ha‍‌‌‌‌‍‌‌‍‍‌‌‍‌‌‍‌‍‌ndling etc
 design一个job scheduler，可以schedule one time work 和repeated job。
 input是一个meta file里面有什么function需要被trigger。
 需要record sla，把process过久的job发notification给client告诉他们还需要再等一等。
@@ -120,8 +121,8 @@ If a job runs for long, the heartbeat server can ask the worker to give up, and 
 
 不同的是job需要按照设定的interval执行multiple times，j‍‌‌‌‌‍‌‌‍‍‌‌‍‌‌‍‌‍‌ob result（包括expired的）要notify相应用户
 fault tolerance是关键
-job scheduler照着dropbox AFX design documentation答的，需求稍微有些不同，数据库问得比较深入，schema怎么design要存哪些信息，在task被执行的过程中status要怎么update。重点考察各个component down了之后怎么保证fault tolerance。
-
+job scheduler照着dropbox AFX design documentation答的，需求稍微有些不同，数据库问得比较深入，schema怎么design要存哪些信息，
+在task被执行的过程中status要怎么update。重点考察各个component down了之后怎么保证fault tolerance。
 
 
 
@@ -134,34 +135,44 @@ https://www.1point3acres.com/bbs/thread-943606-1-1.html
 https://www.1point3acres.com/bbs/thread-963155-1-1.html
 https://www.1point3acres.com/bbs/thread-822410-1-1.html
 
-背景是，client通过robinhood来place limited order，robinhood 通过call第三方market的API，得到stock的具体信息，最后完成交易。面试官没直接给出具体的需求，我大概通过交流概括了一下：
+背景是，client通过robinhood来place limited order，robinhood 通过call第三方market的API，
+得到stock的具体信息，最后完成交易。面试官没直接给出具体的需求，我大概通过交流概括了一下：
 1. support placing limited orders: during market hours, expire at each trading day
 2. support accounting logic: to ensure the order is valid and consistent
 3. ‍‌‌‌‌‍‌‌‍‍‌‌‍‌‌‍‌‍‌support multiple/concurrent orders
-关于accounting logic需求，举个例子，一个用户账户里只有100块，但是他打算买120块的股票，那这种order就是无效的。我当时说的是因为系统只要支持limited order而不需要实时的order，
+关于accounting logic需求，举个例子，一个用户账户里只有100块，但是他打算买120块的股票，那这种order就是无效的。
+我当时说的是因为系统只要支持limited order而不需要实时的order，
 所以可以存下来所有的limited order，然后after hour时候跑MR去校验order（稍微往lambda的batch layer套了套）
 
 大意就是帮客户执行股票交易，需要和3rd party broker API交互来提交订单、更新订单状态。有几点之前的面经没太提：
 支持订单过期时间（比如一个订单过期时间是2h，如果两小时后还没成功执行，那就得取消）
-提交订单的client "fire and forget"，他们不会等我们系统的回复，我个人感觉这基本就是明说需要异步处理，大概就是client -> order manager -> order queue -> (execution service | status updater).
-The first round of system design, design robinhood to deal with limit order. That is, users can set a stock price to buy. Only buy stocks 
-when the market price is below this price (the same goes for selling stocks). The system must support concurrency and be able to handle different failure cases.
+提交订单的client "fire and forget"，他们不会等我们系统的回复，我个人感觉这基本就是明说需要异步处理，
+大概就是client -> order manager -> order queue -> (execution service | status updater).
+The first round of system design, design robinhood to deal with limit order. 
+That is, users can set a stock price to buy. Only buy stocks 
+when the market price is below this price (the same goes for selling stocks). 
+The system must support concurrency and be able to handle different failure cases.
 
 1. 系统设计：券商交易平台发order流程。主要考点reliabilty, consistency和availability，多个DB分布式事务，各个部件容错以及订单状态管理
 大概是 Trading system for user to submit limit order to external service. 地里也有别人发的面经, scalibility的要求挺低的.
 Compute ads campaign ROI那道题, 他贴完题目直接说我们分成两部分考虑, 一部分是怎么收集和整理数据, 一部分是怎么计算结果.
 
-一个robinhood的交易系统。需要提供两个API, liveQuery and historical query。另一端和3rd party provider联系，接受股票的实时Update，主要是write operation
+一个robinhood的交易系统。需要提供两个API, liveQuery and historical query。另一端和3rd party provider联系，接受股票的实时Update，
+主要是write operation
 楼主还有一个问题，3rd party provider的股价数据是一直stream给这个系统吗？
 对差不多。这个不重要，重要的是你怎么存这个data，而且write QPS ~ 100k，所以要考虑怎么handle这个level的write。
 我当时说的可以用redis cluster来handle，因为write比较快。面试官倒是点头，但是不知道说的对不对，因为最后反馈这一轮不太好
 
-Design a trading system like Robinhood from the perspective of buyers and sellers. A seller should be able to make an offer to sell and cancel the order. 
+Design a trading system like Robinhood from the perspective of buyers and sellers. A seller should be able to make an offer to 
+sell and cancel the order. 
 A buyer should be able to make an offer to buy and cancel the order. It was just like the first part of the coding question.
 Remember to use idempotent transactions and keep the system very simple! SQL for the transactions, DynamoDB for the user info.
-第三轮：系统设计。设计一个股票订单系统。简单明确了一下要求之后，发现限制条件很宽松，甚至不能算是一个高并发系统。写流量极限也就10‍‌‌‌‌‍‌‌‍‍‌‌‍‌‌‍‌‍‌0QPS级别，读更低。描述了各个主要模块。
-然后主要在如何处理failure上面深入交换了意见。讲到了把系统大部分逻辑单元都放在无状态的容器中，用了一套标准SAGA模型来链接处各个子系统。所以当聊到failover时候反倒非常简单，逻辑单元挂了重启就好。
-存储单元挂了从机起来就好，挂的足够多了系统就停摆。又因为系统压力不大，所以整体难度较低。后面的followup问题主要集中在一个特定的子系统给出了扩展功能的需求。面试官表示这部分非常困难
+第三轮：系统设计。设计一个股票订单系统。简单明确了一下要求之后，发现限制条件很宽松，甚至不能算是一个高并发系统。写流量极限也就10‍‌‌‌‌‍‌‌‍‍‌‌‍‌‌‍‌‍‌0QPS级别，
+读更低。描述了各个主要模块。
+然后主要在如何处理failure上面深入交换了意见。讲到了把系统大部分逻辑单元都放在无状态的容器中，用了一套标准SAGA模型来链接处各个子系统。
+所以当聊到failover时候反倒非常简单，逻辑单元挂了重启就好。
+存储单元挂了从机起来就好，挂的足够多了系统就停摆。又因为系统压力不大，所以整体难度较低。后面的followup问题主要集中在一个特定的子系统给出了扩展功能的需求。
+面试官表示这部分非常困难
 ，聊聊想法就好。大意是说hacker搞了我们的客户端，开始搞事情，频繁的提交和删除订单，你有没有什么想法。第一想法肯定是限流throttling。
 然后就说了如何设计这个逻辑，但是我就是当聊天了。这里面应该水很深，我对安全这块不是特别有经验。高人请不吝赐教
 

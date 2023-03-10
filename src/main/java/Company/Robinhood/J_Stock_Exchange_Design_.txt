@@ -1,51 +1,58 @@
+背景是，client通过robinhood来place limited order，robinhood 通过call第三方market的API，
+得到stock的具体信息，最后完成交易。面试官没直接给出具体的需求，我大概通过交流概括了一下：
+1. support placing limited orders: during market hours, expire at each trading day
+2. support accounting logic: to ensure the order is valid and consistent
+3. ‍‌‌‌‌‍‌‌‍‍‌‌‍‌‌‍‌‍‌support multiple/concurrent orders
+
+Can you tell me more about this system? 
 I would like to clarify the requirements of the system and the functionality we need.
 
-We need to design a job/task scheduler system. For this system we can create and 
-schedule a task and also we can delete and check the job status. If one job failed 
-or successful then the user should get notification
-Other than that we can check job history
-1. Do we have repeating job? concurrent job,  (Crontab to mark the trigger time)?
-2. SLA (long time withougt results)?  
-3. auto retry? retry times?
-How many jobs we need to run everyday  1M job ~ 100M jobs?
+We need to design a stock exchange system like Robinhood. For this system user can buy and 
+sell stock. User also can check order history and account info. 
+If the order didn't finished by market time, then we should drop the order. 
+We need to make sure the order is valid
+
+1. How many different stocks we have in system,  1000 stocks? 
+2. do we need to consider margin call account?  
+3, do we support partial order? 
 
 That's the function requirements for the system.
 Let us talk about non-function requirements. 
-Non-function Req : 
+*Non-function Req : 
 keep the system highly available,
 saclable, 
+reliability
+strong consistency
 fault tolerance, 
-never lost jobs
+fairness trading
 
-I think That's the function and non-function for our system,
+I think That's the function and non-function requirements for our system,
 do you have any questions or concerns here? 
 
 Great, I would like to talk about throughput and how many 
-jobs we're going to store in DB.
-We have Traffic/DB Estimation:
+orders we're going to store in DB.
+* Traffic/DB size Estimation:
 
-Can I assume that we have 1M DAU and each user will 
+Can I assume that we have 6M DAU and each user will 
 send 10 requests to our system every day 
-the requests can like create new job/ check job status/ update job info
-* 10M req / 100 K  ~  
-QPS approximately equal to 100 QPS from user sides 
-*1B recurring job  ~  1000M /100k 
-qps from db -> 10K jobs from db
-It's a large number for qps and throughput for DB, 
-1. one Job -> 1MB  one 100M job * 1MB = 100GB per day ->  100GB * 30 30TB
+the requests can like buy or sell or check order
 
-If our Database starts to grow too large, we might consider only storing a 
+Traffic Estimation and DB size
+*6M  DAU -> 10 orders / per day 
+*60 M orders   60M / 30K -> 2M / 1K -> 2K QPS for (buy and sell) 
+*QPS approximately equal to 2K QPS from user sides 
+*one server can host 100 qps -> 20 server
+*1 Order =1 KB -> 60M KB = 60000 MB -> 60GB / every day
+
+And If our Database starts to grow too large, we might consider only storing a 
 limited time period of data in the database, 
-while storing the rest in a data warehouse such as Redshift/S3 
-(A data warehouse such as Redshift can comfortably handle the constraint of 1 TB of new content per month)
+while storing the rest in a data warehouse such as 
+*Redshift/S3 
+
 do you agree with?
 
-Based on our Estimation and discussion, our system need to handle
- a lot of requests in a short time 
-and also we need to keep increasing DB storage because we storing job every day
-Then if we buy hardware to setup server and DB if not a good operation, 
-it's hard to maintains  and not easy to scale the system. We can use cloud computing service like
-AWS/GCP/Azure to help us build up system. 
+We can use cloud computing service like
+AWS/GCP/Azure to help us build up system. We don't want to buy hardware and maintain it
 And Currently, aws is the most popular cloud service so 
 if you agree I will chose aws as our Cloud service.
 So far, is that ok with you?
@@ -53,68 +60,47 @@ So far, is that ok with you?
 Greate, before we jump to high level design, we can talk about what kind
 of database we choose for our system and maybe we can design the job schema here. 
 Based on requirements, that the backend database shoule be horizontally scalable 
-as the job grows quickly(1000M a day)
 In our user case, complex relational queries are not used and all data is structured. 
 Most data access can be 
 described as primary-key queries (e.g. given a job ID, get job status). 
-Also, the issues of strong consistency and transactions are not of paramount importance.
-both sharded SQL and NoSQL databases can handle all the requirements of the system. 
-For simplicity, I'm going to use 
+Also, the issues of strong consistency and transactions are importance.
+So I'm going to use Mysql database to store Order data.  Both SQL and NoSQL 
+databases can used to store User Data.
 *MySQL in here. 
 For DB design, we should keep in mind that we maybe need to shard table 
 to handle high-frequency read and write operations
 
-Ok, here We need a table that keeps track of job metadata such as owners, 
-execution intervals, and retry policies
-* Job table {
-    Job_id: 
+Ok, here We need a table that keeps track of order metadata such as user_id, 
+stock name 
+* Order table {
+    order_id: 
     user_id:
-    job_name:
-    job_desc:
-    job_type: recur, single
-    create_time: 2023/11 11:11 11:00
-    last_exection_time:
-    job_status: new, pending, failed, successful, SLA
-    running_count: 
-    retry_count:
-    cronTab: 1 0 0 0 0 
-    next_exection_time: 16000000000 we can store unit timestamp for DB and system query 
-}
-
-*schedule table {
-    execution_ID:
-    execution_time:  
-    job_id:
-    shard_key:
-}
-
-*History Table: 
-This table is used to store execution details of a job. Given a job, 
-there could be multiple executions associated with it.
-*execution table {
-    execution_id: 
-    job_id:
-    status:
-    worker_id:
-    finished_time:
+    stock_name:
+    price:
+    initial_shares: 10
+    finished_shares: 6
+    left_shares: 4
+    status: new, executing, finished, expired
     create_time: 
-    retry_cnt:
-} 
-I think that's the main tables and attributes we should have in our Job DB. 
+    retry_count:
+    shard_key: stock name
+}
+*user table {
+}
+
+I think that's the main tables and attributes we should have in our Order DB. 
 we can add other attributes after high level design, if those attributes not enough 
 for our system.
 Any questions here? 
 
 Ok, can we start high level design. 
-In genreal, We should have at least 3 big services in our system. 
-One service to receive requests from user, one service to retrieve 
-job data from DB, one service to running job. 
-
-Web Service: The gateway to the scheduling system. All RPC calls from the client are handled by one of the RPC servers in this service.
-Scheduling Service: It checks the database every minute for pending jobs and pushes them to a queue for execution.
-we guarantee that all jobs are pushed to the queue in a timely manner.
-Execution Service: In this service, we manage a large group of execution workers. Each worker is a consumer and executes whatever 
-jobs it gets from the queue. (Additional bookkeeping is needed to ensure re-execution upon worker failures.)
+In genreal, We have at least 3 big services in our stock exchange system. 
+we have Web Service, it's  to receive requests from user and store the order to DB. 
+we have order executer Service to match buying and selling orders. 
+And we have a retrieve service. it's will be very high frequency to retrieve
+order from a third-party 
+ 
+* Order Capture, * order executer Service *retrieve Service: 
 
 
 * User 
@@ -122,66 +108,76 @@ jobs it gets from the queue. (Additional bookkeeping is needed to ensure re-exec
 service. because we have a high qps so we can use a * Load balancer to split 
 the requests to our service. 
 
-* Job Capture service (1k qps in here)
-2. this service is Job Capture service, the main function for this service
-is to store new job or update job or query job from Job DB 
+* Order Capture service (1k qps in here)
+2. this service main function is to receive new orders and store the order to DB
 
-*Job DB
-3. we have a Job DB here, based on our discussion we may need to shard 
-and replcicate the DB. we can left it after we finished high level design.
- (we have 100 writes /per sec and 1k reades / per second)
+*Order DB
+3. we have a Order DB here, based on our discussion we may need to shard 
+and replcicate the DB for system highly available and saclable. 
+we can left it after we finished high level design.
 
-* Job Producer Service (50K jobs)
-4, we have a Job producer services. This service is to 
-retrieve job from job DB. For example for every 5 seconds the service will 
-do a table scan and retrieve next short running period jobs. 
-It will do a * Table scan to Job DB
-5. Because our system supports recurring jobs which means for some specific 
-time we may just have 100 jobs and for another specific time we maybe need to 
-run 50K jobs, right? 
+* Order executer Services (20K orders)
+4, we have a Order executer Service. This service is to 
+match different stock order and send match order to third party like them
+if the order executed successful then we need to update order data and update w
+user account.
 
-After we retrieve a job, we need to make sure that the job is
-never get lost. We can use Message queue to help us guarantees job delivery and 
-optimize data flow.
-because we use aws as our cloud service, so we can use SNS and SQS here.
 * SNS SQS
-SQS is a Message queue, it's enable asynchronous communication. Producers can 
-add requests to the queue without waiting for them to be processed. 
-Amazon SNS with SQS is called fanout pattern.  
-(distributed to multiple SQS queues in parallel and SQS queue assure persistence, 
-because SQS has retention policy. It can persist message up to 14 days(defult 4 days).
-Amazon SQS with SNS can achieved highly throughput parallel streaming and can replace Apache Kafka.)
+5. 
+we want a buffer that holds 
+all pending orders at peak hours. Secondly, we want to decouples the two services.
+and After we receive a order, we need to make sure that the order data is
+never get lost before we Execute the order. We can use Message queue to 
+help us guarantees order delivery and  optimize data flow.
 
-6. The data worflow in here is like Job producer services send jobs to SNS, 
-SNS is a topic and like a router send jobs to SQS, we can have 2 SQS in here.
-one is handle one-time job, otherone can handle recurring jobs
-*SQS(one-time)  SQS(recurring)
+SQS is a Message queue, it's enable asynchronous communication. Producers can 
+add requests to the queue without waiting for them to be processed. And SNS is a topic,
+it's will send Stock to specific SQS
+
+
+6. The data worflow in here is like order producer services send orders to SNS, 
+and SNS will send order based on stock name, we can 1 SQS in here.
+*SQS(Appl)  SQS(Meta)
 
 OK 
-*job executor cluster
-7. We have a job executor cluster, the job executor cluster is used to 
-run jobs, each job executor can run 100 jobs in a short period of time.
-If we have 50K jobs to run. Then we need at least 500 executors. 
-Also, we need some backup executors if some of executors fail or 
-executors run out of memory or network issues.
-8. when a job received in executor, we update operation time and 
-running the job, 
-executer will update the job data whether the job 
-succeeded or failed. 
-if the job keep running and take longer than like 5 
-minutes then we need to kill the job and update 
-last_operation_time, job status: SLA
+*Order executor cluster
+7. We have a order worker cluster, the order worker cluster is used to 
+match orders , each order worker only handle one specific stock. So we have at lease 1000 
+workers. For example, we have wokerA to match buy and sell Appl stock.
+When we matched the order then we need to submit our new order to third party
+if we got response then we will update our orders data.
+Also, we need some backup workers in here incase some workers fail, and 
+we better need to monitor the worker status. We can left this part after we finished high-level
+design 
+
+* retrieve Service
+8. For retrieve Services, it will help us to high frequently get specific stock 
+orders from a third broker.
+We use similar data workflow liked we had for order capture. 
+* SNS, SQS
+
+when we retrieved a order, then we will send them to order worker cluster,
 
 
-* Job status notification services and SQS
-9.this service will receive the job results
-from executor and to update job results to DB. In addition the service will 
-send a notification to user. 
+Other than that we should have one more notification services
+* Order notification services and SQS
+9.this service will receive order results from order worker cluster
+and update order results to DB and update user account. Additionally this service will 
+send a notification to user let them know, hey we finished your order 
 
 
 This is the high-level design. I think it's can satisfy the Function requirements.
-But for non-function requirements, like fault tolerance, high availability, scalable, 
-we have some bottlenecks. 
+but we still have some bottlenecks on DB and order worker sides. 
+For highly available and reliable we definitely need to replicate the DB 
+and shard Order table to reduce index size 
+and improve reading speed. Also, we have to make sure that every stock order 
+only send to healthy order worker, otherwise, the order could be lost or 
+pending for a long time
+We are a finical and investment system, so we also need 
+to make sure the strong transactions
+between the user account and order. 
+If you agree I can introduce important components one by one.
+
 1. For example, we only have one DB, maybe we need to replicate DB in case the DB server down.
 2. If we have 10B jobs how to improve the DB read speed? maybe we need sharding db and for 
 every job producer service just search one specific shared partition.
