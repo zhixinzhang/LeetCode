@@ -4,7 +4,15 @@
 2. support accounting logic: to ensure the order is valid and consistent
 3. ‍‌‌‌‌‍‌‌‍‍‌‌‍‌‌‍‌‍‌support multiple/concurrent orders
 
-Can you tell me more about this system? 
+
+Hi Kamal, Before we start the design I would l like to go through the design process.
+I will spend 5 to 10 minutes to talk about the design questions 
+and both function and non-function requirements. Then maybe spend another 
+10 minutes to talk about the system traffic estimation and DB selection and schema design.
+ For high-level design maybe it will take 20 minutes, then hopefully 
+we have 20 minutes left to deep dive into the important components. is that ok with you?
+
+Can you tell me more about this system? Like who are our users and what features we need to build
 I would like to clarify the requirements of the system and the functionality we need.
 
 We need to design a stock exchange system like Robinhood. For this system user can buy and 
@@ -95,6 +103,7 @@ Any questions here?
 
 Ok, can we start high level design. 
 In genreal, We have at least 3 big services in our stock exchange system. 
+* Order Capture, * order executer Service *retrieve Service: 
 we have Web Service, it's  to receive requests from user and store the order to DB. 
 we have order executer Service to match buying and selling orders. 
 And we have a retrieve service. it's will be very high frequency to retrieve

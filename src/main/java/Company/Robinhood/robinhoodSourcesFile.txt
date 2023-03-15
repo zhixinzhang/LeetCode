@@ -2,6 +2,7 @@ My System design
 Job schedule : https://miro.com/app/board/uXjVPjOr3l4=/
 Stock exchange: https://miro.com/app/board/uXjVPiKsoN0=/
 MRSB: https://miro.com/app/board/uXjVPiedFjI=/
+https://slack.engineering/handling-flaky-tests-at-scale-auto-detection-suppression/
 
 DB : 
 https://blog.acecodeinterview.com/sql_vs_nosql/
@@ -17,6 +18,7 @@ https://aws.amazon.com/blogs/aws/queues-and-notifications-now-best-friends/
 
 
 SD Study: 
+https://github.com/donnemartin/system-design-primer/blob/master/solutions/system_design/scaling_aws/README.md
 https://github.com/donnemartin/system-design-primer/blob/master/README.md
 https://towardsdatascience.com/the-complete-guide-to-the-system-design-interview-ba118f48bdfc
 https://www.educative.io/courses/grokking-modern-system-design-interview-for-engineers-managers/qV6WgYr4jJr
@@ -38,6 +40,7 @@ https://dev.to/gateixeira/an-easy-way-to-a-highly-available-service-with-kuberne
 Compute ads campaign ROITrading system to submit limit order‍‌‌‌‌‍‌‌‍‍‌‌‍‌‌‍‌‍‌ to external service
 
 Job scheduler
+https://www.1point3acres.com/bbs/thread-975068-1-1.html
 https://www.1point3acres.com/bbs/thread-972152-1-1.html ***
 https://www.1point3acres.com/bbs/thread-846325-1-1.html ***
 https://www.1point3acres.com/bbs/thread-844903-1-1.html ***

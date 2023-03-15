@@ -1,96 +1,172 @@
-I would like to clarify the requirements of the system and the functionality we need.
+Hi Kamal,
+ Hi *** Currently, I’m a senior backend engineer
+ at Paypal. My main responsibility is to manage 
+the entire mobile release platform, mainly focused
+on the release CI/CD pipeline. In this position, 
+I used a lot of skills I learned at Amazon, like Docker, 
+Kubernetes, and SQS. Other than that I was
+ motivated to learn skillsets like Github actions,
+ buildkite, and Golang….
+Before I joined Paypal, I’m a backend engineer 
+on Amazon web services. My team is codeartifact. 
+We support our customers to automatically fetch 
+software packages from public package repositories 
+so customers can access the latest 
+versions of application dependencies. 
+AlsoI have one year of full-stack work
+experience on a star-up company
+That’s pretty Much it
 
-We need to design a job/task scheduler system. For this system we can create and 
-schedule a task and also we can delete and check the job status. If one job failed 
-or successful then the user should get notification
-Other than that we can check job history
-1. Do we have repeating job? concurrent job,  (Crontab to mark the trigger time)?
-2. SLA (long time withougt results)?  
-3. auto retry? retry times?
-How many jobs we need to run everyday  1M job ~ 100M jobs?
+ before we start, I’d like to go over how
+ I want to spend our time today:
+I will spend 5 to 10 minutes to talk about the design 
+questions and both function and non-functional 
+requirements. Then another  10 minutes 
+on system traffic estimation, 
+DB selection and schema design.
+For high-level design it will take about 20 minutes, 
+then hopefully we will have 20 minutes left to deep 
+dive into the important components. 
+Is that ok with you?
 
-That's the function requirements for the system.
-Let us talk about non-function requirements. 
-Non-function Req : 
-keep the system highly available,
-saclable, 
+I would like to clarify the requirements of the 
+system and the functionality we need.
+What I understand is we
+need to design a job/task scheduler system. 
+For this system we can create and 
+schedule a task and also we can check 
+the job status.
+If a job failed or succeed, 
+the user should be notified.
+Other than that we can check job history, 
+that’s my understanding 
+
+I have some questions about the function requirements
+1. Do we have repeating job? Crontab to mark the trigger time
+2. job concurrent executions? For example, 
+the job needs 3 hours to run, but it needs to run once every hour.
+3. What if a job keeps running for a long time,
+ do we need to kill the job? 
+4. If a job fails, do we support the auto-retry function?
+
+I think these are the main functional requirements of the system.
+Let’s write it down
+*{Create/delete/update/check job
+repeating jobs
+SLA
+auto-retry
+}
+
+Let’s talk about non-function requirements. 
+*Non-function Req : {
+highly available,
+scalable,  
+High Concurrency
 fault tolerance, 
 never lost jobs
+}
 
-I think That's the function and non-function for our system,
-do you have any questions or concerns here? 
+I think That's the function and non-function of our system,
+ do you have any questions or concerns here? 
 
-Great, I would like to talk about throughput and how many 
-jobs we're going to store in DB.
-We have Traffic/DB Estimation:
+Great, I would like to talk about system throughput 
+and how many jobs we're going to store in DB.
 
-Can I assume that we have 1M DAU and each user will 
-send 10 requests to our system every day 
-the requests can like create new job/ check job status/ update job info
-* 10M req / 100 K  ~  
-QPS approximately equal to 100 QPS from user sides 
+*Traffic/DB Estimation:
+Can I assume that we have 1M DAU and each user 
+will send 100 requests to our system every day? 
+the requests can create new job/ check job status/ update job info
+* 100M req / 100 K  ~  
+QPS approximately equal to 1K QPS from user sides 
 *1B recurring job  ~  1000M /100k 
 qps from db -> 10K jobs from db
-It's a large number for qps and throughput for DB, 
-1. one Job -> 1MB  one 100M job * 1MB = 100GB per day ->  100GB * 30 30TB
+It's a large number for qps and throughput for DB
+*workers / let’s calculate how many server we need
+for qps 
+one server have 2 core, 16 threads
+*1 server can handle 30 request 
+* 1K / 30 ~ 35 servers to receive requests from user
+ how many worker we need to run jobs
+* 10 K job / per second 
+* 10 K * 5 sec -> 50K jobs running in a short time
+* 50K / 32 (30) -> 2K workers
 
-If our Database starts to grow too large, we might consider only storing a 
+*1. one Job -> 1MB  one 100M job * 1MB = 100GB per day ->  100GB * 30 30TB
+
+ If our Database starts to grow too large, 
+we might consider only storing a 
 limited time period of data in the database, 
-while storing the rest in a data warehouse such as Redshift/S3 
-(A data warehouse such as Redshift can comfortably handle the constraint of 1 TB of new content per month)
-do you agree with?
+we can use data warehouse such as like S3
+to store rest of data. It’s save money
+we will not include this part in our high-level design,
+ but just in case we need it in the future.
+Do you have any questions about the estimation?
 
-Based on our Estimation and discussion, our system need to handle
- a lot of requests in a short time 
-and also we need to keep increasing DB storage because we storing job every day
-Then if we buy hardware to setup server and DB if not a good operation, 
-it's hard to maintains  and not easy to scale the system. We can use cloud computing service like
-AWS/GCP/Azure to help us build up system. 
-And Currently, aws is the most popular cloud service so 
-if you agree I will chose aws as our Cloud service.
+ Based on our Estimation and discussion,
+I think we can use cloud service provider 
+like aws or gpc to help us horizontally 
+scale server and replicate DB 
+to make sure the system highly available
+and scalable. 
+If you agree I would choose aws as 
+our cloud service provider because
+ it is the most popular cloud service.
 So far, is that ok with you?
 
-Greate, before we jump to high level design, we can talk about what kind
-of database we choose for our system and maybe we can design the job schema here. 
-Based on requirements, that the backend database shoule be horizontally scalable 
+Great, before we jump to high level design, 
+we can talk about what kind of database we choose
+ for our system and maybe we can 
+design the job schema here. 
+Based on the requirements, that the backend 
+database should be horizontally scalable 
 as the job grows quickly(1000M a day)
-In our user case, complex relational queries are not used and all data is structured. 
-Most data access can be 
-described as primary-key queries (e.g. given a job ID, get job status). 
-Also, the issues of strong consistency and transactions are not of paramount importance.
-both sharded SQL and NoSQL databases can handle all the requirements of the system. 
+In our user case, complex relational queries are 
+not used and all data is structured. 
+Most data access can be described as 
+primary-key queries (e.g. given a job ID, return job status). 
+Also, the issues of strong consistency and transactions
+ are not of paramount importance.
+Both sharded SQL and NoSQL databases can handle
+all the requirements of the system. 
 For simplicity, I'm going to use 
-*MySQL in here. 
-For DB design, we should keep in mind that we maybe need to shard table 
-to handle high-frequency read and write operations
+*MySQL here. 
+For DB design, we should keep in 
+mind that we might need to shard table 
+to improve reading speed
 
-Ok, here We need a table that keeps track of job metadata such as owners, 
-execution intervals, and retry policies
+Ok, here We need a table that keeps track 
+of job metadata such as owners, 
+execution time, and retry policies
 * Job table {
-    Job_id: 
-    user_id:
+    Job_id:   PK
+    user_id:  FK (foreign key)
     job_name:
     job_desc:
-    job_type: recur, single
+    job_type: recur, one-time
     create_time: 2023/11 11:11 11:00
-    last_exection_time:
-    job_status: new, pending, failed, successful, SLA
+    last_exection_time: 1678485769
+    job_status: new, pending, failed, successful, killed
     running_count: 
     retry_count:
-    cronTab: 1 0 0 0 0 
-    next_exection_time: 16000000000 we can store unit timestamp for DB and system query 
+    cronTab: 0 4 * * sun   At 04:00 am on Sunday.
+    next_exection_time: 1678485769 we can store unit timestamp for DB and system query 
 }
-
+we also need a schedule table to help us retrieve job 
+based on exection_time
 *schedule table {
     execution_ID:
-    execution_time:  
+    execution_time:   
     job_id:
-    shard_key:
+    shard_key: 
 }
+Worker 1:
+SELECT * FROM ScheduleTable WHERE execution_time > "1641082500" AND execution_time < "1641082580" AND shard =1
+Worker 2:
+SELECT * FROM ScheduleTable WHERE NextExecution > "1641082500" AND NextExecution < "1641082580" AND shard = 2
 
 *History Table: 
-This table is used to store execution details of a job. Given a job, 
-there could be multiple executions associated with it.
+This table is used to store execution details of a job. 
+Given a job, there could be multiple executions associated with it.
 *execution table {
     execution_id: 
     job_id:
@@ -100,142 +176,156 @@ there could be multiple executions associated with it.
     create_time: 
     retry_cnt:
 } 
-I think that's the main tables and attributes we should have in our Job DB. 
-we can add other attributes after high level design, if those attributes not enough 
+I think that's the main tables and attributes
+ we should have in our Job DB. 
+we can add other attributes after
+ high-level design if those attributes are not enough 
 for our system.
 Any questions here? 
 
-Ok, can we start high level design. 
-In genreal, We should have at least 3 big services in our system. 
-One service to receive requests from user, one service to retrieve 
-job data from DB, one service to running job. 
+Ok, can we get into the high level design. 
+For the system, We should have 
+at least 3 big services in our system. 
+One service to receive requests from users 
+and store or check job from database.
+One service to retrieve jobs from DB 
+and send jobs to another service,
+The last service needs to execute jobs 
+and update job results. 
 
-Web Service: The gateway to the scheduling system. All RPC calls from the client are handled by one of the RPC servers in this service.
-Scheduling Service: It checks the database every minute for pending jobs and pushes them to a queue for execution.
-we guarantee that all jobs are pushed to the queue in a timely manner.
-Execution Service: In this service, we manage a large group of execution workers. Each worker is a consumer and executes whatever 
-jobs it gets from the queue. (Additional bookkeeping is needed to ensure re-execution upon worker failures.)
 
+ Let’s draw it
+*Job Capture service *Job Producer Service: * Job consumer service:
+All of them are  All of them are single point failure. For example,
+                          if one of the consumer servers is dead, then 
+                          we could lose jobs. We will talk about how 
+                        to handle single-point failure later.
 
 * User 
-1. first of all, we have a user and this user will send requests to our backend
-service. because we have a high qps so we can use a * Load balancer to split 
-the requests to our service. 
+1. first of all, we have a user and 
+this user will send requests to our backend
+service. because we have a high number of qps 
+and we need to make sure our system 
+highly available so we can use a * Load balancer* 
+here to split 
+requests to different server in Capture service.  (200 hosts)
 
 * Job Capture service (1k qps in here)
-2. this service is Job Capture service, the main function for this service
-is to store new job or update job or query job from Job DB 
+2. the main function for this service is to store 
+new job or update job or query job from Job DB 
 
 *Job DB
-3. we have a Job DB here, based on our discussion we may need to shard 
-and replcicate the DB. we can left it after we finished high level design.
- (we have 100 writes /per sec and 1k reades / per second)
+3. we have a Job DB here, based on our discussion 
+we may need to shard and replicate the DB. 
+we can leave it after we finish high level design.
+ (Read heavy : we have 100 writes /per sec and 1k reads / per second)
 
 * Job Producer Service (50K jobs)
-4, we have a Job producer services. This service is to 
-retrieve job from job DB. For example for every 5 seconds the service will 
-do a table scan and retrieve next short running period jobs. 
-It will do a * Table scan to Job DB
-5. Because our system supports recurring jobs which means for some specific 
-time we may just have 100 jobs and for another specific time we maybe need to 
-run 50K jobs, right? 
+4, This service is to retrieve jobs from job DB. 
+For example for every 5 seconds the service will 
+do a table scan and retrieve around 1K jobs.  
+Because our system supports recurring jobs which 
+means for some specific time we may only have 100 jobs
+and for another specific time we may 
+need to run 50K jobs, is that right? 
 
-After we retrieve a job, we need to make sure that the job is
-never get lost. We can use Message queue to help us guarantees job delivery and 
-optimize data flow.
-because we use aws as our cloud service, so we can use SNS and SQS here.
+After we retrieve a job, we need to make sure that the job 
+will never get lost. We can use message queue to help
+ us guarantee job delivery and optimize data flow.
+because we use aws as our cloud service, 
+we can use SNS and SQS here.
+
 * SNS SQS
-SQS is a Message queue, it's enable asynchronous communication. Producers can 
-add requests to the queue without waiting for them to be processed. 
-Amazon SNS with SQS is called fanout pattern.  
-(distributed to multiple SQS queues in parallel and SQS queue assure persistence, 
-because SQS has retention policy. It can persist message up to 14 days(defult 4 days).
-Amazon SQS with SNS can achieved highly throughput parallel streaming and can replace Apache Kafka.)
+SQS is a Message queue, it enables 
+asynchronous communication. Producers can 
+add requests to the queue without waiting 
+for them to be processed. 
+Amazon SNS with SQS is called fanout pattern 
+thwy can achieve highly throughput parallel streaming.  
 
-6. The data worflow in here is like Job producer services send jobs to SNS, 
-SNS is a topic and like a router send jobs to SQS, we can have 2 SQS in here.
-one is handle one-time job, otherone can handle recurring jobs
+6. The data workflow here is like 
+Job producer services send jobs to SNS, 
+SNS is a topic and it’s like a router. It can sends
+ jobs to SQS, we can have multipule SQS here.
+one is to handle one-time job, another one to handle recurring jobs
+and another one to hanle retry_job
 *SQS(one-time)  SQS(recurring)
+The main reason I use multiple SQS here is 
+we can reduce traffic jam. SQS is FIFO logic,
+So think about, if we only have
+one message queue and we need to run 1m jobs.
+If a job failed and we resent the job 
+to message queue again
+we have to wait 
+that 1m jobs poll out and then 
+we can retry that failed job. That‘s not what we 
+expected. 
+So if we use multiple message queue here, 
+we can speed up the data workflow
+And also if one of message queue
+down, it won’t impact other message queue
 
-OK 
-*job executor cluster
-7. We have a job executor cluster, the job executor cluster is used to 
-run jobs, each job executor can run 100 jobs in a short period of time.
-If we have 50K jobs to run. Then we need at least 500 executors. 
-Also, we need some backup executors if some of executors fail or 
-executors run out of memory or network issues.
-8. when a job received in executor, we update operation time and 
-running the job, 
-executer will update the job data whether the job 
-succeeded or failed. 
-if the job keep running and take longer than like 5 
-minutes then we need to kill the job and update 
-last_operation_time, job status: SLA
+*job consumer service
+7. the job consumer service is used to run jobs,
+ each job executor can run 30 jobs
+ in a short period of time.
+Based on our disscussion. 
+we need at least *2K executors here. 
+Also, we need some backup executors 
+if some of the executors are dead, 
+like running out of memory or having network issues.
+
+8. when a job is received in executor, 
+we running the job, executer will update the
+ job data whether the job succeeded or failed. 
+If the job keeps running and takes longer than 
+like 5 minutes then we need to kill the job 
+and update last_operation_time, job status: KILL
 
 
 * Job status notification services and SQS
-9.this service will receive the job results
-from executor and to update job results to DB. In addition the service will 
-send a notification to user. 
+9.this service will receive the job results from the 
+executor and update job results to DB. In addition the service 
+will send a notification to the user. 
 
 
-This is the high-level design. I think it's can satisfy the Function requirements.
-But for non-function requirements, like fault tolerance, high availability, scalable, 
-we have some bottlenecks. 
-1. For example, we only have one DB, maybe we need to replicate DB in case the DB server down.
-2. If we have 10B jobs how to improve the DB read speed? maybe we need sharding db and for 
-every job producer service just search one specific shared partition.
+This is the high-level design. I think it can satisfy 
+all Function requirements.
+But for non-function requirements, like fault tolerance,
+ high availability, scalability, we still have some bottlenecks. 
+1. For example, we only have one DB, maybe we need to replicate DB in case the DB server goes down.
+2. If we have 10B jobs, how to improve the DB read speed? Maybe we need to shard the database and Each job producer service only searches a specific shared partition.
+3. if one job executor is dead, then how can we make sure job is not lost?
 
-3. if one job executer dead, then how can we keep make sure not lost job and if we have 
-100M jobs, how to hanlde the spike
+I could go into the details of each important component:
 
-I can talk about the details of each important component?
-1. if one job executer dead, then how can we keep make sure not lost job and if we have 
-100M jobs, how to hanlde the spike
-
-1. What if DB failed or how to improve DB reading performance 
-Currently, we are using Mysql Databse to store Job data. we only have one single
- DB in here. to avoid DB failed and imprve db reading performance,
-  we can replcicate Job Database.
-*We use master-slave pattern
-we have one master DB to handle write requests and we have duplicated 
-DB to handle reades requests. If our master Job DB down then we can allow one slave DB to handle the write requests
-until the master db recovery. We scrifiy the consistency if we use master-slave pattern
-And as we mentioned, our data keep increasing so maybe we need to 
-shard Job DB to improve our query and write performance. 
-For example, we can use execution_time as shard key......
+*What if DB failed or how to improve DB reading performance 
+Currently, we are using Mysql Database to store Job data. we only have one single DB. To improve db reliabilityreliable and reading performance, we can replicate Job Database.
+*We use master-slave architecture
+We have one master DB to handle write operations and we have slaves DB to handle read operations. If our master DB is dead then we promote a slave DB as master DB until the master db recoversrecovery. 
+We sacrifice consistency if we use master-slave pattern
+And as we mentioned, if our data keepskeep increasing, so maybe we need to shard Job DB to improve our read and write performance. 
+For example, we can use execution_time as a shard key......
 
 
+So for high availability and fault-tolerance, one service is not enough to handle so many jobs
+then we can have some *Job producer workerswokers to retrieve part of jobs from DB, 
 
-So for high avaiablility and fault-tolerance one service not 
-enough to handle so many jobs
-then we can have some *Job producer wokers 
-to retrieve part of jobs from DB, 
-
-2. what if job executor down?
-Good question, if one of job executor down then we should ask other backup or available executors to pickup the jobs.  
-To reduce cases where tasks run on dead servers
-we need an executor health service, for each executor will send a heartbeat to executor health service every 5/10 seconds. 
-And also we have a db redis/db to store 
-executor data like {ip, last_heartbeat_time}, The executor health service will keep checking the executor data, 
-if executor last_heartbeat_time expire a 10 seconds then 
-executor health service will try to connect to executor 3 times, if it's failed then we mark it dead. we only send live executor to SNS. 
+2. what if the job executor is down?
+Good question, if one of the job executors is down then we should ask other backup or available executors to pick up the jobs.  
+To reduce cases where tasks run on dead servers we need an executor health service, for each executor will send a heartbeat to the executor health service every 5/10 seconds. 
+And also we have a db redis/db to store executor data like {ip, last_heartbeat_time}, The executor health service will keep checking the executor data, if the executor last_heartbeat_time expired fora 10 seconds then executor health service will try to connect to executor 3 times, if it's failed then we mark it dead. we only send live executors to SNS. 
 Use ElastiCache(Redis) to store job when the job send from SNS
 
-3. what if Job Scheduling service down? 
-To make sure a complete work assignment, we can borrow some ideas 
-from MapReduce, where a master is used to assign and monitor workers. 
+3. What if Job Scheduling service is down? 
+To make sure a complete work assignment, we can borrow some ideas from MapReduce, where a master is used to assign and monitor workers. 
 If a worker dies, the master will resend its work to some other nodes. 
 An additional local database is used so that no job is scheduled twice. 
-When a job is pushed to the queue, an entry is created in the local DB 
-with 2 minutes of expiration time. 
-If the original handler of the record dies and the shard is handed over 
-to another worker, the new worker will skip tasks that exist in the 
-database.
+When a job is pushed to the queue, an entry is created in the local DB with a 2 minutes of  expiration time. 
+If the original handler of the record dies and the shard is handed over to another worker, the new worker will skip tasks that exist in the database.
 
-4. what Load balancer you want to choose?
-Least Connection Method considers the current load on a server and aims to improve performance. it dose this by sending requests to the server 
-with the least number of active connections.
+4. What Load balancer do you want to choose?
+Least Connection Method considers the current load on a server and aims to improve performance. it doesdose this by sending requests to the server with the least number of active connections.
 Round robin is a simple load balancing algorithm that directs client requests to different servers based on a rotating list.
 
 
@@ -250,10 +340,10 @@ Schedule a job
 
 Master
 
-Every minute, the master node creates an 
-authoritative UNIX timestamp and assigns a shard ID 
+Every minute, the master node creates an authoritative UNIX timestamp and assigns a shard ID 
 (see details for more) to each worker along with the timestamp
 Check worker health regularly. If it dies, reassign its work to others
+
 Worker
 
 The worker queries the database with the timestamp and shard ID.
@@ -267,30 +357,19 @@ Given a message, find one worker with the least workload. Assign the job to the 
 Commit the index, repeat steps 1 to 3
 Worker
 
-The worker regularly update the local database with its timestamp
+The worker regularly updates the local database with its timestamp
 Health Checker
 
 Scans the local database ~ 10 seconds
 If any row hasn’t been updated in ~30 seconds, retry it by pushing the job ID to the queue
 
-We use Message Queue in here. 
-Be able to scale the consumer and producer nodes independently (in Kafka we have Topics which can be 
-horizontally partitioned and scale by that)
+We use Message Queue here. 
+Be able to scale the consumer and producer nodes independently (in Kafka we have Topics which can be horizontally partitioned and scale by that)
 We decouple the consumer and producer from each other
 Lower latency for the producer (doesn't have to wait for a response)
-Durability and Reliability: When a Consumer Node crashes another Node can process the Message 
-which otherwise would be lost (see Offset in Kafka). The Messages are persisted.
+Durability and Reliability: When a Consumer Node crashes another Node can process the Message which otherwise would be lost (see Offset in Kafka). The Messages are persisted.
 
-Amazon SNS with SQS is called fanout pattern. In this pattern, a message published to an SNS topic is 
-distributed to multiple SQS queues in parallel and SQS queue assure persistence, because SQS has retention
- policy. It can persist message up to 14 days(defult 4 days).
- Amazon SQS with SNS can achieved highly throughput parallel streaming and can replace Apache Kafka.
 
-The benefit for Message Queues
-Message queues enable asynchronous communication. Producers can add requests to the queue without waiting for them to be processed. 
-Consumers process messages only when they are available. No component in the system is ever stalled waiting for another, optimizing data flow.
-Queues make your data persistent, and reduce the errors that happen when different parts of your system go offline
-Message queues make it possible to scale precisely where you need to
 
 DB
 
@@ -319,3 +398,15 @@ to um be triggered by a uh time just like a
 Cron job and so that's what I envisioned for this thing um I think I already brought up that
 
 DB (But yes, having a synchronous slave reduces the availability a bit. We shift from AP (CAP theorem) to CP a bit so it is a trade-off.)
+
+
+*Job Capture service :. All RPC calls 
+from the client are handled by one of the RPC servers in this service.
+* Job Producer Service: It checks the database every 10 seconds for new 
+jobs and need to send them to consumer service. We guarantee that no job lost in here
+* Job consumer service: In this service, we manage a large group of 
+execution workers. Each worker is a consumer and executes whatever 
+jobs it gets from the producer service.
+All of them are single point failure. For example, if one of the executor servers is dead, then we could lose some jobs.
+ (So, Additional cache is needed to ensure re-execution upon worker failures.) 
+ We will talk about how to handle single-point failure later.

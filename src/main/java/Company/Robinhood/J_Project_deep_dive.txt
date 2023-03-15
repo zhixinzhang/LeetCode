@@ -1,0 +1,145 @@
+不会问太多BQ问题
+主要是技术讨论
+challenge your design decision
+how you handle scalability / fault tolerance这些
+也有讨论你在项目中的role,别人都是做哪块，怎么合作这种
+
+<<< Section 1: Introduction/ Explain the background/ Agenda for today’s call >>>
+
+Hi ***, I’m a software engineer with 5 years of industry experience. Currently, I’m a senior backend engineer at Paypal. My main responsibility is to manage the entire mobile release platform, mainly focused on the release process. In this position, I used a lot of skills I learned at Amazon, like Docker, Kubernetes, and ECS… other than that I was motivated to learn skillsets like Github actions, buildkite, and Golang….
+Before I joined Paypal, I’m a software engineer on Amazon web services. My team is codeartifact. We support our customers to automatically fetch software packages from public package repositories so customers can access the latest versions of application dependencies. Other than that I have one year of full-stack engineer work experience on a star-up company 
+
+<<< Section 2: Explain Mobile release workflow >>>
+
+I draw the Mobile release service simple workflow here. The mobile release service mainly help 
+android and ios team to do app release. As a example, when we a release request from webclient then we will get newest android and ios code from master branch and do build, test and release process. On the end, if the release passed the test then we will deploy them to App store and google playstore. In the release process, we use jira as project management , so we know each release have how many tickets. And we use Datadog to monitor the service 
+We use docker and kubernets to deploy and operate mobile release service. 
+For the whole release process, no need to handle huge data and all release information is structured, so Mysql DB is enough for release process
+
+That’s is what my team have before I started Mobile Release slack bot
+
+<<< Section 3: Agenda >>>
+
+I have picked a project concerning Integrate Slack Bot with mobile release platform for today’s Deep Dive session, and the reason I’m choosing this project is because, first of all I led this project from start to finish, and I think it shows research effort, and involves making improvements to existing processes while collaborating across different teams and impacting different teams. I will spend about 5 minutes talking about the situation, or issue we faced, my observations and ideas, and focus the next 15-20 minutes on explaining the actual workflow/technical details, and finally another 10 minutes or so about the outcome and next steps. 
+
+Please feel free to ask any questions during the presentation.
+
+<<< Section 4: Situation/Issue Explained >>>
+
+So as I mentioned, I am in charge of the mobile release platform, particularly everything around the release process. Six months into this role, there was a time when I was hosting a release retrospective meeting with release managers and android and ios developers, I found out that many release managers and engineers in the company actually don’t like to use the existing web client to look up matters concerning the release process. Instead, they love using Slack to communicate, track, and search for release information. 
+And other than that, sometimes they don’t follow the release runbook and manually do release operations. Tha’t trigger a lot of problems. 
+And other than that I found out when a release fails, we have a lot of logs but it’s hard to track or retrieve the previous logs since they are stored on Github Actions. We need these data and logs to conveniently analyze and investigate why a release has failed.
+More importantly, venmo doesn’t have a great flaky test service, so when we release a new version, the fatal bugs could hidden in flaky test and make us to send a new hot-fix and bad impact on user experience.
+
+Therefore, for one, there is a strong need to have a simple and efficient tool to operate release process, and secondly, we definitely need a way to save and store and detect flaky test and release logs
+
+<<< Section 5: Team across and requirements  >>>
+
+So I started to think about how we can streamline this process to make it more efficient. And done research on how we might use a Slack bot integration to achieve this.
+
+I brought this initial idea in front of my manager, and then the VP during the all-hands meeting. I got their full support to go ahead. So I started to do additional research, because I think once we have a prototype, it’s going to benefit not only my immediate team but all the other teams of engineers can use this feature going forward as well. I also pulled a team with other staff engineers at PayPal to discuss the feasibility of our current technology, and gathered their perspectives on the current issue, including what might help to make their lives easier. We have a strict permission matrix in PayPal so down the road I expected to also need this team to help me with accessibility issues.
+
+
+For Venmo mobile app, we have 400+ developers creating 900+ pull requests (PRs) per week. There are 26,000+ automated tests on Android and 21,000+ automated tests on iOS with the testing pyramid consisting of E2E, Functional, and Unit tests. All tests run on each commit to a GitHub PR and on every PR merged to the main branch. Moreover, developers are responsible for writing and maintaining all the automated tests associated with their product group.
+
+
+<<< Section 6: Tech Challenages >>>
+<<< 10-20 min on workflow/technical stuff >>> + run into xyz issues, and solutions
+*In order to avoid confidentiality issues, I have scrubbed some parts of the workflow here*
+Improve Read performance(response < 1s) / ElastiCache
+Avoid unauthorized operations / SecurityHub
+need a new service to retrieve UI test results, iOS build logs, Android build logs, Unit tests results, all CI/CD pipeline logs
+Use DynamoDb(key-value/docuements) to store UI tests (for flaky test)
+Need a Data warehouse to handle all object files(build and release logs)
+Message Queue as buffer to handle test delivery
+
+<<< Section 7: SlackBot screenshot and explain>>>
+Here is the screenshot for slackbot demo. In slackbot we have four mainly part. First of all 
+slackbot will show newest important release information like release version, device platform, release status, rollout percental. All those information will be visible for all paypal and venmo eninggers. 
+The second part is release action part. In this part we support release eninggers and release managers to operate release action. For example, only release managers can click the run regression button
+The 3rd section is flaky test detection.  It will show flaky tests to users based on the employee's name. For example, If renzo install the slackbot and search new release info, renzo will get flay test based on his PR commits.
+The last section is show build and release error logs for this release version. Before we have this project, the build logs and release logs and some UI test stored in different tools. For example, We use GitHub action to trigger the release job. The release job logs will be expired after 30 days. Currently, we permanently store the release logs in our DB. The release logs will never be lost.
+
+That’s functions for Slackbot
+
+<<< Section 8: MRSB Work-flow >>>
+
+For slackbot we have two mainly part workflow.
+We do a request or operation from slackbot, mobile-release will receive the request if the request is authorized. Then we will check newest release data from Release Database.
+
+
+
+<<< Section 9: Results >>>
+The result of this project is very encouraging. Right now we have 17 teams at Venmo who have installed and started using this release Slack bot. Many times they not only want to look up the newest release version, but also want to look up flaky test and build logs. After using the slack bot to monitor flaky test we were able to drop test job failures from 45% to less than 20%. I got many positive feedback on the convenience of this new tool, and based on the feedback,
+
+<<< Section 10: Next Steps >>>
+
+I brainstormed some enhancements for the next phase: one of which is that, currently we don’t support failed test search and error logs search. I envision that we can add a search engine which involves a document search and error message search .
+As an example, if you enter part of your failed test error message, we can help you look up the exact or similar unit tests from before.
+
+<<< Section 11: End >>> - exit presentation mode; look directly at the camera
+
+That concludes my presentation of a project at Venmo that I think demonstrates my ability to identify an issue, come up with creative solutions and bring a team together to achieve the end goal. I am very happy with the results of this project, and glad to see that it has some fairly positive impact on the teams.
+
+Are there other additional questions that I can answer for you?
+
+Thank you very much for your time today! I really enjoyed our discussion. Hope to talk to you again!
+
+
+// Why use Git hub action instead of jenk
+why is it a big deal to have just
+7:21
+another CI CD tool well the first and obvious Advantage is that if you're
+7:27
+already hosting your code on GitHub now you can use the same tool for CI CD
+7:33
+pipeline as well you don't have to set up another third-party tool and manage it separately you have the integrated
+7:40
+into your code Repository another advantage of GitHub actions that
+7:46
+I see is that it makes it really easy to build your pipeline so the setup process of the CI CD pipeline is really easy it
+7:53
+is actually meant to be a tool for developers so they made it so that if you have a developers team you don't
+7:59
+need an extra devops person who is dedicated to setting up and maintaining
+8:04
+that CI CD pipeline in your project so now the question is how did they make it
+8:09
+easy or how does it compare to other CI CD tools like Jenkins for example and
+8:15
+why is it much easier to set up and manage so you know that when you think about CI
+8:22
+CD pipeline one of the most important things is it's integration with different tools so what do I mean by
+8:29
+that whether you are developing a node.js application which will be built into a Docker image and then pushed into
+8:36
+a Nexus repository and deployed on digitalocean server or you're developing
+8:41
+a Java application with Maven you have integration tests to test your
+8:47
+application on Linux and windows servers then build it into a Docker image and
+8:53
+push it to AWS container registry and deploy it on AWS eks so basically you
+9:00
+can have many different combinations of tools that you're using in your development process
+9:06
+so you don't want to be sitting there trying to configure your CI CD Pipeline with all these tools like installing
+9:13
+Java and Maven and Docker and all these Integrations with Nexus and AWS and so
+9:19
+on installing plugins and configuring them instead you want a simpler way of
+9:25
+saying hey I need an environment which has node and Docker both available without me installing any of it with a
+9:34
+version that I want and the same way I wanted to do the deployment part easily
+9:39
+by simply connecting to the Target environment and deploying the application there and that's exactly the
+9:45
+advantage that you have when you're using CI CD pipeline in GitHub actions
+
+
+
+
+
+
+
