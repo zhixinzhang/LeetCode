@@ -15,7 +15,8 @@ You can assume the input is sorted by timestamp and values are non-negative inte
 
 Step 2: Aggregate Historical Data from Prices
 
-We calculate historical data across fixed time intervals. In this case, we’re interested in intervals of 10, so the first interval will be [0, 10). For each interval, you’ll build a datapoint with the following values.
+We calculate historical data across fixed time intervals. In this case, we’re interested in 
+intervals of 10, so the first interval will be [0, 10). For each interval, you’ll build a datapoint with the following values.
 
 Start time
 First price
@@ -23,7 +24,8 @@ Last price
 Max price
 Min price
 
-Important: If an interval has no prices, use the previous datapoint’s last price for all prices. If there are no prices and no previous datapoints, skip the interval.
+Important: If an interval has no prices, use the previous datapoint’s last price for all prices.
+ If there are no prices and no previous datapoints, skip the interval.
 You should return a string formatted as {start,first,last,max,min}. For the prices shown above, the expected datapoints are
 *
 Solution : 
@@ -38,71 +40,74 @@ public class _CandleStick_ {
         candleStick(input2);
     }
 
-    public static String candleStick(String input) {
-        String[] datapoints = input.split(",");
-        Map<Integer, List<Integer>> intervals = new HashMap<>();
-        Map<Integer, int[]> bucketMinMax = new HashMap<>();
+    public static String candleStick(String input){
+      if (input == null || input.length() <= 2) {
+          return input;
+      }
       
-        // Step 1: parse Prices
-        for (String p : datapoints) {
+      // step 1: parse prices
+      int lastBucket = Integer.MIN_VALUE;
+      String[] dataPoints = input.split(",");
+      Map<Integer, List<Integer>> intervals = new HashMap<>();
+      Map<Integer, int[]> bucketMinMax = new HashMap<>();
+      
+      for (String p : dataPoints){
           String[] pt = p.split(":");
           int price = Integer.valueOf(pt[0]);
-          int timestamp = Integer.valueOf(pt[1]);
-          int bucketKey = timestamp / 10;
+          int timeStamp = Integer.valueOf(pt[1]);
+          int bucketKey = timeStamp / 10;
           intervals.putIfAbsent(bucketKey, new ArrayList<>());
           intervals.get(bucketKey).add(price);
-      
+          
           bucketMinMax.putIfAbsent(bucketKey, new int[]{Integer.MIN_VALUE, Integer.MAX_VALUE});
-          if (bucketMinMax.get(bucketKey)[0] < price) {
-            bucketMinMax.put(bucketKey, new int[]{price, bucketMinMax.get(bucketKey)[1]});
+          if (bucketMinMax.get(bucketKey)[0] < price){
+              bucketMinMax.put(bucketKey, new int[]{price, bucketMinMax.get(bucketKey)[1]});
           }
-          if (bucketMinMax.get(bucketKey)[1] > price) {
-            bucketMinMax.put(bucketKey, new int[]{bucketMinMax.get(bucketKey)[0], price});
+          
+          if (bucketMinMax.get(bucketKey)[1] > price){
+          bucketMinMax.put(bucketKey, new int[]{bucketMinMax.get(bucketKey)[0], price});
           }
-        }
-        
-        // Step 2: Aggregate Historical Data from Prices
-        int lastBucket = Integer.MIN_VALUE;
-        for (int key : intervals.keySet()) {
-          lastBucket = Math.max(key, lastBucket);
-        }
+          
+          lastBucket = Math.max(bucketKey, lastBucket);
+      }
       
-        List<int[]> aggregated = new ArrayList<>();
-        for (int start = 0; start < lastBucket + 1; start++) {
+      // step2 : aggregate historical data from prices
+      
+      List<int[]> aggregated = new ArrayList<>();
+      for (int start = 0; start < lastBucket + 1; start++){
           if (aggregated.size() == 0 && !intervals.containsKey(start)) {
-            continue;
+              continue;
           }
-      
+          
           if (!intervals.containsKey(start)) {
-            int prev = aggregated.get(aggregated.size() - 1)[2];
-            int[] newOut = new int[]{start * 10, prev, prev, prev, prev};
-            aggregated.add(newOut);
+              int prev = aggregated.get(aggregated.size() - 1)[2];
+              int[] newOut = new int[]{start * 10, prev, prev, prev, prev};
+              aggregated.add(newOut);
           } else {
-            List<Integer> data = intervals.get(start);
-            int[] newOut = new int[]{
-                    start * 10, // start of the interval of 10
-                    data.get(0), // first fist_price;
-                    data.get(data.size() - 1), // last last_price
-                    bucketMinMax.get(start)[0],
-                    bucketMinMax.get(start)[1]
-            };
-            aggregated.add(newOut);
+              List<Integer> data = intervals.get(start);
+              int[] newOut = new int[]{
+                      start * 10, // start of the interval of 10
+                      data.get(0), // first fist_price;
+                      data.get(data.size() - 1), // last last_price
+                      bucketMinMax.get(start)[0],
+                      bucketMinMax.get(start)[1]
+              };
+              aggregated.add(newOut);
           }
-        }
+      }
       
-      
-        StringBuilder sb = new StringBuilder();
-        for (int[] dp : aggregated) {
+      StringBuilder sb = new StringBuilder();
+      for (int[] dp : aggregated){
           sb.append("{");
           sb.append(dp[0]);
-          for (int i = 1; i < dp.length; i++) {
-            sb.append(",").append(dp[i]);
+          for (int i = 1; i < dp.length; i++){
+              sb.append(",").append(dp[i]);
           }
           sb.append("}");
-        }
-      
-        System.out.print(sb.toString());
-        return sb.toString();
       }
+      
+      System.out.println(sb.toString());
+      return sb.toString();
+  }
 
 }

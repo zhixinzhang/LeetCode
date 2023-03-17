@@ -2,11 +2,14 @@ package Company.Robinhood;
 import java.util.*;
 
 // https://www.1point3acres.com/bbs/thread-963155-1-1.html
+// https://www.1point3acres.com/bbs/thread-831063-1-1.html
+// 
 /**
  * You are given an array of orders like this:
 [["Buy", 20, "AAPL", "$10"], ["Sell", 19, "AAPL", "$9"], ...]
 复制代码
-Assume there is no sales commission and they are in chronological order. If a buy order is placed and there are sell orders, 
+Assume there is no sales commission and they are in chronological order. 
+If a buy order is placed and there are sell orders, 
 then fill the buy order using the sell orders based on price from lowest to highest.
 If a sell order is placed and there are buy orders, then fill the sell order using the buy orders based
  on price from highest to lowest.
@@ -85,7 +88,8 @@ public class _Stock_totalProfitExecuted_ {
         for (String stock : map.keySet()){
             List<Order> orderList = map.get(stock);
             int[] ans = calculateProfit(orderList);
-            System.out.println("current stock is : " + stock + "  shares : " + String.valueOf(ans[0]) + "  profits :  " + String.valueOf(ans[1]));
+            System.out.println("current stock is : " + stock + "  shares : " 
+            + String.valueOf(ans[0]) + "  profits :  " + String.valueOf(ans[1]));
         }
     }
 

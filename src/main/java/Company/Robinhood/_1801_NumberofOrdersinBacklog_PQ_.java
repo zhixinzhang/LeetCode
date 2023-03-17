@@ -1,45 +1,31 @@
 package Company.Robinhood;
 import java.util.*;
 
+// [[10,5,0],[15,2,1],[25,1,1],[30,4,0]]
 
 public class _1801_NumberofOrdersinBacklog_PQ_ {
     public int getNumberOfBacklogOrders(int[][] orders) {
         PriorityQueue<int[]> buy = new PriorityQueue<>((a, b) -> (b[0] - a[0]));
         PriorityQueue<int[]> sell = new PriorityQueue<>((a, b) -> (a[0] - b[0]));
         for (int[] o : orders) {
-            if (o[2] == 0) { // processing buy orders:
-                    while (!sell.isEmpty() && o[0] >= sell.peek()[0] && o[1] >= sell.peek()[1]) {
-                        o[1] -= sell.peek()[1];
-                        sell.poll();
-                    }
-                    if (!sell.isEmpty() && o[0] >= sell.peek()[0] && o[1] > 0) {
-                        sell.peek()[1] -= o[1];
-                        o[1] = 0;
-                    }
-                    if (o[1] > 0) {
-                        buy.offer(o);
-                    }
-            } else { // processing sell orders:
-                    while (!buy.isEmpty() && o[0] <= buy.peek()[0] && o[1] >= buy.peek()[1]) {
-                        o[1] -= buy.peek()[1];
-                        buy.poll();
-                    }
-                    if (!buy.isEmpty() && o[0] <= buy.peek()[0] && o[1] > 0) {
-                        buy.peek()[1] -= o[1];
-                        o[1] = 0;
-                    }
-                    if (o[1] > 0) {
-                        sell.offer(o);
-                    }
-                }                
+            if (o[2] == 0)
+                buy.offer(o);
+            else
+                sell.offer(o);
+            while (!buy.isEmpty() && !sell.isEmpty() && sell.peek()[0] <= buy.peek()[0]) {
+                int k = Math.min(buy.peek()[1], sell.peek()[1]);
+                buy.peek()[1] -= k;
+                sell.peek()[1] -= k;
+                if (buy.peek()[1] == 0) buy.poll();
+                if (sell.peek()[1] == 0) sell.poll();
+            }
+
         }
-        long res = 0;
-        for (int[] o : sell) {
-            res += o[1];
-        }
-        for (int[] o : buy) {
-            res += o[1];
-        }
-        return (int)(res % 1000000007);
+        int res = 0, mod = 1000000007;
+        for (int[] o : sell)
+            res = (res + o[1]) % mod;
+        for (int[] o : buy)
+            res = (res + o[1]) % mod;
+        return res;
     }
 }

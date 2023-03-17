@@ -61,7 +61,14 @@ import java.util.*;
     */
 
     // const string kCash = "CASH";
-    // const int kCashAmount = 1000;    
+    // const int kCashAmount = 1000;   
+    
+    // Solutions
+    // step 1: for loop orders and parse every order. during the for loop, use a map to store what stock we have and 
+    // match new order. at the end return proflio  O (n * n * log n)  n is number of orders , need sort stock name
+    // step 2: for loop orders and parse every order. during the for loop, use a map to store what stock we have and 
+    // we should store every stock max price and if we trigger the margin call, then we sell stock from highest price
+    // O (n * n * log n)
 public class _MarginCall_Map {
     static int kCashAmount = 1000;
     static String kCash = "CASH";

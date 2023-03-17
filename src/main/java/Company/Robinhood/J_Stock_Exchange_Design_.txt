@@ -4,6 +4,8 @@
 2. support accounting logic: to ensure the order is valid and consistent
 3. ‍‌‌‌‌‍‌‌‍‍‌‌‍‌‌‍‌‍‌support multiple/concurrent orders
 
+请问LZ关于db 和 concurrency这快 重点讨论了什么呢？db的话 感觉是relational db 实现最高级别的ACID 然后同时支持原子行操作 对于高并发 实现row level的lock应该就够了 因为对于一个account不可以同一时间出现很高的QPS 所以lock应该可以解决很多问题？
+
 
 Hi Kamal, Before we start the design I would l like to go through the design process.
 I will spend 5 to 10 minutes to talk about the design questions 

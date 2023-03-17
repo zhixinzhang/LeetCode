@@ -70,7 +70,6 @@ public class _Stock_totalQuantityExecuted_ {
     public static void main(String[] args){
         String[][] orders = {
             {"150", "5", "buy"},    // Order A
-            {"170", "5", "buy"},    // Order A
             {"190", "1", "sell"},   // Order B
             {"200", "1", "sell"},   // Order C
             {"100", "9", "buy"},    // Order D
@@ -81,6 +80,22 @@ public class _Stock_totalQuantityExecuted_ {
 
         sellQ.clear();
         buyQ.clear();
+
+
+        String[][] orders1 = {
+            {"150", "5", "buy"},    // Order A
+            {"170", "5", "buy"},    // Order A
+            {"190", "1", "sell"},   // Order B
+            {"200", "1", "sell"},   // Order C
+            {"100", "9", "buy"},    // Order D
+            {"140", "8", "sell"},   // Order E
+            {"210", "4", "buy"},    // Order F
+        };
+        System.out.println(getMaxShares(orders1));
+
+        sellQ.clear();
+        buyQ.clear();
+
         String[][] orders2 = {
             {"150", "5", "buy"},    // Order A
             {"190", "1", "sell"},   // Order B

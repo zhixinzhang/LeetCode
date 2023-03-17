@@ -35,9 +35,11 @@ https://www.youtube.com/watch?v=xpDnVSmNFX0&list=PLpQ0aTOL-X-FqEaLF-nCzVRxICMlVN
 Probes/Hearbeats
 https://dev.to/gateixeira/an-easy-way-to-a-highly-available-service-with-kubernetes-probes-kotlin-and-helm-3o0j
 
-三大原题之一 - Job scheduler
-另两道是：
-Compute ads campaign ROITrading system to submit limit order‍‌‌‌‌‍‌‌‍‍‌‌‍‌‌‍‌‍‌ to external service
+
+Compute ads campaign ROITrading system
+https://www.1point3acres.com/bbs/thread-758253-1-1.html
+
+
 
 Job scheduler
 https://www.1point3acres.com/bbs/thread-975068-1-1.html
@@ -244,6 +246,10 @@ What was the feedback from your coworkers?
 Describe a bottleneck in the design and how you fixed it.
 Describe how you worked across teams and across companies.
 What would you do differently if you could do it over again?
+an example when you disagreed with your manager/teammate
+
+项目如何保证定期完成，工作是如何分配给不同的组员，怎么让junior的组员获得‍‌‌‌‌‍‌‌‍‍‌‌‍‌‌‍‌‍‌进步
+执行过程中有没有需要改变计划的时候
 
 
 
@@ -252,6 +258,26 @@ https://www.youtube.com/watch?v=dUMWMZmMsVE
 https://medium.com/@narengowda/stock-exchange-system-design-answered-ad4be1345851
 
 
+
+
+https://www.1point3acres.com/bbs/thread-787497-1-1.html
+2. system design,  design a system that supporting two API
+/stockSymbol/Live  -> return the live stock price by given stock symbal
+/stockSymbol/Historical?range {1d,1m, 6m, 1y} -> return the historical stock price data by range.
+
+https://www.1point3acres.com/bbs/thread-791260-1-1.html
+coding 轮是 margin call,  时间很紧， 需要提前联系下
+设计轮是 job scheduler， 老哥问的很细， 各种failure scenario， 再就是data model 问的很细， 区别是加了SLA， 
+比如 3个小时 这个task 如果没有运行结束，需要kill 掉， 问怎么在db 里search 最方便‍‌‌‌‌‍‌‌‍‍‌‌‍‌‌‍‌‍‌
+聊天轮 没啥特殊 就是bq 问题你来我往。
+
+https://www.1point3acres.com/bbs/thread-793803-1-1.html
+
+一轮design店面：设计分布式的job scheduler，着重问了一下db和data sequence，xxxx挂了怎么办，怎么做fault tolerance。
+VO：
+coding是margin call
+design是设计robinhood交易系统，支持让用户延迟下单，主要问了在不同的出错的情况下系统怎么handle，transaction是怎么work的
+‍‌‌‌‌‍‌‌‍‍‌‌‍‌‌‍‌‍‌最后一轮是project dive deep和BQ
 
 
 

@@ -19,7 +19,7 @@ import java.util.*;
 
  // O(N * M * M*Log(M)) N is the count of different Stock + quantity
  // M is the length of that type trader order
-public class MatchHouseStreetOrder_Map {
+public class _MatchHouseStreetOrder_Map {
     static final String exactMatch = "exact";
     static final String fuzzyMatch = "fuzzy";
     static final String offsetMatch = "offset";
