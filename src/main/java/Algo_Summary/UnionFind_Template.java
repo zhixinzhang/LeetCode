@@ -18,11 +18,13 @@ public class UnionFind_Template {
             for (int i = 0; i < size; i ++)
                 uf[i] = i;
         }
+
         void union(int a, int b){
             int fa = find(a);
             int fb = find(b);
             uf[fa] = fb;
         }
+        
         int find(int a){
             while (uf[a] != a){
                 uf[a] = uf[uf[a]];

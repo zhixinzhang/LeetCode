@@ -1,4 +1,4 @@
-package google.Array;
+package Company.Rippling;
 import java.util.*;
 /**
  * Created by zhang on 2018/6/20.
@@ -135,6 +135,8 @@ public class _839_SimilarStringGroups_BFS {
         }
         return true;
     }
+
+    
     public int numSimilarGroups_UF(String[] A) {
         //{"tars", "rats","rsta", "arts"}  {"star"}.
         // tars rats arts star rsta tsra
