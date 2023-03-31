@@ -11,8 +11,10 @@ import java.util.*;
  * <p> https://www.1point3acres.com/bbs/thread-664714-1-1.html
  * Description:
  * <p> 店面：
- * 刷题网 三霸凌 的延伸，就是除了原题的要求，还要求getLast也是O(1)。所以要用map+doubly linked list来找getlast，map+list来找getrandom。
- * 写完了还要写unit tests，refactor code，还问有更多时间还可以做什么，比如加更多的api啊，注释啊，之类的
+ * 刷题网 三霸凌 的延伸，就是除了原题的要求，还要求getLast也是O(1)。
+ * 所以要用map+doubly linked list来找getlast，map+list来找getrandom。
+ * 写完了还要写unit tests，refactor code，还问有更多时间还可以做什么，
+ * 比如加更多的api啊，注释啊，之类的
  * <p>
  * Time and Space Complexity:
  * <p>

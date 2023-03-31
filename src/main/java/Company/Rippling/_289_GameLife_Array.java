@@ -7,7 +7,8 @@ package Company.Rippling;
  * Time: 2:11 PM
  * Description:
  *
- * To avoid extra space we have to store a particular state of the position in a unique number so that later we can change that number back to 0 or 1 before returning.
+ * To avoid extra space we have to store a particular state of the position in a 
+ * unique number so that later we can change that number back to 0 or 1 before returning.
  *
  * We will encounter 4 states while making changes to the given matrix.
  *
@@ -50,6 +51,7 @@ public class _289_GameLife_Array {
                 }
             }
         }
+
         for(int i=0;i<n;i++)
         {
             for(int j=0;j<m;j++)
@@ -69,5 +71,56 @@ public class _289_GameLife_Array {
         if(i<0 || i>=n || j<0 || j>=m)
             return false;
         return true;
+    }
+
+
+    // Extra space  
+    public void gameOfLife_DFS(int[][] board)
+    {
+        int[][] directions={{0,1},{1,0},{0,-1},{-1,0},{1,1},{-1,-1},{1,-1},{-1,1}};
+        int m=board.length;
+        int n=board[0].length;
+        int[][] mat=new int[m][n];
+        
+        for(int i=0;i<m;i++)
+        {
+            for(int j=0;j<n;j++)
+            {
+                int temp=board[i][j];
+                int one=0;
+                for(int[] row:directions)
+                {
+                    int r=i+row[0];
+                    int c=j+row[1];
+                    
+                    if(r<0 || r>=m || c<0 || c>=n)
+                    {
+                        continue;
+                    }
+                    
+                    if(board[r][c]==1)
+                    {
+                        one++;
+                    }
+                    
+                }
+                
+                if(temp==1 && (one==2 || one==3))
+                {
+                   mat[i][j]=1; 
+                }
+                
+                if((temp==0) && (one==3))
+                {
+                    mat[i][j]=1;
+                }
+            }
+        }
+        int i=0;
+        for(int[] row:mat)
+        {
+            board[i]=row;
+            i++;
+        }
     }
 }
