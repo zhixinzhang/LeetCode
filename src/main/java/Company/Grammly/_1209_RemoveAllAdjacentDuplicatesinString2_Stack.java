@@ -1,4 +1,4 @@
-package DataStructure.String;
+package Company.Grammly;
 
 import java.util.*;
 

@@ -3,6 +3,8 @@ _70_ClimbingStairs_DP_Recutsion
 
 https://www.1point3acres.com/bbs/thread-920614-1-1.html  
 287. Find the Duplicate Number   843. Guess the Word
+面完以后还问了一下dns，restful api 之类的概念问题，不是特别难
+
 
 https://www.1point3acres.com/bbs/thread-825382-1-1.html
 _70_ClimbingStairs_DP_Recutsion  _380_InsertDeleteGetRandom_Map
@@ -14,3 +16,14 @@ minIncrementForUnique_counting
 
 https://www.1point3acres.com/bbs/thread-710357-1-1.html
 _287_FindtheDuplicateNumber_TwoPointer_Floyd
+
+
+https://www.1point3acres.com/bbs/thread-813866-1-1.html
+_1047_RemoveAllAdjacentDuplicatesInString_Stack_TwoPointer
+_1209_RemoveAllAdjacentDuplicatesinString2_Stack
+
+
+https://www.1point3acres.com/bbs/thread-656000-1-1.html
+2. 给了user和order两个table，写一个SQL筛选出没有下过订单的user https://ost.51cto.com/posts/11178
+3. 给了两个字符串，第一个是正常字符串（abc），第二个是含有星号（*）的字符串，星号表示退格键（abd*c）。判断两个字符串是否相同。
+‍‌‌‌‌‍‌‌‍‍‌‌‍‌‌‍‌‍‌4. 解释一下REST API并且给出相应的例子，貌似还问了一些系统架构的问题，没有很深入
