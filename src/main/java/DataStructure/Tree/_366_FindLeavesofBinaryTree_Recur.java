@@ -3,7 +3,7 @@ package DataStructure.Tree;
 import java.util.ArrayList;
 import java.util.List;
 
-import Company.google.TreeNode;
+import Company.Google.TreeNode;
 
 /**
  * Created with IntelliJ IDEA.

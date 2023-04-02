@@ -1,6 +1,6 @@
 package DataStructure.ListNode;
 
-import Company.google.LinkedNode.DoubleListNode;
+import Company.Google.LinkedNode.DoubleListNode;
 import DataStructure.LinkList.ListNode;
 
 /**

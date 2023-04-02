@@ -1,4 +1,4 @@
-package google;
+package Company.Google;
 
 import java.util.HashMap;
 import java.util.HashSet;
