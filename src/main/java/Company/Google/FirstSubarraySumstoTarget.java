@@ -1,4 +1,4 @@
-package google;
+package Company.Google;
 
 public class FirstSubarraySumstoTarget{
 			/**Given a non-empty array nums contains positive integers and a positive integer target.

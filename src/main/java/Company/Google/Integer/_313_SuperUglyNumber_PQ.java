@@ -1,4 +1,4 @@
-package google.Integer;
+package Company.Google.Integer;
 
 import java.util.PriorityQueue;
 

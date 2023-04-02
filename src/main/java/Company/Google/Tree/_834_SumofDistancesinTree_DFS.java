@@ -1,4 +1,4 @@
-package google.Tree;
+package Company.Google.Tree;
 import java.util.*;
 /**
  * Created by zhang on 2018/6/14.

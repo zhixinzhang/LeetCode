@@ -1,4 +1,4 @@
-package google.Graph;
+package Company.Google.Graph;
 import java.util.*;
 /**
  * Created by zhang on 2018/6/1.

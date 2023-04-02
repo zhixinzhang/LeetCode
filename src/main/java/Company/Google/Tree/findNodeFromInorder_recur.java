@@ -1,4 +1,4 @@
-package google.Tree;
+package Company.Google.Tree;
 
 /**
  * Created with IntelliJ IDEA.

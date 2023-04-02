@@ -1,4 +1,4 @@
-package google.LinkedNode;
+package Company.Google.LinkedNode;
 
 /**
  * Created by zhang on 2018/8/11.

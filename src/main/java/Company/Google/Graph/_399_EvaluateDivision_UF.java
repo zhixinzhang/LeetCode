@@ -1,4 +1,4 @@
-package google.Graph;
+package Company.Google.Graph;
 
 import java.util.Arrays;
 

@@ -1,4 +1,4 @@
-package google.LinkedNode;
+package Company.Google.LinkedNode;
 
 import DataStructure.LinkList.ListNode;
 

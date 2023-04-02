@@ -1,4 +1,4 @@
-package Stack;
+package DataStructure.Stack;
 /**
  * Created by zhang on 2017/9/26.
  * Evaluate the value of an arithmetic expression in Reverse Polish Notation.

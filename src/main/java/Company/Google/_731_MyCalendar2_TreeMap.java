@@ -1,4 +1,4 @@
-package google;
+package Company.Google;
 
 import java.util.Map;
 import java.util.TreeMap;

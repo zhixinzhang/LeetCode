@@ -1,4 +1,4 @@
-package google.String;
+package Company.Google.String;
 
 /**
  * Created by zhang on 2018/6/26.

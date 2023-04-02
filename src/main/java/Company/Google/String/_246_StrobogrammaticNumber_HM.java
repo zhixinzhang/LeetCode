@@ -1,4 +1,4 @@
-package google.String;
+package Company.Google.String;
 
 import java.util.HashMap;
 

@@ -1,4 +1,5 @@
-package google;
+package Company.Google;
+
 public class AddStringPalindrome{
 
     public static void main(String[] args ){

@@ -1,4 +1,4 @@
-package google;
+package Company.Google;
 
 
 public class _562_LongestLineofConsecutiveOneinMatrix_DP{

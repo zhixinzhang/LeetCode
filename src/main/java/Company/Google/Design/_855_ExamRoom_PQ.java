@@ -1,4 +1,4 @@
-package google.Design;
+package Company.Google.Design;
 
 import java.util.PriorityQueue;
 

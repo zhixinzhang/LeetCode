@@ -1,4 +1,4 @@
-package google;
+package Company.Google;
 import java.util.*;
 /**
  * Created by zhang on 2018/5/23.

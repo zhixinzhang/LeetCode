@@ -1,4 +1,4 @@
- package google;
+package Company.Google;
 
  // O(N) Time O(N) space
  import java.util.Stack;

@@ -1,4 +1,4 @@
-package google;
+package Company.Google;
 
 
 public class _673_NumberofLongestIncreasingSubsequence{

@@ -1,4 +1,4 @@
-package google.Integer;
+package Company.Google.Integer;
 
 /**
  * Created by zhang on 2018/6/22.

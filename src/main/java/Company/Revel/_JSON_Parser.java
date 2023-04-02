@@ -10,8 +10,11 @@ import java.util.HashMap;
 public class _JSON_Parser {
         // json string with user data
     // Custom data been passed as in arguments
+    private final static String jsonString2
+        = "{'name':'user','id':1234,'marks':[{'english':85,'physics':80,'chemistry':75}],'cc':[{'english':85,'physics':80,'chemistry':75}]}";
+
     private final static String jsonString
-        = "{'name':'user','id':1234,'marks':[{'english':85,'physics':80,'chemistry':75}]}";
+        = "{'name':'user','id':1234,'marks':[{'english':85,'physics':80,'chemistry':75}],'cc':[{'english':85,'physics':80,'chemistry':75}]}";    
  
     // Main driver method
     public static void main(String[] args)
@@ -23,6 +26,7 @@ public class _JSON_Parser {
         // Get json array for user's marks
         JSONArray marks = user.getJSONArray("marks");
  
+        JSONArray tt = user.getJSONArray("cc");
         // Get json object for subject's marks
         JSONObject subjects = marks.getJSONObject(0);
  
@@ -67,17 +71,9 @@ enum CONSTANTS {
 // To parse json object
 class JSONObject {
  
-    private final static char specialChar;
-    private final static char commaChar;
-    private HashMap<String, String> objects;
- 
-    static
-    {
-        specialChar = String.valueOf(CONSTANTS.SPECIAL)
-                          .toCharArray()[0];
-        commaChar = String.valueOf(CONSTANTS.COMMA)
-                        .toCharArray()[0];
-    }
+    private final static char specialChar = String.valueOf(CONSTANTS.SPECIAL).toCharArray()[0];
+    private final static char commaChar = String.valueOf(CONSTANTS.COMMA).toCharArray()[0];
+    private HashMap<String, String> objects;   
  
     // Constructor if this class
     public JSONObject(String arg) { getJSONObjects(arg); }
@@ -89,10 +85,7 @@ class JSONObject {
  
         objects = new HashMap<String, String>();
  
-        if (arg.startsWith(String.valueOf(
-                CONSTANTS.CURLY_OPEN_BRACKETS))
-            && arg.endsWith(String.valueOf(
-                CONSTANTS.CURLY_CLOSE_BRACKETS))) {
+        if (arg.startsWith(String.valueOf(CONSTANTS.CURLY_OPEN_BRACKETS))&& arg.endsWith(String.valueOf(CONSTANTS.CURLY_CLOSE_BRACKETS))) {
  
             StringBuilder builder = new StringBuilder(arg);
             builder.deleteCharAt(0);
@@ -100,7 +93,7 @@ class JSONObject {
             String a = builder.toString();
             builder = replaceCOMMA(builder);
             String b = builder.toString();
-            
+            System.out.println(b);
             for (String objects : builder.toString().split(
                      String.valueOf(CONSTANTS.COMMA))) {
  

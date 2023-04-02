@@ -1,4 +1,4 @@
-package google;
+package Company.Google;
 
 //https://leetcode.com/problems/brace-expansion/
 

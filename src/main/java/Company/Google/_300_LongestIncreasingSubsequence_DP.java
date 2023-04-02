@@ -1,4 +1,4 @@
- package google;
+package Company.Google;
 
  public class _300_LongestIncreasingSubsequence_DP {
     public static void main(String[] args){

@@ -1,4 +1,4 @@
-package google;
+package Company.Google;
 
 /**
  * Created with IntelliJ IDEA.

@@ -1,4 +1,4 @@
-package Stack;
+package DataStructure.Stack;
 /**
  * Created by zhang on 2017/9/26.
  * There are N gas stations along a circular route, where the amount of gas at station i is gas[i].
