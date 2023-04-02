@@ -44,6 +44,21 @@ Compatibility: WebSocket APIs are not supported by all browsers, requiring fallb
 </li>
 </ul>
 
+<h3>gRPC</h3>
+<ul>
+<li>https://www.imaginarycloud.com/blog/grpc-vs-rest/</li>
+<li>What is gRPC?  </li>
+<li>
+What is gRPC API?
+gRPC stands for Google Remote Procedure Call and is a variant based on the RPC architecture
+Overall, gRPC aims to make data transmissions between microservices faster. It is based on the approach of determining a service, establishing the methods and respective parameters to enable remote calling and return types.
+One of the main benefits of gRPC is its speed and efficiency. It uses binary serialization, which means that data is transmitted in a compact and optimized format, reducing network overhead and improving performance. Additionally, gRPC uses HTTP/2 as its underlying transport protocol, which enables efficient multiplexing of multiple requests and responses over a single TCP connection.
+Disadvantage:
+
+
+</li>
+</ul>
+
 # LeetCode
 https://en.wikipedia.org/wiki/Markdown
 <h1>Algo</h1>
