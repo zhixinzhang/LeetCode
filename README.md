@@ -59,6 +59,23 @@ Disadvantage:
 </li>
 </ul>
 
+
+<h3>Lambda</h3>
+<ul>
+<li>https://www.imaginarycloud.com/blog/grpc-vs-rest/</li>
+<li>What is aws lambda?  </li>
+<li>
+What is aws lambda
+AWS Lambda is a serverless computing service that allows developers to run code in the cloud without the need for a dedicated server. 
+  Lambda functions are event-driven, meaning they are triggered by a specific event, such as a file being uploaded to Amazon S3 or a message being posted to an Amazon Simple Notification Service (SNS) topic. The code in a Lambda function is executed in response to the event, and the function can be set up to automatically scale based on the volume of events.
+
+Lambda functions are charged based on the number of requests and the time the function runs, and can be used for a variety of use cases, such as data processing, image and video manipulation
+Disadvantage:
+
+
+</li>
+</ul>
+
 # LeetCode
 https://en.wikipedia.org/wiki/Markdown
 <h1>Algo</h1>
