@@ -1,4 +1,4 @@
-package google.DP;
+package Company.Google.DP;
 import java.util.*;
 
 //https://leetcode.com/articles/range-sum-query-2d-immutable/

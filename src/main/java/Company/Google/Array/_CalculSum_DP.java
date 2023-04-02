@@ -1,4 +1,4 @@
-package google.Array;
+package Company.Google.Array;
 
 /**
  * Created with IntelliJ IDEA.

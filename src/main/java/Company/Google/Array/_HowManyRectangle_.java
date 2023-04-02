@@ -1,4 +1,4 @@
-package google.Array;
+package Company.Google.Array;
 
 import java.util.ArrayList;
 import java.util.HashSet;

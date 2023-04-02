@@ -1,4 +1,4 @@
-package google.Array;
+package Company.Google.Array;
 
 import java.util.Deque;
 import java.util.LinkedList;

@@ -1,4 +1,4 @@
-package google.DP;
+package Company.Google.DP;
 //http://blog.csdn.net/hit0803107/article/details/54894227
 // https://leetcode.com/problems/target-sum/discuss/97334/Java-(15-ms)-C++-(3-ms)-O(ns)-iterative-DataStructure.DP-solution-using-subset-sum-with-explanation
 

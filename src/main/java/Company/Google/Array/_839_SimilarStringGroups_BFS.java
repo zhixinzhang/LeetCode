@@ -1,4 +1,4 @@
-package google.Array;
+package Company.Google.Array;
 import java.util.*;
 /**
  * Created by zhang on 2018/6/20.

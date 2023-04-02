@@ -1,4 +1,4 @@
-package google.Array;
+package Company.Google.Array;
 
 import java.util.Random;
 import java.util.TreeMap;

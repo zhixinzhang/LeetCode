@@ -1,4 +1,4 @@
-package google.Array;
+package Company.Google.Array;
 
 /**
  * Created by zhang on 2018/6/3.

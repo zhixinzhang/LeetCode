@@ -1,4 +1,4 @@
-package google.Array.Interval_Meeting;
+package Company.Google.Array.Interval_Meeting;
 
 import java.util.Comparator;
 import java.util.Iterator;
