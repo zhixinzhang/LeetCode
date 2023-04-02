@@ -1,6 +1,6 @@
 package DataStructure.Tree;
 
-import google.TreeNode;
+import Company.google.TreeNode;
 
 /**
  * Created with IntelliJ IDEA.

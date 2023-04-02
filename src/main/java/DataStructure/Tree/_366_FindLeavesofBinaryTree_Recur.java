@@ -1,9 +1,9 @@
 package DataStructure.Tree;
 
-import google.TreeNode;
-
 import java.util.ArrayList;
 import java.util.List;
+
+import Company.google.TreeNode;
 
 /**
  * Created with IntelliJ IDEA.

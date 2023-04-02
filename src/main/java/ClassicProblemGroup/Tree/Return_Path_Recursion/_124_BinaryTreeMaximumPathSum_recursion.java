@@ -23,7 +23,7 @@ post order from bottom node to count max result
 //The path must contain at least one node and does not need to go through the root.
 
 
-import google.TreeNode;
+import Company.google.TreeNode;
 
 /**We can find the maximum sum using single traversal of binary tree. The idea is to maintain two values in recursive calls
   1) Maximum root to leaf path sum for the subtree rooted under current node.
