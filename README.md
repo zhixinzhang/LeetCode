@@ -1,3 +1,49 @@
+<h1>System Design Concepts</h1>
+
+<h3>DNS</h3>
+<ul>
+<li>https://sg.indeed.com/career-advice/interviewing/dns-interview-questions</li>
+<li>DNS is short for domain name system. DNS translates domain names into IP addresses of websites and computers. This transformation makes internet addresses easier to remember, which can eventually increase the efficiency of different working processes</li>
+<li>
+What is a DNS zone?
+The DNS is broken up into many different zones. These zones differentiate between distinctly managed areas in the DNS namespace. A DNS zone is a portion of the DNS namespace that is managed by a specific organization or administrator. A DNS zone is an administrative space which allows for more granular control of DNS components, such as authoritative nameservers. The domain name space is a hierarchical tree, with the DNS root domain at the top. A DNS zone starts at a domain within the tree and can also extend down into subdomains so that multiple subdomains can be managed by one entity.
+</li>
+</ul>
+
+
+<h3>Rest API</h3>
+<ul>
+<li>https://www.geeksforgeeks.org/difference-between-rest-api-and-web-socket-api/</li>
+<li>What is REST?  </li>
+<li>
+What is REST?
+REST stands for Representational State Transfer and REST is an architectural design pattern for developing web services, it uses HTTP protocol (web protocol) for implementation. Rest API use HTTP Methods like Get. Post, Put, Delete to work with server-side resources.
+REST supports data of multiple formats like XML, JSON
+It follows the statelessness concept where the client request and response are not dependent on others and thereby provides total assurance of getting the required data.
+Disadvantage:
+Limited real-time support: REST APIs do not support real-time communication between the server and client, making them less suitable for applications that require real-time updates.
+
+</li>
+</ul>
+
+<h3>Web Socket API</h3>
+<ul>
+<li>https://ably.com/topic/websocket-vs-rest</li>
+<li>https://sg.indeed.com/career-advice/interviewing/dns-interview-questions</li>
+<li>What is REST?  </li>
+<li>
+What is WebSocket API?
+WebSocket API is a protocol that provides a persistent connection between a client and a server, allowing real-time communication over the web. Unlike traditional HTTP requests, which are request-response based and stateless, WebSocket connections remain open, enabling bi-directional, low-latency communication between a client and a server.
+The WebSocket API allows developers to build applications that require real-time updates, such as online gaming, chat applications, financial trading platforms, and more. It also enables server-side push notifications to clients, eliminating the need for clients to continually poll the server for updates.
+
+Disadvantage:
+Complexity: WebSocket APIs are more complex to design and implement than REST APIs, requiring additional programming skills and knowledge.
+Security: WebSocket APIs can be vulnerable to security threats if not properly secured.
+Compatibility: WebSocket APIs are not supported by all browsers, requiring fallback mechanisms for older browsers.
+
+</li>
+</ul>
+
 # LeetCode
 https://en.wikipedia.org/wiki/Markdown
 <h1>Algo</h1>
