@@ -2,7 +2,13 @@ package DataStructure.Array;
 import java.util.*;
 
 public class _697_DegreeofanArray_HashMap{
-	 public int findShortestSubArray(int[] nums) {
+    public static void main(String[] args){
+        int[] nums = new int[]{1,2,2,3,1,4,2};
+        findShortestSubArray_Map(nums);
+    }
+
+
+	 public static int findShortestSubArray_Map(int[] nums) {
         int maxCount = 0;
         int res = 1;
         HashMap<Integer,Integer> countMap = new HashMap<>();  // num  degree

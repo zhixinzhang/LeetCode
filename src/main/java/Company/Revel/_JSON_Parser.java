@@ -13,8 +13,11 @@ public class _JSON_Parser {
     private final static String jsonString2
         = "{'name':'user','id':1234,'marks':[{'english':85,'physics':80,'chemistry':75}],'cc':[{'english':85,'physics':80,'chemistry':75}]}";
 
+    private final static String jsonString3
+        = "{'name':'user','id':1234,'marks':[{'english':85,'physics':80,'chemistry':75}]}";
+
     private final static String jsonString
-        = "{'name':'user','id':1234,'marks':[{'english':85,'physics':80,'chemistry':75}],'cc':[{'english':85,'physics':80,'chemistry':75}]}";    
+        = "{'name':'user','id':1234,'marks':[{'english':85,'physics':80,'chemistry':75,'a':[{'b':1,'c':2}]}]}";    
  
     // Main driver method
     public static void main(String[] args)
@@ -26,10 +29,13 @@ public class _JSON_Parser {
         // Get json array for user's marks
         JSONArray marks = user.getJSONArray("marks");
  
-        JSONArray tt = user.getJSONArray("cc");
         // Get json object for subject's marks
         JSONObject subjects = marks.getJSONObject(0);
  
+        JSONArray a = subjects.getJSONArray("a");
+
+        JSONObject aSubjects = a.getJSONObject(0);
+
         // Print and display commands
         System.out.println(
             String.format("English marks - %s",
@@ -248,8 +254,7 @@ class JSONArray {
     public String getObject(int index)
     {
         if (objects != null) {
-            return objects.get(index).replace(specialChar,
-                                              commaChar);
+            return objects.get(index).replace(specialChar, commaChar);
         }
  
         return null;
