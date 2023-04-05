@@ -25,15 +25,17 @@ The DNS is broken up into many different zones. These zones differentiate betwee
 <li>https://www.geeksforgeeks.org/difference-between-rest-api-and-web-socket-api/</li>
 <li>What is REST?  </li>
 <li>
-What is REST?
-REST stands for Representational State Transfer and REST is an architectural design pattern for developing web services, it uses HTTP protocol (web protocol) for implementation. 
+REST stands for Representational State Transfer and REST is an architectural design pattern for developing web services, 
+it uses HTTP protocol for implementation. 
 It follows the stateless concept. The rest architectural requires that client states is not stored on the server
 instead of each request made by client must contain all necessary information for that particular http request.
 And Rest api also use http status code like 200, 300...
 Rest API use HTTP Methods like Get. Post, Put, Delete to work with server-side resources.
 REST supports data of multiple formats like XML, JSON
+
 Disadvantage:
-Limited real-time support: REST APIs do not support real-time communication between the server and client, making them less suitable for applications that require real-time updates.
+Limited real-time support: REST APIs do not support real-time communication between the server and client, 
+making them less suitable for applications that require real-time updates.
 
 Soap Only support xml, Rest also support json, one word soap are much more strict than rest
 
@@ -104,6 +106,21 @@ select A.ID from A where A.ID not in (select ID from B)
 使用 left join...on... , "B.ID isnull" 表示左连接之后在B.ID 字段为 null的记录
 
 select A.ID from A left join B on A.ID=B.ID where B.ID is null 
+</li>
+</ul>
+
+<h3>Sql vs No Sql</h3>
+<ul>
+Generally speaking
+SQL databases use structured query language (SQL) and have a predefined schema. NoSQL databases have dynamic schemas for unstructured data.
+SQL databases are vertically scalable, while NoSQL databases are horizontally scalable.
+SQL databases are table-based, while NoSQL databases are document, key-value, graph, or wide-column stores.
+SQL databases are better for multi-row transactions, while NoSQL is better for unstructured data like documents or JSON.
+
+NoSQL is preferred over SQL in many cases because it offers more flexibility and scalability. The primary benefit of using a NoSQL system is that it provides developers with the ability to store and access data quickly and easily, without the overhead of a traditional relational database. 
+
+For example, if you need a fast, scalable, and reliable database for web applications then a NoSQL system may be preferable. On the other hand, if your application requires complex data queries and transactional support then an SQL system may be the better choice. Ultimately, there is no one-size-fits-all solution - it all comes down to what you need from your database and which type of system can provide that in the most efficient manner. It's best to research both options thoroughly before making a decision. 
+<li>
 </li>
 </ul>
 
