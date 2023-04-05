@@ -1,36 +1,68 @@
-https://www.1point3acres.com/bbs/thread-938717-1-1.html
+23-10-10 https://www.1point3acres.com/bbs/thread-938717-1-1.html
 _70_ClimbingStairs_DP_Recutsion
+_1047_RemoveAllAdjacentDuplicatesInString_Stack_TwoPointer
+_1209_RemoveAllAdjacentDuplicatesinString2_Stack
 
-https://www.1point3acres.com/bbs/thread-920614-1-1.html  
-287. Find the Duplicate Number   843. Guess the Word
+2022-8-17 https://www.1point3acres.com/bbs/thread-920614-1-1.html  
+287. Find the Duplicate Number   
+843. Guess the Word
 面完以后还问了一下dns，restful api 之类的概念问题，不是特别难
 
 
-https://www.1point3acres.com/bbs/thread-825382-1-1.html
-_70_ClimbingStairs_DP_Recutsion  _380_InsertDeleteGetRandom_Map
+2022-4-17 https://www.1point3acres.com/bbs/thread-885872-1-1.html
+_wordSegmentation_
+
+2022-2-20 https://www.1point3acres.com/bbs/thread-854283-1-1.html
+_404_SumofLeftLeaves_Queue_Recu
+_1209_RemoveAllAdjacentDuplicatesinString2_Stack
+
+2022-1-27 https://www.1point3acres.com/bbs/thread-843984-1-1.html
+_1047_RemoveAllAdjacentDuplicatesInString_Stack_TwoPointer
+_1209_RemoveAllAdjacentDuplicatesinString2_Stack
+
+2021-11-30 https://www.1point3acres.com/bbs/thread-825382-1-1.html
+_70_ClimbingStairs_DP_Recutsion  
+_380_InsertDeleteGetRandom_Map
+
+2021-10-28 https://www.1point3acres.com/bbs/thread-813866-1-1.html
+_1209_RemoveAllAdjacentDuplicatesinString2_Stack
+
+
+2021-10-23 https://www.1point3acres.com/bbs/thread-811572-1-1.html
+_1163_LastSubstringinLexicographicalOrder_TwoPointer
+_945_MinimumIncrementtoMakeArrayUnique_Sort
+
+2021-1-28 https://www.1point3acres.com/bbs/thread-710357-1-1.html
+_287_FindtheDuplicateNumber_TwoPointer_Floyd
+_CompareTwoString_Stack
+
+2020-7-28 https://www.1point3acres.com/bbs/thread-656000-1-1.html
+_CompareTwoString_Stack
+2. 给了user和order两个table，写一个SQL筛选出没有下过订单的user https://ost.51cto.com/posts/11178
+3. 给了两个字符串，第一个是正常字符串（abc），第二个是含有星号（*）的字符串，星号表示退格键（abd*c）。判断两个字符串是否相同。
+‍‌‌‌‌‍‌‌‍‍‌‌‍‌‌‍‌‍‌4. 解释一下REST API并且给出相应的例子，貌似还问了一些系统架构的问题，没有很深入
+
+
+
+
 
 https://www.1point3acres.com/bbs/thread-811572-1-1.html
 _1163_LastSubstringinLexicographicalOrder_TwoPointer 
 minIncrementForUnique_counting
 
 
-https://www.1point3acres.com/bbs/thread-710357-1-1.html
-_287_FindtheDuplicateNumber_TwoPointer_Floyd
-
 
 https://www.1point3acres.com/bbs/thread-813866-1-1.html
 _1047_RemoveAllAdjacentDuplicatesInString_Stack_TwoPointer
 _1209_RemoveAllAdjacentDuplicatesinString2_Stack
 
-https://www.1point3acres.com/bbs/thread-843984-1-1.html
-_1047_RemoveAllAdjacentDuplicatesInString_Stack_TwoPointer
-_1209_RemoveAllAdjacentDuplicatesinString2_Stack
 
-https://www.1point3acres.com/bbs/thread-656000-1-1.html
-2. 给了user和order两个table，写一个SQL筛选出没有下过订单的user https://ost.51cto.com/posts/11178
-3. 给了两个字符串，第一个是正常字符串（abc），第二个是含有星号（*）的字符串，星号表示退格键（abd*c）。判断两个字符串是否相同。
-‍‌‌‌‌‍‌‌‍‍‌‌‍‌‌‍‌‍‌4. 解释一下REST API并且给出相应的例子，貌似还问了一些系统架构的问题，没有很深入
 
 
 https://www.1point3acres.com/bbs/thread-854283-1-1.html
 _1209_RemoveAllAdjacentDuplicatesinString2_Stack
+
+
+
+BQ
+https://www.1point3acres.com/bbs/thread-943452-1-1.html

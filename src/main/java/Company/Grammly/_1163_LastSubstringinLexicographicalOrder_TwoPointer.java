@@ -2,7 +2,12 @@ package Company.Grammly;
 
 // https://leetcode.com/problems/last-substring-in-lexicographical-order/solutions/1964848/java-beats-100-00-memory-speed-0ms-april-2022/?languageTags=java
 public class _1163_LastSubstringinLexicographicalOrder_TwoPointer {
-    public String lastSubstring(String s) {
+    public static void main(String[] args){
+        String a = lastSubstring("cabcabx");
+        String aa = lastSubstring("cabcab");
+        String b = "";
+    }
+    public static String lastSubstring(String s) {
         int n = s.length();
        // We have two pointers each pointing at the start of a
        // possible candidate substring. The pointer on the left
@@ -43,6 +48,7 @@ public class _1163_LastSubstringinLexicographicalOrder_TwoPointer {
                curLen = 0;
            }
        }
+
        return s.substring(Math.min(i, j));
    }
 }

@@ -12,13 +12,16 @@ public class _404_SumofLeftLeaves_BFS_Recu{
         while(!queue.isEmpty()) {
             TreeNode curr = queue.poll();
 
-            if(curr.left != null && curr.left.left == null && curr.left.right == null) res += curr.left.val;
+            if(curr.left != null && curr.left.left == null && curr.left.right == null) 
+                res += curr.left.val;
             if(curr.left != null) queue.offer(curr.left);
             if(curr.right != null) queue.offer(curr.right);
         }
+
         return res;
     }
-        public int sumOfLeftLeaves_Recu(TreeNode root) {
+    
+    public int sumOfLeftLeaves_Recu(TreeNode root) {
 
      if(root == null) return 0;
         int ans = 0;
@@ -26,10 +29,11 @@ public class _404_SumofLeftLeaves_BFS_Recu{
             if(root.left.left == null && root.left.right == null){
                 ans += root.left.val;
             }else{
-                ans+= sumOfLeftLeaves(root.left);
+                ans += sumOfLeftLeaves(root.left);
             }
         }
-        ans+=  sumOfLeftLeaves(root.right);
+
+        ans +=  sumOfLeftLeaves(root.right);
         
         return ans;
         }

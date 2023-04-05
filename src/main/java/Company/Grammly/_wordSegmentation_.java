@@ -1,6 +1,9 @@
 package Company.Grammly;
 import java.util.*;
 
+/**
+ * same with word break 2 and every word in dictionary can reuse.
+ * */ 
 public class _wordSegmentation_ {
     private static List<String> sentences;
     public static void main(String[] args){

@@ -11,15 +11,17 @@ import java.util.Stack;
  */
 
 public class _1047_RemoveAllAdjacentDuplicatesInString_Stack_TwoPointer {
-
+    public static void main(String[] args){
+        removeDuplicates_noStack("azxxzy");
+    }
     /**
      *
      * Time complexity : \mathcal{O}(N)O(N), where N is a string length.
      * Space complexity : \mathcal{O}(N - D)O(N−D) where D is a total length for all duplicates.
      * */
 
-    public String removeDuplicates_noStack(String S) {
-        if(S == null || S.length() == 0)
+    public static String removeDuplicates_noStack(String S) {
+        if(S == null || S.length() <= 1)
             return S;
         StringBuilder sb = new StringBuilder();
         for (char c : S.toCharArray()) {
@@ -31,7 +33,8 @@ public class _1047_RemoveAllAdjacentDuplicatesInString_Stack_TwoPointer {
             }
         }
 
-        return sb.toString();
+        String ans = sb.toString();
+        return ans;
     }
 
     // O(n) time O(n) space

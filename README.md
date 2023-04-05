@@ -2,8 +2,17 @@
 
 <h3>DNS</h3>
 <ul>
-<li>https://sg.indeed.com/career-advice/interviewing/dns-interview-questions</li>
-<li>DNS is short for domain name system. DNS translates domain names into IP addresses of websites and computers. This transformation makes internet addresses easier to remember, which can eventually increase the efficiency of different working processes</li>
+<li>https://sg.indeed.com/career-advice/interviewing/dns-interview-questions
+</li>
+<li>DNS is short for domain name system. DNS translates domain names or URL into IP addresses, so we don't need to 
+remember IP address for different websites. </li>
+<li>
+DNS servers convert URLs and domain names into IP addresses that computers can understand and use. This process of translation and lookup is called DNS resolution.
+1.The user enters a web address or domain name into a browser.
+2.The browser sends a message, called a recursive DNS query,to the network to find out which IP or network address the domain corresponds to.
+3.If the recursive DNS server does not have an answer, it will query a series of other servers in the following order: DNS root name servers, top-level domain (TLD) name servers and authoritative name servers.
+The recursive server stores, or caches, the A record for the domain name, which contains the IP address. The next time it receives a request for that domain name, it can respond directly to the user instead of querying other servers.
+</li>
 <li>
 What is a DNS zone?
 The DNS is broken up into many different zones. These zones differentiate between distinctly managed areas in the DNS namespace. A DNS zone is a portion of the DNS namespace that is managed by a specific organization or administrator. A DNS zone is an administrative space which allows for more granular control of DNS components, such as authoritative nameservers. The domain name space is a hierarchical tree, with the DNS root domain at the top. A DNS zone starts at a domain within the tree and can also extend down into subdomains so that multiple subdomains can be managed by one entity.
@@ -17,11 +26,16 @@ The DNS is broken up into many different zones. These zones differentiate betwee
 <li>What is REST?  </li>
 <li>
 What is REST?
-REST stands for Representational State Transfer and REST is an architectural design pattern for developing web services, it uses HTTP protocol (web protocol) for implementation. Rest API use HTTP Methods like Get. Post, Put, Delete to work with server-side resources.
+REST stands for Representational State Transfer and REST is an architectural design pattern for developing web services, it uses HTTP protocol (web protocol) for implementation. 
+It follows the stateless concept. The rest architectural requires that client states is not stored on the server
+instead of each request made by client must contain all necessary information for that particular http request.
+And Rest api also use http status code like 200, 300...
+Rest API use HTTP Methods like Get. Post, Put, Delete to work with server-side resources.
 REST supports data of multiple formats like XML, JSON
-It follows the statelessness concept where the client request and response are not dependent on others and thereby provides total assurance of getting the required data.
 Disadvantage:
 Limited real-time support: REST APIs do not support real-time communication between the server and client, making them less suitable for applications that require real-time updates.
+
+Soap Only support xml, Rest also support json, one word soap are much more strict than rest
 
 </li>
 </ul>

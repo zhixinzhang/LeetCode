@@ -1,6 +1,6 @@
 package Company.Grammly;
 
-public class _CompareTwoString {
+public class _CompareTwoString_Stack {
     public static void main(String[] args){
         compareStrings("abb**", "a");
     }
