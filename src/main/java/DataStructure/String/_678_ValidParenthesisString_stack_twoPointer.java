@@ -2,7 +2,13 @@ package DataStructure.String;
 import java.util.*;
 
 
-public class _678_ValidParenthesisString_stack{
+/**
+ * we can use two stacks to solve this problem
+ * one stack to store left  parenthesis 
+ * one stack to store star sign
+ * 
+*/
+public class _678_ValidParenthesisString_stack_twoPointer{
 	public boolean checkValidString(String s) {
         // ((*())
         char[] len = new char[s.length()];
@@ -32,5 +38,25 @@ public class _678_ValidParenthesisString_stack{
         }
         
         return true;
+    }
+
+    public boolean checkValidString_twoPointer(String s) {
+        int cmax = 0, cmin = 0;
+        for(Character c : s.toCharArray()){
+            if(c == '('){
+                cmax++;
+                cmin++;
+            }else if(c == ')'){
+                cmax--;
+                cmin--;
+            }else if(c == '*'){
+//         There are two chances '(' or ')' hence we are using two counts
+                cmax++;
+                cmin--;
+            }
+            if(cmax < 0) return false;
+            cmin = Math.max(cmin, 0);
+        }
+        return cmin == 0;
     }
 }

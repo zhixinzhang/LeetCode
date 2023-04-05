@@ -76,6 +76,23 @@ Disadvantage:
 </li>
 </ul>
 
+
+<h3>Mysql</h3>
+<ul>
+
+<li>1）寻找表A里的元素不在表B里。 （select id from table A where id not in (select id from table B)
+方法一(仅适用单个字段)
+使用 not in ,容易理解,效率低
+
+select A.ID from A where A.ID not in (select ID from B)
+
+方法二（适用多个字段匹配）
+使用 left join...on... , "B.ID isnull" 表示左连接之后在B.ID 字段为 null的记录
+
+select A.ID from A left join B on A.ID=B.ID where B.ID is null 
+</li>
+</ul>
+
 # LeetCode
 https://en.wikipedia.org/wiki/Markdown
 <h1>Algo</h1>

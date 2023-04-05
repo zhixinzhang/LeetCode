@@ -1,4 +1,4 @@
-package greedy;
+package Greedy;
 
 /**
  * Created by zhang on 2017/3/3.
