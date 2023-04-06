@@ -10,7 +10,7 @@ remember IP address for different websites. </li>
 DNS servers convert URLs and domain names into IP addresses that computers can understand and use. This process of translation and lookup is called DNS resolution.
 1.The user enters a web address or domain name into a browser.
 2.The browser sends a message, called a recursive DNS query,to the network to find out which IP or network address the domain corresponds to.
-3.If the recursive DNS server does not have an answer, it will query a series of other servers in the following order: DNS root name servers, top-level domain (TLD) name servers and authoritative name servers.
+3.If the recursive DNS server does not have an answer, it will query a series of other servers like DNS root name servers, top-level domain (TLD) name servers and authoritative name servers.
 The recursive server stores, or caches, the A record for the domain name, which contains the IP address. The next time it receives a request for that domain name, it can respond directly to the user instead of querying other servers.
 </li>
 <li>

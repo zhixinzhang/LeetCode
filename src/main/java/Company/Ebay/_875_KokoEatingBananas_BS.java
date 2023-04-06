@@ -1,4 +1,4 @@
-package DataStructure.Array;
+package Company.Ebay;
 
 /**
  * Created with IntelliJ IDEA.

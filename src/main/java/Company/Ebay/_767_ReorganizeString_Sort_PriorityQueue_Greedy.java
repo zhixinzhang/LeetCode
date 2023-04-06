@@ -1,5 +1,6 @@
-package Company.uber;
+package Company.Ebay;
 
+import java.util.Comparator;
 import java.util.PriorityQueue;
 
 /**
@@ -60,21 +61,23 @@ public class _767_ReorganizeString_Sort_PriorityQueue_Greedy {
         for (char c : S.toCharArray()){
             count[c - 'a'] ++;
         }
-        PriorityQueue<CharCount> pq = new PriorityQueue<CharCount>((a,b) ->
-                (a.count == b.count ? a.letter - b.letter : b.count - a.count));
+        PriorityQueue<CharCount> pq = new PriorityQueue<CharCount>(
+            (a,b) -> (a.count == b.count ? a.letter - b.letter : b.count - a.count)
+        );
 
-//        PriorityQueue<CharCount> pq = new PriorityQueue<CharCount>(
-//                new Comparator<CharCount>() {
-//                    @Override
-//                    public int compare(CharCount o1, CharCount o2) {
-//                        if (o1.count == o2.count)
-//                            return o1.letter - o2.letter;
-//                        return o2.count - o1.count;
-//                    }
-//                }
-//        );
+    //    PriorityQueue<CharCount> pqs = new PriorityQueue<CharCount>(
+    //            new Comparator<CharCount>() {
+    //                @Override
+    //                public int compare(CharCount o1, CharCount o2) {
+    //                    if (o1.count == o2.count)
+    //                        return o1.letter - o2.letter;
+    //                    return o2.count - o1.count;
+    //                }
+    //            }
+    //    );
 
-        for (int i = 0; i < 26; ++i) if (count[i] > 0) {
+        for (int i = 0; i < 26; ++i) 
+            if (count[i] > 0) {
             // not satisfied
             if (count[i] > (n + 1) / 2)
                 return "";

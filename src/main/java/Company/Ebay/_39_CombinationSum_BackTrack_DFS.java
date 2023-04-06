@@ -1,10 +1,11 @@
-package Company.uber;
+package Company.Ebay;
 
 import java.util.ArrayList;
 import java.util.List;
 
 /**
  * Created by zhang on 2018/9/11.
+ * https://leetcode.com/problems/combination-sum/editorial/
  */
 public class _39_CombinationSum_BackTrack_DFS {
     static List<List<Integer>> res;
@@ -15,7 +16,7 @@ public class _39_CombinationSum_BackTrack_DFS {
         res = new ArrayList<>();
         if(candidates == null || candidates.length == 0)
             return res;
-        dfs(candidates, 0, 0, target,new ArrayList<>());
+        dfs(candidates, 0, 0, target, new ArrayList<>());
         System.out.println(res);
         return res;
     }

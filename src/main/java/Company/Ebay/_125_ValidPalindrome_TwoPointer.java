@@ -1,4 +1,4 @@
-package Company.Amazon.String;
+package Company.Ebay;
 
 /**
  * Created with IntelliJ IDEA.
@@ -7,11 +7,16 @@ package Company.Amazon.String;
  * Time: 3:28 PM
  * Description:
  *
- * follow up  判断一个 整数是 palindrone
+ * follow up  判断一个 整数是 palindrone 
+ * 不用換成string
  */
 
 
 public class _125_ValidPalindrome_TwoPointer {
+    public static void main(String[] args){
+        isPalindrome_Integer(1234);
+    }
+
     public static boolean isPalindrome(String s) {
         if (s.isEmpty()) {
             return true;
@@ -36,12 +41,26 @@ public class _125_ValidPalindrome_TwoPointer {
 
         return true;
     }
-    public static boolean isPalindrome_Integer(long num) {
-        String s = String.valueOf(num);
-        return isPalindrome(s);
+    
+    public static boolean isPalindrome_Integer(int x) {
+        if (x < 0) {
+            return false;
+        }
+        int rev = reverse(x);
+        return x == rev;
     }
 
-    public static void main(String[] args){
-        isPalindrome_Integer(1115454534);
+    private static int reverse(int x){
+        int rev = 0;
+        while (x != 0){
+            int pop = x % 10;
+            x /= 10;
+            if (rev > Integer.MAX_VALUE / 10)
+            return 0;
+            if (rev < Integer.MIN_VALUE / 10)
+                return 0;
+            rev = rev * 10 + pop;    
+        }
+        return rev;
     }
 }

@@ -1,4 +1,4 @@
-package Company.uber.Tree;
+package Company.Ebay;
 
 import DataStructure.BinaryTree.TreeNode;
 
@@ -6,9 +6,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Created by zhang on 2018/9/17.
+ * 
  */
-public class _230_KthSmallestElementinaBST_ {
+public class _230_KthSmallestElementinaBST_FollowUpKthBiggest_ {
     public static void main(String[] args){
         TreeNode root = new TreeNode(5);
         root.left = new TreeNode(3);
@@ -44,15 +44,16 @@ public class _230_KthSmallestElementinaBST_ {
         recur_(root, k);
         return res;
     }
+
     public void recur_(TreeNode root, int k){
         if(root == null) return;
-        recur(root.left, k);
+        recur_(root.left, k);
         count++;
         if(count == k){
             res = root.val;
             return;
         }
-        recur(root.right, k);
+        recur_(root.right, k);
     }
 
 
@@ -62,18 +63,14 @@ public class _230_KthSmallestElementinaBST_ {
         int a =  recur(root, k);
         return a;
     }
-    
     public static int recur(TreeNode root, int k){
         if (root.right != null && count < k)
             recur(root.right, k);
-
         count++;
-
         if (count == k)
             res = root.val;
         if (root.left != null && count < k)
             recur(root.left,k);
-
         return res;
     }
 }
