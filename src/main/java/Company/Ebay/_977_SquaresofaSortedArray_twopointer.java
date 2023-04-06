@@ -1,4 +1,4 @@
-package Company.Amazon;
+package Company.Ebay;
 
 /**
  * Created with IntelliJ IDEA.
