@@ -1,0 +1,17 @@
+2022-10-20 https://www.1point3acres.com/bbs/thread-938610-1-1.html
+
+2022-10-7 https://www.1point3acres.com/bbs/thread-935014-1-1.html
+店面非常简单，大概四十五分钟就结束了，题目比较像是一个简单的ood，考察正确性，可扩展性，可维护性。
+给了一个event类，里面有时间地点
+给了一个customer的类，里面有地点生日
+要写一个发notification的engine，这个engine要实现一个notify的功能，input是list<Event>，然后print出来符合下面三问要求的event
+第一问：和customer在同一个城市的event
+第二问：和customer的下一次生日时间最接近的event
+第三问：和customer城市最近的5个event
+
+
+In Strategy pattern, a class behavior or its algorithm can be changed at run time. 
+This type of design pattern comes under behavior pattern.
+
+In Strategy pattern, we create objects which represent various strategies and a context object whose 
+behavior varies as per its strategy object. The strategy object changes the executing algorithm of the context object.

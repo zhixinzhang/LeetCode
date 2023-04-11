@@ -1,6 +1,6 @@
 package Company.Ebay;
 
-public class _80_RemoveDuplicatesfromSortedArray2 {
+public class _80_RemoveDuplicatesfromSortedArray2_Twopointer {
     public int removeDuplicates(int[] nums) {
  
         int index = 1;  // Index of the next unique element to add to the array
