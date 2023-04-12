@@ -15,3 +15,281 @@ This type of design pattern comes under behavior pattern.
 
 In Strategy pattern, we create objects which represent various strategies and a context object whose 
 behavior varies as per its strategy object. The strategy object changes the executing algorithm of the context object.
+
+
+
+
+import java.util.*;
+import java.time.*;
+    
+public class Solution {
+        
+    public static class Event {
+        private int id;
+        private String name;
+        private String city;
+        private LocalDate eventDate;
+
+        public Event(int id, String name, String city, LocalDate eventDate){
+            this.id = id;
+            this.name = name;
+            this.city = city;
+            this.eventDate = eventDate;
+        }
+
+        public String getCity() {
+            return this.city;
+        }
+
+        public String getName() {
+            return this.name;
+        }
+
+        public LocalDate getEventDate(){
+            return this.eventDate;
+        }
+    }
+
+    public static class City {
+            private String name;
+            private int X;
+            private int Y;
+
+            public City() {
+
+            }
+
+            public City(String name, int x, int y) {
+                this.name = name;
+                this.X = x;
+                this.Y = y;
+            }
+
+            public String getName() {
+                return name;
+            }
+
+            public int getX() {
+                return X;
+            }
+
+            public int getY() {
+                return Y;
+            }
+
+            public static Map<String, City> AllCities = new HashMap<>() {
+                {
+                  put("New York", new City("New York", 3572, 1455));
+                  put("Los Angeles", new City("Los Angeles", 462, 975));
+                  put("San Francisco", new City("San Francisco", 183, 1233));
+                  put("Boston", new City("Boston", 3778, 1566));
+                  put("Chicago", new City("Chicago", 2608, 1525));
+                  put("Washington", new City("Washington", 3358, 1320));
+                }
+            };
+        }
+
+        
+        // a - > x ^ 2 + y ^ 2 - (x ^ 2 + y ^ 2 )
+        // b ->   
+
+        // x1,y1 and x2,y2
+
+        /*-------------------------------------
+        Coordinates are roughly to scale with miles in the USA
+
+           2000 +----------------------+  
+                |                      |  
+                |                      |  
+             Y  |                      |  
+                |                      |  
+                |                      |  
+                |                      |  
+                |                      |  
+             0  +----------------------+  
+                0          X          4000
+        */
+
+
+    public static class Customer {
+        private int id;
+        private String name;
+        private String city;
+        private LocalDate birthdate;
+
+        public Customer(int id, String name, String city, LocalDate birthdate){
+            this.id = id;
+            this.name = name;
+            this.city = city;
+            this.birthdate = birthdate;
+        }
+
+        public String getCity() {
+            return this.city;
+        }
+
+        public LocalDate getBirthdate() {
+            return this.birthdate;
+        }
+    }
+
+    public static class MarketingEngine {
+        List<Event> events = new ArrayList<>();
+
+        public MarketingEngine(List<Event> events){
+            this.events = events;
+        }
+
+        public void sendCustomerNotifications(Customer customer, String strategy) {
+          if (strategy == "basic") {
+              sendCustomerNotificationsBasedOnCityName(customer);
+          } else if (strategy == "birthday"){
+            sendCustomerNotificationsBasedOnBirthday(customer);
+          } else if (strategy == "distance"){
+            sendCustomerNotificationsBasedOnDistance(customer);
+          }
+
+        }
+
+        public void sendCustomerNotificationsBasedOnCityName(Customer customer){
+          for (Event event : events){
+              if (event.getCity().equals(customer.getCity())) {
+                System.out.println(
+                  String.format("find out matched event id is %s, event name is %s,  even city is %s  event date is %s",
+                   event.id, event.getName(), event.getCity(), event.eventDate.toString())
+                );
+              }
+          }
+        }
+
+        public void sendCustomerNotificationsBasedOnBirthday(Customer customer){
+            // get next birth 
+            LocalDate curDate = LocalDate.now();
+            int nextYear = curDate.getYear();  // 2023
+            long maxDayGap = Long.MAX_VALUE; // 
+            if (curDate.getDayOfYear() > customer.getBirthdate().getDayOfYear()){
+               nextYear ++;
+            }
+             
+            ZoneId zoneId = ZoneId.systemDefault(); // or: ZoneId.of("Europe/Oslo");
+            LocalDate nextBirthDate = LocalDate.of(nextYear, customer.getBirthdate().getMonth(), customer.getBirthdate().getDayOfMonth()); 
+            long birthEpoch = nextBirthDate.atStartOfDay(zoneId).toEpochSecond();
+            Event  nearestEvent = null;
+            
+            for (Event event : events){
+              long epoch = event.getEventDate().atStartOfDay(zoneId).toEpochSecond();
+              if(Math.abs(epoch - birthEpoch) < maxDayGap) {
+                maxDayGap = Math.abs(epoch - birthEpoch);
+                nearestEvent = event;
+              }
+            }
+
+            if (nearestEvent != null) {
+                System.out.println(
+                  String.format("find out nearest event  id is %s, event name is %s,  even city is %s  event date is %s",
+                   nearestEvent.id, nearestEvent.getName(), nearestEvent.getCity(), nearestEvent.eventDate.toString())
+                );
+            }
+        }
+
+        private static final int count = 5;
+
+        public void sendCustomerNotificationsBasedOnDistance(Customer customer){
+          Map<String, City> allCities = City.AllCities;
+          City customerCity = allCities.get(customer.city);
+          int cX = customerCity.X;
+          int cY = customerCity.Y;
+
+          PriorityQueue<Event> pq = new PriorityQueue<Event>(new Comparator<Event>() {
+            @Override
+            public int compare(Event e1, Event e2){
+              City c1 = allCities.get(e1.city);
+              City c2 = allCities.get(e2.city);
+
+              double dis1 =  Math.pow(Math.abs(c1.X - cX), 2) + Math.pow(Math.abs(c1.Y - cY), 2);
+              double dis2 =  Math.pow(Math.abs(c2.X - cX), 2) + Math.pow(Math.abs(c2.Y - cY), 2); 
+
+              return Double.compare(dis2, dis1);
+            }
+          });
+
+          for (Event event : events){  
+            pq.add(event);
+            if (pq.size() > count){
+                pq.poll();
+            }
+          }
+
+
+         while(!pq.isEmpty()){
+          Event event = pq.poll();
+          System.out.println(
+                String.format("find out 5 events  id is %s, event name is %s,  even city is %s  event date is %s",
+                  event.id, event.getName(), event.getCity(), event.eventDate.toString())
+            );
+          }
+        
+        }
+
+    }
+
+    /*
+    
+    In the stubhub backend we have a simple restful api that you can call that will return prices for events:
+
+For all event prices:
+https://sh-mockapi.azurewebsites.net/api/ticketprice 
+
+{
+
+}
+
+For a price per event:
+https://sh-mockapi.azurewebsites.net/api/ticketprice?eventId={EventId} 
+
+i.e https://sh-mockapi.azurewebsites.net/api/ticketprice?eventId=42 
+
+Can you call this service from your solution to send a notification of the 5 cheapest tickets within a Y mile radius of the customer? We can test with various radiuses. */
+
+
+    // interface Strategy {
+    //    public void sendCustomerNotifications(Customer customer);
+    //    10000 prices for event 
+    //    sort -> from cheapest to high price    O(N * log N) 
+    //    for (){    events 
+    //                    
+    }
+    // }
+    
+    // class basicSend
+
+
+
+    public static void main(String[] args) {
+        List<Event> events = Arrays.asList(
+                new Event(1, "Phantom of the Opera", "New York", LocalDate.of(2023, 12, 23)),
+                new Event(2, "Metallica", "Los Angeles", LocalDate.of(2023, 12, 2)),
+                new Event(3, "Metallica", "New York", LocalDate.of(2023, 12, 6)),
+                new Event(4, "Metallica", "Boston", LocalDate.of(2023, 10, 23)),
+                new Event(5, "LadyGaGa", "New York", LocalDate.of(2023, 9, 20)),
+                new Event(6, "LadyGaGa", "Boston", LocalDate.of(2023, 8, 1)),
+                new Event(7, "LadyGaGa", "Chicago", LocalDate.of(2023, 7, 4)),
+                new Event(8, "LadyGaGa", "San Francisco", LocalDate.of(2023, 7, 7)),
+                new Event(9, "LadyGaGa", "Washington", LocalDate.of(2023, 5, 22)),
+                new Event(10, "Metallica", "Chicago", LocalDate.of(2023, 1, 1)),
+                new Event(11, "Phantom of the Opera", "San Francisco", LocalDate.of(2023, 7, 4)),
+                new Event(12, "Phantom of the Opera", "Chicago", LocalDate.of(2024, 5, 15)));
+
+        var customer = new Customer(1, "John", "New York", LocalDate.of(1995, 05, 10));
+        //  var customer2 = new Customer(1, "John", "New York", LocalDate.of(1995, 04, 11));
+        // 2023 5 10
+
+        MarketingEngine engine = new MarketingEngine(events);
+        //engine.sendCustomerNotifications(customer, "basic");
+
+
+        //engine.sendCustomerNotifications(customer, "birthday");
+
+        engine.sendCustomerNotifications(customer, "distance");
+    }
+}

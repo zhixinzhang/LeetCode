@@ -1,52 +1,78 @@
-https://www.1point3acres.com/bbs/thread-980470-1-1.html
+2023-3-22 https://www.1point3acres.com/bbs/thread-980470-1-1.html
 1. 要設計一個系統利用 3rd party API來訂最便宜的機票. 
 2.  System design 設計一個類似metrics ingestion/query system
 
-
-https://www.1point3acres.com/bbs/thread-953900-1-1.html
-
-
-https://www.1point3acres.com/bbs/thread-969419-1-1.html
+2023-2-21 https://www.1point3acres.com/bbs/thread-969419-1-1.html
 given multiple 3rd airline booking apis, design an automated flight-booking 
 engine to book the cheapest flight given the original, destination, departure data
 
-coding轮是地里那道flight zip ，但感觉地里那道的code有‍‌‌‌‌‍‌‌‍‍‌‌‍‌‌‍‌‍‌点问题，似乎没有把source的param加进去
+2022-12-20 https://www.1point3acres.com/bbs/thread-953900-1-1.html
+2. pair programming：就是地里之前有人分享过的那个压缩包；但是我的和那个有点不一样的是
+我的主要代码在flights那个文件夹里，不在sql里，其实这个不是很难，看看大家的面经和youtube基本就差不多了
+3. system design
+我那个时候准备，重点放在了数据库上，踩了一个大坑
 
 
-
-
-https://www.1point3acres.com/bbs/thread-940299-1-1.html  *****
-system design的题目就是地里那道ticket的开始进度还是有点慢，25分钟的时候才写完db design，之后问到了一个booking 对应多个show_seats，怎么插入database。我说可以去掉seat的row 和col 信息，面试官有点不明白就直接说看一下api design吧。
-四个api design好了之后，问payment怎么办，答在booking的时候返回一个payment的url，问有哪些vendor，答visa mastercard paypal。写search的rest api request和response, 用json写的。又问booking 的request response，开始把seat_id放到request url里面，问有别的方法吗？答放在http body里面，问为什么开始没用这种方法，答更familiar with url。问这两种有什么区别。答放在body里面更安全。
-
-https://www.1point3acres.com/bbs/thread-940598-1-1.html
+2022-10-27 https://www.1point3acres.com/bbs/thread-940598-1-1.html
 pair programming
 
+2022-10-26 https://www.1point3acres.com/bbs/thread-940299-1-1.html  *****
+system design的题目就是地里那道ticket的开始进度还是有点慢，25分钟的时候才写完db design，
+之后问到了一个booking 对应多个show_seats，怎么插入database。我说可以去掉seat的row 和col 信息，面试官有点不明白就直接说看一下api design吧。
+四个api design好了之后，问payment怎么办，答在booking的时候返回一个payment的url，问有哪些vendor，
+答visa mastercard paypal。写search的rest api request和response, 用json写的。又问booking 的request response，
+开始把seat_id放到request url里面，问有别的方法吗？答放在http body里面，问为什么开始没用这种方法，答更familiar with url。问这两种有什么区别。答放在body里面更安全。
 
 
-https://www.1point3acres.com/bbs/thread-937011-1-1.html   ****
-https://www.1point3acres.com/bbs/thread-938039-1-1.html   ****
-https://www.1point3acres.com/bbs/thread-929856-1-1.html   ****
-https://www.1point3acres.com/bbs/thread-938647-1-1.html   ****
-https://www.1point3acres.com/bbs/thread-935072-1-1.html
-https://www.1point3acres.com/bbs/thread-934282-1-1.html
+2022-10-20 https://www.1point3acres.com/bbs/thread-938647-1-1.html   ****
+system-design 1hr，设计Ticketmaster。其实面之前准备了一些
+
+
+2022-10-18 https://www.1point3acres.com/bbs/thread-938039-1-1.html   ******
+地里面经原题，就那个下载代码的面经，实现一个method，对于(departure, destination, date), 能够找到特定的cheapest机票，要求写sql代码实现query和update，同时写py代码实现handler函数，连接数据库等等，还要最后用curl测试下。我代码写完了，但最后没时间跑通了，据其他面经说还有follow up。
+卡的地方：
+SQL选时间在某个date的data，可以用extract year month date办法，也可以create timestamp string 然后compare
+需要记得book完机票，update sql database，机票数量减掉一
+Http response error code选合适的code，问能答上来
+要会flask怎么用method=PUT，并且得到request body
+要会curl怎么测试PUT with json request body
+
+API/backend for a ticket reservation app? Examples include movie, 
+concert, airline ticket booking. The app should ‍‌‌‌‌‌‌‌‍‍‍‌‌‍‌‍‍‌‍‌allow users to hold their ticket(s) for‍‌‌‌‌‍‌‌‍‍‌‌‍‌‌‍‌‍‌ 10 minutes before booking.
+给了个txt文档，自己写思路和design。
+比如设计sql数据库，每个表有哪些column，哪个是primary key，实现选座功能的时候，表怎么变动都需要说清楚。
+期间遇到一些常见考点，就问些基础的知识。
+比如数据库怎么lock？api参数放到url还是body的区别？
+
+2022-10-14  https://www.1point3acres.com/bbs/thread-937011-1-1.html   ****
+全是地里原题
+第一轮system design，  https://www.1point3acres.com/bbs/thread-929856-1-1.html， 我提前准备了一下，参考 https://github.com/gitgik/distri ... ing_ticketmaster.md
+面试时候讨论的情况比我准备的要简单很多，只回答了要设计的api，数据库之间的关系，以及如何处理过期预订
+第二轮 pair programming， https://www.1point3acres.com/bbs/thread-929755-1-1.html， 给了app.py里面的getFlight函数，
+让模仿设计flightBook函数和查询数据库函数（0001.sql里给定getFlight函数，让设计book_flights
+
+2022-10-8 https://www.1point3acres.com/bbs/thread-935072-1-1.html
+pair programming, 面试官引导从简单的写起，先不考虑多个条件；但是中间一些小问题卡住了，最后也就只实现了简单的情况，edge case就没时间写了。
+在这俩地方卡了好久: flask 怎么写post，curl怎么make post requrests
+system design 我觉得偏ood，当时没有画白板和high level design，最后写了一些api
+
+2022-10-5 https://www.1point3acres.com/bbs/thread-934282-1-1.html
+pair programming：地里有人分享过，考的问的都是很基础API+SQL知识点，有followup concurrency issue
+system design: 地里有人分享过，重点考察了Database Schema + REST API design，画high level architecture感觉随便一画就OK了
+bq：非常迷惑，考量两个bq常见问题，然后就开始问如何design url shortener...以及testcases都有哪些，建议做好被问tech问题心理准备。。。
+
+2022-9-20 https://www.1point3acres.com/bbs/thread-929856-1-1.html   ****
+API/backend for a ticket reservation app? Examples include movie, 
+concert, airline ticket booking. The app should allow users to hold their ticket(s) for 10 minu‍‌‌‌‌‍‌‌‍‍‌‌‍‌‌‍‌‍‌tes before booking.
+
+
 https://www.1point3acres.com/bbs/thread-931040-1-1.html
 
-https://www.1point3acres.com/bbs/thread-854899-1-1.html
+2022-2-22 https://www.1point3acres.com/bbs/thread-854899-1-1.html
 第一轮： 系统设计 design ticket master system。
 第二轮： 实现money transfer api，用的框架记不清了类似spring boot，等于数据库里有两个用户，每个人都有一个整形数作为存款，然后实现一个api将一个用户的存款转到另一个用户。最好提前熟悉一下SQL怎么Update，然后jdbi怎么连接。
 
-https://www.1point3acres.com/bbs/thread-893370-1-1.html
-1. System Design 1.5h
-Ticket Master 主要关注的是api设计，设计数据库，写了写几个主要的api请求/回复，最后问了问怎么解决用户过多的问题。
-2. Pair Programming 1.5h
-用的是Dropwizard框架，类似于spring。做一个transaction，把一个用户的钱转给另一个用户，现学了学框架和transaction的语法
-
-https://www.1point3acres.com/bbs/thread-899331-1-1.html
-5. 第一轮system design，60min。题目的描述是一个综合订票网站，不过做的时候可以只关注一部分，我选的是做电影票。考察的重点是理顺用户逻辑，大部分时间花在建数据表上，之后根据面试官提的场景写了一个简单的sql。还有一些关于怎么实现的问题，和面试官交流自己的想法就好，不需要每个想法都是最优的。
-6.第二轮learning，90min。是一个类似于spring boot的框架，有例子，照着例子写一个transfer money的逻辑，要跑自己写的测试用例。基础逻辑很简单，写完后follow up找一两个点优化，比如输入参数的filter。过程中有任何语法工具不懂的都可以问面试官。
-
-https://www.1point3acres.com/bbs/thread-900602-1-1.html
+2022-6-1 https://www.1point3acres.com/bbs/thread-900602-1-1.html    ******
 1. design time series datastore
 2. 写一个money transfer的rest api，可以用python
 3. design airline ticket system
@@ -55,8 +81,30 @@ https://www.1point3acres.com/bbs/thread-900602-1-1.html
 6. vp bq
 7. recruiter debrief
 
-https://www.1point3acres.com/bbs/thread-821830-1-1.html
-我不是楼主，来回复一下吧，第二轮数据源来源于 DB，它会提前生成一些数据。我的 pair programming 不是一个小时，是一个半小时，需要你实现一个新的 endpoint，不需要写 unittest 但需要 manual test，会考你是否 cover 到所有的 edge case。最后还有半个小时就问了数据库的一些问题，《DDIA》第二章基本都 cover 到了。再没什么可问的就提前 10 分钟结束，说给一点时间休息准备下一轮(我是同一天先 pair programming 再面 Design)。一个小 tip 是因为要和面试官共享屏幕沟通很多所以建议所有的 terminal 就直接在你的 editor/IDE 底部起方便看，要不然面试官也不知道你在打的什么命令
+2022-5-27  https://www.1point3acres.com/bbs/thread-899331-1-1.html
+5. 第一轮system design，60min。题目的描述是一个综合订票网站，不过做的时候可以只关注一部分，我选的是做电影票。考察的重点是理顺用户逻辑，大部分时间花在建数据表上，之后根据面试官提的场景写了一个简单的sql。还有一些关于怎么实现的问题，和面试官交流自己的想法就好，不需要每个想法都是最优的。
+6.第二轮learning，90min。是一个类似于spring boot的框架，有例子，照着例子写一个transfer money的逻辑，要跑自己写的测试用例。基础逻辑很简单，写完后follow up找一两个点优化，比如输入参数的filter。过程中有任何语法工具不懂的都可以问面试官。
+
+
+2022-5-8 https://www.1point3acres.com/bbs/thread-893370-1-1.html
+1. System Design 1.5h
+Ticket Master 主要关注的是api设计，设计数据库，写了写几个主要的api请求/回复，最后问了问怎么解决用户过多的问题。
+2. Pair Programming 1.5h
+用的是Dropwizard框架，类似于spring。做一个transaction，把一个用户的钱转给另一个用户，现学了学框架和transaction的语法
+
+2021-12-21 https://www.1point3acres.com/bbs/thread-832518-1-1.html
+第一轮是system design，60min，设计一个Ticketmaster，全程不涉及到一丝一毫的coding。
+第二轮是pair programming，90min，我选择的是python，内容就是很简单的实现一个后端的restful api，是一个money transfer的东西。非常简单，我中途因为docker desktop自动更新卡死了，还重启了一波电脑，贼尴尬。实现了API之后，会有一些follow up，都是和database ACID相关的。也都答出来了。
+第三轮就是BQ。没啥特别的。
+每一轮的面试官人都挺好的，除了第一轮面试官有点口音，导致有时候会听不懂，半听半猜的倒是也都回答上了。
+
+2021-11-19 https://www.1point3acres.com/bbs/thread-821830-1-1.html  ****
+1. design： 类似机票查订系统设计，问了一遍确认是system design。 没错，NG面的system design。 一套流程摆上去，先给大致结构，再设计数据库，再设计几个api。 我太菜不会。
+2. 和第一轮无挂钩。使用Restful api实现一个功能。超级简单。
+3.正常bq。
+
+我不是楼主，来回复一下吧，第二轮数据源来源于 DB，它会提前生成一些数据。我的 pair programming 不是一个小时，是一个半小时，
+需要你实现一个新的 endpoint，不需要写 unittest 但需要 manual test，会考你是否 cover 到所有的 edge case。最后还有半个小时就问了数据库的一些问题，《DDIA》第二章基本都 cover 到了。再没什么可问的就提前 10 分钟结束，说给一点时间休息准备下一轮(我是同一天先 pair programming 再面 Design)。一个小 tip 是因为要和面试官共享屏幕沟通很多所以建议所有的 terminal 就直接在你的 editor/IDE 底部起方便看，要不然面试官也不知道你在打的什么命令
 
 
 
