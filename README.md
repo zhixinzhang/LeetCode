@@ -124,6 +124,15 @@ For example, if you need a fast, scalable, and reliable database for web applica
 </li>
 </ul>
 
+<h3>How to solve this concurrency issue ?</h3>
+<ul>
+We set the transaction isolation level to Serializable. After this, every transaction takes a write lock on the range of rows it gets in Step 2 till the time the transaction is committed. By that time all other transactions trying to read the same range of rows will wait until the transaction who has taken the lock is completed. This ensures that no two concurrent request can access the same rows of room inventory. Hence, it resolves the concurrency issue. 
+<li>
+</li>
+</ul>
+
+
+
 # LeetCode
 https://en.wikipedia.org/wiki/Markdown
 <h1>Algo</h1>
