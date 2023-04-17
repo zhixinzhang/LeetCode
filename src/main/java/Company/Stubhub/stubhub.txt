@@ -1,3 +1,13 @@
+2023-2-3 https://www.1point3acres.com/bbs/thread-963838-1-1.html
+2. system design轮：根据coding轮的背景，设计notification rule
+Design an analytical system which take input from other services and prepares a performance metrics
+ot the services. we need to consider that we are getting constant stream of input from various channels and this metrics is supposed to give almost real time results.
+答的都挺好的，第一轮coding轮秒掉了以至于面试官已经问了个follow-up跟第二轮‍‌‌‌‌‍‌‌‍‍‌‌‍‌‌‍‌‍‌system design要设计的东西差不多，只需要讨论idea
+
+2022-11-10 https://www.1point3acres.com/bbs/thread-944827-1-1.html
+第一轮pair programming之后，大概是因为有三年工作经验，直接排了个system design。于是不停看educative教程，实际面试还算简单，面试官听了我说这是第一次system design之后也很helpful的给hint。
+具体内容就是follow了pair programming里要给customer发email这个task，设计一个system来filter event并发email给customer
+
 2022-10-20 https://www.1point3acres.com/bbs/thread-938610-1-1.html
 
 2022-10-7 https://www.1point3acres.com/bbs/thread-935014-1-1.html
@@ -10,11 +20,15 @@
 第三问：和customer城市最近的5个event
 
 
+2022-7-28 https://www.1point3acres.com/bbs/thread-915127-1-1.html
+第二轮system design，依旧是marketing email。怎么设计每天中午给所有customer发marketing email。
+
 In Strategy pattern, a class behavior or its algorithm can be changed at run time. 
 This type of design pattern comes under behavior pattern.
 
 In Strategy pattern, we create objects which represent various strategies and a context object whose 
 behavior varies as per its strategy object. The strategy object changes the executing algorithm of the context object.
+
 
 
 

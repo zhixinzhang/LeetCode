@@ -1,4 +1,4 @@
-package DataStructure.Tree;
+package Company.Sofi;
 
 import DataStructure.BinaryTree.TreeNode;
 

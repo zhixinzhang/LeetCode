@@ -1,0 +1,2 @@
+https://github.com/gitgik/distributed-system-design/blob/master/designing_ticketmaster.md
+https://tripathi-abhinav.medium.com/hotel-booking-system-airbnb-system-design-most-frequently-asked-question-in-technical-interviews-3b03b4f511f3

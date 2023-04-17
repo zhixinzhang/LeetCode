@@ -1,3 +1,5 @@
+https://www.glassdoor.com/Interview/Circle-Internet-Financial-Interview-Questions-E1291298.htm
+
 2023-3-22 https://www.1point3acres.com/bbs/thread-980470-1-1.html
 1. 要設計一個系統利用 3rd party API來訂最便宜的機票. 
 2.  System design 設計一個類似metrics ingestion/query system
