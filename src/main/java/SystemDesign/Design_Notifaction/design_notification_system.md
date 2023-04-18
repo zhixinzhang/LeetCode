@@ -27,4 +27,8 @@ DynamoDB Noti data
 S3 to store events image and short video
 
   </li>
- 
+
+![image](https://github.com/zhixinzhang/LeetCode/blob/master/Akli%20Stuhub%20email.PNG)
+
+
+ https://cloudificationzone.com/2021/08/13/notification-system-design/
