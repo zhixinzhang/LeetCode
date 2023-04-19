@@ -1,0 +1,16 @@
+2023-1-29  https://www.1point3acres.com/bbs/thread-962307-1-1.html
+_340_SmallestSubstringwithAtMostKDistinctCharacters_TwoPointer
+
+2023-1-17 https://www.1point3acres.com/bbs/thread-959213-1-1.html
+_735_AsteroidCollision_Stack
+
+2022-11-4 https://www.1point3acres.com/bbs/thread-942762-1-1.html
+
+
+2022-7-19 https://www.1point3acres.com/bbs/thread-912580-1-1.html
+EatChocolate
+
+2022-7-8  https://www.1point3acres.com/bbs/thread-909919-1-1.html
+1. reverse linkedlist
+2. 类似于lc 的subset 问题
+ 1. insert node 2. validate if tree is bst
