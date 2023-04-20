@@ -1,12 +1,71 @@
 https://jobs.1point3acres.com/companies/atlassian/interview
 https://www.1point3acres.com/bbs/forum.php?mod=forumdisplay&fid=145&filter=sortid&sortid=311&orderby=dateline
+https://www.atlassian.com/company/values
 
 
 2022-12-6 https://www.1point3acres.com/bbs/thread-951108-1-1.html
+感恩节前店面的，题目就是任务调度器，关键词async。
 
-2022-11-11 https://www.1point3acres.com/bbs/thread-944957-1-1.html
+2022-12-5 https://www.1point3acres.com/bbs/thread-950878-1-1.html
+之后bq，atlassian ‍‌‌‌‌‍‌‌‍‍‌‌‍‌‌‍‌‍‌value有了解嘛（我答喜欢customer这个value），然后问两个相关bq，让customer不开心的故事，project需要延长deadline的故事。
 
-2022-7-28 https://www.1point3acres.com/bbs/thread-915134-1-1.html   https://leetcode.com/discuss/interview-experience/1938821
+2022-11-11 https://www.1point3acres.com/bbs/thread-944957-1-1.html  ***
+
+店面：老题，设计一个distributed task scheduler，重点说API，DB，还有怎么scale。
+
+2022-11-6 https://www.1point3acres.com/bbs/thread-943446-1-1.html
+面试官人很好， 一开始跟我说了一下他的经验和如何approach题最好。 我一开始根本不知道怎么做但是他很耐心的主导我。题是API Rate Limiter。 我的code应该不算是optimal但是过了。一天‍‌‌‌‌‍‌‌‍‍‌‌‍‌‌‍‌‍‌后就知道过了然后VO 下一个星期，
+
+2022-9-28 https://www.1point3acres.com/bbs/thread-932174-1-1.html    ****
+round3 SD, 地里经典的tagging system，我之前准备了一些elastic search的相关内容，
+基本都是按准备的说的，但面试官似乎不是很懂，我就穿插着给他讲了一些es 的实现，因为我从一开始就没往别的方向聊，所以面试官基本就围绕es 问的 deep dive的问题
+
+2022-9-14 https://www.1point3acres.com/bbs/thread-928255-1-1.html
+1) 系统设计 是地理常常提到的 标签。 面试官问了好多 api, db
+2) Coding 有两轮，也是地理问题 线流器 和 top k 组合。 面试官一直问很多问题， 问道难倒我无法回答，但是态度还是很好
+3) HM 常规题目， 有点在闲聊. HM 感觉很忙，聊了半‍‌‌‌‌‍‌‌‍‍‌‌‍‌‌‍‌‍‌个小时就结束了
+4) Values 也是常规题目，recruiter 应该有给一些准备资料，比亚麻的bq 还要轻松
+
+2022-8-30 https://www.1point3acres.com/bbs/thread-924280-1-1.html
+设计一个delayed task queue，要设计到分布式系统。一个中国大哥面的，面试体验不是很好，全程一副就你还来面我们的P6的感觉😂
+
+2022-7-30  https://www.1point3acres.com/bbs/thread-915754-1-1.html ***
+
+2022-7-28 https://www.1point3acres.com/bbs/thread-915134-1-1.html   
+
+job scheduler
+不要求repeat
+和这个差不多
+https://leetcode.com/discuss/interview-experience/1938821
+照这个简化做的
+https://dropbox.tech/infrastruct ... heduling-at-dropbox
+follow up如果traffic变大了 j‍‌‌‌‌‍‌‌‍‍‌‌‍‌‌‍‌‍‌ob多了怎么办 service/task failure怎么办
 
 
 2022-7-19 https://www.1point3acres.com/bbs/thread-912697-1-1.html
+Atlassian 经典 系统设计
+设计Job scheduler,
+The client will schedule jobs for processing HTTP calls, and need to consider the recurring jobs, failed jobs(re-‍‌‌‌‌‍‌‌‍‍‌‌‍‌‌‍‌‍‌try), scalability of the system
+
+
+2022-7-18  https://www.1point3acres.com/bbs/thread-912370-1-1.html
+
+面的senior。 题目是design job scheduler。 面试官人挺好的
+没有什么特定答案 应该重点是想看你怎么design db schema
+还问了为什么选这个db 和怎么样scale db 如果有100k job
+
+2022-7-13 https://www.1point3acres.com/bbs/thread-911083-1-1.html
+
+面的是Senior backend
+昨天下午的电面， 他家的电面还是考Design job scheduler, 
+
+2022-6-29  https://www.1point3acres.com/bbs/thread-907899-1-1.html
+都是面经题，建议对他家感兴趣的提前刷一遍
+叁伍叁
+邀叁溜溜
+设计是tag system
+再就是一轮hm bq，一轮values
+发出来攒人品！希望早日拿offer！
+
+
+2022-6-21 https://www.1point3acres.com/bbs/thread-905633-1-1.html BQs

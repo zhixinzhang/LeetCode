@@ -1,4 +1,4 @@
-package DataStructure.LinkedList;
+package DataStructure.ListNode;
 
 /**
  * Created with IntelliJ IDEA.
