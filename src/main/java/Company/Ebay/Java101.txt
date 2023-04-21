@@ -1,4 +1,4 @@
-HastMap VS Hashtable
+HashMap VS Hashtable
 1. HashMap is non-synchronized. It is not thread-safe and can’t be shared between many threads without proper synchronization code 
 whereas Hashtable is synchronized. It is thread-safe and can be shared with many threads.
 Based on my experience I use ConcurrentHashMap to handle multiple thread
@@ -6,10 +6,23 @@ Based on my experience I use ConcurrentHashMap to handle multiple thread
 HashMap is generally preferred over HashTable if thread synchronization is not needed.
 3. Hashtable extends dictorary class, hashmap extends abstractMap class
 
+HashMap internally  function
+ using two data structures namely an array and a linked list. Whenever you declare a hashmap 
+ what is going to happen internally is that it will create an array of buckets. The buckets are referred to as nodes or you can say a linked list. These nodes contain mainly:
+
 
 Major difference between lock and synchronized:
 1. with locks, you can release and acquire the locks in any order.
 2. with synchronized, you can release the locks only in the order it was acquired.
+
+If you're simply locking an object, I'd prefer to use synchronized
+Example:
+
+Lock.acquire();
+doSomethingNifty(); // Throws a NPE!
+Lock.release(); // Oh noes, we never release the lock!
+You have to explicitly do try{} finally{} everywhere.
+
 
 Dependency Injection in Spring
 Dependency Injection (DI) is a design pattern that removes the dependency from the programming code so that it 
@@ -20,5 +33,24 @@ By Constructor
 By Setter method
 https://zhuanlan.zhihu.com/p/67032669
 
-Spring Framework
+Spring MVC Framework
+A Spring MVC is a Java framework which is used to build web applications. 
+It follows the Model-View-Controller design pattern. It implements all the basic features of a 
+core spring framework like Inversion of Control, Dependency Injection.
 
+A Spring MVC provides an elegant solution to use MVC in spring framework by the help of DispatcherServlet.
+ Here, DispatcherServlet is a class that receives the incoming request and maps it to the right resource 
+ such as controllers, models, and views
+
+
+ HDFS: 
+ Hadoop Distributed File System is a distributed file system designed to store and run on multiple machines
+  that are connected to each other as nodes and provide data reliability. It consists of clusters, each of which is accessed through 
+  a single NameNode software tool installed on a separate machine to monitor and manage the that cluster’s file system and user access mechanism.
+
+HBase: 
+HBase is a top-level Apache project written in java which fulfills the need to read and write data in real-time. 
+It provides a simple interface to the distributed data. It can be accessed by Apache Hive, Apache Pig, MapReduce, and store information in HDFS.
+
+Hadoop: Hadoop is an open source framework from Apache that is used to store and process large datasets distributed across 
+a cluster of servers. Four main components of Hadoop are Hadoop Distributed File System(HDFS), Yarn, MapReduce, and libraries.
