@@ -1,18 +1,48 @@
-2022-11-28 https://www.1point3acres.com/bbs/thread-949135-1-1.html
+2022-12-12 https://www.1point3acres.com/bbs/thread-952343-1-1.html   LC 20  LC 116 LC 103 
+1. hm: 介绍他的组+bq, 对我的专业很感兴趣（非cs），让我介绍我的专业，完全没想到要问这个，自己专业的东西都忘的差不多了。。。现场编了一些
+2. java基础+coding， 问了hashmap的原理，然后给了一段代码，需要bug fix, 最后15分钟出了一道简单的coding, string相关，应该不是lc的题
+3. hm的manager面，问了一下项目，不知道为啥也对我的专业感兴趣，还问我毕业时会不会有一个大项目要做，然后问了一道跟system design比较相关的题，有一个service, 每一个request进来，返回unique identifer, 从简单的开始，然后到很多很多request，很多server
+4. 算法题，‍‌‌‌‌‍‌‌‍‍‌‌‍‌‌‍‌‍‌ valid parethesis,  让我share screen写，明明coderpad都能看到双方在写啥, 估计是怕我作弊？
+5. java基础+coding, 又问了hashmap和hashtable, 问 线程安全， 然后题目是利口药药流还是药药七， 不过只需要打印出来就可以了，follow up问了药灵散
+
+
+2022-11-28 https://www.1point3acres.com/bbs/thread-949135-1-1.html LC 230
 _230_KthSmallestElementinaBST_FollowUpKthBiggest_
 
-2022-11-22 https://www.1point3acres.com/bbs/thread-947909-1-1.html
+2022-11-22 https://www.1point3acres.com/bbs/thread-947909-1-1.html  LC 125
 _125_ValidPalindrome_TwoPointer
 
-2022-11-15 https://www.1point3acres.com/bbs/thread-946088-1-1.html
-
-2022-11-9  https://www.1point3acres.com/bbs/thread-944393-1-1.html
+2022-11-9  https://www.1point3acres.com/bbs/thread-944393-1-1.html  LC 875 767
 _875_KokoEatingBananas_BS
 _767_ReorganizeString_Sort_PriorityQueue_Greedy
 
-2022-9-14  https://www.1point3acres.com/bbs/thread-928247-1-1.html
+2022-9-14 https://www.1point3acres.com/bbs/thread-928204-1-1.html   LC 347  LC 993
+VO1: 算法 考了伞斯期和斯尔留 伞斯期需要写pq和quickselect两种解法 后来没时间了 quickselect就说了一下思路
+VO2: 过简历和BQ 后来考了一道很简单的题 舅舅伞
+VO3: 考了一些distribute system的问题 还考了一道题 比较难 不是力扣上的题 类似这个https://www.geeksforgeeks.org/pe...‍‌‌‌‌‍‌‌‍‍‌‌‍‌‌‍‌‍‌ers-perfect-square/
 
-2022-8-30  https://www.1point3acres.com/bbs/thread-924226-1-1.html
+2022-9-14  https://www.1point3acres.com/bbs/thread-928243-1-1.html
+1.1 coding， 就是给你string list 让你根据某些条件排序，一个hashamp就够了
+1.2 hire manager BQ
+2.1 hr告诉我是sd，结果根据简历问八股文问题，比如http method， dependency injection， kafka partition这种。
+2.2  coding， 和第一轮一样，也是string list， 根据某些条件排序，感觉ebay喜欢考string 和hashmap联动，感觉没刷过题也是能轻松地做出来
+2.3 和第三轮一样，hr告诉我是design，结果也是根据简历问八股文，写了几个简单的sql， http status code举例，写个single‍‌‌‌‌‍‌‌‍‍‌‌‍‌‌‍‌‍‌ton这种，问的不是很深。
+
+
+2022-9-8 https://www.1point3acres.com/bbs/thread-926823-1-1.html  LC 146  LC 121 LC 5
+1.纯背景 + 项目 + bq + 做leader的经验
+2. 问什么是Spring MVC + 腰丝流
+3. 用过什么design pattern, 写实现的sudo code + 药耳妖
+4. 第武题
+
+2022-8-30 https://www.1point3acres.com/bbs/thread-924249-1-1.html  LC 286 LC 4  LC 1790  LC 53 LC 209
+第二轮
+印度小姐姐 BQ 蠡口四 简化版 两个array长度一样 并且主动说没有任何要求 可以用任何数据结构和算法
+第三轮
+印度大姐 BQ 貌似是蠡口遗弃久凌 系统设计 限流器, 从算法 配置讨论到log 消息队列
+第四轮 印度大哥 BQ+简历深挖
+蠡口雾散 ‍‌‌‌‌‍‌‌‍‍‌‌‍‌‌‍‌‍‌蠡口珥陵久
+面试体验不错 几个印度哥哥姐姐都挺友善的 结果出的很快周一就出了结果 他家真的不难
 
 2022-8-26 https://www.1point3acres.com/bbs/thread-923264-1-1.html
 题目其实就是LRU cache
@@ -27,7 +57,96 @@ _101_RecursionSymmetricTree_DFS_BFS
 2022-8-9 https://www.1point3acres.com/bbs/thread-918262-1-1.html
 _39_CombinationSum_BackTrack_DFS
 
+2022-8-2 https://www.1point3acres.com/bbs/thread-916426-1-1.html  ***
+
 2022-8-1 https://www.1point3acres.com/bbs/thread-916134-1-1.html
 _310_MinimumHeightTrees_sortedArray
 
 
+2022-6-21 https://www.1point3acres.com/bbs/thread-905679-1-1.html
+第一轮，45分钟coding
+LRU cache
+Find Island
+第二轮
+1. 给一个连续的数组，找出连续的最小的sub array with size K
+2. 还是给一个连续的数组，数组里面数字代表金额，假设抢劫这个数组，每次只能从头部或者尾部，可以抢劫K次，求最大的金额
+第三轮
+Design tiny url
+第四轮
+BQ + 一些项目经验的follow up问题
+
+2022-5-17 https://www.1point3acres.com/bbs/thread-896396-1-1.html
+第一轮儿乞柳，第二轮药领令而，第三轮武柳，舞乞，第四轮和老板聊项目。
+LC 76
+LC 1002
+LC 56 57
+
+2022-5-14 https://www.1point3acres.com/bbs/thread-895430-1-1.html
+1. 第一轮：印度大哥，coding，刷题网 二玲玲变体，套一个马甲，要求写bfs dfs两种方法，要求写很多test case直接run。楼主提了union find，面试官最后让口头讲一下怎么实现，没有写code。
+2. 第二轮：印度大哥，coding，刷题网 二七八 + 四十九，这轮没有要求用CoderPad run test case。第一题让手run了一个case。
+3. 第三轮：系统设计，hiring manager轮，先bq了二十分钟，然后设计迷你ebay，时间不多，重点感觉在写API和database设计，manager十分友好‍‌‌‌‌‍‌‌‍‍‌‌‍‌‌‍‌‍‌，循循善诱，气氛比较轻松愉快。但CoderPad的画板很难用。。。
+4. 第四轮：国人小哥，coding，刷题网 二零九
+
+LC 200
+LC 278, 49 209
+
+2022-5-12 https://www.1point3acres.com/bbs/thread-894846-1-1.html
+VO1: bq简历 + Palindrome Linked List
+VO2: bq简历 + Valid Anagram follow up实现他的substring 完全听不懂 最后才沟通好 可能这里出了问题
+VO3: bq简历 + 题很简单 用了个桶排序秒了
+
+2022-4-20 https://www.1point3acres.com/bbs/thread-887045-1-1.html
+1. 印度小哥 无口音：过程很chill，他说他第一次用coderpad。。聊了一会过往实习经历，然后我就给他讲故事，看看简历里有什么他想问的，看到spring问了问spring了解么，之类的问题，问的都不深，更像是bq。最后还有二十分钟出了一个system design. design an ebay shopping cart. 主要关注类和类之间的关系 ood
+2. 印度老哥 口音很重 鼻孔很大 ： 简单自我介绍，问了top k. 我说了heap 或者 quickSelect解，然后我就想写快速选择了，他说他怕我写不完不然就用heap吧。结果我偏不，写了quick select, 主要没想到ebay要run代码的，有一个比较符号写错了，没跑出正确结果，估计会挂在这里，虽然他最后说没关系，小问题，不要太纠结。。。也不知道烙印的话可不可信
+间歇半小时
+3. 中国小姐姐： 简单自我介绍，问了两道valid parenthese题，一个counting ‍‌‌‌‌‍‌‌‍‍‌‌‍‌‌‍‌‍‌island，比较简单没出bug，都秒了
+4. 印度老哥： 进不来coderpad视频，给我打电话面了最后一轮，merge Intervals 和 在rotated array里面找最小值，最后一题没时间写了，讲了一下思路，最后实在是太累了，脑子有点慢，但把怎么二分的思路讲出来了
+
+2022-3-20 https://www.1point3acres.com/bbs/thread-870254-1-1.html  LC 146  LC 655
+第一轮： 利口 腰寺遛，Follow up是如何把它做成一个service
+第二轮：利口 遛舞舞，用BFS写完要求再用DFS写一遍。
+第三轮：两道题，第一题remove duplicate anagrams from a list of words， 第二题利口 久时芭
+
+
+2022-3-20 https://www.1point3acres.com/bbs/thread-870193-1-1.html
+LC 994
+LC 128
+LC 98 49
+
+2022-1-27 https://www.1point3acres.com/bbs/thread-843818-1-1.htm
+LC  1481 1854 232  20
+
+2021-5-10  https://www.1point3acres.com/bbs/thread-758811-1-1.html
+LC 146 LC 347 LC 215
+
+2021-5-7 https://www.1point3acres.com/bbs/thread-757846-1-1.html
+LC 103
+设计一个typeahead system
+LC 234  LC 394
+第三轮
+刷题网 而伞似，要求constant space
+另一个题目是 伞酒似，只能用一个stack
+问了一些java的知识，hashmap和hashset怎么实现的
+
+2021-3-19 https://www.1point3acres.com/bbs/thread-734576-1-1.html
+第二轮，Manager面试，很多BQ，然后design facebook feeds，后面着重讨论了database schema设计。
+第三轮，轮空，面试官直接没有出现，发邮件给hr，hr也不知道怎么回事，叫我按schedule等下一位面试官。
+第四轮，白人大叔，聊我做的项目，BQ，剩30分钟，蠡口 无误骐。我用two pointers in-place完成的，面试官心里想的是用stack。。
+第五轮，印度小姐姐，聊我做的项目，design typeahead system，剩不到20分钟，蠡口 二乌散。
+
+
+2021-3-2 https://www.1point3acres.com/bbs/thread-724583-1-1.html
+LC 109 
+
+第一轮，问了一些java基础知识，多现场的基础知识，leetcode 109简单
+第二轮，system design，design一个type head系统，面完之后还有差不多10分钟，又问了一道小题，leet code 166，只说了大致算法，没有来得及写代码
+第三轮，director面试，随便扯了一点技术和bq，技术主要说了cache，问了一下mem cache和redis，但没深入
+第四轮，coding，股票4，期间面试官对我用s, i, a这种来作为变量名很不满，我跟他解释我工作不会这么写，面试不是为了快么
+第五轮，deep dive了一下project，然后还有时间，问我知道不知道什么是map reduce，问我知‍‌‌‌‌‍‌‌‍‍‌‌‍‌‌‍‌‍‌道不知道 spark，随便说了说
+
+multithread 
+hashmap hashset
+Spring 
+
+BQ 
+Type of head

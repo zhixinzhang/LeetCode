@@ -24,26 +24,9 @@ public class _347_TopKFrequentElements_PriorityQueue_TreeMap_bucket {
     // 2 freq have 3 num  [1,1,2,2,3,3,3,4,4,4] [0,1,2,3,4,5,6,7,8,9] --- [null,null,{1,2},{3,4}]
     // return the kth element from last index to kth
     // O (n * log n)
-    public List<Integer> topKFrequent_PriorityQueue(int[] nums, int k) {
-        HashMap<Integer,Integer> map = new HashMap<>();			 //num freq
-        for(int num : nums){
-            map.put(num, map.getOrDefault(num,0) + 1);
-        }
-        PriorityQueue<Map.Entry<Integer,Integer>> maxHeap =
-                new PriorityQueue<>((a,b)->(b.getValue()-a.getValue()));
-        for(Map.Entry<Integer,Integer> entry: map.entrySet()){
-            maxHeap.add(entry);
-        }
-        List<Integer> res = new ArrayList<>();
-        while(res.size() < k){
-            Map.Entry<Integer,Integer> entry = maxHeap.poll();
-            res.add(entry.getKey());
-        }
-        return res;
-    }
 
     // O(n * log k) 用minHeap
-    public static int[] topKFrequent_PriorityQueue_(int[] nums, int k) {
+    public static int[] topKFrequent_PriorityQueue(int[] nums, int k) {
         if (nums == null || nums.length <= 0) {
             return new int[0];
         }
@@ -77,6 +60,7 @@ public class _347_TopKFrequentElements_PriorityQueue_TreeMap_bucket {
         for(int num : nums){
             map.put(num, map.getOrDefault(num,0) + 1);
         }
+
         TreeMap<Integer,List<Integer>> freqMap = new TreeMap<>();
         for(int num : map.keySet()){
             int freq = map.get(num);
@@ -94,6 +78,7 @@ public class _347_TopKFrequentElements_PriorityQueue_TreeMap_bucket {
         }
         return res;
     }
+    
     // 因为存在频率一样的数字 所以 用List<DataStructure.Integer>[] O(n)
     public List<Integer> topKFrequent_Bucket(int[] nums, int k) {
         HashMap<Integer,Integer> map = new HashMap<>();			 //num freq
@@ -118,45 +103,59 @@ public class _347_TopKFrequentElements_PriorityQueue_TreeMap_bucket {
         return res;
     }
 
-    public static void main(String[] args){
-//        topKFrequent_PriorityQueue_(new int[]{1,1,1,2,2,3}, 2);
-        bucket(new int[]{1,1,1,2,2,3}, 2);
+    // Quick Select 
+    public int[] topKFrequent(int[] nums, int k) {
+        
+        HashMap<Integer, Integer> hm = new HashMap<>();
+
+        for(int num : nums) {
+            hm.put(num, hm.getOrDefault(num, 0) + 1);
+        }
+
+        int[] unique = new int[hm.size()];
+        int index = 0;
+        for(int key : hm.keySet()) {
+            unique[index++] = key;
+        }
+        
+        quickselect(0, unique.length - 1, unique.length - k, unique, hm);
+
+        return Arrays.copyOfRange(unique, unique.length - k, unique.length);
     }
 
-    private static int[] bucket (int[] nums, int k){
-        if (nums == null || nums.length < 0) {
-            return new int[0];
-        }
+    public void quickselect(int start, int end, int k, int[] unique, Map<Integer, Integer> hm) {
 
-        List<Integer>[] bucket = new List[nums.length + 1];
-        Map<Integer, Integer> map = new HashMap<Integer, Integer>();
-        for (int n : nums){
-            map.put(n, map.getOrDefault(n, 0) + 1);
-        }
+        int left = start;
+        int right = end - 1;
+        int pivot = end;
 
-        for (int key : map.keySet()) {
-            int freq = map.get(key);
-            if (bucket[freq] == null) {
-                bucket[freq] = new ArrayList<>();
+        while(left <= right) {
+
+            if(hm.get(unique[left]) > hm.get(unique[pivot])) {
+                swap(left, right, unique);
+                right--;
+            } else {
+                left++;
             }
-            bucket[freq].add(key);
+
         }
 
-        int[] res = new int[k];
-        int m = 0;
-        a : for(int i = nums.length; i >= 0; i--){
-            List<Integer> curVal = bucket[i];
-            if (curVal == null) {
-                continue;
-            }
-            for (int j = 0; j < curVal.size(); j++){
-                if (m >= k)
-                    break a;
-                res[m] = curVal.get(j);
-                m++;
-            }
-        }
+        swap(left, pivot, unique);
 
-        return res;
+        if(left == k) return;
+
+        if (left < k) {
+            quickselect(left + 1, end, k, unique, hm);
+        } else {
+            quickselect(start, left - 1, k, unique, hm);
+        }
+        
+    }
+
+    public void swap(int left, int right, int[] nums) {
+
+        int temp = nums[left];
+        nums[left] = nums[right];
+        nums[right] = temp;
     }
 }

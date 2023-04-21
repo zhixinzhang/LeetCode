@@ -1,4 +1,4 @@
-package Company.LinkedIn;
+package Company.Ebay;
 /**
  * Created by zhang on 2017/9/22.
  */
@@ -13,8 +13,11 @@ public class _53_MaximumSubarray_DP {
      if (A == null || A.length == 0){
             return 0;
         }
-		int dp[] = new int[A.length]; int max = A[0]; dp[0] = A[0]; 
-		for (int i = 1; i < A.length; i++) {			
+		int dp[] = new int[A.length]; 
+        int max = A[0]; 
+        dp[0] = A[0]; 
+		
+        for (int i = 1; i < A.length; i++) {			
 			dp[i] = Math.max(dp[i-1] + A[i] ,A[i]);
 			max = Math.max(max, dp[i]);
 		}

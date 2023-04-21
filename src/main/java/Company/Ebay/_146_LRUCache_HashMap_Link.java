@@ -1,4 +1,4 @@
-package DataStructure.Design;
+package Company.Ebay;
 
 import java.util.HashMap;
 

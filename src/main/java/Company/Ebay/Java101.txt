@@ -1,0 +1,24 @@
+HastMap VS Hashtable
+1. HashMap is non-synchronized. It is not thread-safe and can’t be shared between many threads without proper synchronization code 
+whereas Hashtable is synchronized. It is thread-safe and can be shared with many threads.
+Based on my experience I use ConcurrentHashMap to handle multiple thread
+2. HashMap allows one null key and multiple null values whereas Hashtable doesn’t allow any null key or value.
+HashMap is generally preferred over HashTable if thread synchronization is not needed.
+3. Hashtable extends dictorary class, hashmap extends abstractMap class
+
+
+Major difference between lock and synchronized:
+1. with locks, you can release and acquire the locks in any order.
+2. with synchronized, you can release the locks only in the order it was acquired.
+
+Dependency Injection in Spring
+Dependency Injection (DI) is a design pattern that removes the dependency from the programming code so that it 
+can be easy to manage and test the application. Dependency Injection makes our programming code loosely coupled.
+Two ways to perform Dependency Injection in Spring framework
+Spring framework provides two ways to inject dependency
+By Constructor
+By Setter method
+https://zhuanlan.zhihu.com/p/67032669
+
+Spring Framework
+

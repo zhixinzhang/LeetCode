@@ -1,4 +1,4 @@
-package DataStructure.Tree;
+package Company.Ebay;
 
 import DataStructure.BinaryTree.TreeNode;
 
@@ -19,8 +19,16 @@ public class _993_CousinsinBinaryTree_Recursion_BFS {
     boolean isCousin = false;
 
     public boolean isCousins(TreeNode root, int x, int y) {
+     /**
+      *Start traversing the tree from the root node. Look for Node x and Node y.
 
-        // Recurse the tree to find x and y
+Record the depth when the first node i.e. either of x or y is found and return true.
+
+Once one of the nodes is discovered, for every other recursive call after this discovery, we return false if the current depth is more than the recorded depth. This basically means we didn't find the other node at the same depth and there is no point going beyond. This step of pruning helps to speed up the recursion by reducing the number of recursive calls.
+
+Return true when the other node is discovered and has the same depth as the recorded depth. 
+
+     */
         dfs(root, 0, x, y);
         return this.isCousin;
     }

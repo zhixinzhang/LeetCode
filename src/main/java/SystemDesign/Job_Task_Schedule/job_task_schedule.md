@@ -1,6 +1,6 @@
 ![image](https://user-images.githubusercontent.com/21000178/231560064-a95a2207-5860-49d3-b593-f01057231608.PNG)
-<h3>Rest API</h3>
-<li>What is REST?  </li>
+<h3>Resources</h3>
+<li>https://towardsdatascience.com/ace-the-system-design-interview-job-scheduling-system-b25693817950</li>
  
 
 <ul>

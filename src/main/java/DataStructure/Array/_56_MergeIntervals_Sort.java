@@ -7,9 +7,6 @@ import java.util.*;
  */
 public class _56_MergeIntervals_Sort {
     public static void main(String[] args){
-//        int[][] intervals = new int[][]{
-//                {15,18},{8,10},{1,3},{2,6}
-//        };
 
         int[][] intervals = new int[][]{
                 {1,4},{4,5}
