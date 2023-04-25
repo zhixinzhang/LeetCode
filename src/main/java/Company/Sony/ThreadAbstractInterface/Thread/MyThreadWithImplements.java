@@ -1,4 +1,4 @@
-package Company.Ebay;
+package Company.Sony.ThreadAbstractInterface.Thread;
 
 public class MyThreadWithImplements implements Runnable {
     private int tickets = 10;
@@ -7,7 +7,7 @@ public class MyThreadWithImplements implements Runnable {
     public void run() {
 
         for (int i = 0; i <= 100; i++) {
-            if(tickets>0){
+            if(tickets > 0){
                 System.out.println(Thread.currentThread().getName()+"--卖出票：" + tickets--);
             }
         }

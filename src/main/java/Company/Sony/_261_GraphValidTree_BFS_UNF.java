@@ -1,4 +1,4 @@
-package Company.Google;
+package Company.Sony;
 import java.util.*;
 /**
  * Created by zhang on 2017/12/7.
@@ -66,18 +66,6 @@ public class _261_GraphValidTree_BFS_UNF {
         List<List<Integer>> adj = toAdjecent(n, edges);
         DFS(adj, seen, 0);
         return seen.size() == n;
-    }
-    
-    public List<List<Integer>> toAdjecent(int n, int[][] edges) {
-        List<List<Integer>> adj = new ArrayList<>();
-        for (int i = 0; i < n; i++) {
-            adj.add(new ArrayList<Integer>());
-        }
-        for (int[] edge: edges) {
-            adj.get(edge[0]).add(edge[1]);
-            adj.get(edge[1]).add(edge[0]);
-        }
-        return adj;
     }
     
     public void DFS(List<List<Integer>> adj, Set<Integer> seen, int curr) {

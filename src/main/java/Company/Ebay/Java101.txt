@@ -23,6 +23,20 @@ doSomethingNifty(); // Throws a NPE!
 Lock.release(); // Oh noes, we never release the lock!
 You have to explicitly do try{} finally{} everywhere.
 
+Abstract VS Interface
+An abstract class is a class that cannot be instantiated and can contain both abstract and non-abstract methods.
+An interface, on the other hand, is a contract that specifies a set of methods that a class must implement.
+In an abstract class, some methods can be implemented, while others are left abstract,
+ meaning that they have no implementation and must be overridden by concrete subclasses. 
+In contrast, all methods in an interface are by default abstract and must be implemented by any class that implements the interface.
+Inheritance: A class can inherit from only one abstract class, but it can implement multiple interfaces. 
+This is because an abstract class represents a type of object, while an interface represents a set of behaviors.
+
+Semaphore in Java
+A semaphore controls access to a shared resource through the use of a counter. If the counter is greater than zero, 
+then access is allowed. If it is zero, then access is denied. What the counter is \
+counting are permits that allow access to the shared resource. Thus, to access the resource, 
+a thread must be granted a permit from the semaphore. 
 
 Dependency Injection in Spring
 Dependency Injection (DI) is a design pattern that removes the dependency from the programming code so that it 
@@ -54,3 +68,19 @@ It provides a simple interface to the distributed data. It can be accessed by Ap
 
 Hadoop: Hadoop is an open source framework from Apache that is used to store and process large datasets distributed across 
 a cluster of servers. Four main components of Hadoop are Hadoop Distributed File System(HDFS), Yarn, MapReduce, and libraries.
+
+
+User Datagram Protocol (UDP) is a communications protocol for time-sensitive applications like gaming, playing videos
+ UDP can also cause data packets to get lost as they go from the source to the destination. 
+ It can also make it relatively easy for a hacker to execute a distributed denial-of-service (DDoS) attack.
+
+ TCP is different in that it requires a handshake between where the data originates and where it is headed. 
+ This makes TCP more reliable than UDP. In the course of a TCP communication, the data can only be sent along 
+ after the destination and source have been formally linked. With UDP, because no link is required, the data can be sent right away.
+
+ Another difference between TCP and UDP communications is that with TCP, the order in which the packets 
+ need to be received is confirmed before the transmission begins. Also, 
+ TCP provides for the confirmation that the packets arrived as intended. 
+ In the event that the packet does not arrive, TCP dictates that it needs to be sent again.
+  UDP does not require any confirmation, checking, or resending.
+
