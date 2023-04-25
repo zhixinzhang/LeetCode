@@ -1,0 +1,41 @@
+2017-3-20 https://www.1point3acres.com/bbs/thread-265892-1-1.html
+
+_125_ValidPalindrome_TwoPointer
+_5_LongestPalindromicSubstring_DP
+
+2017-8-1 https://www.1point3acres.com/bbs/thread-288287-1-1.html
+
+_3_LongestSubstringWithout_SlidingWindow
+_171_ExcelSheetColumnNumber_26Decimal
+
+
+2022-5-23  https://www.1point3acres.com/bbs/thread-898102-1-1.html
+_15_3Sum_sort
+
+2022-4-4 https://www.1point3acres.com/bbs/thread-879046-1-1.html
+1. What happens when you type a URL into your browser? dsn拿到实际ip地址之类的步骤，还问我知不知道udP之类的。还有http packet loss 之后有什么后果，如何恢复之类的。
+
+2. 真正的coding 题。输入是几个pair，每个pair（2个）里的node相当于连接的。问‍‌‌‌‌‍‌‌‍‍‌‌‍‌‌‍‌‍‌最后一共有几棵树，非常简单的union find题
+
+2021-11-17 https://www.1point3acres.com/bbs/thread-820762-1-1.html
+2. 问失败经历和收获
+3. 是否了解Playstation
+4. Technical Questions：
+C++ 优势
+object-orient‍‌‌‌‌‍‌‌‍‍‌‌‍‌‌‍‌‍‌ed language 特点
+polymorphism 特点
+overflow 特点
+5. Q&A 公司和团队任何问题
+
+2021-7-19 https://www.1point3acres.com/bbs/thread-780646-1-1.html
+_225_ImplementStackusingQueues
+
+2019-10-21 https://www.1point3acres.com/bbs/thread-562675-1-1.html
+
+- 问简历上项目：
+        team meeting流程
+        遇到问题怎么解决
+- 基础知识：
+    multithreading中：violate用法作用，sleep()和wait()函数作用，哪一个是真的什么都不干，哪一个还是有做什么的
+    docker用的是？还是？（没听清，J什么的）
+    数据库：mySQL和MongoDB，各自优势，举例：如要存学生姓名等个人信息，已有五类数据是确定的，还有其他几类数据不确定，后续会修改，应该选哪一种数据库使用？

@@ -5,171 +5,124 @@ import java.util.*;
  */
 //  https://www.youtube.com/watch?v=vsIb9B84Rt8
 // space O(n)  time O(edges * nodes)
-    //https://leetcode.com/problems/graph-valid-tree/discuss/69078/AC-Java-solutions:-Union-Find-BFS-DFS
+// https://leetcode.com/problems/graph-valid-tree/solutions/2030600/java-union-find-bfs-dfs/
 public class _261_GraphValidTree_BFS_UNF {
-    /**  01   05  12   23    13    14
-     *                 4
-     *                |
-     *          0 -- 1 -- 2
-     *                \  /
-     *                 3
-     *   0    1   2   3   4
-     *  -1  -1  -1  -1  -1
-     *  1   -1                  // 01
-     *  1   2                   // 02
-     *  1   2   3               // 23
-     *  1   2   3                // 13       find(1) find (3)  x  3   y   3
-     *
-     * **/
-
-
-    public static boolean validTree_UF(int n, int[][] edges){
-//        if (n < 1 || edges.length-1 != n) return  false;
-        int[] roots = new int[n];
-        for (int i = 0; i<n;i++){                   //inital roots -1
-            roots[i] = -1;
+    private int[] rank;
+    private int[] root;
+    public boolean validTree(int n, int[][] edges) {
+        if (edges.length != n - 1) return false;
+        rank = new int[n];
+        root = new int[n];
+        for (int i = 0; i < n; i++) {
+            rank[i] = 1;
+            root[i] = i;
         }
-        for (int[] pair : edges){
-            int x = find(pair[0],roots);
-            int y = find(pair[1],roots);
-            if (x == y)
+        
+        for (int[] edge: edges) {
+            if(isConnected(edge[0], edge[1])) {
                 return false;
-            roots[x] = y;
+            }
+            union(edge[0], edge[1]);
         }
         return true;
     }
-    private static int find(int i, int[] roots){
-        while (roots[i] != -1){
-            i = roots[i];
+    
+    
+    public int find(int x) {
+        if (root[x] == x) {
+            return x;
         }
-        return i;
+        return root[x] = find(root[x]);
+    }
+    
+    public boolean isConnected(int x, int y) {
+        return find(x) == find(y);
+    }
+    
+    public void union(int x, int y) {
+        int rootX = root[x];
+        int rootY = root[y];
+        
+        if (rootX != rootY) {
+            if (rank[rootX] < rank[rootY]) {
+                root[rootX] = rootY;
+            } else if (rank[rootX] > rank[rootY]) {
+                root[rootY] = rootX;
+            } else {
+                root[rootY] = rootX;
+                rank[rootX] ++;
+            }
+        }
+    }
+
+    // DFS
+    // Use toAdjecent function to convert edges to adjecent list.
+    // Since we only need to check whether all nodes are connected(based on edges.length == n - 1), 
+    // we use a set seen to track the nodes that we have connected. After DFS, we only need to check if we have visited all nodes, 
+    // i.e. seen.size() == n.
+    public boolean validTree_DFS(int n, int[][] edges) {
+        if (edges.length != n - 1) return false;
+        Set<Integer> seen = new HashSet<>();
+        List<List<Integer>> adj = toAdjecent(n, edges);
+        DFS(adj, seen, 0);
+        return seen.size() == n;
+    }
+    
+    public List<List<Integer>> toAdjecent(int n, int[][] edges) {
+        List<List<Integer>> adj = new ArrayList<>();
+        for (int i = 0; i < n; i++) {
+            adj.add(new ArrayList<Integer>());
+        }
+        for (int[] edge: edges) {
+            adj.get(edge[0]).add(edge[1]);
+            adj.get(edge[1]).add(edge[0]);
+        }
+        return adj;
+    }
+    
+    public void DFS(List<List<Integer>> adj, Set<Integer> seen, int curr) {
+        if (seen.contains(curr)) {
+            return;
+        }
+        seen.add(curr);
+        for (int i: adj.get(curr)) {
+            DFS(adj, seen, i);
+        }
     }
 
 
-
-    public boolean validTree_DFS(int n, int[][] edges){
-        List<List<Integer>> graph = new ArrayList<>();
-        for (int i = 0; i<n;i++){
-            graph.add(new ArrayList<>());
-        }
-        for (int i = 0; i<edges.length; i++){
-            graph.get(edges[i][0]).add(edges[i][1]);
-            graph.get(edges[i][1]).add(edges[i][0]);
-        }
-        HashSet<Integer> visited = new HashSet<>();
-        visited.add(0);
-        boolean res = dfs(graph,visited,0,-1);
-        if (res == false)
-            return false;
-        return visited.size() == n ? true : false;
-    }
-    private boolean dfs (List<List<Integer>> graph, HashSet<Integer> visited, int node, int parent){
-        List<Integer> sub = graph.get(node);
-        for (int v : sub){
-            if (v == parent)
-                continue;
-            if (visited.contains(v))
-                return false;
-            visited.add(v);
-            boolean res = dfs(graph,visited,v,node);
-            if (res == false)
-                return false;
-        }
-        return true;
-    }
-
+    // BFS
     public boolean validTree_BFS(int n, int[][] edges) {
-        Map<Integer, Set<Integer>> graph = new HashMap<>();
-        for(int i=0; i<edges.length; i++) {
-            for(int j=0; j<2; j++) {
-                Set<Integer> pairs = graph.get(edges[i][j]);
-                if (pairs == null) {
-                    pairs = new HashSet<>();
-                    graph.put(edges[i][j], pairs);
-                }
-                pairs.add(edges[i][1-j]);
-            }
-        }
-        Set<Integer> visited = new HashSet<>();
-        Set<Integer> current = new HashSet<>();
-        visited.add(0);
-        current.add(0);
-        while (!current.isEmpty()) {
-            Set<Integer> next = new HashSet<>();
-            for(Integer node: current) {
-                Set<Integer> pairs = graph.get(node);
-                if (pairs == null) continue;
-                for(Integer pair: pairs) {
-                    if (visited.contains(pair)) return false;
-                    next.add(pair);
-                    visited.add(pair);
-                    graph.get(pair).remove(node);
+        if (edges.length != n - 1) return false;
+        Set<Integer> seen = new HashSet<>();
+        List<List<Integer>> adj = toAdjecent(n, edges);
+
+        Deque<Integer> queue = new ArrayDeque<>();
+        queue.offer(0);
+        seen.add(0);
+        
+        while(!queue.isEmpty()) {
+            int curr = queue.poll();
+            for (int i: adj.get(curr)) {
+                if (!seen.contains(i)) {
+                    queue.offer(i);
+                    seen.add(i);
                 }
             }
-            current = next;
         }
-        return visited.size() == n;
+        return seen.size() == n;
+        
     }
-
-    public static void main(String[] args){
-        int[][] edgs = {{0,1},{0,2},{0,3},{1,4}};
-        validTree(5,edgs);
-    }
-
-
-    public static boolean validTree(int n, int[][] edges) {
-        // build the graph using adjacent list
-        List<Set<Integer>> graph = new ArrayList<Set<Integer>>();
-        for(int i = 0; i < n; i++)
-            graph.add(new HashSet<Integer>());
-        for(int[] edge : edges)
-        {
-            graph.get(edge[0]).add(edge[1]);
-            graph.get(edge[1]).add(edge[0]);
+    
+    public List<List<Integer>> toAdjecent(int n, int[][] edges) {
+        List<List<Integer>> adj = new ArrayList<>();
+        for (int i = 0; i < n; i++) {
+            adj.add(new ArrayList<Integer>());
         }
-
-        // no cycle
-        boolean[] visited = new boolean[n];
-        Deque<Integer> stack = new ArrayDeque<Integer>();
-        stack.push(0);
-        while(!stack.isEmpty())
-        {
-            int node = stack.pop();
-            if(visited[node])
-                return false;
-            visited[node] = true;
-            for(int neighbor : graph.get(node))
-            {
-                stack.push(neighbor);
-                graph.get(neighbor).remove(node);
-            }
+        for (int[] edge: edges) {
+            adj.get(edge[0]).add(edge[1]);
+            adj.get(edge[1]).add(edge[0]);
         }
-
-        // fully connected
-        for(boolean result : visited)
-        {
-            if(!result)
-                return false;
-        }
-
-        return true;
-    }
-    public static boolean dfs(HashMap<Integer, HashSet<Integer>> graph, int parentNode, HashSet<Integer> visited){
-
-        HashSet<Integer> child = graph.get(parentNode);
-        for (int node : child){
-            // detect circle
-            if(node != parentNode && visited.contains(node)){
-                return false;
-            }else if (node == parentNode){
-                continue;
-            }else {
-                visited.add(node);
-                boolean f = dfs(graph,node,visited);
-                visited.remove(node);
-                return f;
-            }
-        }
-        return true;
+        return adj;
     }
 }

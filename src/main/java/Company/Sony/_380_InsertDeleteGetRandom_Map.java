@@ -1,4 +1,4 @@
-package Company.Grammly;
+package Company.Sony;
 
 import java.util.*;
 

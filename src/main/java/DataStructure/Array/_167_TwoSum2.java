@@ -9,16 +9,19 @@ import java.util.HashMap;
  */
 public class _167_TwoSum2 {
     public int[] twoSum(int[] numbers, int target) {
-        int[] result = new int[2];
-        HashMap<Integer,Integer> hs = new HashMap<>();
-        for(int i =0;i<numbers.length;i++){
-            if(hs.containsValue(numbers[i])){
-                result[0] = hs.get(numbers[i]);
-                result[1] = i;
-            }else{
-                hs.put(target-numbers[i],i);
+        int l = 0, r = numbers.length - 1;
+        while (l <= r){
+            if (numbers[l] + numbers[r] == target) {
+                return new int[]{l + 1, r + 1};
+            }
+
+            if (numbers[l] + numbers[r] > target) {
+                r --;
+            } else {
+                l ++;
             }
         }
-        return result;
+
+        return new int[]{l + 1, r + 1};
     }
 }

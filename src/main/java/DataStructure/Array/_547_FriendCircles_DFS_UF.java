@@ -59,4 +59,58 @@ public class _547_FriendCircles_DFS_UF {
 		return count;
 	}
 
+
+	// UF 
+	public int findCircleNum(int[][] isConnected) {
+        int n = isConnected.length;
+        UnionFind uf = new UnionFind(n);
+        int count = n;
+        for (int i = 0; i < n; i++){
+            for (int j = i + 1; j < n; j++){
+                if (isConnected[i][j] == 1 && uf.find(i) != uf.find(j)) {
+                    count--;
+                    uf.union(i, j);
+                }
+            }
+        }
+
+        return count;
+    }
+
+    class UnionFind {
+        int[] parent;
+        int[] rank;
+        
+        public UnionFind(int n){
+            parent = new int[n];
+            for (int i = 0; i < n; i++){
+                parent[i] = i;
+            }
+            rank = new int[n];
+        }
+
+        public int find(int x){
+            if (parent[x] != x) {
+                parent[x] = find(parent[x]);
+            }
+            return parent[x];
+        }
+
+        public void union(int a, int b){
+            int aP = find(a);
+            int bP = find(b);
+            if (aP == bP) {
+                return;
+            }
+            if (rank[aP] < rank[bP]) {
+                parent[aP] = bP;
+            } else if (rank[aP] > rank[bP]){
+                parent[bP] = aP;
+            } else {
+                parent[bP] = aP;
+                rank[aP]++;
+            }
+        }
+    }
+
 }

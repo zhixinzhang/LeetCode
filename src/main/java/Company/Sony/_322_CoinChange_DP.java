@@ -1,4 +1,4 @@
-package Company.Houzz;
+package Company.Sony;
 
 import java.util.Arrays;
 
@@ -9,6 +9,7 @@ public class _322_CoinChange_DP {
         public static void main(String[] args){
             coinChange(new int[]{1,2,5},10);
         }
+        // Time complexity : O(S∗n). where S is the amount, n is denomination count.
         public static int coinChange(int[] coins, int amount) {
             int[] dp = new int[amount+1]; // dp[n] represent number n  have min number coins
             //dp[i] = Math.min(dp[i], dp[i - coin] + 1);
