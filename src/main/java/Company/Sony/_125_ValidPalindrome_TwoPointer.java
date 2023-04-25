@@ -1,4 +1,4 @@
-package Company.Ebay;
+package Company.Sony;
 
 /**
  * Created with IntelliJ IDEA.

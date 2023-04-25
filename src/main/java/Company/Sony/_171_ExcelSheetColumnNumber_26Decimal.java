@@ -1,4 +1,4 @@
-package DataStructure.String;
+package Company.Sony;
 
 /**
  * @author Luke Zhang

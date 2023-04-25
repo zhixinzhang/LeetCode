@@ -12,7 +12,7 @@ import java.util.Map;
  *
  *
  * */
-public class _3_LongestSubstringWithout {
+public class _3_LongestSubstringWithout_SlidingWindow {
     public int lengthOfLongestSubstring(String s) {
         Map<Character, Integer> map= new HashMap<>();
         int start=0, len=0;
