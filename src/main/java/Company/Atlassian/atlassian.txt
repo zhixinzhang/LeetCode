@@ -2,10 +2,6 @@ https://jobs.1point3acres.com/companies/atlassian/interview
 https://www.1point3acres.com/bbs/forum.php?mod=forumdisplay&fid=145&filter=sortid&sortid=311&orderby=dateline
 https://www.atlassian.com/company/values
 
-
-2022-12-6 https://www.1point3acres.com/bbs/thread-951108-1-1.html
-感恩节前店面的，题目就是任务调度器，关键词async。
-
 2022-12-5 https://www.1point3acres.com/bbs/thread-950878-1-1.html
 之后bq，atlassian ‍‌‌‌‌‍‌‌‍‍‌‌‍‌‌‍‌‍‌value有了解嘛（我答喜欢customer这个value），
 然后问两个相关bq，让customer不开心的故事，project需要延长deadline的故事。
@@ -45,7 +41,9 @@ round3 SD, 地里经典的tagging system，我之前准备了一些elastic searc
 因为我从一开始就没往别的方向聊，所以面试官基本就围绕es 问的 deep dive的问题
 
 第二天 round1 Code design interview, 我本来按地理的面经准备了好几个rate limiter，结果面试官让我写一个贪吃蛇的游戏,leetcode上有这个题，写完，测试完，感觉这个面试官很随和（当然完全可能是假象）
-round 2 data structure interview，设计一个投票的数据结构，然后写一个找‍‌‌‌‌‍‌‌‍‍‌‌‍‌‌‍‌‍‌出排名的功能，类似莉蔻 以伞溜溜，但是要设计专门的投票数据结构，记分方式是第一名3分第二名2分第三名1分，我用了个hashmap统计了所有的分然后不会写sort hashmap by value，最后经过面试关许可在网上找的，输出了正确的结果，但我觉得我做的非常的烂
+round 2 data structure interview，设计一个投票的数据结构，然后写一个找‍‌‌‌‌‍‌‌‍‍‌‌‍‌‌‍‌‍‌出排名的功能，类似莉蔻 以伞溜溜，
+但是要设计专门的投票数据结构，记分方式是第一名3分第二名2分第三名1分，我用了个hashmap统计了所有的分然后不会写sort hashmap by value，
+最后经过面试关许可在网上找的，输出了正确的结果，但我觉得我做的非常的烂
 
 2022-9-14 https://www.1point3acres.com/bbs/thread-928255-1-1.html  ***
 1) 系统设计 是地理常常提到的 标签。 面试官问了好多 api, db
@@ -90,29 +88,6 @@ Round 3:  Values Interview 45分钟
 Round 4: System Design Interview 1小时
 设计一个系统记录用户的最喜欢的color，涉及到API，数据库设计等等
 面试官全程互动比较多，聊的感觉不错。
-
-2022-7-28 https://www.1point3acres.com/bbs/thread-915134-1-1.html   
-
-job scheduler
-不要求repeat
-和这个差不多
-https://leetcode.com/discuss/interview-experience/1938821
-照这个简化做的
-https://dropbox.tech/infrastruct ... heduling-at-dropbox
-follow up如果traffic变大了 j‍‌‌‌‌‍‌‌‍‍‌‌‍‌‌‍‌‍‌ob多了怎么办 service/task failure怎么办
-
-
-2022-7-19 https://www.1point3acres.com/bbs/thread-912697-1-1.html
-Atlassian 经典 系统设计
-设计Job scheduler,
-The client will schedule jobs for processing HTTP calls, and need to consider the recurring jobs, failed jobs(re-‍‌‌‌‌‍‌‌‍‍‌‌‍‌‌‍‌‍‌try), scalability of the system
-
-
-2022-7-18  https://www.1point3acres.com/bbs/thread-912370-1-1.html
-
-面的senior。 题目是design job scheduler。 面试官人挺好的
-没有什么特定答案 应该重点是想看你怎么design db schema
-还问了为什么选这个db 和怎么样scale db 如果有100k job
 
 2022-7-13 https://www.1point3acres.com/bbs/thread-911083-1-1.html
 
