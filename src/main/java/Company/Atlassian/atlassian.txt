@@ -1,14 +1,25 @@
 https://jobs.1point3acres.com/companies/atlassian/interview
 https://www.1point3acres.com/bbs/forum.php?mod=forumdisplay&fid=145&filter=sortid&sortid=311&orderby=dateline
 https://www.atlassian.com/company/values
+https://leetcode.com/discuss/interview-question/object-oriented-design/2167390/atlassian-ood-design-a-middelware-router
 
-2022-12-5 https://www.1point3acres.com/bbs/thread-950878-1-1.html
-之后bq，atlassian ‍‌‌‌‌‍‌‌‍‍‌‌‍‌‌‍‌‍‌value有了解嘛（我答喜欢customer这个value），
-然后问两个相关bq，让customer不开心的故事，project需要延长deadline的故事。
+Tag Sys : 
+https://leetcode.com/discuss/interview-question/system-design/838025/Design-a-tagging-system-like-tags-used-in-stack-overflow
+https://justpaste.it/b26kl
+
+Data structure
+1. Top K   ||  Vote ||  Collection files
+
+Code Design
+1. Rate limiter || Snake  || MiddlewareRouter
+
 
 2022-11-11 https://www.1point3acres.com/bbs/thread-944957-1-1.html  ***
-
-店面：老题，设计一个distributed task scheduler，重点说API，DB，还有怎么scale。
+1. 给一堆文件有name和size，每个文件都可能属于一个collection，计算每个collection有哪些文件以及每个collection的size。
+2. 设计一个API rate lmiter，写test case。
+3. 系统设计一个web crawler.
+4. HM 面，简历，项目经验等。
+5. Value 面，基本就是BQ考察culture fit。
 
 2022-11-6 https://www.1point3acres.com/bbs/thread-943446-1-1.html
 面试官人很好， 一开始跟我说了一下他的经验和如何approach题最好。 我一开始根本不知道怎么做但是他很耐心的主导我。
@@ -51,9 +62,6 @@ round 2 data structure interview，设计一个投票的数据结构，然后写
 3) HM 常规题目， 有点在闲聊. HM 感觉很忙，聊了半‍‌‌‌‌‍‌‌‍‍‌‌‍‌‌‍‌‍‌个小时就结束了
 4) Values 也是常规题目，recruiter 应该有给一些准备资料，比亚麻的bq 还要轻松
 
-2022-8-30 https://www.1point3acres.com/bbs/thread-924280-1-1.html
-设计一个delayed task queue，要设计到分布式系统。一个中国大哥面的，面试体验不是很好，全程一副就你还来面我们的P6的感觉😂
-
 2022-8-26 https://www.1point3acres.com/bbs/thread-923181-1-1.html  ***
 
 1面筋题目， 地理都有，陷流器和 top k collection
@@ -89,11 +97,6 @@ Round 4: System Design Interview 1小时
 设计一个系统记录用户的最喜欢的color，涉及到API，数据库设计等等
 面试官全程互动比较多，聊的感觉不错。
 
-2022-7-13 https://www.1point3acres.com/bbs/thread-911083-1-1.html
-
-面的是Senior backend
-昨天下午的电面， 他家的电面还是考Design job scheduler, 
-
 2022-6-29  https://www.1point3acres.com/bbs/thread-907899-1-1.html  ***
 都是面经题，建议对他家感兴趣的提前刷一遍
 叁伍叁
@@ -105,25 +108,31 @@ Round 4: System Design Interview 1小时
 
 2022-6-21 https://www.1point3acres.com/bbs/thread-905633-1-1.html BQs  ****
  
-
-2022-5-17  https://www.1point3acres.com/bbs/thread-896182-1-1.html
-电面：面试官是一个白人小姐姐，考的是system design。题目大体就是一个job schedule，
-一直沟通以后发现她的重点在于怎么去design db storage。全程有点乱，因为我准备画画的白板贼不好用，到最后是跟小姐姐尽量口述整个系统。不过小姐姐也有特别努力的跟我反复确认我的design，所以很感恩。但是因为平台是zoom，所以建议大家干脆用drawio然后share screen就好，到现在我还没有找到靠谱的电脑画图collab editor。
-
-
 2022-4-22  https://www.1point3acres.com/bbs/thread-888001-1-1.html ********
-三月底：Screening，分别是一个系统设计（定时任务，我一开始说用消息队列，
-但是对方说用普通db存下来就行，主要看db schema）和HR的常规BQ（发生矛盾经历、紧张时间做计划等）
+2. 系统设计：颜色标签。用户可以选和保存喜欢的颜色。follow up: 用户之间分享。
+4. HR 和 HM BQ：都是常规问题~
 
-
-2022-4-20 https://www.1point3acres.com/bbs/thread-887019-1-1.html
-题目还是老样子，设计一个scheduling service，需要接收http request，request里包含往某一个service发request 和 发这个request的timestamp，需要你到时间就执行
-过是过了HR打电话诚恳的说level只能是mid-level，薪水价格大概只有20w，最离谱最离‍‌‌‌‌‍‌‌‍‍‌‌‍‌‌‍‌‍‌谱能有25w不过也是很rare，问我还考不考虑，我说那等我能senior了再来吧
-
+_1366_RankByVotesSelfDefineScore_Sort
 
 2022-3-30 https://www.1point3acres.com/bbs/thread-876122-1-1.html
 蠡口 伞遛耳
 系统设计 爬虫
+
+2022-3-17 https://leetcode.com/discuss/interview-experience/1859629/atlassian-sde-2-remote-accepted
+Coding Round 1 - LLD and Code for an API rate limiter. Here you are expected to write clean code in any ide of 
+your choice and you are expected to run it for a few test cases.
+
+Coding Round 2 - You will be given a list of file names, the collection the file belongs to and the size of each file. Write a program
+ to find the top N collections by size and the total size of all the files in the system. Follow up - collections can be nested, find top N collections by size.
+
+System Design Round - Design a site that allows users to pick a few colors and save it as a list. 
+The following features were expected to be built - save a color, delete a color, share colors list with a bunch of users through email, 
+access control to allow other users to view your favorite color list. More focus was given on building the actual functionality and the scale of the system.
+
+Management Round - The interviewer mostly asked questions around the software development life cycle, 
+how will you lead a project from end to end, how will you split the work amongst your peers etc.,
+
+Cultural And Values Fit - Mostly behavioral and cultre fitment questions. You should do good here if you follow the STAR pattern to answer the questions.
 
 2022-3-9 https://www.1point3acres.com/bbs/thread-863516-1-1.html
 武陵寺
@@ -146,7 +155,8 @@ As a user, I can see a dashboard of popular tags
 1. Pair coding: Implement a rate limiter
 2. 主要讨论做过的AWS data engineering项目，偶尔穿插一些问opinion的问题，比如数据质量和monitoring相比，哪个更重要
 3. Manager interview：就是和头头和大头头在一起，讨论做过的项目中怎么处理一些疑难的非技术问题
-4. Value Interview： 和一位developer‍‌‌‌‌‍‌‌‍‍‌‌‍‌‌‍‌‍‌一起，问一些Behavior问题，要套上Atlassian的五大价值观。这个一定要提前准备，因为面试不会直接让你五大价值观各举一例，而是会问启发式的问题，如果没有提前准备，很可能踩不到点
+4. Value Interview： 和一位developer‍‌‌‌‌‍‌‌‍‍‌‌‍‌‌‍‌‍‌一起，问一些Behavior问题，要套上Atlassian的五大价值观。这个一定要提前准备，
+因为面试不会直接让你五大价值观各举一例，而是会问启发式的问题，如果没有提前准备，很可能踩不到点
 
 
 2020-8-28 https://www.1point3acres.com/bbs/thread-664443-1-1.html
@@ -160,7 +170,8 @@ As a user, I can see a dashboard of popular tags
 
 2020-8-19 https://www.1point3acres.com/bbs/thread-662048-1-1.html
 总共有3轮， 第一轮是 2个小时 两场Coding interview 。 第二轮是1个小时的系统设计， 第三轮是 behavior 包含45分钟的values interview 和45分钟的management interview。
-前两轮 coding 都很简单， leetcode 简单到中等难度的题。第二场系统设计 是关于设计一个tagging system。具体来讲就是为所有产品由user添加tag，几个 function：1. 能添加，更新和删除tag， 2. user能filter tag 来查找产品。 主要考察api 和 database的设计。
+前两轮 coding 都很简单， leetcode 简单到中等难度的题。第二场系统设计 是关于设计一个tagging system。具体来讲就是为所有产品由user添加tag，
+几个 function：1. 能添加，更新和删除tag， 2. user能filter tag 来查找产品。 主要考察api 和 database的设计。
 
 2020-5-24 https://www.1point3acres.com/bbs/thread-638951-1-1.html
 rate limiter  
