@@ -3,9 +3,16 @@ https://www.1point3acres.com/bbs/forum.php?mod=forumdisplay&fid=145&filter=sorti
 https://www.atlassian.com/company/values
 https://leetcode.com/discuss/interview-question/object-oriented-design/2167390/atlassian-ood-design-a-middelware-router
 
+
+BQ : 
+https://www.notion.so/Behavior-Questions-fbbef38f2bf44446a7db791f699bb2de
+https://www.indeed.com/hire/c/info/behavioral-interview-questions-to-ask-candidates
+https://capital-placement.com/blog/behavioral-interview-questions/
+
 Tag Sys : 
 https://leetcode.com/discuss/interview-question/system-design/838025/Design-a-tagging-system-like-tags-used-in-stack-overflow
 https://justpaste.it/b26kl
+https://www.youtube.com/watch?v=WNIR7eiv0Hk
 
 Data structure
 1. Top K   ||  Vote ||  Collection files

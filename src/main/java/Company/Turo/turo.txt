@@ -1,0 +1,42 @@
+2022-10-31 https://www.1point3acres.com/bbs/thread-941630-1-1.html
+Round 3：coding, 不需要run，力扣肆伞舞变种
+_435_NonoverlappingIntervals_Sort
+
+2022-10-11 https://www.1point3acres.com/bbs/thread-935937-1-1.html
+电面： LRU cache
+VO：
+1. 30mins chatted with a contractor from platform team, infra related
+2. 1h system design - host add vehicles / customer search for vehicles
+3. 1h API design - trip booking (data modeling and contracts)
+4. 1h coding - 力扣肆叁伍, 不是完全一样
+5. 1h chatting with HM 这轮都没啥behavioral 纯瞎聊，只用了35mins
+_435_NonoverlappingIntervals_Sort
+
+
+2022-7-22 https://www.1point3acres.com/bbs/thread-913572-1-1.html
+电面（codepad但并不要求run）：假设有一个函数getNextStations(station) return a list of next stations（所以code不要求run），
+input是station A and B，what is the min #steps to reach B from A。就标准的BFS，followup怎么加速
+1. Coding：char matrix里面找word，每次可以往8个方向走，还是标准的搜索，也是codepad但不要求run。
+
+2021-12-23 https://www.1point3acres.com/bbs/thread-833184-1-1.html
+兔肉电面，先相互介绍。然后问两题概念题。1. 请描述在 web browser 上输入 url 后发生了什么。2. 如果 app 每秒的访问量很大，如何改进 infra‍‌‌‌‌‍‌‌‍‍‌‌‍‌‌‍‌‍‌.
+刷题网尔雾散，
+设计三个 API。
+_253_MeetingRooms2
+
+2021-9-17 https://www.1point3acres.com/bbs/thread-798654-1-1.html
+
+_1343_NumberSubArraysofSizeKandAverageGreaterthanorEqual
+_210_CourseSchedule2_BFS_DFS_TopoLogicalSort
+
+2021-9-17 https://www.1point3acres.com/bbs/thread-798643-1-1.html
+_1343_NumberSubArraysofSizeKandAverageGreaterthanorEqual
+# Store key with value at a given timestamp.
+void set(String key, String value, int timeStamp);
+# Return the most recent value of a previously stored key that was stored on or
+# before the timestamp, if it exists.
+
+2021-8-8  https://www.1point3acres.com/bbs/thread-786558-1-1.html
+1: What happens when you type a URL in the browser and press enter?
+2: Cache，follow up LRU‍‌‌‌‌‍‌‌‍‍‌‌‍‌‌‍‌‍‌ cache.
+3: design REST API.
