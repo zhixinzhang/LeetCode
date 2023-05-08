@@ -1,0 +1,61 @@
+2023-4-25 https://www.1point3acres.com/bbs/thread-990792-1-1.html
+电面是1419， VO一共四轮: 
+_1419_MinimumNumberofFrogsCroaking_Greedy
+
+2023-2-22 https://www.1point3acres.com/bbs/thread-969841-1-1.html
+我先写了BrowserHistory 在Leetcode题上的标准实现。 用的array + curIndex + endIndex.
+然后面试官让我把endIndex去掉，但是这样增加了visit的代码复杂度。我开始还没搞懂是怎么回事。
+接下来面试官让我follow up写多Tag BrowserHistory. 不知道各位在面试中是否真的会去实现follow up。但是我是实现完了，并且interview超时了5分钟。感觉面试官很好！
+
+2023-1-19 https://www.1point3acres.com/bbs/thread-959607-1-1.html
+1. 技术VO，问的是LC 20 Valid Parentheses的变种，主要的test case过了，但是有一个edge case没过，面试的小哥人很好，一直在帮我debug，最后也让我过了
+
+
+ 2023-1-2 https://www.1point3acres.com/bbs/thread-955901-1-1.html
+ Question 1: Design a threadsafe read/write memory buffer made of contiguous memory (byte[]).
+Follow ups: How would you make sure to avoid deadlock when using it in code?
+Question 2: Code Connect 4
+Question 3: Imagine you have a leaderboard for a game. Write code to get the names of the top players for each game and sort them by scores, then player names (EASY).
+Follow Up: Imagine that players have green dots on their avatars when they are online and red dots when they are offline. Once you add the dots in the UI, you notice the page is slow. How would you diagnose this, and what do you think the cause is?
+Question 4: Given a directed graph, turn it into a tree by removing ed‍‌‌‌‌‍‌‌‍‍‌‌‍‌‌‍‌‍‌ges.
+Follow Up: How could you implement machine learning on this model?
+
+2022-11-10 https://www.1point3acres.com/bbs/thread-944715-1-1.html
+
+
+2022-11-7 https://www.1point3acres.com/bbs/thread-943796-1-1.html
+_1419_MinimumNumberofFrogsCroaking_Greedy
+十月中recruiter call，十一月月初面的vos，两轮背贴背，先tech再bqBQ面得挺好的，感觉是Tech挂了。。。tag下面的1419，写的代码不是特别漂亮+followup没答上来
+followup问如果这个重复的string里有duplicate字母怎么‍‌‌‌‌‍‌‌‍‍‌‌‍‌‌‍‌‍‌办 举例roblox
+
+2022-11-10 https://www.1point3acres.com/bbs/thread-944746-1-1.html
+1. 蠡口妖思琪尔。follow-up就是问你如果有多个tab怎么办。然后要自己写test case去run.
+感觉主要看的是你能不能写很清晰的OOP, coding的习惯怎么样。毕竟题目在蠡口也算高频题了。
+
+
+ 2022-11-9 https://www.1point3acres.com/bbs/thread-944420-1-1.html
+
+2022-10-26 https://www.1point3acres.com/bbs/thread-940294-1-1.html
+第一轮 tech：1419
+第二轮 tech：trie
+第三轮 behavior：difficult project，group project
+第四轮 behavior：learn from others， leadership，no‍‌‌‌‌‍‌‌‍‍‌‌‍‌‌‍‌‍‌n-cs related hobbies
+
+2022-10-25 https://www.1point3acres.com/bbs/thread-939999-1-1.html
+2022-10-25 https://www.1point3acres.com/bbs/thread-939986-1-1.html
+2轮technical interview：lc528 + lc41的简单版
+
+2022-10-24 https://www.1point3acres.com/bbs/thread-939810-1-1.html
+
+2022-10-24 https://www.1point3acres.com/bbs/thread-939569-1-1.html
+2022-10-15 https://www.1point3acres.com/bbs/thread-937030-1-1.html    ******BQ
+
+2022-10-10 https://www.1point3acres.com/bbs/thread-935627-1-1.html
+
+2022-10-3 https://www.1point3acres.com/bbs/thread-933690-1-1.html
+第一轮，和HM聊天，一些很typical的behavior问题，challenges/mentorship/interesting projects之类，还比较愉快。
+第二轮，算法，应该是他们自己出的题目，没在别的地方看到过。大概是meeting room这个的变形题。有一些followup，但是不算难。面试官很nice，一直有在积极沟通也有给hint。
+面完前两轮recruiter给的feedback说还不错。
+第二天面了第三轮和第四轮，都是SD。
+一轮是一个donation system。这是lz面的第一个SD，还挺紧张的,没有答得很好，可能就是挂在这一轮了。感觉面试的大哥对我的一些design没有特别满意。
+一轮是一个设计一个可以点赞帖子可以看帖子赞数的‍‌‌‌‌‍‌‌‍‍‌‌‍‌‌‍‌‍‌app，比较简单，很快就答完了，所有的followup也都答出来了还剩不少时间，就和面试官多聊了一些，感觉这轮面的挺好的

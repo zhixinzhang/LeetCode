@@ -1,4 +1,4 @@
-package Company.Google.Array.Interval_Meeting;
+package Company.Turo;
 
 import java.util.Arrays;
 import java.util.Comparator;
@@ -21,7 +21,8 @@ public class _435_NonoverlappingIntervals_Sort {
         Arrays.sort(intervals, new Comparator<Interval>() {
             @Override
             public int compare(Interval o1, Interval o2) {
-                if (o1.end != o2.end) return o1.end - o2.end;  //first sort by end
+                if (o1.end != o2.end) 
+                    return o1.end - o2.end;  //first sort by end
                 return o2.start - o1.start;  //second sort by start
             }
         });
