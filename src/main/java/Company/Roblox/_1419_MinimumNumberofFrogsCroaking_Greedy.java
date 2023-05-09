@@ -13,7 +13,7 @@ croaking will be equal to count of 'c'.As soon as 'K' of croak is found release 
 */
 public class _1419_MinimumNumberofFrogsCroaking_Greedy {
     public static int minNumberOfFrogs(String croakOfFrogs) {
-        if (croakOfFrogs == null || croakOfFrogs.length() == 0) {
+        if (croakOfFrogs == null || croakOfFrogs.length() % 5 != 0) {
             return -1;
         }
         int[] letterCounts = new int[26]; 
