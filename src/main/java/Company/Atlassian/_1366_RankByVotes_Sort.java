@@ -7,6 +7,7 @@ import java.util.Comparator;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.PriorityQueue;
 
 class Vote {
     List<String> candidates;
@@ -83,6 +84,24 @@ public class _1366_RankByVotes_Sort {
             ans.add(entry.getKey());
             System.out.println(entry.getKey() + "," + entry.getValue());
         }
+
+        // PQ
+        PriorityQueue<Map.Entry<String, Integer>> minPQ = new PriorityQueue<>(new Comparator<Map.Entry<String, Integer>>() {
+            @Override
+            public int compare(Map.Entry<String, Integer> e1, Map.Entry<String, Integer> e2){
+                if (e1.getValue().equals(e2.getValue())) {
+                    return e2.getValue().compareTo(e1.getValue());
+                } else {
+                    return e1.getKey().compareTo(e2.getKey());
+                }
+            }
+        });
+        minPQ.addAll(candiMap.entrySet());
+        while (!minPQ.isEmpty()){
+            Map.Entry<String, Integer> e1 = minPQ.poll();
+            System.out.println("minPQ : " + e1.getKey() + " " + e1.getValue());
+        }
+        int a = 0;
     }
 
     private static void calculateNewVotes(List<NewVote> votes){
