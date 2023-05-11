@@ -9,7 +9,6 @@ import java.util.List;
 import java.util.Map;
 import java.util.PriorityQueue;
 
-// https://leetcode.com/discuss/interview-experience/1504593/atlassian-sde-2-p4-september-2021-bangalore-offer
 public class FileSystemMultipleDictionary {
 
     public static void main(String args[]) {
