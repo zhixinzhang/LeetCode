@@ -28,34 +28,6 @@ class Request {
     }
 }
 
-// Thread Helper class - Invoke multiple threads to check throttling of requests
-class RateLimitHelper extends Thread {
-    RateLimit rateLimit;
-
-    public RateLimitHelper(String user, RateLimit rateLimitService) {
-        super(user);
-        this.rateLimit = rateLimitService;
-    }
-
-    @Override
-    public void run(){
-        for (int i = 1; i < 10; i++){
-            System.out.println("Thread Name - " + getName() + ", Time - " + i + ", rate limit: " + hit(getName(), Instant.now()));
-            try {
-                Thread.sleep(1000);
-            } catch (InterruptedException e) {
-                // TODO Auto-generated catch block
-                e.printStackTrace();
-            }
-        }
-        System.out.println("DONE! " + getName());
-    }
-
-    public boolean hit(String user, Instant ts) {
-        return rateLimit.hit(user, ts);
-    }
-}
-
 class RateLimit {
 
     int rateLimit;
@@ -115,6 +87,36 @@ class RateLimit {
     }
 
 }
+
+// Thread Helper class - Invoke multiple threads to check throttling of requests
+class RateLimitHelper extends Thread {
+    RateLimit rateLimit;
+
+    public RateLimitHelper(String user, RateLimit rateLimitService) {
+        super(user);
+        this.rateLimit = rateLimitService;
+    }
+
+    @Override
+    public void run(){
+        for (int i = 1; i < 10; i++){
+            System.out.println("Thread Name - " + getName() + ", Time - " + i + ", rate limit: " + hit(getName(), Instant.now()));
+            try {
+                Thread.sleep(1000);
+            } catch (InterruptedException e) {
+                // TODO Auto-generated catch block
+                e.printStackTrace();
+            }
+        }
+        System.out.println("DONE! " + getName());
+    }
+
+    public boolean hit(String user, Instant ts) {
+        return rateLimit.hit(user, ts);
+    }
+}
+
+
 
 
 

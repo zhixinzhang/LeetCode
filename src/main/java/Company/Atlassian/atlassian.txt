@@ -9,10 +9,46 @@ https://www.notion.so/Behavior-Questions-fbbef38f2bf44446a7db791f699bb2de
 https://www.indeed.com/hire/c/info/behavioral-interview-questions-to-ask-candidates
 https://capital-placement.com/blog/behavioral-interview-questions/
 
+Explain your project and your role. 
+What were your learnings and what is the one mistake you won’t repeat in your future projects?
+Give me an example of a time when you had to teach.
+Tell me about a time when you received feedback and how you handled it.
+Tell me about a time when you and a peer had a conflict of interest and how you persuaded him to change his mind.
+Tell me about a time when you showed initiative and it had a positive effect.
+There were a lot of additional queries as well. The 60-65 minute round was completed.
+
+What is your favorite Atlassian value? 
+What is a time you shipped a broken feature?
+ What were your favorite and least favorite teams to be on?
+
+Manager Interview
+Asks questions like:
+Can you describe a time you had a conflict with your team?
+
+Can you describe a failed project you worked on?
+1 Answer
+Last interview is the values interview
+Some questions are:
+Can you describe a time you worked with a great team?
+
+Can you describe a time you broke down a timeline for a project?
+
+Can you describe a time you had a different view to someone in your team?
+
 Tag Sys : 
 https://leetcode.com/discuss/interview-question/system-design/838025/Design-a-tagging-system-like-tags-used-in-stack-overflow
 https://justpaste.it/b26kl
 https://www.youtube.com/watch?v=WNIR7eiv0Hk
+
+Messenger Sys
+https://www.1point3acres.com/bbs/thread-824772-1-1.html
+
+Web crawler
+
+High level design of ranking system for confluence system where ranking is based on the freshness, likes, comments and shares.
+
+
+
 
 Data structure
 1. Top K   ||  Vote ||  Collection files
@@ -119,6 +155,7 @@ Round 4: System Design Interview 1小时
 2. 系统设计：颜色标签。用户可以选和保存喜欢的颜色。follow up: 用户之间分享。
 4. HR 和 HM BQ：都是常规问题~
 
+_MiddlewareRouter_Design
 _1366_RankByVotesSelfDefineScore_Sort
 
 2022-3-30 https://www.1point3acres.com/bbs/thread-876122-1-1.html
@@ -154,6 +191,7 @@ As a user, I can click on a tag and see all content that has been associated wit
 As a user, I can see a dashboard of popular tags
 最后谈了谈scale，各种说大话consistent hashing和lambda architecture(俄罗斯小哥topK)之类的。
 
+_353_SnakeDesign
 
 2021-11-28 https://www.1point3acres.com/bbs/thread-824772-1-1.html  ***
 
@@ -165,6 +203,7 @@ As a user, I can see a dashboard of popular tags
 4. Value Interview： 和一位developer‍‌‌‌‌‍‌‌‍‍‌‌‍‌‌‍‌‍‌一起，问一些Behavior问题，要套上Atlassian的五大价值观。这个一定要提前准备，
 因为面试不会直接让你五大价值观各举一例，而是会问启发式的问题，如果没有提前准备，很可能踩不到点
 
+RateLimiterService
 
 2020-8-28 https://www.1point3acres.com/bbs/thread-664443-1-1.html
 (1) coding (60min)：不难，用hashtable, 要自己写test case, 要能跑
@@ -194,6 +233,7 @@ follow up: which is winner if votes are the s‍‌‌‌‌‍‌‌‍‍‌�
 4. 一个heap sort就能解决的题，具体的有点忘了
 5. Value，就是bq
 
+RateLimiterService
 
 2020-3-18 https://www.1point3acres.com/bbs/thread-612096-1-1.html
 1. 蠡口易武山

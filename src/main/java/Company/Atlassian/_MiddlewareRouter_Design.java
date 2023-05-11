@@ -29,8 +29,26 @@ class Router {
 
 public class _MiddlewareRouter_Design {
 
+    public static void main(String[] args) {
+        root = new Router("");
+        buildRoute("/a/b/c/d/e", "e");
+        buildRoute("/a/b/cc/dd/ee", "ee");
+        buildRoute("/a/bb/cc/dd/h", "h");
+        String a = findRoute("/a/b/c/d/e");
+        a = findRoute("/a/bb/cc/dd/h");
+        a = findRoute("/a/cb");
+
+        buildRoute("/a/b/cc/dd/ee", "ee");
+        System.out.println("Star***** ");
+        
+        // a = routeWithStar("/a/b/*/dd/ee".split("/"), root, 0);
+        a = findRouteWithStar("/a/*/cc/*/ee".split("/"), root, 0);
+        a = findRouteWithStar("/a/*/cc/x/ee".split("/"), root, 0);
+        a = "c";
+    }
+
     public static Router root;
-    public static void withRoute(String path, String destination){
+    public static void buildRoute(String path, String destination){
         Router cur = root;
         String[] partPath = path.split("/");
         for (int i = 0; i < partPath.length; i++){
@@ -48,7 +66,7 @@ public class _MiddlewareRouter_Design {
         cur.isEnd = true;
     }
 
-    public static String route(String destination){
+    public static String findRoute(String destination){
         Router cur = root;
         String[] partPath = destination.split("/");
         for (int i = 0; i < partPath.length; i++){
@@ -69,7 +87,7 @@ public class _MiddlewareRouter_Design {
         return "";
     }
 
-    public static String routeWithStar(String[] partPath, Router cur, int index){
+    public static String findRouteWithStar(String[] partPath, Router cur, int index){
         
         for (int i = index; i < partPath.length; i++){
             String p = partPath[i];
@@ -77,7 +95,7 @@ public class _MiddlewareRouter_Design {
                 String val = "";
                 i++;
                 for (Map.Entry<String, Router> entry : cur.childMap.entrySet()){
-                    val = routeWithStar(partPath, entry.getValue(), i);
+                    val = findRouteWithStar(partPath, entry.getValue(), i);
                     if (val != "") {
                         return val;
                     }
@@ -97,24 +115,4 @@ public class _MiddlewareRouter_Design {
 
         return "";
     }
-
-    public static void main(String[] args) {
-        root = new Router("");
-        withRoute("/a/b/c/d/e", "e");
-        withRoute("/a/b/cc/dd/ee", "ee");
-        withRoute("/a/bb/cc/dd/h", "h");
-        String a = route("/a/b/c/d/e");
-        a = route("/a/bb/cc/dd/h");
-        a = route("/a/cb");
-
-        withRoute("/a/b/cc/dd/ee", "ee");
-        System.out.println("Star***** ");
-        
-        // a = routeWithStar("/a/b/*/dd/ee".split("/"), root, 0);
-        a = routeWithStar("/a/*/cc/*/ee".split("/"), root, 0);
-        a = routeWithStar("/a/*/cc/x/ee".split("/"), root, 0);
-        a = "c";
-    }
-
-
 }

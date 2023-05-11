@@ -44,4 +44,63 @@ public class _752_OpentheLock_BFS{
         }  
         return res;  
     }  
+
+public static List<String> findShortestPathFollowUp(String start, String target, String[] deadends){
+    int[] move = new int[]{-1, 1};
+    Set<String> dead = new HashSet<>();
+    for (String d : deadends){
+      dead.add(d);
+    }
+
+    Set<String> visited = new HashSet<>();
+    Queue<List<String>> queue = new LinkedList<>();   // "0000"
+    visited.add(start);
+    List<String> startArr = new ArrayList<>();
+    startArr.add("0000");
+    queue.add(startArr);
+    queue.add(null);
+
+    if (dead.contains(target)) {
+          return null;
+    }
+
+    while (!queue.isEmpty()){
+      List<String> nodePath = queue.poll();     // "0000", "1000", "1009"
+    
+      if (nodePath == null) {
+        if (queue.peek() != null) 
+          queue.offer(null);
+      } else if (target.equals(nodePath.get(nodePath.size() - 1))){
+          
+          return nodePath;
+      } else if (!dead.contains(nodePath.get(nodePath.size() - 1))) {
+          String node = nodePath.get(nodePath.size() - 1);
+          // create 8 differents timers
+          for (int i = 0; i < 4; i++){
+            for (int m : move){
+              int newChange = ((node.charAt(i) - '0') + m + 10 ) % 10;   // [1000, 9000, 0001, 0009, 0100, 0900, ]
+              // build new timer
+              String newTime = node.substring(0, i) + String.valueOf(newChange) + node.substring(i+ 1);  // 0000 -> 9000
+
+              List<String> newNodePath = new ArrayList<>();
+              newNodePath.addAll(nodePath);
+              newNodePath.add(newTime);
+
+              if (!visited.contains(newTime)){
+                queue.add(newNodePath);
+                visited.add(newTime);
+              }
+             }
+          }
+        }
+      }
+    
+
+    return null;
+  }
 }
+
+}
+
+
+

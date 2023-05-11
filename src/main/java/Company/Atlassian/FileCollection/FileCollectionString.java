@@ -1,4 +1,4 @@
-package Company.Atlassian;
+package Company.Atlassian.FileCollection;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -11,7 +11,7 @@ import java.util.Map;
  * 
  * 2. Follow up 1: 每个文件可能属于多个collection
 */
-public class FileCollection {
+public class FileCollectionString {
     public static void main(String[] args) {
         List<String> files = new ArrayList<>();
         files.add("file1.txt (size: 100)");

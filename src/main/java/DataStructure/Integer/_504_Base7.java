@@ -23,4 +23,9 @@ public class _504_Base7{
 	        
 	        return sb.reverse().toString();
 	    }
+
+		// one line
+		public String convertToBase7(int num) {
+			return Integer.toString(num,7);
+		}
 }
