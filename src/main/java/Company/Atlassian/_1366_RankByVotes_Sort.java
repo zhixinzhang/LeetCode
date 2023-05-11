@@ -85,7 +85,7 @@ public class _1366_RankByVotes_Sort {
             System.out.println(entry.getKey() + "," + entry.getValue());
         }
 
-        // PQ
+        // PQ Solution
         PriorityQueue<Map.Entry<String, Integer>> minPQ = new PriorityQueue<>(new Comparator<Map.Entry<String, Integer>>() {
             @Override
             public int compare(Map.Entry<String, Integer> e1, Map.Entry<String, Integer> e2){
