@@ -1,4 +1,4 @@
-package Company.Atlassian;
+package Company.Atlassian.CodeDesign;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -30,25 +30,28 @@ class Router {
 public class _MiddlewareRouter_Design {
 
     public static void main(String[] args) {
-        root = new Router("");
-        buildRoute("/a/b/c/d/e", "e");
-        buildRoute("/a/b/cc/dd/ee", "ee");
-        buildRoute("/a/bb/cc/dd/h", "h");
-        String a = findRoute("/a/b/c/d/e");
-        a = findRoute("/a/bb/cc/dd/h");
-        a = findRoute("/a/cb");
+        _MiddlewareRouter_Design middleRouter = new _MiddlewareRouter_Design();
+        middleRouter.root = new Router("");
 
-        buildRoute("/a/b/cc/dd/ee", "ee");
+        // root = new Router("");
+        middleRouter.buildRoute("/a/b/c/d/e", "e");
+        middleRouter.buildRoute("/a/b/cc/dd/ee", "ee");
+        middleRouter.buildRoute("/a/bb/cc/dd/h", "h");
+        System.out.println(middleRouter.findRoute("/a/b/c/d/e"));
+        System.out.println(middleRouter.findRoute("/a/bb/cc/dd/h"));
+        System.out.println(middleRouter.findRoute("/a/cb"));
+
+        middleRouter.buildRoute("/a/b/cc/dd/ee", "ee");
+
         System.out.println("Star***** ");
         
         // a = routeWithStar("/a/b/*/dd/ee".split("/"), root, 0);
-        a = findRouteWithStar("/a/*/cc/*/ee".split("/"), root, 0);
-        a = findRouteWithStar("/a/*/cc/x/ee".split("/"), root, 0);
-        a = "c";
+        System.out.println(middleRouter.findRouteWithStar("/a/*/cc/*/ee".split("/"), middleRouter.root, 0));
+        System.out.println(middleRouter.findRouteWithStar("/a/*/cc/x/ee".split("/"), middleRouter.root, 0));
     }
 
-    public static Router root;
-    public static void buildRoute(String path, String destination){
+    Router root;
+    public void buildRoute(String path, String destination){
         Router cur = root;
         String[] partPath = path.split("/");
         for (int i = 0; i < partPath.length; i++){
@@ -66,7 +69,7 @@ public class _MiddlewareRouter_Design {
         cur.isEnd = true;
     }
 
-    public static String findRoute(String destination){
+    public String findRoute(String destination){
         Router cur = root;
         String[] partPath = destination.split("/");
         for (int i = 0; i < partPath.length; i++){
@@ -87,7 +90,7 @@ public class _MiddlewareRouter_Design {
         return "";
     }
 
-    public static String findRouteWithStar(String[] partPath, Router cur, int index){
+    public String findRouteWithStar(String[] partPath, Router cur, int index){
         
         for (int i = index; i < partPath.length; i++){
             String p = partPath[i];

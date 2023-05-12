@@ -1,4 +1,4 @@
-package Company.Atlassian.RateLimiterSlidingWindow;
+package Company.Atlassian.CodeDesign.RateLimiterSlidingWindow;
 
 import java.time.Duration;
 import java.time.Instant;
