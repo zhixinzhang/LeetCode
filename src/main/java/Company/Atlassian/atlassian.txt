@@ -97,7 +97,8 @@ Implement a Rate Limiter, sliding window, and token bucket.
 2022-10-12 https://www.1point3acres.com/bbs/thread-936271-1-1.html
 VO五轮
 sd
-user can pick favorite color, show favorite color for a user, 根据这个设计个MVP, 用到的aws building block要讲的比较具体, cloudfront, lambda, rds之类的然后怎么用, 设计rest api
+user can pick favorite color, show favorite color for a user, 根据这个设计个MVP, 用到的aws building block要讲的比较具体, 
+cloudfront, lambda, rds之类的然后怎么用, 设计rest api
 follow up是user can share favorite color with other users, 怎么handle celebrity user, 设计rest api, 怎么确保不同region的人有不错的用户体验
 data structure design
 给list of votes，然后按每个vote的1,2,3顺序算分，最后返回list of candidate names sorted by number of points

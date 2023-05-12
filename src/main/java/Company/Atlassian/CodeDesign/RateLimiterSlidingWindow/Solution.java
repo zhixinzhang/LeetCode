@@ -10,9 +10,9 @@ import java.util.concurrent.ConcurrentHashMap;
 // https://leetcode.com/discuss/interview-question/object-oriented-design/1713795/API-Rate-Limiter
 // https://leetcode.com/discuss/interview-question/system-design/124558/Uber-or-Rate-Limiter
 
-public class RateLimiterService {
+public class Solution {
     public static void main(String[] args) {
-        int limit = 2; // 5 requests per minute
+        int limit = 2; // 2 requests everg 5 seconds
         int timeSeconds = 5;
         RateLimit rateLimit = new RateLimit(limit, timeSeconds);
         new RateLimitHelper("UserA", rateLimit).start();
@@ -55,6 +55,8 @@ class RateLimit {
                 boolean actionTaken = false;
                 for (int i = 0; i < userRequestMap.get(user).size(); i++) {
                     Duration duration = Duration.between(userRequestMap.get(user).get(i).timeStamp, timeStamp);
+                    // long curL = userRequestMap.get(user).get(i).timeStamp.toEpochMilli(); compare to double type of seconds
+
 					// check for elapsed time greater than 1 minute (60 seconds)
 					// This can be passed as an argument at runtime to avoid hardcoding
                     if (duration.getSeconds() >= limitSeconds) {
@@ -107,7 +109,9 @@ class RateLimitHelper extends Thread {
     @Override
     public void run(){
         for (int i = 1; i < 10; i++){
-            System.out.println("Thread Name - " + getName() + ", Time - " + Instant.now() + ", rate limit: " + hit(getName(), Instant.now()));
+            System.out.println("Thread Name - " + getName() + ", Time - " + i + ", rate limit: " + hit(getName(), Instant.now()));
+
+            // System.out.println("Thread Name - " + getName() + ", Time - " + Instant.now() + ", rate limit: " + hit(getName(), Instant.now()));
             try {
                 Thread.sleep(1000);
             } catch (InterruptedException e) {
