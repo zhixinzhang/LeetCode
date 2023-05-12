@@ -120,7 +120,8 @@ round3 SD, 地里经典的tagging system，我之前准备了一些elastic searc
 基本都是按准备的说的，但面试官似乎不是很懂，我就穿插着给他讲了一些es 的实现，
 因为我从一开始就没往别的方向聊，所以面试官基本就围绕es 问的 deep dive的问题
 
-第二天 round1 Code design interview, 我本来按地理的面经准备了好几个rate limiter，结果面试官让我写一个贪吃蛇的游戏,leetcode上有这个题，写完，测试完，感觉这个面试官很随和（当然完全可能是假象）
+第二天 round1 Code design interview, 我本来按地理的面经准备了好几个rate limiter，结果面试官让我写一个贪吃蛇的游戏,leetcode上有这个题，
+写完，测试完，感觉这个面试官很随和（当然完全可能是假象）
 round 2 data structure interview，设计一个投票的数据结构，然后写一个找‍‌‌‌‌‍‌‌‍‍‌‌‍‌‌‍‌‍‌出排名的功能，类似莉蔻 以伞溜溜，
 但是要设计专门的投票数据结构，记分方式是第一名3分第二名2分第三名1分，我用了个hashmap统计了所有的分然后不会写sort hashmap by value，
 最后经过面试关许可在网上找的，输出了正确的结果，但我觉得我做的非常的烂

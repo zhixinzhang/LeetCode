@@ -13,7 +13,8 @@ import java.util.concurrent.ConcurrentHashMap;
 public class RateLimiterService {
     public static void main(String[] args) {
         int limit = 2; // 5 requests per minute
-        RateLimit rateLimit = new RateLimit(limit);
+        int timeSeconds = 5;
+        RateLimit rateLimit = new RateLimit(limit, timeSeconds);
         new RateLimitHelper("UserA", rateLimit).start();
         new RateLimitHelper("userB", rateLimit).start();
     }
@@ -21,29 +22,33 @@ public class RateLimiterService {
 
 class Request {
     public Instant timeStamp;
-    public Integer count;
-    public Request(Instant timeStamp, Integer count) {
+    // public Integer count;
+    public String ipAddress;
+    public Request(Instant timeStamp) {
         this.timeStamp = timeStamp;
-        this.count = count;
+        // this.count = count;
     }
 }
 
 class RateLimit {
 
     int rateLimit;
+    int limitSeconds;
     Map<String, LinkedList<Request>> userRequestMap = new ConcurrentHashMap<>();
 
-    public RateLimit(int limit){
-        this.rateLimit = limit;
+    public RateLimit(int rateLimit, int limitSeconds){
+        this.rateLimit = rateLimit;
+        this.limitSeconds = limitSeconds;
     }
 
-    public synchronized boolean hit(String user, Instant timeStamp){
+    public boolean hit(String user, Instant timeStamp){
         if (!userRequestMap.containsKey(user)){
             return addNewUser(user);
         } else {
             if (getTotalElpasedRequests(user) < rateLimit){
                 LinkedList<Request> requests = userRequestMap.get(user);
-                requests.add(new Request(timeStamp, 1));
+                // requests.add(new Request(timeStamp, 1));
+                requests.add(new Request(timeStamp));
                 userRequestMap.put(user, requests);
                 return true;
             } else {
@@ -52,7 +57,7 @@ class RateLimit {
                     Duration duration = Duration.between(userRequestMap.get(user).get(i).timeStamp, timeStamp);
 					// check for elapsed time greater than 1 minute (60 seconds)
 					// This can be passed as an argument at runtime to avoid hardcoding
-                    if (duration.getSeconds() >= 3) {
+                    if (duration.getSeconds() >= limitSeconds) {
                         userRequestMap.get(user).remove(i);
                         actionTaken = true;
                     } else {
@@ -62,7 +67,8 @@ class RateLimit {
 
                 if (actionTaken) {
                     LinkedList<Request> requests = userRequestMap.get(user);
-                    requests.add(new Request(timeStamp, 1));
+                    // requests.add(new Request(timeStamp, 1));
+                    requests.add(new Request(timeStamp));
                     userRequestMap.put(user, requests);
                     return true;
                 }
@@ -74,7 +80,8 @@ class RateLimit {
 
     public boolean addNewUser(String user){
         LinkedList<Request> requests = new LinkedList<>();
-        requests.add(new Request(Instant.now(), 1));
+        // requests.add(new Request(Instant.now(), 1));
+        requests.add(new Request(Instant.now()));
         userRequestMap.put(user, requests);
         System.out.println("new user added !! " + user);
         return true;
@@ -100,7 +107,7 @@ class RateLimitHelper extends Thread {
     @Override
     public void run(){
         for (int i = 1; i < 10; i++){
-            System.out.println("Thread Name - " + getName() + ", Time - " + i + ", rate limit: " + hit(getName(), Instant.now()));
+            System.out.println("Thread Name - " + getName() + ", Time - " + Instant.now() + ", rate limit: " + hit(getName(), Instant.now()));
             try {
                 Thread.sleep(1000);
             } catch (InterruptedException e) {
