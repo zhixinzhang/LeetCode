@@ -12,7 +12,8 @@ public class _56_MergeIntervals_Sort_PQ {
       Interval() { start = 0; end = 0; }
       Interval(int s, int e) { start = s; end = e; }
   }
-    public List<Interval> merge(List<Interval> intervals) {
+
+  public List<Interval> merge(List<Interval> intervals) {
     int n = intervals.size();
     int[] start = new int[n];
     int[] end = new int[n];

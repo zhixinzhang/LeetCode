@@ -1,13 +1,17 @@
 package Company.uber;
 
-import DataStructure.Array.Interval;
-
 import java.util.*;
 
 /**
  * Created by zhang on 2018/9/6.
  */
 public class _56_MergeInterval_PQ__Sort_SweepLine {
+    public static class Interval {
+        int start;
+        int end;
+        Interval() { start = 0; end = 0; }
+        Interval(int s, int e) { start = s; end = e; }
+    }
     public static void main(String[] args){
         List<Interval> intervals = new ArrayList<>();
         //1,3],[2,6],[8,10],[15,18]
@@ -18,6 +22,7 @@ public class _56_MergeInterval_PQ__Sort_SweepLine {
 //        intervals.add(new Interval(15,18));
         merge_SweepLine(intervals);
     }
+    
     //O(n * log (n)) + O(n)    O(n)
     public static List<Interval> merge_sort(List<Interval> intervals) {
         List<Interval> res = new ArrayList<>();
