@@ -1,11 +1,19 @@
 https://www.1point3acres.com/bbs/tag/attentive-9733-1.html
 
 
-2021-7-6 https://www.1point3acres.com/bbs/thread-776746-1-1.html
+https://www.1point3acres.com/bbs/forum.php?mod=viewthread&tid=961847
+因为是senior 我面了两轮sys design 一轮是做ads pipeline，一轮是储水的问题，就是假设你有几百万个水箱，每分钟你会收到他们每个水箱的流入量和流出量，同时每天你会收到现有水量,你来做一个能每分钟更新每个水箱储水量的系统。
+coding是做一个简单的计算器，计算类似 ”let x 5；let y 10； add x  y”  然后你能输出15。固定一个operator跟着两个operand。
 
+2021-7-6 https://www.1point3acres.com/bbs/thread-776746-1-1.html
+2. 2hr. back to back
+第一轮：1小时，聊项目, 楼主投到的NLP方向，聊简历，聊背景，不难，都是high level的东西
+第二轮： 1小时，coding, top k most frequent. 没啥难的，因为是NLP, 所以还follow up 问了些字符串处理的问题，也不难
 
 
 1. Find top k most frequent words
 2. Design LRU cache
 3. Design a photo upload service
 4. Evaluate expression
+
+

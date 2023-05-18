@@ -1,4 +1,4 @@
-package Company.Google.Array;
+package Company.Attentive;
 
 import java.util.*;
 
@@ -31,28 +31,38 @@ public class Student_GPATopK {
         }
         return res;
     }
+
+    // Top K PQ different all PQ
+    // Top K PQ use Min Heap
+    // All PQ use Max Heap
     public static List<Pair> solus(List<Pair> lists, int k) {
-        PriorityQueue<Pair> pq = new PriorityQueue<>(new Comparator<Pair>() {
+        PriorityQueue<Pair> minPQ = new PriorityQueue<>(new Comparator<Pair>() {
             @Override
             public int compare(Pair o1, Pair o2) {
-                if (o1.GPA > o2.GPA)
-                    return 1;
+                if (o1.GPA != o2.GPA)
+                    return Double.compare(o1.GPA, o2.GPA);
                 else
-                    return -1;
+                    return o1.id.compareTo(o2.id);
             }
         });
-        for (int i = 0; i<lists.size(); i++){
-            if (pq.size()<k)
-                pq.add(lists.get(i));
-            else if (pq.peek().GPA < lists.get(i).GPA){
-                pq.poll();
-                pq.add(lists.get(i));
-            }
+
+        for (int i = 0; i < lists.size(); i++){
+            minPQ.add(lists.get(i));
+            if (minPQ.size() > k)
+                minPQ.poll();
+            
         }
+
         List<Pair> res = new ArrayList<>();
-        while (!pq.isEmpty()){
-            res.add(pq.poll());
+        while (!minPQ.isEmpty()){
+            Pair p = minPQ.poll();
+            System.out.println(p.id);
+            res.add(p);
         }
+
+
+        Collections.reverse(res);
+        res.forEach(System.out::println);
         return res;
     }
         public static void main(String[] args){
@@ -61,7 +71,8 @@ public class Student_GPATopK {
         list.add(new Pair("2",2.0));
         list.add(new Pair("3",2.7));
         list.add(new Pair("4",3.1));
-        solus(list,3);
-        solu(list,3);
+        list.add(new Pair("5",3.1));
+        solus(list,5);
+        // solu(list,3);
     }
 }
