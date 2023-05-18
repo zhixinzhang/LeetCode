@@ -12,7 +12,7 @@ public class _740_DeleteandEarn_DP{
 	    	int preMax = 0;
 	    	for(int i = 0; i<values.length;i++){
 	    		int temp = curMax;
-	    		curMax = Math.max(preMax + values[i],curMax);
+	    		curMax = Math.max(preMax + values[i], curMax);
 	    		preMax = curMax;
 	    	}
 	    	return curMax;

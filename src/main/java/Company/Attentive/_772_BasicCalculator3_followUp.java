@@ -1,4 +1,4 @@
-package DataStructure.Array;
+package Company.Attentive;
 
 import java.util.Stack;
 
@@ -9,8 +9,8 @@ import java.util.Stack;
 public class _772_BasicCalculator3_followUp {
 
     // Use recurssion solution
-    int indx = 0;
-    public int calculate_recurssion(String s) {
+    static int indx = 0;
+    public static int calculateRecurssion(String s) {
         int curNum = 0, prevNum = 0, result = 0;
         char prevSign = '+';
         while(indx < s.length()) {
@@ -18,7 +18,7 @@ public class _772_BasicCalculator3_followUp {
             if (Character.isDigit(curr)) {
                 curNum = curNum * 10 + curr - '0';
             } else if (curr == '(') {
-                curNum = calculate_recurssion(s);
+                curNum = calculateRecurssion(s);
             }
             if(curr == '+' || curr == '-' || curr == '*' || curr == '/' || curr == ')' ||indx == s.length()) {
                 switch(prevSign) {
@@ -37,7 +37,10 @@ public class _772_BasicCalculator3_followUp {
     }
 
     public static void main(String[] args){
-        calculate_followUp("5 - (-3 / 3 + 1) * 2"); // 1
+        // int ans = calculate("5 - (3 / 3 + 1) * 2"); // 1
+        int ans = calculateRecurssion("5 - (3 / 3 + 1) * 2");
+        // ans = calculateWithNegative("5 - (-3 / 3 + 1) * 2"); // 1
+        System.out.println(ans);
     }
 
     public static int calculate(String s) {
@@ -68,6 +71,7 @@ public class _772_BasicCalculator3_followUp {
                 ops.push(c);
             }
         }
+
         while (!ops.isEmpty()) {
             nums.push(operation(ops.pop(), nums.pop(), nums.pop()));
         }
@@ -93,12 +97,12 @@ public class _772_BasicCalculator3_followUp {
 
     //比如5 - 21 * 3  , 5 - (-21) * 3, -5 - (-21) * 3, 第一个表达式中的'-'减号，第二个表达式中(-21)表示负数，第三个表达式中-5也是负数。
 
-    public static int calculate_followUp(String s){
+    public static int calculateWithNegative(String s){
         if (s == null || s.length() == 0) return 0;
         s = s.replaceAll(" ","");
         Stack<Integer> count = new Stack<>();
         Stack<Character> op = new Stack<>();
-        int num = 0;
+        
         for (int i = 0; i < s.length(); i++){
             char cur = s.charAt(i);
             if ((cur == '-' && i == 0) || (cur == '-' && s.charAt(i-1) == '(')) {         //handle negative

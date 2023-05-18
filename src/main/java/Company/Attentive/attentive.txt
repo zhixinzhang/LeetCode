@@ -1,0 +1,11 @@
+https://www.1point3acres.com/bbs/tag/attentive-9733-1.html
+
+
+2021-7-6 https://www.1point3acres.com/bbs/thread-776746-1-1.html
+
+
+
+1. Find top k most frequent words
+2. Design LRU cache
+3. Design a photo upload service
+4. Evaluate expression
