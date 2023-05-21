@@ -4,7 +4,7 @@ import java.util.*;
 // Arrays.sort  重写 comparator
 public class _435_NonoverlappingIntervals{
 
-	    public int eraseOverlapIntervals(Interval[] intervals) {
+	public int eraseOverlapIntervals(Interval[] intervals) {
         if (intervals.length == 0)  return 0;
 
         Arrays.sort(intervals, new myComparator());

@@ -9,12 +9,19 @@ import java.util.Comparator;
  * https://leetcode.com/problems/meeting-rooms-ii/solution/
  */
 public class _253_MeetingRooms2 {
-
+    /**
+     *          0                                        30
+     *               5     10
+     *                               15     20
+     *                        11  14
+     *                                    19        25   
+*/
     public static void main(String[] args){
-        int[][] intervals = new int[][]{
-            {0,30},{5,10},{15,20}, {11,14}, {19, 25}
-            };
+        int[][] intervals = new int[][]{{0,30}, {5,10}, {15,20}, {11,14}, {19, 25}};
         minMeetingRooms(intervals);
+        minMeetingRooms_sweepline_PQ(intervals);
+        minMeetingRooms_TreeMap(intervals);
+        minMeetingRooms_followup(intervals);
     }
 
     public static int minMeetingRooms(int[][] intervals) {
@@ -24,7 +31,7 @@ public class _253_MeetingRooms2 {
         Arrays.sort (intervals, (interval1, interval2) -> interval1[0] - interval2[0]);
 
         for (int[] interval : intervals) {
-            if (!minHeap.isEmpty () && interval[0] >= minHeap.peek ()) {
+            if (!minHeap.isEmpty () && interval[0] >= minHeap.peek()) {
                 minHeap.poll ();
             }
 
@@ -35,12 +42,6 @@ public class _253_MeetingRooms2 {
     }
 
 
-     public static class Interval {
-      int start;
-      int end;
-      Interval() { start = 0; end = 0; }
-      Interval(int s, int e) { start = s; end = e; }
-  }
   //[0,30] [2,10] [5,8] [15 20] [25 28]
   // 考虑特殊情况 【4，9】【4，17】【9，10】重点是 排序的时候 end结尾要先算 因为我写的方法不先算有bug
     //所以排序很重要
@@ -54,7 +55,7 @@ public class _253_MeetingRooms2 {
    *
    *
    * */
-    public static int minMeetingRooms(Interval[] intervals) {
+    public static int minMeetingRooms_sweepline_PQ(int[][] intervals) {
         int res = 0 ;
 //        Arrays.sort(intervals,(a,b) -> a.start - b.start);
 //        PriorityQueue<int[]> pq = new PriorityQueue<>((a,b)-> a[0] - b[0]);
@@ -68,10 +69,11 @@ public class _253_MeetingRooms2 {
             }
         });
 
-        for (Interval i : intervals){
-            pq.add(new int[]{i.start, 1});
-            pq.add(new int[]{i.end, -1});
+        for (int[] inter : intervals){
+            pq.add(new int[]{inter[0], 1});
+            pq.add(new int[]{inter[1], -1});
         }
+
         int max = 0;
         while (!pq.isEmpty()){
             int[] cur = pq.poll();
@@ -80,14 +82,15 @@ public class _253_MeetingRooms2 {
         }
         return max;
     }
+
     // 第二种解法
-    public static int minMeetingRooms_Sort(Interval[] intervals) {
+    public static int minMeetingRooms_sweepline_ArraySort(int[][] intervals) {
 
         int[] start = new int[intervals.length];
         int[] end = new int[intervals.length];
         for(int i = 0; i<intervals.length; i++){
-            start[i] = intervals[i].start;
-            end[i] = intervals[i].end;
+            start[i] = intervals[i][0];
+            end[i] = intervals[i][1];
         }
         Arrays.sort(start);
         Arrays.sort(end);
@@ -109,24 +112,60 @@ public class _253_MeetingRooms2 {
     }
 
 
-    public int minMeetingRooms_TreeMap(Interval[] intervals) {
+    public static int minMeetingRooms_TreeMap(int[][] intervals) {
         Map<Integer, Integer> map = new TreeMap<>();
-        for (Interval itl : intervals) {
-            map.put(itl.start, map.getOrDefault(itl.start, 0) + 1);
-            map.put(itl.end, map.getOrDefault(itl.end, 0) - 1);
+        for (int[] itl : intervals) {
+            map.put(itl[0], map.getOrDefault(itl[0], 0) + 1);
+            map.put(itl[1], map.getOrDefault(itl[1], 0) - 1);
         }
         int room = 0, k = 0;
         for (int v : map.values())
-            k = Math.max(k, room += v);
+            room += v;
+            k = Math.max(k, room);
 
         return k;
     }
 
-//    public static void main(String[] args){
-//        Interval i = new Interval(9,10);
-//        Interval i2 = new Interval(4,9);
-//        Interval i3 = new Interval(4,17);
-//        Interval[] l = new Interval[]{i,i2,i3};
-//        minMeetingRooms(l);
-//    }
+
+    /***** follow up   ********/
+    public static List<Integer> minMeetingRooms_followup(int[][] intervals) {
+        List<Integer> res = new ArrayList<>();
+        Arrays.sort(intervals, new Comparator<int[]>() {
+            @Override
+            public int compare(int[] o1, int[] o2) {
+                if (o1[0] == o2[0])
+                    return o2[1] - o1[1];
+                else
+                    return o1[0] - o2[0];
+            }
+        });
+        //[0, 30],[0,15],[5, 10],[15, 20], [40, 50] [60, 70]
+        // o(n)
+        int idx = 0;
+        int count = 0;
+        int n = intervals.length;
+        for (int i = 0; i < n;){
+            int c = 1;
+            int[] cur = intervals[i];
+            i++;
+            while (i < n){
+                int[] next = intervals[i];
+                if (next[0] >= cur[0] && next[0] <= cur[1]){
+                    c++;
+                    i++;
+                }else {
+                    break;
+                }
+            }
+            if (c > count){
+                count = c;
+                idx = i - c;
+            }
+        }
+        int end = idx + count;
+        for (int i = idx; i < end; i++){
+            res.add(i);
+        }
+        return res;
+    }
 }

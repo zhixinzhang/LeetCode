@@ -1,4 +1,4 @@
-package Company.uber;
+package Company.Attentive;
 
 import java.util.*;
 
@@ -22,7 +22,7 @@ public class _56_MergeInterval_PQ__Sort_SweepLine {
 //        intervals.add(new Interval(15,18));
         merge_SweepLine(intervals);
     }
-    
+
     //O(n * log (n)) + O(n)    O(n)
     public static List<Interval> merge_sort(List<Interval> intervals) {
         List<Interval> res = new ArrayList<>();

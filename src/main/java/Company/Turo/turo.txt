@@ -1,6 +1,22 @@
 2022-10-31 https://www.1point3acres.com/bbs/thread-941630-1-1.html
+第一部分：DB schema， 设计trip booking
+第二部分：API design， make trip reservation的API，restful api/payload/status code
+面经：
+API
+1.比较标准的restful api design, Get/Post/Put/Delete. Header vs. payload/body contract
+2. 比较不一样的是会问api object model和DB data model, 然后design DB table schema, 它可能需要一些join的query capability 特别是search，所以我选的Relational，然后根据entity写schema就可以了.问了write的race condition，一般都是用lock, pessimistic or optimistic, lock row一般就可以. NoSQL我只用过DynamoDB，需要提前知道query pattern才可以设计partition和sort key, 感觉并不适合这个use case, 做一些server sessions倒是不错
+Round 2: system design
+use case 1. list vehicles，2: search for vehicles，设计back end server
+面经：
+System design
+1. list cars as a host, ‍‌‌‌‌‍‌‌‍‍‌‌‍‌‌‍‌‍‌有一些input 比较重要的可能是location和photos(用client side upload S3)
+2. search for cars as a guest, 用radius去filter cars，这个可能可以用google maps地图分块来解决
+Round 3：coding, 不需要run，力扣肆伞舞变种
+Round 4: HM面，30min, general问题。why Turo，what is your strength，career path
+
 Round 3：coding, 不需要run，力扣肆伞舞变种
 _435_NonoverlappingIntervals_Sort
+
 
 2022-10-11 https://www.1point3acres.com/bbs/thread-935937-1-1.html
 电面： LRU cache
@@ -15,7 +31,7 @@ _435_NonoverlappingIntervals_Sort
 
 2022-7-22 https://www.1point3acres.com/bbs/thread-913572-1-1.html
 电面（codepad但并不要求run）：假设有一个函数getNextStations(station) return a list of next stations（所以code不要求run），
-input是station A and B，what is the min #steps to reach B from A。就标准的BFS，followup怎么加速
+input是station A and B，what is the min #steps to reach B from A。就标准的BFS，followup怎么加速 
 1. Coding：char matrix里面找word，每次可以往8个方向走，还是标准的搜索，也是codepad但不要求run。
 
 2021-12-23 https://www.1point3acres.com/bbs/thread-833184-1-1.html
