@@ -1,3 +1,4 @@
+https://mindmajix.com/java-interview-questions
 HashMap VS Hashtable
 1. HashMap is non-synchronized. It is not thread-safe and can’t be shared between many threads without proper synchronization code 
 whereas Hashtable is synchronized. It is thread-safe and can be shared with many threads.
@@ -23,14 +24,29 @@ doSomethingNifty(); // Throws a NPE!
 Lock.release(); // Oh noes, we never release the lock!
 You have to explicitly do try{} finally{} everywhere.
 
-Abstract VS Interface
-An abstract class is a class that cannot be instantiated and can contain both abstract and non-abstract methods.
-An interface, on the other hand, is a contract that specifies a set of methods that a class must implement.
-In an abstract class, some methods can be implemented, while others are left abstract,
- meaning that they have no implementation and must be overridden by concrete subclasses. 
-In contrast, all methods in an interface are by default abstract and must be implemented by any class that implements the interface.
+
+Inheritance can be defined as the process where one class acquires the properties (methods and fields) of another. 
+extends is the keyword used to inherit the properties of a class.
+
+Overriding: If a class inherits a method from its superclass, then there is a chance to override    https://www.tutorialspoint.com/java/java_overriding.htm
+the method provided that it is not marked final.
+The benefit of overriding is: ability to define a behavior that's specific to the subclass type, 
+which means a subclass can implement a parent class method based on its requirement.
+
 Inheritance: A class can inherit from only one abstract class, but it can implement multiple interfaces. 
 This is because an abstract class represents a type of object, while an interface represents a set of behaviors.
+
+Polymorphism 
+Polymorphism in Java provides a way to perform one task in different possible ways. To achieve polymorphism in Java 
+we use method overloading and method overriding. For example, the shape is the task and various possible ways in shapes are triangles, rectangle, circle, and so on.
+
+Composition in Java
+Java does not allow multiple inheritances. This problem limits the programmer from applying 
+code re-use with more objects with strong relationships or similar properties.
+
+To solve this problem, there is a property called Composition. 
+Composition in Java exists when two or more objects relate to each other. 
+One object, in that case, exists due to the existence of another.
 
 Semaphore in Java
 A semaphore controls access to a shared resource through the use of a counter. If the counter is greater than zero, 
