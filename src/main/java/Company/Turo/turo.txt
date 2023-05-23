@@ -4,7 +4,8 @@
 面经：
 API
 1.比较标准的restful api design, Get/Post/Put/Delete. Header vs. payload/body contract
-2. 比较不一样的是会问api object model和DB data model, 然后design DB table schema, 它可能需要一些join的query capability 特别是search，所以我选的Relational，然后根据entity写schema就可以了.问了write的race condition，一般都是用lock, pessimistic or optimistic, lock row一般就可以. NoSQL我只用过DynamoDB，需要提前知道query pattern才可以设计partition和sort key, 感觉并不适合这个use case, 做一些server sessions倒是不错
+2. 比较不一样的是会问api object model和DB data model, 然后design DB table schema, 它可能需要一些join的query capability 
+特别是search，所以我选的Relational，然后根据entity写schema就可以了.问了write的race condition，一般都是用lock, pessimistic or optimistic, lock row一般就可以. NoSQL我只用过DynamoDB，需要提前知道query pattern才可以设计partition和sort key, 感觉并不适合这个use case, 做一些server sessions倒是不错
 Round 2: system design
 use case 1. list vehicles，2: search for vehicles，设计back end server
 面经：
@@ -29,10 +30,12 @@ VO：
 _435_NonoverlappingIntervals_Sort
 
 
-2022-7-22 https://www.1point3acres.com/bbs/thread-913572-1-1.html
+2022-7-22 https://www.1point3acres.com/bbs/thread-913572-1-1.html    ***
 电面（codepad但并不要求run）：假设有一个函数getNextStations(station) return a list of next stations（所以code不要求run），
 input是station A and B，what is the min #steps to reach B from A。就标准的BFS，followup怎么加速 
 1. Coding：char matrix里面找word，每次可以往8个方向走，还是标准的搜索，也是codepad但不要求run。
+2. System design 2轮：一轮侧重API/DB design，记不太清了，但大概就是host、user、car、reservation这么几个table和对应API的设计
+，类似（只是类似）hotel reservation。一轮是比较标准的system design，设计car search，类似yelp设计。都是Turo自己的use case，比较make sense的题目。
 
 2021-12-23 https://www.1point3acres.com/bbs/thread-833184-1-1.html
 兔肉电面，先相互介绍。然后问两题概念题。1. 请描述在 web browser 上输入 url 后发生了什么。2. 如果 app 每秒的访问量很大，如何改进 infra‍‌‌‌‌‍‌‌‍‍‌‌‍‌‌‍‌‍‌.
@@ -40,7 +43,20 @@ input是station A and B，what is the min #steps to reach B from A。就标准�
 设计三个 API。
 _253_MeetingRooms2
 
-2021-9-17 https://www.1point3acres.com/bbs/thread-798654-1-1.html
+2021-9-17 https://www.1point3acres.com/bbs/thread-798654-1-1.html   ***
+1. API 设计
+1.1 Design the DB schema for reservation
+1.2 Design the API for making a reservation
+1.3 Design DB and API for trip modification request by guest and accept/decline by host.
+1.4 How to avoid double-charge
+2. problem solving
+2.1
+# Input: arr = [2,2,2,2,5,5,5,8], k = 3, target = 4
+# Output: 2， the number of substring, that has moving average greater than target value
+2.2
+离口而药灵
+3. system design
+Design search for Turo
 
 _1343_NumberSubArraysofSizeKandAverageGreaterthanorEqual
 _210_CourseSchedule2_BFS_DFS_TopoLogicalSort
@@ -56,3 +72,7 @@ void set(String key, String value, int timeStamp);
 1: What happens when you type a URL in the browser and press enter?
 2: Cache，follow up LRU‍‌‌‌‌‍‌‌‍‍‌‌‍‌‌‍‌‍‌ cache.
 3: design REST API.
+
+
+2018-8-30 https://www.1point3acres.com/bbs/thread-440638-1-1.html
+_61_RotateList_TwoPointers
