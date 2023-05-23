@@ -2,16 +2,6 @@ package Company.Turo;
 
 
 import DataStructure.LinkList.ListNode;
-
-/**
- * Created with IntelliJ IDEA.
- * User: zhixinzhang
- * Date: 4/19/19
- * Time: 11:33 PM
- * Description:
- */
-
-
 public class _61_RotateList_TwoPointers {
     public static ListNode BuildUpListNode_Recursion (ListNode head, int i, int[] arr){
         if (i < arr.length){

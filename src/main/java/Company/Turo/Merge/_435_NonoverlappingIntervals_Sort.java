@@ -1,4 +1,4 @@
-package Company.Turo;
+package Company.Turo.Merge;
 
 import java.util.Arrays;
 import java.util.Comparator;

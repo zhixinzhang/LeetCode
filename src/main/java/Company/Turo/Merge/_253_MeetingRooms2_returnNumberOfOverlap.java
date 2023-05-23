@@ -1,4 +1,4 @@
-package Company.Turo;
+package Company.Turo.Merge;
 
 import java.util.*;
 import java.util.Comparator;
@@ -8,7 +8,7 @@ import java.util.Comparator;
  *
  * https://leetcode.com/problems/meeting-rooms-ii/solution/
  */
-public class _253_MeetingRooms2 {
+public class _253_MeetingRooms2_returnNumberOfOverlap {
     /**
      *          0                                        30
      *               5     10

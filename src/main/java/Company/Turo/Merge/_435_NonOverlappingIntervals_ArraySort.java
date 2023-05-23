@@ -1,11 +1,11 @@
-package Company.Turo;
+package Company.Turo.Merge;
 
 import java.util.Arrays;
 import java.util.Comparator;
 
 public class _435_NonOverlappingIntervals_ArraySort {
     public static void main(String[] args){
-        // eraseOverlapIntervals(new int[][]{{1,100}, {11,22}, {1, 11}, {2, 12}});
+        eraseOverlapIntervals(new int[][]{{1,100}, {11,22}, {1, 11}, {2, 12}});
         eraseOverlapIntervals_OnlysortStart(new int[][]{{1,100}, {11,22}, {1, 11}, {2, 12}});
     }
     public static int eraseOverlapIntervals(int[][] intervals) {
@@ -23,7 +23,7 @@ public class _435_NonOverlappingIntervals_ArraySort {
                 }
             }
         });
-        // {1,11}, {2,12}, {11, 22}, {1, 100}
+        // {1,11}, {2,12}, {11, 22}, {1, 100}   // [1, 11], [2, 12] 有overlap 的时候 删除后面的
         int ans = 0;
         int end = intervals[0][1];
         for (int i = 1; i < intervals.length; i++){
@@ -38,19 +38,20 @@ public class _435_NonOverlappingIntervals_ArraySort {
         return ans;
     }
 
-    // [1, 11], [2, 12] 有overlap 的时候 删除后面的
+    // [1, 11], [2, 12] 有overlap 的时候 删除前面的
     public static int eraseOverlapIntervals_OnlysortStart(int[][] intervals) {
+        // {1, 100}, {1,11}, {2,12}, {11, 22}, 
         Arrays.sort(intervals, (a,b)-> a[0]-b[0] );
         int[] pre=intervals[0];
         int res=0;
-        for(int i=1;i<intervals.length;i++){
-            int[] cur=intervals[i];
-            if(cur[0]<pre[1]){ //overlapping
+        for(int i = 1;i<intervals.length;i++){
+            int[] cur = intervals[i];
+            if(cur[0] < pre[1]){ //overlapping
                 res++;
                 if(pre[1]<=cur[1])
                     continue;
             }
-            pre=cur;
+            pre = cur;
         }
         return res;
     }
