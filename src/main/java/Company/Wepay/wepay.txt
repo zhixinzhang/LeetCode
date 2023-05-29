@@ -1,0 +1,184 @@
+2022-9-26 https://www.1point3acres.com/bbs/thread-931667-1-1.html
+第一题而思尔，很简单，没啥变化
+第二题义乌玲
+
+_242_ValidAnagram_Map_Sort
+_150_EvaluateReversePolishNotation_Stack
+
+2022-9-15 https://www.1point3acres.com/bbs/thread-928575-1-1.html
+4. 就一道题 刷题网341 我用的python 上来说不要用yield 接着跟他讲了下思路说用stack做 他说这样会把所有元素读进去 我说那就得用yield啊。。最后用stack写的 随便问了问题就结束
+_341_FlattenNestedListIterator_Stack
+
+2022-2-8 https://www.1point3acres.com/bbs/thread-848277-1-1.html   ******
+一面是斐波那契和逆波兰，都是地里很常见的题了就不多说。第二周约了二面，没想到一个细节给我挂了 55555
+
+2022-2-7 https://www.1point3acres.com/bbs/thread-847701-1-1.html  ***
+第二轮 phone interview 一个白人哥哥简单问了project， 问了project最难的是什么，要怎么改进，然后在写了面筋里的两道题，最大数组和，最大数组乘积和
+第三轮 ONSITE
+刚开始第一轮就是怼着project问，然后设计了很多场景，分别问‘ 如果这种场景下。你怎么设计’。 比如商家有一个蔬菜盒子，你要怎么设计payment 等等，问的问题很细，很多，节奏快
+后来中间 coding轮，印度哥问了BFS/DFS， 机器人走迷宫，如果有障碍怎么办，dfs怎么写，bfs怎么写，等等等等一系列概念
+
+2022-2-1  https://www.1point3acres.com/bbs/thread-845378-1-1.html
+而撕尔
+药舞凌
+第一问还好，写了就过了。
+第二问polish notation 问得挺多的，有非法字符输入，有加减乘除‍‌‌‌‌‍‌‌‍‍‌‌‍‌‌‍‌‍‌之外功能的扩展，有不等于两个operand的情况，最后还要求写operator的class和具体operator的subclass
+
+2022-1-25 https://www.1point3acres.com/bbs/thread-843001-1-1.html  ***
+
+2022-1-12 https://www.1point3acres.com/bbs/thread-838595-1-1.html
+第一题题号忘记，大概就是问一个string能不能重新排序后形成一个回文字符串
+第二题是刷题网奇异
+
+2021-12-13 https://www.1point3acres.com/bbs/thread-830018-1-1.html
+斐波那契
+逆波兰表达式
+题本身很简单，问了很多followup和edge case，比如读进来的不是有效表达式，应该有哪些情况如何异常处理
+
+2021-12-4 https://www.1point3acres.com/bbs/thread-826992-1-1.html
+题目都是题库里面的题
+第一题 最大数组和 subarray
+第二题 最大数组乘积和
+
+2021-10-18 https://www.1point3acres.com/bbs/thread-809720-1-1.html
+65valid number和105evaluate RPN的合并
+要考虑好多的edge case
+
+2021-10-11 https://www.1point3acres.com/bbs/thread-807123-1-1.html
+上来65 Valid Number的简化版(不用考虑E科学计数法)
+然后面试官就叫我加E科学计数法的解法。 我也是按之前的方法
+
+2021-9-28 https://www.1point3acres.com/bbs/thread-802562-1-1.html   ***
+
+2021-9-24 https://www.1point3acres.com/bbs/thread-801391-1-1.html
+第一道题，是检查一个String 是不是valid number，不用管科学计数法
+写是写出来了，觉得代码乱，不知道有什么好的写法
+第二道题，BST，找到从root到一个值的所有path，然后问了一下如果不是BST，是普通二叉树怎么办
+
+2021-9-20 https://www.1point3acres.com/bbs/thread-799743-1-1.html
+然后 第一题 压缩字符1， 说了思路写完代码 大概是10分钟， count == 1 也要输出
+第二题  气留 public String minWindow(String s, Set<Character> keys){}.  
+说了10分钟思路，10分钟代码， 10分钟run 两个 test case
+
+
+2021-7-15 https://www.1point3acres.com/bbs/thread-779518-1-1.html
+1. 柳屋简化版，不用考虑e，1.，.1这类情况。要自己考虑各种corner case然后跟面试官讲思路，没问题了再下手。
+2. 经典逆波兰，面试官贴了例子然后马上直球问我知不知道逆波兰，只能表演成没见过的样子，同样讲所有corner case再下手，遇见不合法的输入要throw exception。Follow up是如果是unitary比如sqrt要怎么处理。
+
+2021-7-14 https://www.1point3acres.com/bbs/thread-779188-1-1.html
+1： 字符串压缩 “aaabbbc” -> "a3b3c1"
+2:   逆波兰表达式 问了很多invalid input
+
+2021-6-22 https://www.1point3acres.com/bbs/thread-772646-1-1.html
+第一次问了最大子序和，乘积最大子数组两题。当天电话通知面试反馈不好，安排下周第二轮电面。
+第二次问了斐波那契数列和逆波兰。逆波兰问了很多followup：
+你能想到的edge case。我说了输入invalid：（(invalid char) or (888+) or (8+++)）；算数错误：比如2/0。
+
+
+2021-6-11 https://www.1point3acres.com/bbs/thread-769480-1-1.html
+2. leetcode第一题雾散
+3. leetcode第二题义务而
+
+
+2021-5-19 https://www.1point3acres.com/bbs/thread-762136-1-1.html
+都是面经题，第一道是斐波那契数列，第二道是逆波兰表达式。问了时间复杂度和地里之前常见的followup。因为题本身不难而且自己准备过面经，所以该答的都答到了。该表演的地方也表演 
+
+2021-4-28 https://www.1point3acres.com/bbs/thread-754467-1-1.html    ******
+Valid number 跟 Evaluate Reverse Polish Notation
+第二題需考慮Invalid input的情況
+要throw exception 
+
+Vo  
+(1) Word Ladder II  
+會加問一些follow up
+像是如果WordList 裡面有空字串之類的會發生什麼事情
+也有問能不能想到什麼corner case
+可以優先處理讓code跑比較快
+
+2021-4-22 https://www.1point3acres.com/bbs/thread-751864-1-1.html
+然后就是做题，第一题是string compression，但是和思思散不太一样，很简单，直接数就行“aaabbcca”->"a3b2c2a1"，写完自己写个test case跑一遍就行
+第二题可能我面经没看全，是没出现过的，简化版器流，不用返回substring，只返回min length就可以，而且给的t也不是string是set，也就是每个char出现一次就可以
+
+2021-4-21 https://www.1point3acres.com/bbs/thread-751472-1-1.html
+我电面面到的是经典valid number和find minimum substring containing all letters in a given character list（没在我list里 但是也非常常见且典型 知道题号的朋友可以帮忙打在公屏上 感谢）
+https://leetcode.com/list/5tzmmn57/   *******
+
+2021-4-20 https://www.1point3acres.com/bbs/thread-751041-1-1.html
+第一轮 OOD 电梯
+第二轮 蠡口陆霸
+30 min break
+30 min break informal chat with HM
+第三轮 蠡口沃德莱德贰
+第三轮 揣瓶润沃特
+
+2021-3-25 https://www.1point3acres.com/bbs/thread-737658-1-1.html
+第一轮尔耳留加逆波兰
+第二轮一道ood关于matrix的 逻辑很简单但需要写的比较细 要注意immutable的问题 还要说测试
+
+2021-3-29 https://www.1point3acres.com/bbs/thread-739559-1-1.html
+之前看我们付的面经以为一面会是翻转二叉树，逆波兰这种题，结果今天面试换了一道，结果翻车了。。。。
+利口 散思依， 这道题之前也刷过，不过面试官想要的答案应该是用double stack的那种解法，具体看利口solution吧。
+BTW， 面试官很直接，我还希望一步又一步先讲清楚算法再开始，结果希望我不多bb快写代‍‌‌‌‌‍‌‌‍‍‌‌‍‌‌‍‌‍‌码，写完了再说。。。。。。。
+
+ 2021-3-24 https://www.1point3acres.com/bbs/thread-737204-1-1.html
+ 第一题：给一个字符串，返回这个字符串是不是valid number。
+需要自己去clarification细节，我问出来的是要考虑小数，负数。
+我面试的时候用的regular expression，所以她额外的问了用regular expression匹配和if else写的优缺点比较
+第二题： 刷题网（易武林）。这题细节问的特别多，input可以是double，返回也是double，然后不保证input valid。
+需要自己写error handling。然后followup问如果有很多别的运算符，类似根号啥的， 怎么办？提示用class
+于是我当时的答案是造一个Operation类，里面有个calculate方法，每‍‌‌‌‌‍‌‌‍‍‌‌‍‌‌‍‌‍‌个运算符extends这个类，然后override这个calculate方法。
+
+2021-3-22 https://www.1point3acres.com/bbs/thread-735838-1-1.html
+第一题：226 invert binary tree 也就是地里常说的reverse binary tree，我给的recursion的solution，写完之后的follow up是我的solution是bottom-to-top，能不能top-to-bottom，我说可以bfs，他说make sense
+第二题：150 reverse polish notation，我用的stack，follow up是raise exceptions：valueerror，arithmeticerror，然后还有哪些exception需‍‌‌‌‌‍‌‌‍‍‌‌‍‌‌‍‌‍‌要考虑，我说invalid inputs.
+
+2021-3-16 https://www.1point3acres.com/bbs/thread-732543-1-1.html  **************  ************** ************** download VO
+1. 是否二分图（LC 气吧务）但是题目和LC上有区别，是先给你个图，然后你首先需要自己想一个数据结构来表示这个图。Follow up 是判断是否三分图
+2. LC（留疤）
+3. 聊天问问题。
+4. 过简历 + 设计电梯系统。这轮感觉说的不是很好。
+5. LRU 一开始是简化版的，rank从API获取，先用一个BST保存node。之后follow up是LC原题。
+
+
+2021-3-30 https://www.1point3acres.com/bbs/thread-740513-1-1.html  **************
+
+ 2021-3-20  https://www.1point3acres.com/bbs/thread-735140-1-1.html  **************  VO
+ 第一轮：沃德布瑞克，很神奇的是面我的人我认识，所以很顺利
+第二轮：简历+ood，飞机塔台，白人妹子面的，没啥问题
+第三轮：白人大佬聊天，他说了些公司的优点，没有什么斗争，被收购后运作很独立等
+第四轮：天竺小哥，全程微笑，蠡口留疤，之前做了很多遍，但是演的太过了，装着在思考做的比较慢，结果中间断网了5分钟。。导致test case没跑完
+第五轮：白人小哥，揣瓶润沃特尔，之前看面经没见过这道，自己大概半年前做过，导致有点卡，最后用了一个原创的奇奇怪怪2 pointer做出来了
+
+2021-3-8 https://www.1point3acres.com/bbs/thread-728025-1-1.html   **************  VO
+1. word ladder 返回一条path，返回所有path
+2. text justification, follow up 词太长用hyphen
+3. best first cache, follow up lru cache
+4. OOD: 设计飞机塔台
+5. informal chat： 烙印manager并不是很想说话 硬着头皮问了几个问题 然后manager简单回答了一下就去敲键盘不搭理我了
+
+ 2021-3-8 https://www.1point3acres.com/bbs/thread-728040-1-1.html
+ 第一题判断一个输入的字符串是否是valid number
+比如 "123.4" true
+"123.567." false
+第二题 设计并实现一个MaxQueue的poll()  push(int a)  pollMax()三个操作
+poll() 移除最先进入队列的元素并返回它的值
+pollMax() 移除队列中值最大的元素并返回它的值
+push(int a) 将a放入队尾
+要求：每个操作的average time complexity O(logn)
+温馨提示：第二题的关键是average 不然‍‌‌‌‌‍‌‌‍‍‌‌‍‌‌‍‌‍‌pollMax做不出来O(logn)
+
+2021-3-4 https://www.1point3acres.com/bbs/thread-725966-1-1.html
+第一轮 店面利口雾散， 药物儿，
+第二轮 店面 前几天面的
+第一题忘了， 第二题利口酒吧流
+
+2021-3-1 https://www.1point3acres.com/bbs/thread-724504-1-1.html   **************  VO
+第一轮：Best First Cache，类似 梨扣 遥思留，具体题目内容之前有人发过帖
+第二轮：梨扣 遥思零
+第三轮：输入一个单词，和一个无序的单词列表，返回和这个单词alphabet order最近的那个单词
+第四轮：简历 + 设计 飞机‍‌‌‌‌‍‌‌‍‍‌‌‍‌‌‍‌‍‌场塔台
+
+2021-2-26 https://www.1point3acres.com/bbs/thread-723083-1-1.html   **************  VO
+
+update 既然这家如此操蛋，在次分享下他家完整题库应该不过分吧，全部LC原题
+20, 49, 53, 56, 65, 68, 76, 150, 152, 226, 242, 341, 438, 443, 785, 509, 986, 1531
