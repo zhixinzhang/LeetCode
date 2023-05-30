@@ -1,4 +1,4 @@
-package Company.Ebay;
+package Company.Wepay;
 /**
  * Created by zhang on 2017/9/22.
  */

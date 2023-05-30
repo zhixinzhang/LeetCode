@@ -1,4 +1,4 @@
-package Company.PG;
+package Company.Wepay;
 /**
  * Created by zhang on 2018/1/27.
  * Find the contiguous subarray within an array (containing at least one number) which has the largest product.

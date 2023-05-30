@@ -1,0 +1,21 @@
+2023-5-2  https://www.1point3acres.com/bbs/thread-992385-1-1.html
+店面是square的面试官，问了一道没见过的题，design a fox, chicken, grain puzzle，类似OOD：https://riddlesbrainteasers.com/fox-chicken-sack-grain/。 
+面试官就先让一个function一个function的写 然后慢慢提更多的functionality去implement。面完面试官表示挺满意的。
+
+2023-5-1 https://www.1point3acres.com/bbs/thread-992155-1-1.html
+1. coding，迷宫题，n*n grid 1为block, 2是bomb，0可通过，求左上到右下的最短路径，直接bfs，followup是小人有超能力，可以挨一个bomb，大概说了思路后说不用写了，直接快进到可以挨k个bomb。
+2. HM, 白人大叔，说是behavior但其实一半时间都在过简历，讲讲最challenger的地方，估计是在看技术深度，后半段各种behavior，leadership，why square, career block, what to do when expectation fails, negative feedback get, 就在那边瞎扯，最后大叔说的确很多问题harsh但是他必须问。
+3. coding，又是道迷宫，类似https://www.1point3acres.com/bbs/thread-901074-1-1.html，一开始还以为做过了，后来仔细问了下发现不一样。。
+4. design, 设计一个卡夫卡，这轮磕磕碰碰的，因为从没想过设计这种数据流系统，小哥比较激进，基本都是我说一个design然后他说那能实现feature 1, 2,3吗这种，不停的改最后时间结束也没改完。
+5. coding， weighted random generator，大概就是弄个array binary扫下，follow up是如果数据非常大咋‍‌‌‌‌‍‌‌‍‍‌‌‍‌‌‍‌‍‌办。
+
+2023-4-20 https://www.1point3acres.com/bbs/thread-989586-1-1.html
+
+
+2023-4-20 https://www.1point3acres.com/bbs/thread-989543-1-1.html   VO *******
+Coding1：这个帖子的第一题 https://www.1point3acres.com/bbs/thread-963175-1-1.html
+Coding2：蠡口撕酒令
+SD: 万年不变的Hotel booking 实现search/b‍‌‌‌‌‍‌‌‍‍‌‌‍‌‌‍‌‍‌ook/pay
+Project dive deep
+
+2023-2-1 https://www.1point3acres.com/bbs/thread-963175-1-1.html   VO *******

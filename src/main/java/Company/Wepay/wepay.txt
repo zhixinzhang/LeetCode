@@ -1,3 +1,6 @@
+20, 49, 53, 56, 65, 68, 76, 150, 152, 226, 242, 341, 438, 443, 785, 509, 986, 1531
+
+
 2022-9-26 https://www.1point3acres.com/bbs/thread-931667-1-1.html
 第一题而思尔，很简单，没啥变化
 第二题义乌玲
@@ -11,6 +14,11 @@ _341_FlattenNestedListIterator_Stack
 
 2022-2-8 https://www.1point3acres.com/bbs/thread-848277-1-1.html   ******
 一面是斐波那契和逆波兰，都是地里很常见的题了就不多说。第二周约了二面，没想到一个细节给我挂了 55555
+reverseString_followup
+2. max sum subarray + product + 求subarray
+
+_53_MaximumSubarray_DP
+_152_MaximumProductSubarray_DP
 
 2022-2-7 https://www.1point3acres.com/bbs/thread-847701-1-1.html  ***
 第二轮 phone interview 一个白人哥哥简单问了project， 问了project最难的是什么，要怎么改进，然后在写了面筋里的两道题，最大数组和，最大数组乘积和
@@ -23,12 +31,16 @@ _341_FlattenNestedListIterator_Stack
 药舞凌
 第一问还好，写了就过了。
 第二问polish notation 问得挺多的，有非法字符输入，有加减乘除‍‌‌‌‌‍‌‌‍‍‌‌‍‌‌‍‌‍‌之外功能的扩展，有不等于两个operand的情况，最后还要求写operator的class和具体operator的subclass
+_242_ValidAnagram_Map_Sort
+_150_EvaluateReversePolishNotation_Stack
 
 2022-1-25 https://www.1point3acres.com/bbs/thread-843001-1-1.html  ***
 
 2022-1-12 https://www.1point3acres.com/bbs/thread-838595-1-1.html
 第一题题号忘记，大概就是问一个string能不能重新排序后形成一个回文字符串
 第二题是刷题网奇异
+_242_ValidAnagram_Map_Sort
+_71_SimplifyPath_Stack
 
 2021-12-13 https://www.1point3acres.com/bbs/thread-830018-1-1.html
 斐波那契
@@ -39,14 +51,19 @@ _341_FlattenNestedListIterator_Stack
 题目都是题库里面的题
 第一题 最大数组和 subarray
 第二题 最大数组乘积和
+_53_MaximumSubarray_DP
+_152_MaximumProductSubarray_DP
 
 2021-10-18 https://www.1point3acres.com/bbs/thread-809720-1-1.html
 65valid number和105evaluate RPN的合并
 要考虑好多的edge case
+_65_ValidNumber
 
 2021-10-11 https://www.1point3acres.com/bbs/thread-807123-1-1.html
 上来65 Valid Number的简化版(不用考虑E科学计数法)
 然后面试官就叫我加E科学计数法的解法。 我也是按之前的方法
+_65_ValidNumber
+
 
 2021-9-28 https://www.1point3acres.com/bbs/thread-802562-1-1.html   ***
 
@@ -59,7 +76,7 @@ _341_FlattenNestedListIterator_Stack
 然后 第一题 压缩字符1， 说了思路写完代码 大概是10分钟， count == 1 也要输出
 第二题  气留 public String minWindow(String s, Set<Character> keys){}.  
 说了10分钟思路，10分钟代码， 10分钟run 两个 test case
-
+_76_MinimumWindowSubstring_SlidingWindow
 
 2021-7-15 https://www.1point3acres.com/bbs/thread-779518-1-1.html
 1. 柳屋简化版，不用考虑e，1.，.1这类情况。要自己考虑各种corner case然后跟面试官讲思路，没问题了再下手。
@@ -179,6 +196,38 @@ push(int a) 将a放入队尾
 第四轮：简历 + 设计 飞机‍‌‌‌‌‍‌‌‍‍‌‌‍‌‌‍‌‍‌场塔台
 
 2021-2-26 https://www.1point3acres.com/bbs/thread-723083-1-1.html   **************  VO
+
+2021-2-26 https://www.1point3acres.com/bbs/thread-723071-1-1.html
+1. 笠口 流舞（不用e的情况
+2. 笠口 药舞灵
+2021-2-23 https://www.1point3acres.com/bbs/thread-721025-1-1.html
+1.Create a type of queue like push/pop (FIFO) that has a function called Pops Max from the queue
+- push items: (1, 5, 4, 10, 1)
+- pop items => rets 1, queue is: 5, 4, 10, 1
+- popMax => rets 10, queue is: 5, 4, 1
+Optimize runtime of this function. Trivial answer is O(n), come up with something better.
+2.System Design: B‍‌‌‌‌‍‌‌‍‍‌‌‍‌‌‍‌‍‌uild an Air Traffic Control System
+
+2021-2-20 https://www.1point3acres.com/bbs/thread-719948-1-1.html
+第一题是： 翻转二叉树。
+第二题是：LC 以武灵 逆波兰。可能会有invalid输入，需要自己在可能出问题的地方throw exception。follow up是加一个只处理一个数字的运算，比如sqrt，或者比如n！运‍‌‌‌‌‍‌‌‍‍‌‌‍‌‌‍‌‍‌算。
+
+
+2021-2-6 https://www.1point3acres.com/bbs/thread-713889-1-1.html
+之后开始写码：第一题：把一个二叉树左右翻转
+                        第二题：衣屋领，followup：处理一些异常，加一个开方运算
+
+2021-2-4  https://www.1point3acres.com/bbs/thread-712953-1-1.html   **************  VO
+11月底店面 题目： 利口雾散， 药物儿
+然后过了很长时间，因为hr说暂时没有new grad的headcount
+然后1月底onsite
+题目：
+1，resume + 设计电梯系统
+2，题库里的nested list iterator
+3， compress string + decompress string
+4,   word ladder I && II, 返回一条path就行
+‍‌‌‌‌‍‌‌‍‍‌‌‍‌‌‍‌‍‌
+然后从hr到面试官 大家都非常nice 然后也就过了一两天就通知了pass
 
 update 既然这家如此操蛋，在次分享下他家完整题库应该不过分吧，全部LC原题
 20, 49, 53, 56, 65, 68, 76, 150, 152, 226, 242, 341, 438, 443, 785, 509, 986, 1531
