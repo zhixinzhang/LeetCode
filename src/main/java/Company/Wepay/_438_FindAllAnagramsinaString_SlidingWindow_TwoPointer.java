@@ -19,7 +19,7 @@ public class _438_FindAllAnagramsinaString_SlidingWindow_TwoPointer {
             if (pHash.equals(hash)) {
                 res.add(left);
             }
-            
+             
             if (right - left == p.length()) {
                 char leftChar = s.charAt(left);
                 if (hash.containsKey(leftChar)) {
