@@ -1,6 +1,4 @@
-package Company.uber;
-
-import DataStructure.Array.Interval;
+package Company.Wepay;
 
 import java.util.ArrayList;
 import java.util.List;

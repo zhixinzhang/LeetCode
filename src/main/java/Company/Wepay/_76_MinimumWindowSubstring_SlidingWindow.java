@@ -12,6 +12,12 @@ import java.util.Map;
  * Key Point:
  * Time Complexity: O(|S| + |T|)O(∣S∣+∣T∣)
  * Space Complexity: O(|S| + |T|)O(∣S∣+∣T∣).
+ * 
+ * We can use a simple sliding window approach to solve this problem.
+
+In any sliding window based problem we have two pointers. One rightrightright pointer whose job is to expand the current window and then we have the leftleftleft pointer whose job is to contract a given window. At any point in time only one of these pointers move and the other one remains fixed.
+
+The solution is pretty intuitive. We keep expanding the window by moving the right pointer. When the window has all the desired characters, we contract (if possible) and save the smallest window till now.
  */
 
 public class _76_MinimumWindowSubstring_SlidingWindow {
