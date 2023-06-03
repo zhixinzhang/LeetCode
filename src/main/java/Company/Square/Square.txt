@@ -3,10 +3,13 @@
 1.2 给你square这个词，再给别的一堆词swuare之类的，w 和q在键盘上比较近，close typo，返回只有一个close typo的词
 1.3 给你square，找出squares，squre，这种删减只有一个的词
 2. 农名带鸡， fox, 谷子过河，河‍‌‌‌‌‍‌‌‍‍‌‌‍‌‌‍‌‍‌有两边，如果鸡和fox在同一边，并且不在农民身边，就会被吃掉。
+SquareWordMatch
+CrossRiver
 
-2023-5-2  https://www.1point3acres.com/bbs/thread-992385-1-1.html
+2023-5-2  https://www.1point3acres.com/bbs/thread-992385-1-1.html   cashapp
 店面是square的面试官，问了一道没见过的题，design a fox, chicken, grain puzzle，类似OOD：https://riddlesbrainteasers.com/fox-chicken-sack-grain/。 
 面试官就先让一个function一个function的写 然后慢慢提更多的functionality去implement。面完面试官表示挺满意的。
+CrossRiver
 
 2023-5-1 https://www.1point3acres.com/bbs/thread-992155-1-1.html
 1. coding，迷宫题，n*n grid 1为block, 2是bomb，0可通过，求左上到右下的最短路径，直接bfs，followup是小人有超能力，可以挨一个bomb，大概说了思路后说不用写了，直接快进到可以挨k个bomb。
@@ -24,6 +27,9 @@ Coding2：蠡口撕酒令
 SD: 万年不变的Hotel booking 实现search/b‍‌‌‌‌‍‌‌‍‍‌‌‍‌‌‍‌‍‌ook/pay
 Project dive deep
 
+2023-3-30 https://www.1point3acres.com/bbs/thread-983334-1-1.html
+CacheTTL
+
 2023-3-29 https://www.1point3acres.com/bbs/thread-982723-1-1.html
 CrossRiver
 
@@ -36,10 +42,47 @@ CrossRiver
 5: 生成随机敌人
 6: 检测碰到敌人
 
+2023-3-6 https://www.1point3acres.com/bbs/thread-973762-1-1.html
+
 2023-2-1 https://www.1point3acres.com/bbs/thread-963175-1-1.html   VO *******
 _Design_Text_Editor_withoutCursor
 
 
+2022-12-15 https://www.1point3acres.com/bbs/thread-953016-1-1.html       cashapp
+给定一系列block + 一个rule，问这些block是不是满足这个rule。
+block可以分为不同的大小和不同的颜色
+rule定义了我们需要多少个特定条件的block。比如 少于3个红色，小的block、等于5个大的任意颜色的块等等。
+BlockRule
+
 2022-6-1 https://www.1point3acres.com/bbs/thread-900506-1-1.html
 我也面到了这道题 +1 一共3问，不要考虑优化就是用if/else 硬解
 CrossRiver
+
+
+2022-4-5 https://www.1point3acres.com/bbs/thread-879858-1-1.html
+
+2022-4-2  https://www.1point3acres.com/bbs/thread-878359-1-1.html
+
+2022-3-3 https://www.1point3acres.com/bbs/thread-859937-1-1.html            cashapp
+Given list of each pokemon's weakness and strength，design a pokemon fighting game.
+Given your enemy's pokemon roster, arrange your roster in a way that you have the highest posibilities of wining.
+
+PokemonFighting
+
+2022-2-17 https://www.1point3acres.com/bbs/thread-853078-1-1.html
+简单的题目，然后开始各种follow up给list of kids分配老师，尽量均分
+follow up 1: 给定每个班级max size，分配小孩
+follow up 2: 给定每个老师的preference list，和max size，‍‌‌‌‌‍‌‌‍‍‌‌‍‌‌‍‌‍‌分配小孩
+
+2022-2-15 https://www.1point3acres.com/bbs/thread-851695-1-1.html
+
+2022-2-2  https://www.1point3acres.com/bbs/thread-845766-1-1.html
+
+2022-2-2 https://www.1point3acres.com/bbs/thread-845726-1-1.html
+
+2021-12-9 https://www.1point3acres.com/bbs/thread-828680-1-1.html
+# "BAD" => "11101101"
+# 1. Implement a decoder for the encoding scheme.
+# fun‍‌‌‌‌‍‌‌‍‍‌‌‍‌‌‍‌‍‌c ("11101101") => "BAD"
+https://www.geeksforgeeks.org/huffman-decoding/
+https://www.geeksforgeeks.org/huffman-coding-greedy-algo-3/

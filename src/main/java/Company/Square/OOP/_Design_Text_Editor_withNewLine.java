@@ -1,4 +1,4 @@
-package Company.Square;
+package Company.Square.OOP;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import java.util.*;
@@ -21,7 +21,7 @@ import java.util.*;
 // Now add a method
 // newLine() -> appends a new line at the end of the cursor
 // moveCursor(up, down, left, right)
-public class _Design_Text_Editor2 {
+public class _Design_Text_Editor_withNewLine {
     class Node {
         Character value;
         Node previous;
@@ -45,7 +45,7 @@ public class _Design_Text_Editor2 {
     Node tail = new Node(null);
     Node cursor = new Node('|');
 
-    public _Design_Text_Editor2(){
+    public _Design_Text_Editor_withNewLine(){
         this.head.next = this.cursor;
         this.cursor.previous = this.head;
         this.tail.previous = this.cursor;
@@ -163,7 +163,7 @@ public class _Design_Text_Editor2 {
     }
 
     public static void main(String[] args) {
-        _Design_Text_Editor2 editor = new _Design_Text_Editor2();
+        _Design_Text_Editor_withNewLine editor = new _Design_Text_Editor_withNewLine();
         editor.typeIn("H");
         editor.typeIn("E");
         editor.typeIn("L");

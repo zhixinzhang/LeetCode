@@ -1,4 +1,4 @@
-package Company.Square;
+package Company.Square.OOP;
 import java.util.*;
 
 // Credit card information

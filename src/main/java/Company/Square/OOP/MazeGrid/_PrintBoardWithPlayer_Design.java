@@ -1,4 +1,4 @@
-package Company.Square;
+package Company.Square.OOP.MazeGrid;
 import java.util.*;
 
 // https://www.1point3acres.com/bbs/thread-919874-1-1.html

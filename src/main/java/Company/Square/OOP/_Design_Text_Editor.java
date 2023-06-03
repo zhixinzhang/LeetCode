@@ -1,4 +1,4 @@
-package Company.Square;
+package Company.Square.OOP;
 
 // https://www.1point3acres.com/bbs/thread-963175-1-1.html
 // Design a basic text editor with 2 functions:

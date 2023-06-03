@@ -1,4 +1,4 @@
-package Company.Square;
+package Company.Square.OOP.MazeGrid;
 
 import java.util.Random;
 
