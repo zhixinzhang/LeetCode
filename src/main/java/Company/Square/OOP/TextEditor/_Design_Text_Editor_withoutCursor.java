@@ -1,4 +1,4 @@
-package Company.Square.OOP;
+package Company.Square.OOP.TextEditor;
 // https://www.1point3acres.com/bbs/thread-963175-1-1.html
 
 

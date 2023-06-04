@@ -1,4 +1,4 @@
-package Company.Square;
+package Company.Square.Algo;
 import java.util.*;
 
 // https://leetcode.com/problems/number-of-flowers-in-full-bloom/solutions/1988766/java-solution-96-faster-with-explanation/?languageTags=java

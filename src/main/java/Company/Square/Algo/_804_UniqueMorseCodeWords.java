@@ -1,4 +1,4 @@
-package Company.Square;
+package Company.Square.Algo;
 
 import java.util.*;
 

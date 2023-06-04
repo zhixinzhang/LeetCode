@@ -1,7 +1,5 @@
 package Company.Apple;
 
-import java.util.Random;
-
 /**
  * Created by zhang on 2018/2/9.
  */

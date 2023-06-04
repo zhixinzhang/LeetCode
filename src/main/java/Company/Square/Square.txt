@@ -26,6 +26,7 @@ Coding1：这个帖子的第一题 https://www.1point3acres.com/bbs/thread-96317
 Coding2：蠡口撕酒令
 SD: 万年不变的Hotel booking 实现search/b‍‌‌‌‌‍‌‌‍‍‌‌‍‌‌‍‌‍‌ook/pay
 Project dive deep
+LC 490
 
 2023-3-30 https://www.1point3acres.com/bbs/thread-983334-1-1.html
 CacheTTL
@@ -46,6 +47,7 @@ CrossRiver
 
 2023-2-1 https://www.1point3acres.com/bbs/thread-963175-1-1.html   VO *******
 _Design_Text_Editor_withoutCursor
+_SocksColor_
 
 
 2022-12-15 https://www.1point3acres.com/bbs/thread-953016-1-1.html       cashapp
@@ -54,6 +56,25 @@ block可以分为不同的大小和不同的颜色
 rule定义了我们需要多少个特定条件的block。比如 少于3个红色，小的block、等于5个大的任意颜色的块等等。
 BlockRule
 
+
+2022-10-18  https://www.1point3acres.com/bbs/thread-938049-1-1.html
+两轮编码，一轮是比较两个json是否相等，一轮是rate limiter 都很简单
+一轮行为
+一轮project deep dive
+万年的hotel booking，不要想复杂，只要search/book两个流程
+一轮hiring manager
+非常‍‌‌‌‌‍‌‌‍‍‌‌‍‌‌‍‌‍‌奇怪的是面编码的都是经理，面我行为的是IC，后来给我反馈都不好， whatever
+
+_359_RateLimiter_HM_PQ
+
+2022-8-19 https://www.1point3acres.com/bbs/thread-920981-1-1.html
+_Minesweeper_Design
+
+2022-6-10 https://www.1point3acres.com/bbs/thread-902902-1-1.html   cashapp
+coupon
+
+2022-6-3 https://www.1point3acres.com/bbs/thread-901074-1-1.html
+_IceFieldsAndBoulderMaze   类似 LC 490 
 2022-6-1 https://www.1point3acres.com/bbs/thread-900506-1-1.html
 我也面到了这道题 +1 一共3问，不要考虑优化就是用if/else 硬解
 CrossRiver
@@ -86,3 +107,25 @@ follow up 2: 给定每个老师的preference list，和max size，‍‌‌‌�
 # fun‍‌‌‌‌‍‌‌‍‍‌‌‍‌‌‍‌‍‌c ("11101101") => "BAD"
 https://www.geeksforgeeks.org/huffman-decoding/
 https://www.geeksforgeeks.org/huffman-coding-greedy-algo-3/
+
+2021-12-2 https://www.1point3acres.com/bbs/thread-826381-1-1.html
+刚面了square家，系统设计：经典的设计hotel booking，coding1: haffman encoding/decoding，面试官会一步一步带着你写完，基本能写完encoding应该就可以了，
+coding2: 挺简单的一个hashmap的题目，刚开始应该是easy级别，到后面会复杂一些，总的来‍‌‌‌‌‍‌‌‍‍‌‌‍‌‌‍‌‍‌说他们家不是lc的风格，平时代码写得多应该不大需要准备。整个面试过程感觉非常好。求大米！
+
+2021-10-31 https://www.1point3acres.com/bbs/thread-814587-1-1.html
+- 类似bus route
+- 第一二问都是easy level，第三问类似combination, merge intervals组合
+- 读取csv，并进行一些排序，聚合，过滤等分析
+- design hotel booking system
+- talk about a project you did and focus on design, decision making, my work, impact etc..
+- leadership, general questions on past projects‍‌‌‌‌‍‌‌‍‍‌‌‍‌‌‍‌‍‌, communication with peers, with other teams ...
+
+2021-6-25 https://www.1point3acres.com/bbs/thread-773794-1-1.html
+设计Hotel Booking System，要求支持点击Book之后，有20分钟的Grace Period，如果用户未在20分钟内完成Payment，则Booking Expire。
+大家有好的Solution吗？楼主答的是，使用Redis，将这个Hotel状态设置为Pending，然后将这个Entry放到Redis中，设置20分钟的TTL
+当20分钟过去之后，Entry过期，Booking Service会收到Redis发送来的，Expired Key Notification，将Hotel状态设置为‍‌‌‌‌‍‌‌‍‍‌‌‍‌‌‍‌‍‌Available。
+
+这个要求肯定不能用在前端做。如果只在前端限制，那么用户有无数方法规避。
+对于资源可以改变状态，比如，房间，从available变成pending。order设定为pending，并加上TTL。
+运行chron job, query orders, 定期清理过期order和resource。或者把pending orders加入到scheduled queues，到时候，自动检查。如果完成，pass；没有完成，clean  up
+数据量用户量大的情况， 用shard分开

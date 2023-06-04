@@ -1,4 +1,4 @@
-package Company.Square.OOP;
+package Company.Square.OOP.TextEditor;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import java.util.*;
