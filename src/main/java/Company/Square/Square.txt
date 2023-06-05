@@ -27,6 +27,7 @@ Coding2：蠡口撕酒令
 SD: 万年不变的Hotel booking 实现search/b‍‌‌‌‌‍‌‌‍‍‌‌‍‌‌‍‌‍‌ook/pay
 Project dive deep
 LC 490
+_SocksColor_
 
 2023-3-30 https://www.1point3acres.com/bbs/thread-983334-1-1.html
 CacheTTL
@@ -70,19 +71,60 @@ _359_RateLimiter_HM_PQ
 2022-8-19 https://www.1point3acres.com/bbs/thread-920981-1-1.html
 _Minesweeper_Design
 
+2022-8-15 https://www.1point3acres.com/bbs/thread-919874-1-1.html    ****
+电面 Pair Coding: Ceaser Cipher
+就是给了efg，我记得也会告诉你每个character对应什么character，把efg map回abc
+一天之后约onsite
+第一轮 system design: design  hotel booking system
+可以用自己喜欢的tool然后share screen
+high level architecture, api, database schema
+第二轮 Pair Coding: Find Similar Domain Name
+给了一个 target name 和一串string (domains)，要找出符合条件的string
+大概就是有些rule来判断这个domain算不算是target的相似的domain name，比如 Square和Squaer.
+第三轮 Hiring Manager: 是招人的组的老板来面。问过去的experience，为什么想加入block （square），职业规划
+第四轮 Past Experience: 做过的project的deep dive，问得很细
+第五轮 Pair Coding: Decode Morse Code
+给了一串0和1组成的array， decode成morse code，基本rule就是 (具体不记得了大概是这样）：
+1. 1 to 2 0s: short pause
+2. 3 to 5 0s: long pause, equals to a space: " "
+3. 1 to 2 1s：dot "."
+4. 3 to 5 1s: dash "-"
+给了morse code，和morse code map到字母的规律，decode成一句话
+这一轮一直卡在part I了，做是做出来了可是有些redundant code，面试官一直要求refine，做完part II 就没时间了
+第六轮 P‍‌‌‌‌‍‌‌‍‍‌‌‍‌‌‍‌‍‌air Coding:  print board with player
+
+2022-6-27 https://www.1point3acres.com/bbs/thread-907209-1-1.html
+
 2022-6-10 https://www.1point3acres.com/bbs/thread-902902-1-1.html   cashapp
 coupon
 
 2022-6-3 https://www.1point3acres.com/bbs/thread-901074-1-1.html
 _IceFieldsAndBoulderMaze   类似 LC 490 
+
 2022-6-1 https://www.1point3acres.com/bbs/thread-900506-1-1.html
 我也面到了这道题 +1 一共3问，不要考虑优化就是用if/else 硬解
 CrossRiver
 
+2022-4-13 https://www.1point3acres.com/bbs/thread-883953-1-1.html
+Coding 都是面试官自己出的题
+1. board game, 模拟 加 win condition （dfs）4 连 任意方向
+2. board game, 纯模拟
+系统设计 酒店系统 （面试官都是junior 感觉交流上面没有什么共同语言）
+两轮behavior
+1. leadership ( how to manage team / mentor )
+2. tech deep dive (previous exp ).
 
 2022-4-5 https://www.1point3acres.com/bbs/thread-879858-1-1.html
 
 2022-4-2  https://www.1point3acres.com/bbs/thread-878359-1-1.html
+
+
+2022-3-18 https://www.1point3acres.com/bbs/thread-869211-1-1.html
+面的senior backend，三轮coding一个design一个bq一个hm，他家这个多的唉
+- coding1：让你一步一步写一个类似俄罗斯方块的小游戏，只是改成由玩家手动把不同形状的方块放到board上面。每步会多加一些限制条件，不过面试官会一点一点讲的，搞过tetris这个就不难
+- coding2：写一个类似spelling bees的游戏，给你7个不同的字母，其中一个必须用，其他可用可不用，用这7个字母组成单词。其实主要是给你一个单词让你看是不是valid，所以不难啦
+- coding3：袜子配对的题，地里哪里看过的。比如(1,left,red)可以和(2,right,red)配对，followup是给你一些颜色组合，输出其他的配对。比如给你(blue, black)，那么袜子(3,lef‍‌‌‌‌‍‌‌‍‍‌‌‍‌‌‍‌‍‌, black)和(4,right,blue)是可以配对的，同时同色的袜子要优先配对。
+- design：万年不变hotel booking
 
 2022-3-3 https://www.1point3acres.com/bbs/thread-859937-1-1.html            cashapp
 Given list of each pokemon's weakness and strength，design a pokemon fighting game.

@@ -17,7 +17,7 @@ expected output:
 *
 Given a starting coordinate, return the closest 1 on the edge of the grid that you can walk to. 
 */
-public class _BuildGrid_FindPath {
+public class BinaryStringMazeFindPathChar {
     public static void main(String[] args) {
         int col = 4;
         int row = 4;

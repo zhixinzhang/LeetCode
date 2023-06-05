@@ -1,4 +1,4 @@
-package DataStructure.Array;
+package Company.Square.OOP.MazeGrid;
 import java.util.*;
 
 /**
