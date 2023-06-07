@@ -17,8 +17,12 @@ CrossRiver
 3. coding，又是道迷宫，类似https://www.1point3acres.com/bbs/thread-901074-1-1.html，一开始还以为做过了，后来仔细问了下发现不一样。。
 4. design, 设计一个卡夫卡，这轮磕磕碰碰的，因为从没想过设计这种数据流系统，小哥比较激进，基本都是我说一个design然后他说那能实现feature 1, 2,3吗这种，不停的改最后时间结束也没改完。
 5. coding， weighted random generator，大概就是弄个array binary扫下，follow up是如果数据非常大咋‍‌‌‌‌‍‌‌‍‍‌‌‍‌‌‍‌‍‌办。
+_BombMaze_
+_IceFieldsAndBoulderMaze
+_528_RandomPickWithWeight_BS
 
 2023-4-20 https://www.1point3acres.com/bbs/thread-989586-1-1.html
+_PigLatin_
 
 
 2023-4-20 https://www.1point3acres.com/bbs/thread-989543-1-1.html   VO *******
@@ -49,6 +53,7 @@ CrossRiver
 2023-2-1 https://www.1point3acres.com/bbs/thread-963175-1-1.html   VO *******
 _Design_Text_Editor_withoutCursor
 _SocksColor_
+_CompareJson_
 
 
 2022-12-15 https://www.1point3acres.com/bbs/thread-953016-1-1.html       cashapp
@@ -153,6 +158,13 @@ https://www.geeksforgeeks.org/huffman-coding-greedy-algo-3/
 2021-12-2 https://www.1point3acres.com/bbs/thread-826381-1-1.html
 刚面了square家，系统设计：经典的设计hotel booking，coding1: haffman encoding/decoding，面试官会一步一步带着你写完，基本能写完encoding应该就可以了，
 coding2: 挺简单的一个hashmap的题目，刚开始应该是easy级别，到后面会复杂一些，总的来‍‌‌‌‌‍‌‌‍‍‌‌‍‌‌‍‌‍‌说他们家不是lc的风格，平时代码写得多应该不大需要准备。整个面试过程感觉非常好。求大米！
+
+2021-12-1 https://www.1point3acres.com/bbs/thread-825957-1-1.html
+1. Given a dimension, [x,y], and binary string, return a generated 2d-matrix from the inputs
+Example:
+dimension = [4,4]
+binary_string = "0010001001100100"
+BinaryStringMazeFindPathChar
 
 2021-10-31 https://www.1point3acres.com/bbs/thread-814587-1-1.html
 - 类似bus route

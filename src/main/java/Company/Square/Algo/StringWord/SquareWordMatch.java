@@ -1,4 +1,4 @@
-package Company.Square.Algo;
+package Company.Square.Algo.StringWord;
 
 import java.util.Arrays;
 import java.util.HashMap;

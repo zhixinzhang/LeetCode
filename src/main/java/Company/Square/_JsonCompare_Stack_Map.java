@@ -37,7 +37,7 @@ public class _JsonCompare_Stack_Map {
                         "    K333:V333\n" +
                         "K4:\n" +
                         "  K41:V41\n" +
-                        "  K42:V423";        
+                        "  K42:V42";        
 
         Map<String, Object> ans = parse(test);
         System.out.println(ans);

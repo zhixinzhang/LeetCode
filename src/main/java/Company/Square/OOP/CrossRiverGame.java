@@ -12,23 +12,23 @@ import java.util.Set;
 public class CrossRiverGame {
     static class RiverObj {
         String[] pos = new String[]{"river left", "river right"};
-        Map<String, Object> riverInfo;
+        Map<String, Object> objInfo;
         String curStatus;                   // 输出时要显示的信息
         String history;
 
         public RiverObj(){
             this.curStatus = "";
             this.history = "";
-            this.riverInfo = new HashMap<>();
+            this.objInfo = new HashMap<>();
         }
 
         public String printRiverStatus(){
-            curStatus = "";
+            // curStatus = "";
             String left = "";
             String right = "";
             // String ans = "";
-            for (String s : riverInfo.keySet()){ 
-                int index = riverInfo.get(s).position;
+            for (String s : objInfo.keySet()){ 
+                int index = objInfo.get(s).position;
                 if (index == 0) {
                     left += s + " ";
                 } else {
@@ -124,10 +124,10 @@ public class CrossRiverGame {
     }
 
     private static void initialRiverInfo(RiverObj riverObj){
-        riverObj.riverInfo.put("Farmer", new Farmer(0));
-        riverObj.riverInfo.put("Chicken", new Chicken(0));
-        riverObj.riverInfo.put("Wolf", new Wolf(0));
-        riverObj.riverInfo.put("Rice", new Rice(0));
+        riverObj.objInfo.put("Farmer", new Farmer(0));
+        riverObj.objInfo.put("Chicken", new Chicken(0));
+        riverObj.objInfo.put("Wolf", new Wolf(0));
+        riverObj.objInfo.put("Rice", new Rice(0));
         riverObj.history = "";
         riverObj.curStatus = "";
         System.out.println(riverObj.printRiverStatus());
@@ -135,7 +135,7 @@ public class CrossRiverGame {
 
     private static boolean crossRiver(RiverObj riverObj, List<String> objects){
         Map<String, Object> cache = new HashMap<>();
-        cache.putAll(riverObj.riverInfo);
+        cache.putAll(riverObj.objInfo);
         if (!objects.contains("Farmer"))
             return false;
         
@@ -153,7 +153,7 @@ public class CrossRiverGame {
             return ans;
         }
 
-        riverObj.riverInfo = cache;
+        riverObj.objInfo = cache;
         
         riverObj.history += objectTypes + dir + "\n";
         System.out.println(riverObj.printRiverStatus());
@@ -197,7 +197,7 @@ public class CrossRiverGame {
                 
                 for (String[] opt : options){
                     RiverObj tempRiver = new RiverObj();
-                    tempRiver.riverInfo = deepCopy(curRiverObj);
+                    tempRiver.objInfo = deepCopy(curRiverObj);
                     boolean ans = false;
 
                     if (opt.length == 2) {
@@ -224,8 +224,8 @@ public class CrossRiverGame {
     }
 
     private static boolean allCrossRiver(RiverObj riverObj){
-        for (String obj : riverObj.riverInfo.keySet()) {
-            if (riverObj.riverInfo.get(obj).position == 0) {
+        for (String obj : riverObj.objInfo.keySet()) {
+            if (riverObj.objInfo.get(obj).position == 0) {
                 return false;
             }
         }
@@ -235,8 +235,8 @@ public class CrossRiverGame {
 
     private static Map<String, Object> deepCopy(RiverObj riverObj){
         Map<String, Object> deepCopy = new HashMap<>();
-        for (String obj : riverObj.riverInfo.keySet()) {
-            Object newObj = riverObj.riverInfo.get(obj);
+        for (String obj : riverObj.objInfo.keySet()) {
+            Object newObj = riverObj.objInfo.get(obj);
             if (obj.equals("Farmer"))
                 deepCopy.put(obj, new Farmer(newObj.position));
             if (obj.equals("Wolf"))
