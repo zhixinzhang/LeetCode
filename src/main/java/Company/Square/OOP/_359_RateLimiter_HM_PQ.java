@@ -28,17 +28,17 @@ public class _359_RateLimiter_HM_PQ {
                 return false;
 
             Client c = hm.get(client.id);
-            if (c.range.size() < 5){
+            if (c.range.size() < 3){
                 c.range.addLast(client.timeStamp);
                 return true;
             } else {        // [1000, 1002, 1003, 1004, 1005, 1006, 1007, 2006]  1000 second max 5 requests
-                client.range.addLast(client.timeStamp);
-                boolean ans = false;
-                while (c.range.size() > 5){
+                c.range.addLast(client.timeStamp);
+                boolean ans = true;
+                while (c.range.size() > 3){
                     long smallestTime = c.range.peekFirst();  // 1000
                     if (client.timeStamp - smallestTime < 1000){
-                        if (c.range.size() >= 5) {
-                            ans = true;
+                        if (c.range.size() >= 3) {
+                            ans = false;
                             c.range.pollFirst();
                         } 
                     } else {
@@ -66,6 +66,35 @@ public class _359_RateLimiter_HM_PQ {
         server.addClient(new Client(2));
 
         Client testClient = new Client(1);
+
+        // testClient.timeStamp = 1686172511000L;
+        // boolean res = server.request(testClient);
+        // System.out.println("Time  : " + testClient.timeStamp + " result    :"+ res);
+        // testClient.timeStamp = 1686172511500L;
+        // res = server.request(testClient);
+        // System.out.println("Time  : " + testClient.timeStamp + " result    :"+ res);
+        // testClient.timeStamp = 1686172511600L;
+        //  res = server.request(testClient);
+        //  System.out.println("Time  : " + testClient.timeStamp + " result    :"+ res);
+        // testClient.timeStamp = 1686172511700L;
+        //  res = server.request(testClient);
+        //  System.out.println("Time  : " + testClient.timeStamp + " result    :"+ res);
+        // testClient.timeStamp = 1686172513000L;
+        //  res = server.request(testClient);
+        //  System.out.println("Time  : " + testClient.timeStamp + " result    :"+ res);
+
+        //  testClient.timeStamp = 1686172513100L;
+        //  res = server.request(testClient);
+        //  System.out.println("Time  : " + testClient.timeStamp + " result    :"+ res);
+
+        //  testClient.timeStamp = 1686172513200L;
+        //  res = server.request(testClient);
+        //  System.out.println("Time  : " + testClient.timeStamp + " result    :"+ res);
+
+        //  testClient.timeStamp = 1686172513300L;
+        //  res = server.request(testClient);
+        //  System.out.println("Time  : " + testClient.timeStamp + " result    :"+ res);
+
 //        Date date = new Date();
         for (int i = 0; i < 10; i++){
             if (i >= 7 ){

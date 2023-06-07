@@ -31,7 +31,7 @@ Coding2：蠡口撕酒令
 SD: 万年不变的Hotel booking 实现search/b‍‌‌‌‌‍‌‌‍‍‌‌‍‌‌‍‌‍‌ook/pay
 Project dive deep
 LC 490
-_SocksColor_
+_SocksColor_Map
 
 2023-3-30 https://www.1point3acres.com/bbs/thread-983334-1-1.html
 CacheTTL
@@ -52,7 +52,7 @@ CrossRiver
 
 2023-2-1 https://www.1point3acres.com/bbs/thread-963175-1-1.html   VO *******
 _Design_Text_Editor_withoutCursor
-_SocksColor_
+_SocksColor_Map
 _CompareJson_
 
 
