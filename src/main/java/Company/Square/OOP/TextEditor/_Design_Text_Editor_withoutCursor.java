@@ -11,14 +11,7 @@ toString() -> prints the line to the string
  * 
 */
 public class _Design_Text_Editor_withoutCursor {
-    static StringBuilder sb = new StringBuilder();
     public static void main(String[] args) {
-        typeIn('h');
-        typeIn('e');
-        typeIn('l');
-        backspace();
-        // toString();
-
         _Design_Text_Editor_withoutCursor editor = new _Design_Text_Editor_withoutCursor();
         editor.typeIn("H");
         editor.typeIn("E");
@@ -28,16 +21,6 @@ public class _Design_Text_Editor_withoutCursor {
         editor.backSpace();
         String ans = editor.toString(); // HELLO|
         System.out.println(ans);
-    }
-
-    private static void typeIn(Character c){
-        sb.append(c);
-        System.out.println(sb.toString());
-    }
-
-    private static void backspace(){
-        sb.deleteCharAt(sb.length() - 1);
-        System.out.println(sb.toString());
     }
 
     class Node {

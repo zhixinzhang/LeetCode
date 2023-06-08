@@ -7,9 +7,15 @@ import java.util.*;
  * 需要做个判断
  */
 public class _490_TheMaze_DFS_BFS {
-    int [][] dirs= new int [][]{{0,1},{0,-1},{1,0},{-1,0}};
+  static int [][] dirs = new int [][]{{0,1},{0,-1},{1,0},{-1,0}};
+    public static void main(String[] args) {
+      int[][] maze = new int[][]{
+        {0,0,1,0,0},{0,0,0,0,0},{0,0,0,1,0},{1,1,0,1,1},{0,0,0,0,0}
+      };
 
-    public boolean hasPath(int[][] maze, int[] start, int[] destination) {
+      hasPath(maze, new int[]{0, 0}, new int[]{4, 3});
+    }
+    public static boolean hasPath(int[][] maze, int[] start, int[] destination) {
         int rows = maze.length;
         int cols = maze[0].length;
         boolean[][] visited = new boolean[rows][cols];
@@ -18,7 +24,7 @@ public class _490_TheMaze_DFS_BFS {
         return hasPathBFS(maze, start, destination, visited, rows, cols);
     }
 
-    private boolean dfs(int[][] maze, int[] start, int[] destination,boolean[][] visited,int rows,int cols){
+    private static boolean dfs(int[][] maze, int[] start, int[] destination,boolean[][] visited,int rows,int cols){
        if(visited[start[0]][start[1]])  return false;
         
         if(start[0]==destination[0]&& start[1]==destination[1]) return true;
@@ -38,7 +44,7 @@ public class _490_TheMaze_DFS_BFS {
         return false;
     }
 
-    public boolean hasPathBFS(int[][] maze, int[] start, int[] destination,boolean[][] visited, int rows, int cols) {
+    public static boolean hasPathBFS(int[][] maze, int[] start, int[] destination,boolean[][] visited, int rows, int cols) {
         Queue<int[]> queue = new LinkedList<>();
         queue.offer(start);
 
@@ -67,5 +73,5 @@ public class _490_TheMaze_DFS_BFS {
         }
 
         return false;
-      }
+    }
 }

@@ -21,7 +21,7 @@ import java.util.*;
 // Now add a method
 // newLine() -> appends a new line at the end of the cursor
 // moveCursor(up, down, left, right)
-public class _Design_Text_Editor_withNewLine {
+public class _Design_Text_Editor_AddDeleteNewLineCursor {
     class Node {
         Character value;
         Node previous;
@@ -38,14 +38,14 @@ public class _Design_Text_Editor_withNewLine {
         }
     }
     
-    int col = 0; 
+    int col = 0;        // use for new line
     int row = 0;
     List<Node> text = new ArrayList<>();
     Node head = new Node(null);
     Node tail = new Node(null);
     Node cursor = new Node('|');
 
-    public _Design_Text_Editor_withNewLine(){
+    public _Design_Text_Editor_AddDeleteNewLineCursor(){
         this.head.next = this.cursor;
         this.cursor.previous = this.head;
         this.tail.previous = this.cursor;
@@ -163,7 +163,7 @@ public class _Design_Text_Editor_withNewLine {
     }
 
     public static void main(String[] args) {
-        _Design_Text_Editor_withNewLine editor = new _Design_Text_Editor_withNewLine();
+        _Design_Text_Editor_AddDeleteNewLineCursor editor = new _Design_Text_Editor_AddDeleteNewLineCursor();
         editor.typeIn("H");
         editor.typeIn("E");
         editor.typeIn("L");
