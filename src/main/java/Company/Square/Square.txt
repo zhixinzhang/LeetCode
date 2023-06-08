@@ -62,6 +62,13 @@ block可以分为不同的大小和不同的颜色
 rule定义了我们需要多少个特定条件的block。比如 少于3个红色，小的block、等于5个大的任意颜色的块等等。
 BlockRule
 
+2022-10-18 https://www.1point3acres.com/bbs/thread-938161-1-1.html
+给出n, alphabet, target
+把alphabet 看作 n 字符宽的格子 （类似遥控器案板）
+如果要拼写出target 需要什么操作
+例如 dog 需要r3!d2r1!u1l3!, 表示从左上角开始，向右三步(r3)，选择（！）, 向下两步向右一步选择（d2r1!）
+followup是 如果有重复的字符在alphabet， 怎么走最少步（局部最优就好）
+_499_TheMaze_FindShorestDirections_BFS
 
 2022-10-18  https://www.1point3acres.com/bbs/thread-938049-1-1.html
 两轮编码，一轮是比较两个json是否相等，一轮是rate limiter 都很简单

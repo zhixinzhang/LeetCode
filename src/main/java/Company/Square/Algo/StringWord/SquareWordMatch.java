@@ -102,7 +102,7 @@ public class SquareWordMatch {
                 break;
             }
         }
-        
+
         return distance;
     }
 
