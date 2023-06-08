@@ -1,4 +1,4 @@
-package Company.Square.OOP;
+package Company.Square.OOP.RateLimiter;
 
 import java.util.*;
 

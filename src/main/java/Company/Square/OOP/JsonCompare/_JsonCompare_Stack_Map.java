@@ -1,4 +1,4 @@
-package Company.Square;
+package Company.Square.OOP.JsonCompare;
 import java.util.*;
 
 /**

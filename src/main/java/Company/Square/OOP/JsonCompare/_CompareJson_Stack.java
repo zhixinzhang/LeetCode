@@ -1,4 +1,4 @@
-package Company.Square.OOP;
+package Company.Square.OOP.JsonCompare;
 
 import java.util.Collections;
 import java.util.HashMap;

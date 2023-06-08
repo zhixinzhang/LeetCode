@@ -1,4 +1,4 @@
-package Company.Square;
+package Company.Square.Algo.StringWord;
 import java.util.*;
 
 

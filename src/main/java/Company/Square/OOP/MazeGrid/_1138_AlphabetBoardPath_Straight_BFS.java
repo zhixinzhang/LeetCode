@@ -1,4 +1,4 @@
-package Company.Square.Algo;
+package Company.Square.OOP.MazeGrid;
 
 import java.util.ArrayDeque;
 import java.util.HashMap;

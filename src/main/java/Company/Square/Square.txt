@@ -49,6 +49,7 @@ CrossRiver
 6: 检测碰到敌人
 
 2023-3-6 https://www.1point3acres.com/bbs/thread-973762-1-1.html
+ConnectFourModified
 
 2023-2-1 https://www.1point3acres.com/bbs/thread-963175-1-1.html   VO *******
 _Design_Text_Editor_withoutCursor

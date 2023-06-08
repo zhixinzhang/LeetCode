@@ -1,4 +1,4 @@
-package Company.Square.OOP;
+package Company.Square.OOP.Sock;
 
 import java.util.ArrayDeque;
 import java.util.ArrayList;
@@ -10,6 +10,8 @@ import java.util.Map;
 
 // https://leetcode.com/discuss/interview-question/1555905/Square-or-Sock-Pairs
 // https://www.1point3acres.com/bbs/thread-963175-1-1.html
+// 一个袜子 只返回一个配对就行
+
 public class _SocksColor_Map {
     static class Sock{
         String color;

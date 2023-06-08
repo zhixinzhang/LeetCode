@@ -10,6 +10,42 @@ import java.util.Queue;
 import java.util.Set;
 
 public class CrossRiverGame {
+    public static void main(String[] args) {
+        RiverObj riverObj = new RiverObj();
+        initialRiverInfo(riverObj);
+        System.out.println("test 1 ******************");
+        boolean ans11 = crossRiver(riverObj, Arrays.asList("Farmer", "Chicken"));
+        boolean ans22 = crossRiver(riverObj, Arrays.asList("Farmer", "Chicken"));
+        boolean ans33 = crossRiver(riverObj, Arrays.asList("Farmer", "Wolf"));
+        
+        System.out.println(ans11);
+        System.out.println(ans22);
+        System.out.println(ans33);
+        System.out.println(riverObj.history);
+        System.out.println("test 2 ******************");
+        initialRiverInfo(riverObj);
+        boolean ans1 = crossRiver(riverObj, Arrays.asList("Farmer", "Chicken"));
+        boolean ans2 = crossRiver(riverObj, Arrays.asList("Farmer"));
+        boolean ans3 = crossRiver(riverObj, Arrays.asList("Farmer", "Wolf"));
+        boolean ans4 = crossRiver(riverObj, Arrays.asList("Farmer", "Chicken"));
+        boolean ans5 = crossRiver(riverObj, Arrays.asList("Farmer", "Rice"));
+        boolean ans6 = crossRiver(riverObj, Arrays.asList("Farmer"));
+        boolean ans7 = crossRiver(riverObj, Arrays.asList("Farmer", "Chicken"));
+        System.out.println(ans1);
+        System.out.println(ans2);
+        System.out.println(ans3);
+        System.out.println(ans4);
+        System.out.println(ans5);
+        System.out.println(ans6);
+        System.out.println(ans7);
+        System.out.println(riverObj.history);
+
+        System.out.println("test 3 ******************");
+        RiverObj riverObj2 = new RiverObj();
+        initialRiverInfo(riverObj2);
+        autoCrossRiver(riverObj2);
+    }
+
     static class RiverObj {
         String[] pos = new String[]{"river left", "river right"};
         Map<String, Object> objInfo;
@@ -52,7 +88,6 @@ public class CrossRiverGame {
             super.position = pos;
         }
         public void printPosition() {
-            // The body of animalSound() is provided here
             System.out.println("Currently Farmer position is : " + position);
         }
     }
@@ -62,7 +97,6 @@ public class CrossRiverGame {
             super.position = pos;
         }
         public void printPosition() {
-            // The body of animalSound() is provided here
             System.out.println("Currently Chicken position is : " + position);
         }
     }
@@ -71,7 +105,6 @@ public class CrossRiverGame {
             super.position = pos;
         }
         public void printPosition() {
-            // The body of animalSound() is provided here
             System.out.println("Currently Wolf position is : " + position);
         }
     }
@@ -81,46 +114,8 @@ public class CrossRiverGame {
             super.position = pos;
         }
         public void printPosition() {
-            // The body of animalSound() is provided here
             System.out.println("Currently Rice position is : " + position);
         }
-    }
-
-    public static void main(String[] args) {
-        RiverObj riverObj = new RiverObj();
-        initialRiverInfo(riverObj);
-        System.out.println("test 1 ******************");
-        boolean ans11 = crossRiver(riverObj, Arrays.asList("Farmer", "Chicken"));
-        boolean ans22 = crossRiver(riverObj, Arrays.asList("Farmer", "Chicken"));
-        boolean ans33 = crossRiver(riverObj, Arrays.asList("Farmer", "Wolf"));
-        
-        System.out.println(ans11);
-        System.out.println(ans22);
-        System.out.println(ans33);
-        System.out.println(riverObj.history);
-        System.out.println("test 2 ******************");
-        initialRiverInfo(riverObj);
-        boolean ans1 = crossRiver(riverObj, Arrays.asList("Farmer", "Chicken"));
-        boolean ans2 = crossRiver(riverObj, Arrays.asList("Farmer"));
-        boolean ans3 = crossRiver(riverObj, Arrays.asList("Farmer", "Wolf"));
-        boolean ans4 = crossRiver(riverObj, Arrays.asList("Farmer", "Chicken"));
-        boolean ans5 = crossRiver(riverObj, Arrays.asList("Farmer", "Rice"));
-        boolean ans6 = crossRiver(riverObj, Arrays.asList("Farmer"));
-        boolean ans7 = crossRiver(riverObj, Arrays.asList("Farmer", "Chicken"));
-        System.out.println(ans1);
-        System.out.println(ans2);
-        System.out.println(ans3);
-        System.out.println(ans4);
-        System.out.println(ans5);
-        System.out.println(ans6);
-        System.out.println(ans7);
-        System.out.println(riverObj.history);
-
-        System.out.println("test 3 ******************");
-        RiverObj riverObj2 = new RiverObj();
-        initialRiverInfo(riverObj2);
-        autoCrossRiver(riverObj2);
-
     }
 
     private static void initialRiverInfo(RiverObj riverObj){

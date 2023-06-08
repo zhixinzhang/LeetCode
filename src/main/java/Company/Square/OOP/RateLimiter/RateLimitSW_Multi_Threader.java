@@ -1,4 +1,4 @@
-package Company.Square.OOP;
+package Company.Square.OOP.RateLimiter;
 
 import java.time.Duration;
 import java.time.Instant;
@@ -10,7 +10,7 @@ import java.util.concurrent.ConcurrentHashMap;
 // https://leetcode.com/discuss/interview-question/object-oriented-design/1713795/API-Rate-Limiter
 // https://leetcode.com/discuss/interview-question/system-design/124558/Uber-or-Rate-Limiter
 
-public class RateLimitSW {
+public class RateLimitSW_Multi_Threader {
     public static void main(String[] args) {
         int limit = 2; // 2 requests everg 5 seconds
         int timeSeconds = 5;

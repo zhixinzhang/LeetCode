@@ -1,11 +1,10 @@
-package Company.Square.OOP;
+package Company.Square.Algo.StringWord;
 
 import java.util.HashMap;
 import java.util.Map;
 import java.util.PriorityQueue;
 import java.util.Map.Entry;
 
-//https://www.1point3acres.com/bbs/thread-828680-1-1.html
 class MinHeapNode implements Comparable<MinHeapNode> {
     char data;
     int freq;
@@ -21,13 +20,14 @@ class MinHeapNode implements Comparable<MinHeapNode> {
     }
 }
 
-public class Huffman_DecoderAndEncoding {
+public class Huffman_Decoder {
     private static Map<Character, String> codes = new HashMap<>();
     private static Map<Character, Integer> freq = new HashMap<>();
     private static PriorityQueue<MinHeapNode> minHeap = new PriorityQueue<>();
      
     public static void main(String[] args) {
-        String str = "geeksforgeeks";
+        // String str = "geeksforgeeks";
+        String str = "hello";
         String encodedString = "";
         String decodedString = "";
         calcFreq(str);

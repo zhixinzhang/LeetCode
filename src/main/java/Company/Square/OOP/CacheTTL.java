@@ -5,6 +5,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.PriorityQueue;
 
+// https://www.1point3acres.com/bbs/thread-983334-1-1.html
 public class CacheTTL {
     class Object {
         String name;
