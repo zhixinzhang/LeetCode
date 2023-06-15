@@ -1,7 +1,6 @@
 package Company.PayPal.OA;
 
 import java.util.Arrays;
-import java.util.Collections;
 
 /*
 先降序排序，用sum记录前缀和，如果前缀和>0那么res+1， 如果<= 0就可以不用再往后遍历了。

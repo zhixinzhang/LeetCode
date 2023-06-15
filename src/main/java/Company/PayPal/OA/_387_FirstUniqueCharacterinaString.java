@@ -2,6 +2,14 @@ package Company.PayPal.OA;
 
 import java.util.HashMap;
 
+/**
+ * https://www.1point3acres.com/bbs/thread-952004-1-1.html
+ * 3. First Unique Character
+暴力解法。遍历string s去count每个字母的个数（可以用ord转换字母为unicode作为数组下标inde‍‌‌‌‌‍‌‌‍‍‌‌‍‌‌‍‌‍‌x）。
+数完了再来一层遍历来看谁是unique 就counter个数为1，返回就行。
+遍历完了没有的话就返回-1
+ * 
+*/
 public class _387_FirstUniqueCharacterinaString {
     public int firstUniqChar(String s) {
         int[] count = new int[26];

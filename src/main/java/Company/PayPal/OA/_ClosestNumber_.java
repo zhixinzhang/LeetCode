@@ -2,6 +2,12 @@ package Company.PayPal.OA;
 
 import java.util.Arrays;
 
+/**
+ * https://www.1point3acres.com/bbs/thread-952004-1-1.html
+ * 先把array sort然后直接看俩个相邻的数最小差值，然后再遍历array返回满足差为最小差值的数
+python注意如果用上面的python 题解没有过是因为output和他想要的不一样。需要遍历一下我们创建的list “[[1,2],[3,4]]"把它拆分成题目需要的output形式，就能过。
+ * 
+*/
 public class _ClosestNumber_ {
     static void printMinDiffPairs(int arr[], int n) {
         if (n <= 1)
