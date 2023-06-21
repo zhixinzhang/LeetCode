@@ -1,4 +1,4 @@
-package ClassicProblemGroup.TopK;
+package Company.Intuit;
 
 import java.util.*;
 
@@ -15,7 +15,7 @@ import java.util.*;
  */
 
 
-public class CustomerPage {
+public class CustomerPage_TopK {
     class Customer{
         int id;
         List<String> pageIds;

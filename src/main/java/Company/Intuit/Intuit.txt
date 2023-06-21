@@ -1,0 +1,16 @@
+2022-10-4 https://www.1point3acres.com/bbs/thread-934034-1-1.html
+非常简单，实现一个queue，跑过几个case就OK。follow up问了heap但是没要求写
+
+
+2022-9-28 https://www.1point3acres.com/bbs/thread-932267-1-1.html
+45分钟coding，top k，给的数据有点复杂，给了两个class和一些function，所有数据处理完以后，就是找t‍‌‌‌‌‍‌‌‍‍‌‌‍‌‌‍‌‍‌op k，用heap。
+
+2022-9-22 https://www.1point3acres.com/bbs/thread-930616-1-1.html
+新鲜的SDE2电面
+实现一个Queue.
+
+2022-7-22 https://www.1point3acres.com/bbs/thread-910860-1-1.html
+设计个rate limiter by sliding window algorithm
+
+
+https://www.1point3acres.com/bbs/thread-936829-1-1.html
