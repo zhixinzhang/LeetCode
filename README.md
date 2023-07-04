@@ -1,3 +1,8 @@
+<Windows Terminal> 
+C:\Users\lukez\OneDrive\Documents\WindowsPowerShell\Microsoft.PowerShell_profile.ps1
+https://ohmyposh.dev/docs/themes
+https://github.com/JanDeDobbeleer/oh-my-posh/blob/main/themes/catppuccin_macchiato.omp.json#L2
+
 <h1>System Design Concepts</h1>
 
 <h3>DNS</h3>
