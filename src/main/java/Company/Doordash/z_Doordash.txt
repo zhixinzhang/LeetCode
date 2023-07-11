@@ -1,0 +1,45 @@
+https://leetcode.com/discuss/interview-question/1583430/doordash-questions-consolidated
+
+
+7/8 2023 https://www.1point3acres.com/bbs/thread-1003548-1-1.html
+1.lc 伊尔散舞
+2. BQ 45min
+3. find closest city 给city的名字以及x轴y轴的位置，分三个array，index一一对应，然后给一个query_cities的array，里面放city的名字，让你return一个array，
+里面放的是距离(manhattan distance)每一个query的城市最近的城市名字，如果距离一样的话就选就按照字母排序选最小的那个城市名字
+4. System Design，3 day‍‌‌‌‌‍‌‌‍‍‌‌‍‌‌‍‌‍‌s donation app
+
+_1235_MaximumProfitInJobScheduling_DP
+
+https://www.1point3acres.com/bbs/thread-1003253-1-1.html
+277
+
+
+
+7/8 2023 https://www.1point3acres.com/bbs/thread-1003405-1-1.html
+_Dashmart_BFS
+
+
+2023-7-2  https://www.1point3acres.com/bbs/thread-1002672-1-1.html
+印度哥哥，题目是序列化反序列化二叉树。follow up是n-ary tree
+
+_297_SerializeandDeserializeBinaryTree_BFS_queue
+_428_SerializeAndDeserializeNTree_DFS
+
+2023-6-27 https://www.1point3acres.com/bbs/thread-1001806-1-1.html
+06/26号面的，题目是 亿耳伞武，注意题目的corner case和leetcode不同，一开始我用heap做，结果exceed time lmit。然后用d‍‌‌‌‌‍‌‌‍‍‌‌‍‌‌‍‌‍‌p做，但是最后有一个corner case没有通过。求加米，祝好运！
+
+2023-6-16 https://www.1point3acres.com/bbs/thread-1000222-1-1.html
+_124_BinaryTreeMaximumPathSum_Recrusion_FollowUp_leaf_anynode_alive_print
+
+5-15-2023 https://www.1point3acres.com/bbs/thread-994606-1-1.html
+_317_ShortestDistancefromAllBuildings_BFS
+
+
+2023-4-14 https://www.1point3acres.com/bbs/thread-988051-1-1.html
+_NearstCities_TreeMap_SameXorY
+
+2023-3-8 https://www.1point3acres.com/bbs/thread-974556-1-1.html
+有两个人送餐的题目。实际上是在考 Print  the longest common subsequence，
+
+July 27, 2021 https://leetcode.com/discuss/interview-question/1367130/doordash-phone-interview/1026887
+MenusCompareActive

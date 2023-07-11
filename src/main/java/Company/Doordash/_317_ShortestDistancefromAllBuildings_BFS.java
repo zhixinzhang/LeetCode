@@ -13,6 +13,10 @@ import java.util.Queue;
  * For each empty cell we reach, also increment the cell's house counter by 1.
  * After traversing all houses, get the minimum distance from all empty cells which have housesReached equal to totalHouses.
  * If it is possible for all houses to reach a specific empty land cell, then return the minimum distance found. Otherwise, return -1.
+ * 
+ * For each house, we will traverse across all reachable land.
+This will require O(O(O(number of zeros ⋅\cdot⋅ number of ones))) time and the number of zeros and ones in the matrix is of order N⋅MN \cdot MN⋅M.
+ * O(N ^ 2 * M ^ 2)  space O(N * M)
  * */
 public class _317_ShortestDistancefromAllBuildings_BFS {
     public int shortestDistance(int[][] grid) {

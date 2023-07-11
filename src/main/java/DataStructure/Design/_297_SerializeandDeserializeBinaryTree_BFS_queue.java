@@ -11,7 +11,7 @@ import java.util.*;
  */
 public class _297_SerializeandDeserializeBinaryTree_BFS_queue {
     // Encodes a tree to a single string.
-    public String serialize(TreeNode root) {
+    public String serializeBFS(TreeNode root) {
         if(root == null){
             return "";
         }
@@ -33,7 +33,7 @@ public class _297_SerializeandDeserializeBinaryTree_BFS_queue {
     }
 
     // Decodes your encoded data to tree.
-    public TreeNode deserialize(String data) {
+    public TreeNode deserializeBFS(String data) {
         if(data == null || "".equals(data)){
             return null;
         }
