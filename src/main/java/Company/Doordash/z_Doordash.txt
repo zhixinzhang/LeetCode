@@ -34,6 +34,8 @@ _124_BinaryTreeMaximumPathSum_Recrusion_FollowUp_leaf_anynode_alive_print
 5-15-2023 https://www.1point3acres.com/bbs/thread-994606-1-1.html
 _317_ShortestDistancefromAllBuildings_BFS
 
+4-25-2023 https://www.1point3acres.com/bbs/thread-828828-1-1.html   https://www.1point3acres.com/bbs/thread-990863-1-1.html
+TimeNextOpen
 
 2023-4-14 https://www.1point3acres.com/bbs/thread-988051-1-1.html
 _NearstCities_TreeMap_SameXorY
@@ -41,5 +43,17 @@ _NearstCities_TreeMap_SameXorY
 2023-3-8 https://www.1point3acres.com/bbs/thread-974556-1-1.html
 有两个人送餐的题目。实际上是在考 Print  the longest common subsequence，
 
+2023-1-11 https://www.1point3acres.com/bbs/thread-957866-1-1.html
+124
+
+2022-11-23 https://www.1point3acres.com/bbs/thread-948231-1-1.html
+刀大师店面是地里之前有说过的菜单树问题，问一共变了多少个node
+
+2022-11-21 https://www.1point3acres.com/bbs/thread-947674-1-1.html
+
 July 27, 2021 https://leetcode.com/discuss/interview-question/1367130/doordash-phone-interview/1026887
 MenusCompareActive
+
+
+
+SD https://www.1point3acres.com/bbs/thread-949663-1-1.html 
