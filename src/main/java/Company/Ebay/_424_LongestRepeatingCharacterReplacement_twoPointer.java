@@ -1,8 +1,10 @@
-package DataStructure.String;
+package Company.Ebay;
+
 
 //s = "ABAB"   k = 2
 //s = "AABABBA", k = 1
 //sliding window  formula ---  window.length - same letter num <= k  right point ++ else left point ++
+// O(N) time O(1) space
 //https://www.cnblogs.com/reboot329/p/5968393.html
 
 public class _424_LongestRepeatingCharacterReplacement_twoPointer {

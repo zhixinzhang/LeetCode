@@ -1,4 +1,4 @@
-package Company.Sony;
+package Company.Ebay;
 
 /**
  * Created by zhang on 2017/9/18.
@@ -9,7 +9,9 @@ import java.util.HashMap;
 import java.util.Map;
 
 /** key : two pointer  and  all numbers can be ASCII
- *
+ *Time complexity : O(n). Index jjj will iterate nnn times.
+
+Space complexity : O(min(m,n)). Same as the previous approach.
  *
  * */
 public class _3_LongestSubstringWithout_SlidingWindow {
