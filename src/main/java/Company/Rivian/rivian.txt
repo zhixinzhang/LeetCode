@@ -1,0 +1,21 @@
+2022-2-17 https://www.1point3acres.com/bbs/thread-852951-1-1.html
+
+电动车Rivian 一轮店面
+蠡口伊尔零九
+1209. Remove All Adjacent Duplicates in String II
+
+ 2022-3-6  https://www.1point3acres.com/bbs/thread-861362-1-1.html
+ Leetcode 衣韭，尓衣舞铃
+Leetcode 妖妖寺，彡寺，午时
+
+
+2021-6-1 https://www.1point3acres.com/bbs/thread-766268-1-1.html
+给有个height array 求多少积水
+42. Trapping Rain Water
+_42_TrappingRainWater_DP_TwoPointer_Stack
+
+2020-7-8 https://www.1point3acres.com/bbs/thread-650580-1-1.html
+Coding: 给一个string和k，比如1132234321123，k=2，求所有的substring满足substring里的所有字母出现k次。
+比如上面string的output是11，113223，3223，22，321123，2112，11
+Virtual Onsite：
+System Design：Design一个notification system，问了API怎么设计，要用SQL还是用NoSQL，message ID怎么生成，怎么sharding，send to receiver失败怎么处理。感觉画系统图花了太多时间（又是hackerrank  whiteboard惹的祸）很多细节没说清楚T_T
