@@ -1,4 +1,4 @@
-package DataStructure.Graph;
+package Company.Turo;
 
 import java.util.*;
 

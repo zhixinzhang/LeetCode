@@ -1,4 +1,4 @@
-package Algo_Summary;
+package AlgoSummary;
 
 import DataStructure.LinkList.ListNode;
 
@@ -21,7 +21,7 @@ public class DataStructure {
          *
          * 运算规则：两个数都转为二进制，然后从高位开始比较，如果两个数都为1则为1，否则为0。
          *
-         * 比如：129&128.
+         * 比如：129&128. d
          *
          * 129转换成二进制就是10000001，128转换成二进制就是10000000。从高位开始比较得到，得到10000000，即128.
          * **/

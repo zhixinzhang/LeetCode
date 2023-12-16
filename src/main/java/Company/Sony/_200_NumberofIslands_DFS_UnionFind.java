@@ -89,5 +89,5 @@ public class _200_NumberofIslands_DFS_UnionFind {
         public int size() {
             return num;
         }
-
+    }
 }

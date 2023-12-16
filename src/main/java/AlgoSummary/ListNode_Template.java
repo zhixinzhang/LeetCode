@@ -1,4 +1,4 @@
-package Algo_Summary;
+package AlgoSummary;
 
 import DataStructure.LinkList.ListNode;
 

@@ -1,4 +1,4 @@
-package Algo_Summary;
+package AlgoSummary;
 
 /**
  * Created with IntelliJ IDEA.

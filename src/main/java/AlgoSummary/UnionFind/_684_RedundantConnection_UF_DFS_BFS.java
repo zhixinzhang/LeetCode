@@ -1,4 +1,4 @@
-package Algo_Summary.UnionFind;
+package AlgoSummary.UnionFind;
 
 import java.util.ArrayList;
 import java.util.HashMap;

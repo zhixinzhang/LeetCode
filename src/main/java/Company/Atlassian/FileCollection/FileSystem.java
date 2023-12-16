@@ -56,13 +56,13 @@ public class FileSystem {
     }
         
     public void addFileToDirectory (String fileName, int size, String dName) {
-        File file;
+        File file = null;
         if (dName.equals("")) {
             file = new File(fileName, size);
             directoryDetailsMap.put(fileName, file);
         } else {
             Directory d = (Directory)directoryDetailsMap.getOrDefault(dName, new Directory(dName));
-            file = new File(d, fileName, size);
+            // file = new File(d, fileName, size);
             
             d.size += size;
             d.files.add(file);

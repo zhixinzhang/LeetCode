@@ -1,4 +1,4 @@
-package Algo_Summary;
+package AlgoSummary;
 
 /**
  * Created with IntelliJ IDEA.
@@ -6,7 +6,7 @@ package Algo_Summary;
  * Date: 4/19/19
  * Time: 4:30 PM
  * Description:
- * based on 200
+ * based on 200 d
  */
 
 
